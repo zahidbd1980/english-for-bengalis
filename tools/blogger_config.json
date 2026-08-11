@@ -1,6 +1,6 @@
 {
   "blog_url": "https://englishforbengalis.blogspot.com/",
-  "asset_base_url": "",
+  "asset_base_url": "https://zahidbd1980.github.io/english-for-bengalis",
   "comment": "asset_base_url = GitHub Pages URL where css/js/data live, e.g. https://USERNAME.github.io/english-for-bengalis  (no trailing slash). Leave empty to upload text pages only.",
   "pages": [
     {
@@ -111,7 +111,11 @@
   ],
   "welcome_post": {
     "title": "Welcome — Learn English for Bengali Speakers",
-    "labels": ["welcome", "lesson", "spoken"],
+    "labels": [
+      "welcome",
+      "lesson",
+      "spoken"
+    ],
     "file": null
   }
 }
