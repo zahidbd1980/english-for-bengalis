@@ -1,0 +1,91 @@
+{
+  "lists": [
+    {
+      "id": "common-misspellings",
+      "title": "Common Misspellings",
+      "title_bn": "সাধারণ ভুল বানান",
+      "description": "Frequently misspelled English words",
+      "target_size": 2000,
+      "words": [
+        "accommodate", "achieve", "across", "address", "advice", "advise", "affect", "effect",
+        "apparent", "argument", "athlete", "awful", "balance", "basically", "beginning", "believe",
+        "beneficial", "breathe", "brilliant", "business", "calendar", "category", "cemetery", "changeable",
+        "character", "committee", "comparative", "completely", "conscience", "conscious", "consensus", "convenient",
+        "correspondence", "deceive", "definite", "definitely", "desperate", "difference", "dilemma", "disappear",
+        "discipline", "does", "during", "easily", "eight", "either", "embarrass", "environment",
+        "equipment", "especially", "exaggerate", "excellent", "except", "exercise", "existence", "experience",
+        "experiment", "explanation", "fascinating", "finally", "foreign", "forty", "friend", "fundamental",
+        "generally", "government", "grammar", "grateful", "guarantee", "guard", "guidance", "happiness",
+        "harass", "height", "heroes", "humorous", "identity", "immediately", "incidentally", "independent",
+        "indispensable", "influential", "information", "inoculate", "intelligence", "interesting", "interrupt", "irrelevant",
+        "jealous", "jewelry", "judgment", "knowledge", "laboratory", "leisure", "length", "liaison",
+        "library", "license", "lightning", "loneliness", "losing", "maintenance", "maneuver", "marriage",
+        "mathematics", "medicine", "millennium", "miniature", "minutes", "mischievous", "missile", "misspell",
+        "mysterious", "naturally", "necessary", "neighbor", "neither", "noticeable", "occasion", "occasionally",
+        "occurred", "occurrence", "official", "often", "omission", "operate", "opportunity", "optimistic",
+        "original", "paid", "parallel", "particular", "pastime", "perceive", "perform", "permanent",
+        "perseverance", "personally", "personnel", "perspiration", "physical", "physician", "piece", "planning",
+        "pleasant", "political", "possession", "possible", "practically", "preference", "preferred", "prejudice",
+        "presence", "privilege", "probably", "professional", "promise", "pronunciation", "proof", "psychology",
+        "publicly", "quantity", "quarantine", "questionnaire", "quietly", "quizzes", "receive", "recognize",
+        "recommend", "reference", "relevant", "religious", "repetition", "restaurant", "rhyme", "rhythm",
+        "ridiculous", "sacrifice", "safety", "salary", "schedule", "secretary", "separate", "Sergeant",
+        "several", "similar", "sincerely", "skiing", "sophomore", "souvenir", "specifically", "speech",
+        "stopped", "strength", "studying", "succeed", "successful", "supersede", "surprise", "temperature",
+        "their", "there", "they're", "themselves", "thorough", "though", "through", "tomorrow",
+        "tongue", "truly", "twelfth", "tyranny", "undoubtedly", "until", "unusual", "usable",
+        "usually", "vacuum", "valuable", "village", "villain", "visible", "weather", "weird",
+        "welcome", "wherever", "whether", "which", "writing"
+      ]
+    },
+    {
+      "id": "ielts-style",
+      "title": "IELTS-style Spelling",
+      "title_bn": "IELTS-স্টাইল বানান",
+      "description": "Unofficial practice words useful for exam-style accuracy",
+      "disclaimer": "Not affiliated with official IELTS.",
+      "target_size": 1000,
+      "words": [
+        "analysis", "approach", "area", "assessment", "assume", "authority", "available", "benefit",
+        "concept", "consistent", "constitutional", "context", "contract", "create", "data", "definition",
+        "derived", "distribution", "economic", "environment", "established", "estimate", "evidence", "export",
+        "factors", "financial", "formula", "function", "identified", "income", "indicate", "individual",
+        "interpretation", "involved", "issues", "labour", "legal", "legislation", "major", "method",
+        "occur", "percent", "period", "policy", "principle", "procedure", "process", "required",
+        "research", "response", "role", "section", "sector", "significant", "similar", "source",
+        "specific", "structure", "theory", "variable", "achieve", "acquisition", "administration", "affect",
+        "appropriate", "aspects", "assistance", "categories", "chapter", "commission", "community", "complex",
+        "computer", "conclusion", "conduct", "consequences", "construction", "consumer", "credit", "cultural",
+        "design", "distinction", "elements", "equation", "evaluation", "features", "final", "focus",
+        "impact", "injury", "institute", "investment", "items", "journal", "maintenance", "normal",
+        "obtained", "participation", "perceived", "positive", "potential", "previous", "primary", "purchase",
+        "range", "region", "regulations", "relevant", "resident", "resources", "restricted", "security",
+        "sought", "select", "site", "strategies", "survey", "text", "traditional", "transfer"
+      ]
+    },
+    {
+      "id": "everyday-hard",
+      "title": "Everyday Hard Words",
+      "title_bn": "দৈনন্দিন কঠিন বানান",
+      "description": "Tricky everyday words Bengali speakers often miss",
+      "target_size": 500,
+      "words": [
+        "beautiful", "because", "before", "between", "bicycle", "breakfast", "building", "careful",
+        "ceiling", "children", "chocolate", "colleague", "column", "comfortable", "coming", "commitment",
+        "competition", "compliment", "complement", "cooker", "countries", "curiosity", "daughter", "decision",
+        "describe", "development", "diary", "different", "difficult", "disappointed", "education", "enough",
+        "example", "exciting", "family", "favourite", "February", "first", "furniture", "future",
+        "generous", "genuine", "grateful", "holiday", "honest", "important", "improve",
+        "independent", "interview", "island", "kitchen", "language", "listen", "literature", "luckily",
+        "marriage", "measure", "message", "modern", "money", "mountain", "necessary", "neighbour",
+        "newspaper", "opinion", "opposite", "paragraph", "people", "perfect", "performance", "pharmacy",
+        "photograph", "picture", "please", "police", "position", "practice", "practise", "pretty",
+        "problem", "question", "quiet", "quite", "really", "reason", "remember", "responsibility",
+        "science", "scissors", "sentence", "serious", "shoulder", "something", "special", "station",
+        "stomach", "student", "successful", "suggestion", "teacher", "technique", "technology", "television",
+        "temperature", "together", "traffic", "university", "useful", "vegetable", "vehicle", "Wednesday",
+        "which", "woman", "women", "yesterday"
+      ]
+    }
+  ]
+}

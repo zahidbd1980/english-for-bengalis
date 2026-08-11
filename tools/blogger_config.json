@@ -107,6 +107,11 @@
       "title": "Translation Lab",
       "file": "pages/translation-lab.html",
       "kind": "page"
+    },
+    {
+      "title": "Spelling Practice",
+      "file": "pages/spelling-practice.html",
+      "kind": "page"
     }
   ],
   "welcome_post": {

@@ -23,6 +23,7 @@ import argparse
 import json
 import re
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -97,7 +98,7 @@ def get_credentials():
             flow = InstalledAppFlow.from_client_secrets_file(str(SECRET_PATH), SCOPES)
             creds = flow.run_local_server(port=0)
         TOKEN_PATH.write_text(creds.to_json(), encoding="utf-8")
-        print("Saved login token →", TOKEN_PATH)
+        print("Saved login token ->", TOKEN_PATH)
     return creds
 
 
@@ -223,27 +224,49 @@ def build_page_content(file_rel: str, asset_base: str) -> str:
     return rewrite_for_blogger(content_src, asset_base, file_rel)
 
 
-def find_existing_page(service, blog_id: str, title: str):
-    # pages.list may paginate; keep simple for MVP
-    resp = service.pages().list(blogId=blog_id, view="ADMIN").execute()
-    for item in resp.get("items", []) or []:
-        if item.get("title", "").strip().lower() == title.strip().lower():
-            return item
-    return None
-
-
 def upsert_page(service, blog_id: str, title: str, content: str, draft: bool) -> dict:
     existing = find_existing_page(service, blog_id, title)
     body = {"title": title, "content": content}
-    if existing:
-        print(f"  Updating page: {title} ({existing['id']})")
-        return (
-            service.pages()
-            .update(blogId=blog_id, pageId=existing["id"], body={**existing, **body})
-            .execute()
-        )
-    print(f"  Creating page: {title}" + (" [DRAFT]" if draft else ""))
-    return service.pages().insert(blogId=blog_id, body=body, isDraft=draft).execute()
+    last_err = None
+    for attempt in range(1, 6):
+        try:
+            if existing:
+                print(f"  Updating page: {title} ({existing['id']})")
+                return (
+                    service.pages()
+                    .update(blogId=blog_id, pageId=existing["id"], body={**existing, **body})
+                    .execute()
+                )
+            print(f"  Creating page: {title}" + (" [DRAFT]" if draft else ""))
+            return service.pages().insert(blogId=blog_id, body=body, isDraft=draft).execute()
+        except Exception as e:
+            last_err = e
+            msg = str(e)
+            if "rateLimitExceeded" in msg or "Quota" in msg or "429" in msg:
+                wait = 20 * attempt
+                print(f"  Rate limit. Waiting {wait}s then retry {attempt}/5...")
+                time.sleep(wait)
+                continue
+            raise
+    raise last_err
+
+
+def find_existing_page(service, blog_id: str, title: str):
+    # pages.list may paginate
+    token = None
+    title_l = title.strip().lower()
+    while True:
+        kwargs = {"blogId": blog_id, "view": "ADMIN", "maxResults": 50}
+        if token:
+            kwargs["pageToken"] = token
+        resp = service.pages().list(**kwargs).execute()
+        for item in resp.get("items", []) or []:
+            if item.get("title", "").strip().lower() == title_l:
+                return item
+        token = resp.get("nextPageToken")
+        if not token:
+            break
+    return None
 
 
 def find_welcome_post(service, blog_id: str, title: str):
@@ -301,7 +324,7 @@ def cmd_upload_pages(draft: bool):
     asset = (cfg.get("asset_base_url") or "").strip()
     if not asset:
         print(
-            "WARNING: asset_base_url empty → quizzes/JSON may not work on Blogger.\n"
+            "WARNING: asset_base_url empty - quizzes/JSON may not work on Blogger.\n"
             "Set GitHub Pages URL in tools/blogger_config.json then re-run.\n"
         )
     service = build_service()
@@ -309,11 +332,12 @@ def cmd_upload_pages(draft: bool):
     for item in cfg.get("pages") or []:
         title = item["title"]
         file_rel = item["file"]
-        print(f"Preparing: {title} ← {file_rel}")
+        print(f"Preparing: {title} <- {file_rel}")
         content = build_page_content(file_rel, asset)
         result = upsert_page(service, blog["id"], title, content, draft=draft)
-        print(f"    → {result.get('url') or result.get('id')}")
-    print("\nDone. Blogger → Pages থেকে মেনুতে পেজগুলো যোগ করুন।")
+        print(f"    -> {result.get('url') or result.get('id')}")
+        time.sleep(3)  # gentle pacing to avoid Blogger quota spikes
+    print("\nDone. Add pages to the Blogger menu under Pages.")
     print("Site:", cfg["blog_url"])
 
 
@@ -322,7 +346,7 @@ def cmd_upload_welcome(draft: bool):
     service = build_service()
     blog = get_blog(service, cfg["blog_url"])
     result = upsert_welcome(service, blog["id"], cfg, draft=draft)
-    print("Welcome post →", result.get("url") or result.get("id"))
+    print("Welcome post ->", result.get("url") or result.get("id"))
 
 
 def main():

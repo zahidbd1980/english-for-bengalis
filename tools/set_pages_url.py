@@ -26,7 +26,7 @@ def patch_config(url: str) -> None:
     data = json.loads(CONFIG.read_text(encoding="utf-8"))
     data["asset_base_url"] = url.rstrip("/")
     CONFIG.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("Updated tools/blogger_config.json → asset_base_url =", data["asset_base_url"])
+    print("Updated tools/blogger_config.json asset_base_url =", data["asset_base_url"])
 
 
 def main():
