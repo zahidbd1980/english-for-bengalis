@@ -1,0 +1,82 @@
+[
+  {
+    "id": "mistake:i-am-agree",
+    "incorrect": "I am agree.",
+    "correct": "I agree.",
+    "bangla_tip": "agree ইতিমধ্যেই verb — আলাদা am লাগে না।",
+    "category": "grammar",
+    "explanation": "Agree is a verb, so do not use am/is/are before it in this pattern."
+  },
+  {
+    "id": "mistake:discuss-about",
+    "incorrect": "We discussed about the plan.",
+    "correct": "We discussed the plan.",
+    "bangla_tip": "discuss-এর পরে about লাগে না।",
+    "category": "prepositions",
+    "explanation": "Discuss already includes the idea of 'about'."
+  },
+  {
+    "id": "mistake:belong-to",
+    "incorrect": "This book is belong to me.",
+    "correct": "This book belongs to me.",
+    "bangla_tip": "belong-এর আগে is বসবে না; belongs to ব্যবহার করুন।",
+    "category": "grammar",
+    "explanation": "Use belong(s) to — not is belong."
+  },
+  {
+    "id": "mistake:recommend-me",
+    "incorrect": "Can you recommend me a hotel?",
+    "correct": "Can you recommend a hotel to me?",
+    "bangla_tip": "recommend someone something নয় — recommend something to someone।",
+    "category": "word-choice",
+    "explanation": "Recommend takes the thing first, then to + person."
+  },
+  {
+    "id": "mistake:return-back",
+    "incorrect": "Please return back the form.",
+    "correct": "Please return the form.",
+    "bangla_tip": "return-এর মানেই ফিরে আসা/ফেরত — back বাড়তি।",
+    "category": "word-choice",
+    "explanation": "Return already means go/give back."
+  },
+  {
+    "id": "mistake:one-of-the-student",
+    "incorrect": "He is one of the best student.",
+    "correct": "He is one of the best students.",
+    "bangla_tip": "one of the-এর পরে plural noun বসে।",
+    "category": "grammar",
+    "explanation": "After one of the + adjective, use a plural noun."
+  },
+  {
+    "id": "mistake:since-for",
+    "incorrect": "I have lived here since 5 years.",
+    "correct": "I have lived here for 5 years.",
+    "bangla_tip": "সময়কাল (5 years) হলে for; নির্দিষ্ট শুরুর পয়েন্ট হলে since।",
+    "category": "grammar",
+    "explanation": "for + duration; since + starting point."
+  },
+  {
+    "id": "mistake:open-light",
+    "incorrect": "Please open the light.",
+    "correct": "Please turn on the light.",
+    "bangla_tip": "বাংলায় ‘লাইট খোলা’ বললেও ইংরেজিতে turn on।",
+    "category": "direct-translation",
+    "explanation": "Direct translation from Bangla causes this common error."
+  },
+  {
+    "id": "mistake:good-in-english",
+    "incorrect": "She is good in English.",
+    "correct": "She is good at English.",
+    "bangla_tip": "subject/skill-এর সাথে সাধারণত good at।",
+    "category": "prepositions",
+    "explanation": "Use good at + subject/activity."
+  },
+  {
+    "id": "mistake:tell-to-me",
+    "incorrect": "Please tell to me the truth.",
+    "correct": "Please tell me the truth.",
+    "bangla_tip": "tell-এর পরে সরাসরি ব্যক্তি — tell me, tell him।",
+    "category": "grammar",
+    "explanation": "Tell takes an object pronoun without to in this pattern."
+  }
+]

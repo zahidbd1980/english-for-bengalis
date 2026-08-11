@@ -1,0 +1,35 @@
+[
+  {
+    "id": "spoken:greeting-1",
+    "title": "Greeting a new person",
+    "level": "A1",
+    "lines": [
+      { "en": "Hi! My name is Imran.", "bn": "হাই! আমার নাম ইমরান।" },
+      { "en": "Nice to meet you.", "bn": "আপনার সাথে দেখা হয়ে ভালো লাগল।" },
+      { "en": "Where are you from?", "bn": "আপনি কোথা থেকে এসেছেন?" },
+      { "en": "I am from Dhaka.", "bn": "আমি ঢাকা থেকে।" }
+    ]
+  },
+  {
+    "id": "spoken:shopping-1",
+    "title": "At a shop",
+    "level": "A2",
+    "lines": [
+      { "en": "Excuse me, how much is this?", "bn": "মাফ করবেন, এটার দাম কত?" },
+      { "en": "It's 500 taka.", "bn": "৫০০ টাকা।" },
+      { "en": "Do you have a smaller size?", "bn": "ছোট সাইজ আছে?" },
+      { "en": "I will take this one, please.", "bn": "আমি এটা নেব, প্লিজ।" }
+    ]
+  },
+  {
+    "id": "spoken:interview-1",
+    "title": "Job interview basics",
+    "level": "B1",
+    "lines": [
+      { "en": "Tell me about yourself.", "bn": "নিজের সম্পর্কে বলুন।" },
+      { "en": "I have two years of experience in sales.", "bn": "সেলসে আমার দুই বছরের অভিজ্ঞতা আছে।" },
+      { "en": "Why do you want this job?", "bn": "কেন এই চাকরি করতে চান?" },
+      { "en": "I want to grow my skills and help the team.", "bn": "আমি স্কিল বাড়াতে এবং টিমকে সাহায্য করতে চাই।" }
+    ]
+  }
+]

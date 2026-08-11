@@ -1,0 +1,98 @@
+[
+  {
+    "id": "grammar:be-verbs",
+    "topic": "Be Verbs (am / is / are)",
+    "cefr": "A1",
+    "explanation": "Use am with I, is with he/she/it, are with you/we/they.",
+    "bangla_explanation": "I-এর সাথে am, he/she/it-এর সাথে is, you/we/they-এর সাথে are বসে।",
+    "examples": [
+      "I am a student.",
+      "She is tired.",
+      "They are at home."
+    ],
+    "common_errors": [
+      "I is happy. → I am happy.",
+      "He are my friend. → He is my friend."
+    ]
+  },
+  {
+    "id": "grammar:present-simple",
+    "topic": "Present Simple",
+    "cefr": "A1",
+    "explanation": "Use Present Simple for habits, facts, and routines. Add -s/-es with he/she/it.",
+    "bangla_explanation": "অভ্যাস, সত্য ও রুটিনের জন্য Present Simple। he/she/it-এর সাথে ক্রিয়ায় -s/-es যোগ হয়।",
+    "examples": [
+      "I go to work by bus.",
+      "She teaches English.",
+      "Water boils at 100°C."
+    ],
+    "common_errors": [
+      "He go to school. → He goes to school.",
+      "She don't like tea. → She doesn't like tea."
+    ]
+  },
+  {
+    "id": "grammar:present-continuous",
+    "topic": "Present Continuous",
+    "cefr": "A1",
+    "explanation": "Use am/is/are + verb-ing for actions happening now or temporary situations.",
+    "bangla_explanation": "এখন চলমান বা অস্থায়ী কাজের জন্য am/is/are + verb-ing।",
+    "examples": [
+      "I am learning English.",
+      "They are waiting outside.",
+      "It is raining."
+    ],
+    "common_errors": [
+      "I learning English. → I am learning English.",
+      "She is cook now. → She is cooking now."
+    ]
+  },
+  {
+    "id": "grammar:articles",
+    "topic": "Articles: a / an / the",
+    "cefr": "A2",
+    "explanation": "a/an = one non-specific thing; the = specific/known thing. an before vowel sounds.",
+    "bangla_explanation": "a/an = অনির্দিষ্ট একটা; the = নির্দিষ্ট/জানা বিষয়। vowel sound-এর আগে an।",
+    "examples": [
+      "I bought a book.",
+      "She is an engineer.",
+      "The book on the table is mine."
+    ],
+    "common_errors": [
+      "She is a honest woman. → She is an honest woman. (honest starts with vowel sound)",
+      "I go to the home. → I go home. (often no article)"
+    ]
+  },
+  {
+    "id": "grammar:prepositions-in-on-at",
+    "topic": "Prepositions: in / on / at",
+    "cefr": "A2",
+    "explanation": "Common time/place patterns: at + clock time, on + day/date, in + month/year/city.",
+    "bangla_explanation": "সাধারণ প্যাটার্ন: at + সময়, on + দিন/তারিখ, in + মাস/বছর/শহর।",
+    "examples": [
+      "The meeting is at 5 pm.",
+      "My birthday is on Monday.",
+      "I live in Dhaka."
+    ],
+    "common_errors": [
+      "I will meet you in 5 pm. → at 5 pm",
+      "He was born on 1999. → in 1999"
+    ]
+  },
+  {
+    "id": "grammar:present-perfect",
+    "topic": "Present Perfect",
+    "cefr": "A2",
+    "explanation": "have/has + past participle for life experience and past actions with present result.",
+    "bangla_explanation": "জীবনের অভিজ্ঞতা বা অতীতের কাজ যার ফল এখনো আছে — সেখানে have/has + past participle।",
+    "examples": [
+      "I have finished my homework.",
+      "She has visited Cox's Bazar.",
+      "Have you ever eaten sushi?"
+    ],
+    "common_errors": [
+      "I have saw that movie. → I have seen that movie.",
+      "I am finished my work. → I have finished my work."
+    ]
+  }
+]

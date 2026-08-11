@@ -1,0 +1,74 @@
+[
+  {
+    "id": "pv:give-up",
+    "phrase": "give up",
+    "meaning_en": "stop trying",
+    "meaning_bn": "চেষ্টা ছেড়ে দেওয়া",
+    "example": "Don't give up on your dream.",
+    "example_bn": "তোমার স্বপ্ন ছেড়ে দিও না।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:look-after",
+    "phrase": "look after",
+    "meaning_en": "take care of",
+    "meaning_bn": "দেখাশোনা করা",
+    "example": "She looks after her little brother.",
+    "example_bn": "সে তার ছোট ভাইয়ের দেখাশোনা করে।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:find-out",
+    "phrase": "find out",
+    "meaning_en": "discover information",
+    "meaning_bn": "জেনে নেওয়া / খুঁজে বের করা",
+    "example": "I need to find out the train time.",
+    "example_bn": "আমাকে ট্রেনের সময় জেনে নিতে হবে।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:turn-on",
+    "phrase": "turn on",
+    "meaning_en": "start a machine / light",
+    "meaning_bn": "চালু করা",
+    "example": "Please turn on the fan.",
+    "example_bn": "অনুগ্রহ করে ফ্যানটা চালু করুন।",
+    "cefr_level": "A1"
+  },
+  {
+    "id": "pv:turn-off",
+    "phrase": "turn off",
+    "meaning_en": "stop a machine / light",
+    "meaning_bn": "বন্ধ করা",
+    "example": "Turn off the lights before you leave.",
+    "example_bn": "যাওয়ার আগে লাইটগুলো বন্ধ করুন।",
+    "cefr_level": "A1"
+  },
+  {
+    "id": "pv:pick-up",
+    "phrase": "pick up",
+    "meaning_en": "collect someone/something; learn informally",
+    "meaning_bn": "নিয়ে আসা; অনানুষ্ঠানিকভাবে শেখা",
+    "example": "I will pick you up at 6.",
+    "example_bn": "আমি তোমাকে ৬টায় নিয়ে আসব।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:put-off",
+    "phrase": "put off",
+    "meaning_en": "postpone",
+    "meaning_bn": "স্থগিত করা",
+    "example": "We put off the meeting until Monday.",
+    "example_bn": "আমরা মিটিংটা সোমবার পর্যন্ত স্থগিত করলাম।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:come-across",
+    "phrase": "come across",
+    "meaning_en": "find by chance",
+    "meaning_bn": "হঠাৎ পেয়ে যাওয়া",
+    "example": "I came across an old photo.",
+    "example_bn": "আমি একটা পুরনো ছবি হঠাৎ পেয়ে গেলাম।",
+    "cefr_level": "B1"
+  }
+]

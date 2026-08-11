@@ -1,0 +1,117 @@
+{
+  "blog_url": "https://englishforbengalis.blogspot.com/",
+  "asset_base_url": "",
+  "comment": "asset_base_url = GitHub Pages URL where css/js/data live, e.g. https://USERNAME.github.io/english-for-bengalis  (no trailing slash). Leave empty to upload text pages only.",
+  "pages": [
+    {
+      "title": "About",
+      "file": "pages/about.html",
+      "kind": "page"
+    },
+    {
+      "title": "Contact",
+      "file": "pages/contact.html",
+      "kind": "page"
+    },
+    {
+      "title": "Privacy Policy",
+      "file": "pages/privacy.html",
+      "kind": "page"
+    },
+    {
+      "title": "Terms",
+      "file": "pages/terms.html",
+      "kind": "page"
+    },
+    {
+      "title": "Disclaimer",
+      "file": "pages/disclaimer.html",
+      "kind": "page"
+    },
+    {
+      "title": "Learn",
+      "file": "pages/learn.html",
+      "kind": "page"
+    },
+    {
+      "title": "Practice",
+      "file": "pages/practice.html",
+      "kind": "page"
+    },
+    {
+      "title": "IELTS",
+      "file": "pages/ielts.html",
+      "kind": "page"
+    },
+    {
+      "title": "My Progress",
+      "file": "pages/my-progress.html",
+      "kind": "page"
+    },
+    {
+      "title": "Level Test",
+      "file": "pages/level-test.html",
+      "kind": "page"
+    },
+    {
+      "title": "Settings",
+      "file": "pages/settings.html",
+      "kind": "page"
+    },
+    {
+      "title": "Vocabulary",
+      "file": "pages/vocabulary.html",
+      "kind": "page"
+    },
+    {
+      "title": "Grammar",
+      "file": "pages/grammar.html",
+      "kind": "page"
+    },
+    {
+      "title": "Phrasal Verbs",
+      "file": "pages/phrasal-verbs.html",
+      "kind": "page"
+    },
+    {
+      "title": "Spelling",
+      "file": "pages/spelling.html",
+      "kind": "page"
+    },
+    {
+      "title": "Spoken English",
+      "file": "pages/spoken-english.html",
+      "kind": "page"
+    },
+    {
+      "title": "Common Mistakes",
+      "file": "pages/common-mistakes.html",
+      "kind": "page"
+    },
+    {
+      "title": "Quizzes",
+      "file": "pages/quizzes.html",
+      "kind": "page"
+    },
+    {
+      "title": "Flashcards",
+      "file": "pages/flashcards.html",
+      "kind": "page"
+    },
+    {
+      "title": "Daily Challenge",
+      "file": "pages/daily-challenge.html",
+      "kind": "page"
+    },
+    {
+      "title": "Translation Lab",
+      "file": "pages/translation-lab.html",
+      "kind": "page"
+    }
+  ],
+  "welcome_post": {
+    "title": "Welcome — Learn English for Bengali Speakers",
+    "labels": ["welcome", "lesson", "spoken"],
+    "file": null
+  }
+}

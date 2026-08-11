@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vocabulary — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Vocabulary</span></nav>
+    <h1 class="page-title">Vocabulary · শব্দভাণ্ডার</h1>
+    <p class="page-intro bn">শব্দ দেখুন, অর্থ বুঝুন, উদাহরণ পড়ুন — তারপর quiz করুন।</p>
+    <div class="stack-actions" style="margin-bottom:1rem">
+      <a class="btn btn-primary" href="quizzes.html?skill=vocabulary">Vocabulary Quiz</a>
+      <a class="btn btn-secondary" href="flashcards.html?skill=vocabulary">Flashcards</a>
+    </div>
+    <div id="list" class="lesson-block"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    EFBApp.loadJSON("vocabulary.json").then((items) => {
+      const root = document.getElementById("list");
+      root.innerHTML = items.map((w) => {
+        EFBProgress.markSeen(w.id);
+        return `<article class="panel">
+          <div class="quiz-meta"><strong style="font-size:1.25rem">${w.word}</strong><span class="chip">${w.cefr_level}</span></div>
+          <p><strong>${w.meaning_en}</strong></p>
+          <p class="bn muted">${w.meaning_bn}</p>
+          <div class="example">${w.example}<br><span class="bn muted">${w.example_bn || ""}</span></div>
+        </article>`;
+      }).join("");
+      EFBProgress.setLastLesson("vocabulary", "vocab-list");
+    }).catch((e) => {
+      document.getElementById("list").innerHTML = `<div class="empty-state">Data load error: ${e.message}. Use a local server (see upload docs).</div>`;
+    });
+  </script>
+</body>
+</html>

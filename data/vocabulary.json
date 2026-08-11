@@ -1,0 +1,134 @@
+[
+  {
+    "id": "vocab:improve",
+    "word": "improve",
+    "meaning_en": "to make better",
+    "meaning_bn": "উন্নতি করা / ভালো করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "example": "I want to improve my English.",
+    "example_bn": "আমি আমার ইংরেজি উন্নত করতে চাই।",
+    "category": "daily"
+  },
+  {
+    "id": "vocab:practice",
+    "word": "practice",
+    "meaning_en": "to do something regularly to improve",
+    "meaning_bn": "অনুশীলন করা",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A1",
+    "example": "Practice speaking every day.",
+    "example_bn": "প্রতিদিন স্পিকিং অনুশীলন করুন।",
+    "category": "daily"
+  },
+  {
+    "id": "vocab:confident",
+    "word": "confident",
+    "meaning_en": "sure of yourself",
+    "meaning_bn": "আত্মবিশ্বাসী",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "example": "She feels confident in interviews.",
+    "example_bn": "সে ইন্টারভিউতে আত্মবিশ্বাসী বোধ করে।",
+    "category": "workplace"
+  },
+  {
+    "id": "vocab:appointment",
+    "word": "appointment",
+    "meaning_en": "a planned meeting",
+    "meaning_bn": "অ্যাপয়েন্টমেন্ট / নির্ধারিত সাক্ষাৎ",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "example": "I have a doctor's appointment at 4 pm.",
+    "example_bn": "বিকেল ৪টায় আমার ডাক্তারের অ্যাপয়েন্টমেন্ট আছে।",
+    "category": "daily"
+  },
+  {
+    "id": "vocab:recommend",
+    "word": "recommend",
+    "meaning_en": "to suggest something as good",
+    "meaning_bn": "সুপারিশ করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "example": "Can you recommend a good book?",
+    "example_bn": "আপনি কি একটি ভালো বই সুপারিশ করতে পারেন?",
+    "category": "daily"
+  },
+  {
+    "id": "vocab:deadline",
+    "word": "deadline",
+    "meaning_en": "the latest time to finish something",
+    "meaning_bn": "শেষ সময়সীমা",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "example": "The project deadline is Friday.",
+    "example_bn": "প্রজেক্টের ডেডলাইন শুক্রবার।",
+    "category": "workplace"
+  },
+  {
+    "id": "vocab:polite",
+    "word": "polite",
+    "meaning_en": "having good manners",
+    "meaning_bn": "বিনয়ী / ভদ্র",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "example": "Please be polite to customers.",
+    "example_bn": "অনুগ্রহ করে কাস্টমারদের সাথে ভদ্র থাকুন।",
+    "category": "workplace"
+  },
+  {
+    "id": "vocab:journey",
+    "word": "journey",
+    "meaning_en": "travel from one place to another",
+    "meaning_bn": "যাত্রা",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "example": "It was a long journey by bus.",
+    "example_bn": "বাস করে লম্বা যাত্রা ছিল।",
+    "category": "travel"
+  },
+  {
+    "id": "vocab:necessary",
+    "word": "necessary",
+    "meaning_en": "needed",
+    "meaning_bn": "প্রয়োজনীয়",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "example": "Is a passport necessary?",
+    "example_bn": "পাসপোর্ট কি প্রয়োজনীয়?",
+    "category": "daily"
+  },
+  {
+    "id": "vocab:opportunity",
+    "word": "opportunity",
+    "meaning_en": "a chance to do something",
+    "meaning_bn": "সুযোগ",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "example": "This job is a great opportunity.",
+    "example_bn": "এই চাকরিটি একটি বড় সুযোগ।",
+    "category": "workplace"
+  },
+  {
+    "id": "vocab:explain",
+    "word": "explain",
+    "meaning_en": "to make something clear",
+    "meaning_bn": "ব্যাখ্যা করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "example": "Can you explain this grammar rule?",
+    "example_bn": "আপনি কি এই গ্রামার রুল ব্যাখ্যা করতে পারেন?",
+    "category": "daily"
+  },
+  {
+    "id": "vocab:available",
+    "word": "available",
+    "meaning_en": "free to use or free to meet",
+    "meaning_bn": "উপলব্ধ / খালি আছে",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "example": "Are you available tomorrow?",
+    "example_bn": "আপনি কি কাল খালি আছেন?",
+    "category": "daily"
+  }
+]

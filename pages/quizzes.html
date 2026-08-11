@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quizzes — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Quizzes</span></nav>
+    <h1 class="page-title">Quizzes · কুইজ</h1>
+    <p class="page-intro bn">উত্তর দিয়ে mastery বাড়ান। ভুল হলে Mistake Bank-এ জমা হবে।</p>
+    <div class="stack-actions" style="margin-bottom:1rem" id="filters"></div>
+    <div id="quiz-root"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/quiz-engine.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    let skill = params.get("skill") || "all";
+
+    function start(all) {
+      const filtered = skill === "all" ? all : all.filter((q) => q.skill === skill);
+      EFBQuiz.mount(document.getElementById("quiz-root"), { questions: filtered, limit: 10 });
+    }
+
+    EFBApp.loadJSON("quizzes.json").then((all) => {
+      const skills = ["all", "vocabulary", "grammar", "phrasal", "spelling", "mistakes"];
+      document.getElementById("filters").innerHTML = skills.map((s) =>
+        `<button type="button" class="btn ${s === skill ? "btn-primary" : "btn-secondary"}" data-s="${s}">${s}</button>`
+      ).join("");
+      document.getElementById("filters").addEventListener("click", (e) => {
+        const btn = e.target.closest("button[data-s]");
+        if (!btn) return;
+        skill = btn.getAttribute("data-s");
+        history.replaceState(null, "", skill === "all" ? "quizzes.html" : "quizzes.html?skill=" + skill);
+        start(all);
+        [...document.querySelectorAll("#filters button")].forEach((b) => {
+          b.className = "btn " + (b.getAttribute("data-s") === skill ? "btn-primary" : "btn-secondary");
+        });
+      });
+      start(all);
+    });
+  </script>
+</body>
+</html>

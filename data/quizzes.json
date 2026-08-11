@@ -1,0 +1,164 @@
+[
+  {
+    "id": "q1",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:improve",
+    "question": "What does \"improve\" mean?",
+    "question_bn": "improve শব্দের অর্থ কী?",
+    "options": ["to make better", "to forget", "to stop", "to hide"],
+    "answer": "to make better",
+    "explanation": "Improve = to make better / উন্নতি করা।"
+  },
+  {
+    "id": "q2",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:deadline",
+    "question": "A \"deadline\" is:",
+    "question_bn": "deadline মানে কী?",
+    "options": ["the latest time to finish something", "a holiday", "a classroom", "a soft pillow"],
+    "answer": "the latest time to finish something",
+    "explanation": "Deadline = শেষ সময়সীমা।"
+  },
+  {
+    "id": "q3",
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:give-up",
+    "question": "\"Don't give up\" means:",
+    "question_bn": "Don't give up মানে?",
+    "options": ["Don't stop trying", "Don't wake up", "Don't sit down", "Don't turn off"],
+    "answer": "Don't stop trying",
+    "explanation": "give up = stop trying."
+  },
+  {
+    "id": "q4",
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:look-after",
+    "question": "She looks after her brother. What does look after mean?",
+    "question_bn": "look after মানে কী?",
+    "options": ["take care of", "look at photos", "search online", "run away"],
+    "answer": "take care of",
+    "explanation": "look after = দেখাশোনা করা।"
+  },
+  {
+    "id": "q5",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:present-simple",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্যটি বেছে নিন:",
+    "options": ["He goes to school.", "He go to school.", "He going to school.", "He gone to school."],
+    "answer": "He goes to school.",
+    "explanation": "he/she/it + verb-s in Present Simple."
+  },
+  {
+    "id": "q6",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:articles",
+    "question": "Choose the correct article: She is ___ honest woman.",
+    "question_bn": "সঠিক article কোনটি?",
+    "options": ["an", "a", "the", "no article"],
+    "answer": "an",
+    "explanation": "honest starts with a vowel sound → an."
+  },
+  {
+    "id": "q7",
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:i-am-agree",
+    "question": "Which sentence is correct?",
+    "question_bn": "কোন বাক্যটি সঠিক?",
+    "options": ["I agree.", "I am agree.", "I am agrees.", "I agreeing."],
+    "answer": "I agree.",
+    "explanation": "Do not say I am agree."
+  },
+  {
+    "id": "q8",
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:discuss-about",
+    "question": "Fix the sentence: We discussed about the issue.",
+    "question_bn": "সংশোধন করুন:",
+    "options": ["We discussed the issue.", "We discussed about the issue.", "We discuss about the issue.", "We discussing the issue."],
+    "answer": "We discussed the issue.",
+    "explanation": "No about after discuss."
+  },
+  {
+    "id": "q9",
+    "type": "type",
+    "skill": "spelling",
+    "item_id": "spell:definitely",
+    "question": "Spell the word meaning \"নিশ্চিতভাবে\" (hint: de-FINITE-ly)",
+    "question_bn": "সঠিক বানান লিখুন:",
+    "answer": "definitely",
+    "explanation": "Common mistake: definately."
+  },
+  {
+    "id": "q10",
+    "type": "type",
+    "skill": "spelling",
+    "item_id": "spell:necessary",
+    "question": "Type the correct spelling: neccessary / necessary / necesary",
+    "question_bn": "সঠিক বানানটি টাইপ করুন:",
+    "answer": "necessary",
+    "explanation": "1 c and 2 s: necessary."
+  },
+  {
+    "id": "q11",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:prepositions-in-on-at",
+    "question": "I will meet you ___ 5 pm.",
+    "question_bn": "সঠিক preposition:",
+    "options": ["at", "in", "on", "by"],
+    "answer": "at",
+    "explanation": "at + clock time."
+  },
+  {
+    "id": "q12",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:available",
+    "question": "\"Are you available tomorrow?\" means:",
+    "question_bn": "এর মানে কী?",
+    "options": ["Are you free tomorrow?", "Are you angry tomorrow?", "Are you traveling forever?", "Are you sleeping now?"],
+    "answer": "Are you free tomorrow?",
+    "explanation": "available = free / উপলব্ধ।"
+  },
+  {
+    "id": "q13",
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:open-light",
+    "question": "Choose the natural English:",
+    "question_bn": "স্বাভাবিক ইংরেজি কোনটি?",
+    "options": ["Please turn on the light.", "Please open the light.", "Please start the light open.", "Please on the light."],
+    "answer": "Please turn on the light.",
+    "explanation": "Bangla direct translation causes \"open the light\"."
+  },
+  {
+    "id": "q14",
+    "type": "type",
+    "skill": "translate",
+    "item_id": "vocab:practice",
+    "question": "Translate to English: আমি প্রতিদিন অনুশীলন করি।",
+    "question_bn": "ইংরেজিতে লিখুন (simple answer accepted): I practice every day.",
+    "answer": "I practice every day.",
+    "explanation": "I practice every day. / I practise every day. (US spelling used here: practice)"
+  },
+  {
+    "id": "q15",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:present-continuous",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য:",
+    "options": ["I am learning English.", "I learning English.", "I am learn English.", "I learns English now."],
+    "answer": "I am learning English.",
+    "explanation": "am/is/are + verb-ing."
+  }
+]

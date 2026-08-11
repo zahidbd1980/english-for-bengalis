@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Translation Lab — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Translation Lab</span></nav>
+    <h1 class="page-title">Translation Lab · অনুবাদ ল্যাব</h1>
+    <p class="page-intro bn">বাংলা দেখে ইংরেজি লিখুন। সরাসরি অনুবাদের ভুল ভাঙতে সাহায্য করে।</p>
+    <div id="quiz-root"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/quiz-engine.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    const items = [
+      { item_id: "vocab:improve", type: "type", question: "আমি আমার ইংরেজি উন্নত করতে চাই।", question_bn: "ইংরেজিতে লিখুন:", answer: "I want to improve my English.", explanation: "want to + verb" },
+      { item_id: "grammar:present-continuous", type: "type", question: "আমি ইংরেজি শিখছি।", question_bn: "ইংরেজিতে লিখুন:", answer: "I am learning English.", explanation: "am + learning = Present Continuous" },
+      { item_id: "mistake:i-am-agree", type: "type", question: "আমি একমত। (সতর্ক: I am agree নয়)", question_bn: "ইংরেজিতে লিখুন:", answer: "I agree.", explanation: "I agree — no am" },
+      { item_id: "pv:give-up", type: "type", question: "চেষ্টা ছেড়ে দিও না।", question_bn: "ইংরেজিতে লিখুন:", answer: "Don't give up.", explanation: "give up = stop trying" },
+      { item_id: "mistake:open-light", type: "type", question: "লাইটটা জ্বালাও / চালু করো।", question_bn: "ইংরেজিতে লিখুন:", answer: "Turn on the light.", explanation: "Not: open the light" },
+      { item_id: "vocab:available", type: "type", question: "আপনি কি কাল খালি আছেন?", question_bn: "ইংরেজিতে লিখুন:", answer: "Are you available tomorrow?", explanation: "available = free" },
+    ];
+    EFBQuiz.mount(document.getElementById("quiz-root"), { questions: items, limit: 6 });
+  </script>
+</body>
+</html>

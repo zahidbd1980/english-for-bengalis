@@ -1,0 +1,74 @@
+[
+  {
+    "id": "spell:definitely",
+    "correct_word": "definitely",
+    "wrong_spellings": ["definately", "definitly"],
+    "meaning_bn": "নিশ্চিতভাবে",
+    "example": "I will definitely join the class.",
+    "memory_tip": "finite is inside: de-FINITE-ly",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "spell:necessary",
+    "correct_word": "necessary",
+    "wrong_spellings": ["neccessary", "necesary"],
+    "meaning_bn": "প্রয়োজনীয়",
+    "example": "A visa is necessary for travel.",
+    "memory_tip": "1 c, 2 s: neCeSSary",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "spell:separate",
+    "correct_word": "separate",
+    "wrong_spellings": ["seperate"],
+    "meaning_bn": "আলাদা",
+    "example": "Keep the files in separate folders.",
+    "memory_tip": "There is a rat in sepARate",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "spell:receive",
+    "correct_word": "receive",
+    "wrong_spellings": ["recieve"],
+    "meaning_bn": "পাওয়া / গ্রহণ করা",
+    "example": "Did you receive my email?",
+    "memory_tip": "i before e except after c → receive",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "spell:occurrence",
+    "correct_word": "occurrence",
+    "wrong_spellings": ["occurence", "ocurrance"],
+    "meaning_bn": "ঘটনা / সংঘটন",
+    "example": "It was a rare occurrence.",
+    "memory_tip": "2 c + 2 r: oCCuRRence",
+    "cefr_level": "B2"
+  },
+  {
+    "id": "spell:accommodate",
+    "correct_word": "accommodate",
+    "wrong_spellings": ["acommodate", "accomodate"],
+    "meaning_bn": "জায়গা করে দেওয়া / মানিয়ে নেওয়া",
+    "example": "The hotel can accommodate 200 guests.",
+    "memory_tip": "2 c + 2 m",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "spell:beginning",
+    "correct_word": "beginning",
+    "wrong_spellings": ["begining"],
+    "meaning_bn": "শুরু",
+    "example": "Start from the beginning.",
+    "memory_tip": "double n: beginNing",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "spell:environment",
+    "correct_word": "environment",
+    "wrong_spellings": ["enviroment"],
+    "meaning_bn": "পরিবেশ",
+    "example": "We must protect the environment.",
+    "memory_tip": "iron is in envIRONment",
+    "cefr_level": "B1"
+  }
+]

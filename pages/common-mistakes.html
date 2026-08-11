@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Common Mistakes — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Common Mistakes</span></nav>
+    <h1 class="page-title">Common Mistakes · সাধারণ ভুল</h1>
+    <p class="page-intro bn">বাংলাভাষীদের ঘন ঘন ভুল — ভুল দেখুন, সঠিক শিখুন, quiz দিয়ে আটকে রাখুন।</p>
+    <a class="btn btn-primary" href="quizzes.html?skill=mistakes" style="margin-bottom:1rem">Mistakes Quiz</a>
+    <div id="list" class="lesson-block"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    EFBApp.loadJSON("common-mistakes.json").then((items) => {
+      document.getElementById("list").innerHTML = items.map((m) => {
+        EFBProgress.markSeen(m.id);
+        return `<article class="panel">
+          <span class="chip">${m.category}</span>
+          <div class="mistake-pair">
+            <div class="bad">✗ ${m.incorrect}</div>
+            <div class="good">✓ ${m.correct}</div>
+          </div>
+          <p class="bn"><strong>টিপ:</strong> ${m.bangla_tip}</p>
+          <p class="muted">${m.explanation}</p>
+        </article>`;
+      }).join("");
+    });
+  </script>
+</body>
+</html>

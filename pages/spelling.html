@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spelling — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Spelling</span></nav>
+    <h1 class="page-title">Spelling · বানান</h1>
+    <p class="page-intro bn">ভুল বানান চিনুন, টিপ মনে রাখুন, তারপর টাইপ করে পরীক্ষা করুন।</p>
+    <a class="btn btn-primary" href="quizzes.html?skill=spelling" style="margin-bottom:1rem">Spelling Test</a>
+    <div id="list" class="lesson-block"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    EFBApp.loadJSON("spelling.json").then((items) => {
+      document.getElementById("list").innerHTML = items.map((s) => {
+        EFBProgress.markSeen(s.id);
+        return `<article class="panel">
+          <div class="quiz-meta"><strong style="font-size:1.2rem">${s.correct_word}</strong><span class="chip">${s.cefr_level}</span></div>
+          <p class="bn">${s.meaning_bn}</p>
+          <p class="muted">Common wrong: ${(s.wrong_spellings || []).join(", ")}</p>
+          <p><strong>Tip:</strong> ${s.memory_tip}</p>
+          <div class="example">${s.example}</div>
+        </article>`;
+      }).join("");
+    });
+  </script>
+</body>
+</html>

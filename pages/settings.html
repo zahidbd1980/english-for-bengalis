@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>Settings</span></nav>
+    <h1 class="page-title">Settings · সেটিংস</h1>
+    <p class="page-intro bn">ভাষা/গোল সেট করুন এবং প্রোগ্রেস ব্যাকআপ নিন।</p>
+    <div class="panel form-grid">
+      <label class="field">UI language
+        <select class="field-input" id="ui_language">
+          <option value="mixed">Mixed (default)</option>
+          <option value="bn">বাংলা</option>
+          <option value="en">English</option>
+        </select>
+      </label>
+      <label class="field">Accent preference
+        <select class="field-input" id="accent">
+          <option value="us">US</option>
+          <option value="uk">UK</option>
+        </select>
+      </label>
+      <label class="field">Daily new-item cap
+        <select class="field-input" id="daily_new_cap">
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+      </label>
+      <button type="button" class="btn btn-primary" id="save">সেভ করুন</button>
+    </div>
+    <div class="panel" style="margin-top:1rem">
+      <h2 style="margin-top:0;font-family:var(--font-display)">Progress backup</h2>
+      <p class="muted bn">কাস্টম ডোমেইন বা অন্য ডিভাইসে যাওয়ার আগে Export করুন।</p>
+      <div class="stack-actions">
+        <button type="button" class="btn btn-primary" id="export">Export JSON</button>
+        <label class="btn btn-secondary" style="cursor:pointer">Import JSON
+          <input type="file" id="import" accept="application/json,.json" hidden />
+        </label>
+        <button type="button" class="btn btn-secondary" id="reset">Reset progress</button>
+      </div>
+      <p id="msg" class="muted" style="margin-top:0.75rem"></p>
+    </div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    const state = EFBStorage.load();
+    ui_language.value = state.settings.ui_language;
+    accent.value = state.settings.accent;
+    daily_new_cap.value = String(state.settings.daily_new_cap);
+
+    document.getElementById("save").onclick = () => {
+      EFBStorage.update((s) => {
+        s.settings.ui_language = ui_language.value;
+        s.settings.accent = accent.value;
+        s.settings.daily_new_cap = Number(daily_new_cap.value);
+      });
+      msg.textContent = "Saved.";
+    };
+    document.getElementById("export").onclick = () => EFBStorage.downloadExport();
+    document.getElementById("import").onchange = async (e) => {
+      try {
+        const file = e.target.files[0];
+        const text = await file.text();
+        EFBStorage.importJSON(text);
+        msg.textContent = "Import successful.";
+      } catch (err) {
+        msg.textContent = "Import failed: " + err.message;
+      }
+    };
+    document.getElementById("reset").onclick = () => {
+      if (confirm("সব প্রোগ্রেস মুছে যাবে। নিশ্চিত?") && confirm("Last chance — reset?")) {
+        EFBStorage.reset();
+        msg.textContent = "Progress reset.";
+      }
+    };
+  </script>
+</body>
+</html>

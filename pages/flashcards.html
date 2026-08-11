@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flashcards — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Flashcards</span></nav>
+    <h1 class="page-title">Flashcards</h1>
+    <p class="page-intro bn">কার্ড ট্যাপ করে উল্টান। “জানি” বা “কঠিন” দিয়ে প্রোগ্রেস আপডেট হয়।</p>
+    <div id="root"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/quiz-engine.js"></script>
+  <script src="../js/daily-challenge.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    const skill = new URLSearchParams(location.search).get("skill") || "vocabulary";
+    Promise.all([
+      EFBApp.loadJSON("vocabulary.json"),
+      EFBApp.loadJSON("phrasal-verbs.json"),
+    ]).then(([vocab, pv]) => {
+      let cards = [];
+      if (skill === "phrasal") {
+        cards = pv.map((p) => ({
+          item_id: p.id,
+          front: p.phrase,
+          back: p.meaning_en,
+          back_bn: p.meaning_bn,
+          example: p.example,
+        }));
+      } else {
+        cards = vocab.map((w) => ({
+          item_id: w.id,
+          front: w.word,
+          back: w.meaning_en,
+          back_bn: w.meaning_bn,
+          example: w.example,
+        }));
+      }
+      EFBFlashcards.mount(document.getElementById("root"), cards);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Level Test — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>Level Test</span></nav>
+    <h1 class="page-title">English Level Test</h1>
+    <p class="page-intro bn">সংক্ষিপ্ত অনুমানমূলক টেস্ট — এটি অফিসিয়াল CEFR সার্টিফিকেট নয়।</p>
+    <div class="disclaimer bn">Estimated learning level only. Not an official CEFR certification.</div>
+    <div id="goal" class="panel" style="margin-bottom:1rem">
+      <label class="field bn">আপনার গোল বেছে নিন
+        <select class="field-input" id="goal-select">
+          <option value="spoken_english">Spoken English</option>
+          <option value="grammar">Grammar</option>
+          <option value="vocabulary">Vocabulary</option>
+          <option value="ielts">IELTS-style</option>
+          <option value="workplace">Workplace English</option>
+        </select>
+      </label>
+      <button type="button" class="btn btn-secondary" id="save-goal" style="margin-top:0.75rem">গোল সেভ</button>
+    </div>
+    <div id="quiz-root"></div>
+    <div id="result" class="hidden"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/quiz-engine.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    document.getElementById("save-goal").addEventListener("click", () => {
+      EFBProgress.setGoal(document.getElementById("goal-select").value);
+      alert("Goal saved");
+    });
+
+    EFBApp.loadJSON("quizzes.json").then((all) => {
+      const pick = EFBQuiz.shuffle(all).slice(0, 8);
+      EFBQuiz.mount(document.getElementById("quiz-root"), {
+        questions: pick,
+        limit: 8,
+        onComplete: ({ score, total }) => {
+          const pct = score / total;
+          let level = "Pre-A1";
+          if (pct >= 0.9) level = "B1";
+          else if (pct >= 0.75) level = "A2";
+          else if (pct >= 0.5) level = "A1";
+          else if (pct >= 0.3) level = "Pre-A1";
+          EFBProgress.setLevel(level);
+          const box = document.getElementById("result");
+          box.classList.remove("hidden");
+          box.innerHTML = `<div class="panel highlight" style="margin-top:1rem">
+            <h2 style="font-family:var(--font-display);margin-top:0">Estimated Level: ${level}</h2>
+            <p class="bn">স্কোর ${score}/${total}. Recommended: <a href="learn.html">Learn hub</a> থেকে শুরু করুন, প্রতিদিন <a href="daily-challenge.html">Daily Challenge</a> করুন।</p>
+          </div>`;
+        },
+      });
+    });
+  </script>
+</body>
+</html>

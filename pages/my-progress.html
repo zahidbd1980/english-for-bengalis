@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Progress — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>My Progress</span></nav>
+    <h1 class="page-title">আমার প্রোগ্রেস</h1>
+    <p class="page-intro bn">মাস্টারি ও রিভিউ এক নজরে। ব্রাউজার ডেটা হারাতে পারে — নিয়মিত Export করুন।</p>
+    <div id="dash" class="lesson-block"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    function pct(n, d) { return d ? Math.round((n / d) * 100) : 0; }
+
+    Promise.all([
+      EFBApp.loadJSON("vocabulary.json"),
+      EFBApp.loadJSON("phrasal-verbs.json"),
+      EFBApp.loadJSON("spelling.json"),
+      EFBApp.loadJSON("grammar.json"),
+      EFBApp.loadJSON("common-mistakes.json"),
+    ]).then(([vocab, pv, spell, grammar, mistakes]) => {
+      const state = EFBStorage.load();
+      const due = EFBProgress.dueItems();
+      const countMastered = (list) => list.filter((x) => state.items[x.id] && state.items[x.id].status === 5).length;
+      const countStarted = (list) => list.filter((x) => state.items[x.id] && state.items[x.id].status > 0).length;
+
+      const rows = [
+        { name: "Vocabulary", started: countStarted(vocab), mastered: countMastered(vocab), total: vocab.length },
+        { name: "Phrasal Verbs", started: countStarted(pv), mastered: countMastered(pv), total: pv.length },
+        { name: "Spelling", started: countStarted(spell), mastered: countMastered(spell), total: spell.length },
+        { name: "Grammar", started: countStarted(grammar), mastered: countMastered(grammar), total: grammar.length },
+        { name: "Common Mistakes", started: countStarted(mistakes), mastered: countMastered(mistakes), total: mistakes.length },
+      ];
+
+      document.getElementById("dash").innerHTML = `
+        <div class="panel highlight">
+          <p class="chip">Overview</p>
+          <p class="bn">Estimated level: <strong>${state.profile.estimated_level || "এখনো টেস্ট হয়নি"}</strong></p>
+          <p>Streak: <strong>${state.streak.current}</strong> (longest ${state.streak.longest}) · Goal: <strong>${state.settings.goal}</strong></p>
+          <p class="muted">Daily challenge today: ${state.challenge.date === EFBProgress.todayStr() && state.challenge.completed ? "Completed ✔" : "Not completed yet"}</p>
+          <div class="stack-actions">
+            <a class="btn btn-accent" href="daily-challenge.html">Daily Challenge</a>
+            <a class="btn btn-secondary" href="settings.html">Export / Settings</a>
+          </div>
+        </div>
+        <div class="panel">
+          <h2 style="margin-top:0;font-family:var(--font-display)">Skill progress</h2>
+          <div class="stat-row">
+            ${rows.map((r) => `
+              <div class="stat">
+                <div class="stat-top"><span>${r.name}</span><span>${r.mastered}/${r.total} mastered · ${r.started} started</span></div>
+                <div class="bar" data-pct="${pct(r.mastered, r.total)}"><i></i></div>
+              </div>`).join("")}
+          </div>
+        </div>
+        <div class="panel">
+          <h2 style="margin-top:0;font-family:var(--font-display)">Review due</h2>
+          ${due.length ? `<ul class="list-clean">${due.slice(0, 12).map((d) => `<li><a href="quizzes.html">${d.id}</a></li>`).join("")}</ul>
+            <a class="btn btn-primary" href="quizzes.html">রিভিউ কুইজ</a>` : `<p class="empty-state bn">আজ রিভিউ নেই — নতুন লেসন করুন।</p>
+            <a class="btn btn-primary" href="learn.html">শিখুন</a>`}
+        </div>
+        <div class="panel">
+          <h2 style="margin-top:0;font-family:var(--font-display)">Mistake Bank</h2>
+          ${state.mistakes.length ? `<ul>${state.mistakes.slice(0, 15).map((m) => `<li><code>${m}</code></li>`).join("")}</ul>
+            <a class="btn btn-secondary" href="quizzes.html?skill=mistakes">Mistakes quiz</a>` : `<p class="muted bn">এখনো কোনো ভুল জমা হয়নি। কুইজ দিলে ভুলগুলো এখানে আসবে।</p>`}
+        </div>
+      `;
+      EFBApp.animateBars();
+    });
+  </script>
+</body>
+</html>

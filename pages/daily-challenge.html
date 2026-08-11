@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daily Challenge — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Daily Challenge</span></nav>
+    <h1 class="page-title">ডেইলি চ্যালেঞ্জ</h1>
+    <p class="page-intro bn">আজকের মিশ্র অনুশীলন — প্রায় ১০ মিনিট।</p>
+    <div id="status" class="panel" style="margin-bottom:1rem"></div>
+    <div id="quiz-root"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/quiz-engine.js"></script>
+  <script src="../js/daily-challenge.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    Promise.all([
+      EFBApp.loadJSON("quizzes.json"),
+    ]).then(([quizzes]) => {
+      const pools = {
+        vocabulary: quizzes.filter((q) => q.skill === "vocabulary"),
+        phrasal: quizzes.filter((q) => q.skill === "phrasal"),
+        spelling: quizzes.filter((q) => q.skill === "spelling"),
+        grammar: quizzes.filter((q) => q.skill === "grammar"),
+        mistakes: quizzes.filter((q) => q.skill === "mistakes"),
+      };
+      const challenge = EFBChallenge.buildChallenge(pools);
+      const state = EFBStorage.load();
+      document.getElementById("status").innerHTML = state.challenge.completed && state.challenge.date === EFBProgress.todayStr()
+        ? `<p class="bn">আজকের চ্যালেঞ্জ সম্পন্ন ✔ স্কোর: <strong>${state.challenge.score}/${state.challenge.total}</strong></p>
+           <p class="muted">চাইলে আবারও অনুশীলন করতে পারেন।</p>`
+        : `<p class="bn">আজকের আইটেম: <strong>${challenge.total || challenge.questions.length}</strong> · Streak: <strong>${state.streak.current}</strong></p>`;
+
+      const questions = (challenge.questions || []).map((q) => {
+        if (q.question) return q;
+        return q;
+      });
+
+      EFBQuiz.mount(document.getElementById("quiz-root"), {
+        questions,
+        limit: questions.length || 10,
+        onComplete: ({ score, total }) => EFBChallenge.markChallengeComplete(score, total),
+      });
+    });
+  </script>
+</body>
+</html>

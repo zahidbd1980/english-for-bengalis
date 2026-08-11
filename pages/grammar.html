@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Grammar — English for Bengalis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Grammar</span></nav>
+    <h1 class="page-title">Grammar · গ্রামার</h1>
+    <p class="page-intro bn">মূল টপিকগুলো বাংলা ব্যাখ্যাসহ — পড়ার পর quiz দিন।</p>
+    <a class="btn btn-primary" href="quizzes.html?skill=grammar" style="margin-bottom:1rem">Grammar Quiz</a>
+    <div id="list" class="lesson-block"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    EFBApp.loadJSON("grammar.json").then((items) => {
+      document.getElementById("list").innerHTML = items.map((g) => {
+        EFBProgress.markSeen(g.id);
+        return `<article class="panel" id="${g.id}">
+          <div class="quiz-meta"><h2 style="margin:0;font-size:1.25rem">${g.topic}</h2><span class="chip">${g.cefr}</span></div>
+          <p>${g.explanation}</p>
+          <p class="bn"><strong>বাংলা:</strong> ${g.bangla_explanation}</p>
+          <h3>Examples</h3>
+          ${(g.examples || []).map((e) => `<div class="example">${e}</div>`).join("")}
+          <h3>Common errors</h3>
+          <ul>${(g.common_errors || []).map((e) => `<li>${e}</li>`).join("")}</ul>
+        </article>`;
+      }).join("");
+      EFBProgress.setLastLesson("grammar", "grammar-list");
+    });
+  </script>
+</body>
+</html>
