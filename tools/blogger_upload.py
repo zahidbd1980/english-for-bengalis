@@ -155,22 +155,21 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
             f'<script src="{base}/js/progress.js"></script>'
             f'<script src="{base}/js/quiz-engine.js"></script>'
             f'<script src="{base}/js/daily-challenge.js"></script>'
+            f'<script src="{base}/js/spelling-practice.js"></script>'
             f'<script src="{base}/js/app.js"></script>'
         )
-        # Fix fetch root: app.js uses data-root on body; inject wrapper
+        # Fix fetch root: MUST run before page scripts that call loadJSON
         wrapper_open = f'<div class="efb-blogger" data-efb-asset="{base}">'
-        # Patch relative data loads inside inline scripts: EFBApp.asset uses data-root.
-        # Override by injecting a tiny bootstrap before app.js
         bootstrap = f"""
 <script>
 window.EFB_ASSET_BASE = "{base}";
 (function(){{
-  const oldFetch = window.fetch;
+  var oldFetch = window.fetch.bind(window);
   window.fetch = function(url, opts) {{
     try {{
-      const u = String(url);
-      if (u.includes("data/") && !u.startsWith("http")) {{
-        const name = u.split("data/").pop();
+      var u = String(url);
+      if (u.indexOf("data/") !== -1 && u.indexOf("http") !== 0) {{
+        var name = u.split("data/").pop();
         return oldFetch("{base}/data/" + name, opts);
       }}
     }} catch (e) {{}}
@@ -179,7 +178,26 @@ window.EFB_ASSET_BASE = "{base}";
 }})();
 </script>
 """
-        out = head_inject + wrapper_open + out + bootstrap + scripts + "</div>"
+        # Strip original relative script tags; we reload absolute copies after bootstrap
+        out = re.sub(
+            r"<script[^>]+src=[\"'][^\"']+[\"'][^>]*>\s*</script>",
+            "",
+            out,
+            flags=re.I,
+        )
+        # Keep inline page scripts, but move them after libraries
+        inline_scripts = re.findall(r"(<script(?![^>]*src=)[^>]*>.*?</script>)", out, flags=re.I | re.S)
+        out_no_inline = re.sub(r"<script(?![^>]*src=)[^>]*>.*?</script>", "", out, flags=re.I | re.S)
+        inline_joined = "\n".join(inline_scripts)
+        out = (
+            head_inject
+            + bootstrap
+            + wrapper_open
+            + out_no_inline
+            + scripts
+            + inline_joined
+            + "</div>"
+        )
     else:
         notice = (
             '<div style="padding:12px;margin:0 0 16px;background:#fff7e8;border:1px solid #f0d9a8;'

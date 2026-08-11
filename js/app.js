@@ -3,17 +3,26 @@
  */
 (function () {
   function rootPrefix() {
+    if (window.EFB_ASSET_BASE) {
+      return String(window.EFB_ASSET_BASE).replace(/\/$/, "");
+    }
     const body = document.body;
     return (body && body.getAttribute("data-root")) || ".";
   }
 
   function asset(path) {
     const root = rootPrefix().replace(/\/$/, "");
-    return root + "/" + path.replace(/^\//, "");
+    const clean = path.replace(/^\//, "");
+    // On Blogger, EFB_ASSET_BASE is absolute CDN/GitHub Pages root
+    if (/^https?:\/\//i.test(root)) {
+      return root + "/" + clean;
+    }
+    return root + "/" + clean;
   }
 
   async function loadJSON(name) {
-    const res = await fetch(asset("data/" + name));
+    const url = asset("data/" + name);
+    const res = await fetch(url);
     if (!res.ok) throw new Error("Failed to load " + name);
     return res.json();
   }
