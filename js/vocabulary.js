@@ -142,7 +142,7 @@
     const syn = (w.synonyms || []).filter(Boolean);
     const ant = (w.antonyms || []).filter(Boolean);
     return `
-      <article class="panel vocab-card" data-id="${esc(w.id)}" data-word="${esc(w.word)}">
+      <article class="panel vocab-card vocab-card-focus" data-id="${esc(w.id)}" data-word="${esc(w.word)}">
         <div class="quiz-meta">
           <strong class="vocab-word">${esc(w.word)}</strong>
           <span class="chip">${esc(w.cefr_level)}</span>
@@ -153,8 +153,8 @@
           <button type="button" class="btn btn-secondary btn-speak" data-speak="${esc(w.word)}" aria-label="Pronounce ${esc(w.word)}">🔊 উচ্চারণ</button>
           <button type="button" class="btn btn-ghost btn-speak-slow" data-speak="${esc(w.word)}" data-slow="1">ধীরে</button>
         </div>
-        <p><strong>${esc(w.meaning_en)}</strong></p>
-        <p class="bn muted">${esc(w.meaning_bn)}</p>
+        <p class="vocab-meaning"><strong>${esc(w.meaning_en)}</strong></p>
+        <p class="bn muted vocab-meaning-bn">${esc(w.meaning_bn)}</p>
         ${
           w.example
             ? `<div class="example">${esc(w.example)}${w.example_bn ? `<br><span class="bn muted">${esc(w.example_bn)}</span>` : ""}</div>`

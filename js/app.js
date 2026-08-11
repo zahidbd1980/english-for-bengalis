@@ -208,6 +208,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", () => {
+    document.body.classList.add("app-body");
     mountChrome();
     renderHomeProgress();
     animateBars();

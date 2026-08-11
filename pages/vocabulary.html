@@ -2,27 +2,28 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Vocabulary — English for Bengalis</title>
   <meta name="description" content="Category vocabulary for Bengali learners: office, home, nature, verbs. Pronunciation, synonyms, antonyms, target lists, custom upload." />
+  <meta name="theme-color" content="#0f6b5c" />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/learning.css" />
 </head>
-<body data-root="..">
+<body data-root=".." class="app-body">
   <a class="skip-link" href="#main">Skip</a>
   <header class="site-header" id="site-header"></header>
   <div class="nav-drawer" id="nav-drawer"></div>
-  <main id="main" class="wrap">
+  <main id="main" class="wrap wrap-app">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Vocabulary</span>
     </nav>
     <h1 class="page-title">Vocabulary · শব্দভাণ্ডার</h1>
-    <p class="page-intro bn">টার্গেট লিস্ট বেছে নিন বা ক্যাটাগরি ফিল্টার করুন। উচ্চারণ শুনুন, similar/opposite দেখুন, কাস্টম লিস্ট আপলোড করে নিজের সেট বানান।</p>
+    <p class="page-intro bn">একটা শব্দ করে শিখুন — Previous / Next দিয়ে এগোবেন। সেটআপ চাইলে নিচে খুলুন।</p>
 
-    <div class="stack-actions" style="margin-bottom:1rem">
-      <a class="btn btn-primary" id="quiz-link" href="quizzes.html?skill=vocabulary">Vocabulary Quiz</a>
-      <a class="btn btn-secondary" id="flash-link" href="flashcards.html?skill=vocabulary">Flashcards</a>
-      <button type="button" class="btn btn-ghost" id="btn-study-filtered">এই ফিল্টার দিয়ে Flashcards</button>
+    <div class="stack-actions stack-actions-scroll" style="margin-bottom:0.85rem">
+      <a class="btn btn-primary" href="quizzes.html?skill=vocabulary">Quiz</a>
+      <a class="btn btn-secondary" href="flashcards.html?skill=vocabulary">Flashcards</a>
+      <button type="button" class="btn btn-secondary" id="btn-study-filtered">এই সেট → Cards</button>
     </div>
 
     <div id="app" class="vocab-shell"></div>
@@ -40,7 +41,7 @@
       let listsMeta = { categories: [], lists: [] };
       let savedLists = EFBVocab.loadSavedLists();
 
-      let activeListId = null; // preset or saved:
+      let activeListId = null;
       let activeSavedId = null;
       let category = "all";
       let pos = "all";
@@ -49,8 +50,10 @@
       let useCustom = false;
       let customText = "";
       let customWords = [];
-      let slowDefault = false;
       let lang = "en-GB";
+      let pageIndex = 0;
+      let setupOpen = false;
+      let filterKey = "";
 
       if (window.speechSynthesis) {
         speechSynthesis.getVoices();
@@ -90,6 +93,17 @@
         return words;
       }
 
+      function syncPage(words) {
+        const key = [activeListId || "", activeSavedId || "", category, pos, level, q, useCustom, customWords.join(",")].join("|");
+        if (key !== filterKey) {
+          filterKey = key;
+          pageIndex = 0;
+        }
+        if (!words.length) pageIndex = 0;
+        else if (pageIndex >= words.length) pageIndex = words.length - 1;
+        if (pageIndex < 0) pageIndex = 0;
+      }
+
       function persistStudySet(words) {
         try {
           sessionStorage.setItem(
@@ -107,16 +121,29 @@
         } catch (e) {}
       }
 
+      function activeLabel() {
+        if (activeSavedId) {
+          const s = savedLists.find((x) => x.id === activeSavedId);
+          return (s && s.title) || "My List";
+        }
+        if (activeListId) {
+          const L = listsMeta.lists.find((x) => x.id === activeListId);
+          return (L && L.title) || "Target list";
+        }
+        if (category !== "all") return category;
+        return "All words";
+      }
+
       function render() {
         const words = currentWords();
-        words.forEach((w) => {
-          if (w.id && window.EFBProgress) EFBProgress.markSeen(w.id);
-        });
+        syncPage(words);
+        const w = words[pageIndex];
+        if (w && w.id && window.EFBProgress) EFBProgress.markSeen(w.id);
 
         const catBtns = (listsMeta.categories || [])
           .map((c) => {
             const active = !activeListId && !activeSavedId && category === c.id;
-            return `<button type="button" class="chip-btn ${active ? "is-active" : ""}" data-cat="${EFBVocab.esc(c.id)}">${EFBVocab.esc(c.label)} <span class="bn">· ${EFBVocab.esc(c.label_bn)}</span></button>`;
+            return `<button type="button" class="chip-btn ${active ? "is-active" : ""}" data-cat="${EFBVocab.esc(c.id)}">${EFBVocab.esc(c.label)}</button>`;
           })
           .join("");
 
@@ -127,7 +154,7 @@
               <input type="radio" name="target-list" value="${EFBVocab.esc(L.id)}" ${on ? "checked" : ""} />
               <strong>${EFBVocab.esc(L.title)}</strong>
               <span class="bn muted">${EFBVocab.esc(L.title_bn)}</span>
-              <span class="muted">${(L.word_ids || []).length} words · ${EFBVocab.esc(L.description_bn || L.description || "")}</span>
+              <span class="muted">${(L.word_ids || []).length} words</span>
             </label>`;
           })
           .join("");
@@ -135,7 +162,7 @@
         const savedCards = savedLists.length
           ? savedLists
               .map(
-                (s) => `<div class="vocab-list-card ${activeSavedId === s.id ? "is-active" : ""}" data-saved="${EFBVocab.esc(s.id)}">
+                (s) => `<div class="vocab-list-card ${activeSavedId === s.id ? "is-active" : ""}">
               <strong>${EFBVocab.esc(s.title)}</strong>
               <span class="muted">${(s.words || []).length} words</span>
               <div class="stack-actions" style="margin-top:0.5rem">
@@ -145,100 +172,129 @@
             </div>`
               )
               .join("")
-          : `<p class="muted bn">এখনো সেভ করা My List নেই।</p>`;
+          : `<p class="muted bn">এখনো My List নেই।</p>`;
+
+        const pct = words.length ? Math.round(((pageIndex + 1) / words.length) * 100) : 0;
+        const cardBlock = w
+          ? EFBVocab.cardHTML(w)
+          : `<div class="empty-state bn">কোনো শব্দ মেলেনি — সেটআপ থেকে ফিল্টার বদলান।</div>`;
 
         root.innerHTML = `
-          <section class="panel vocab-panel">
-            <h2 class="section-title">১) Target Vocabulary Lists</h2>
-            <p class="muted bn">টিচার-কিউরেটেড টার্গেট সেট — এক ক্লিকে ফোকাসড স্টাডি।</p>
-            <div class="vocab-list-grid">${listCards}
-              <label class="vocab-list-card ${!activeListId && !activeSavedId ? "is-active" : ""}">
-                <input type="radio" name="target-list" value="" ${!activeListId && !activeSavedId ? "checked" : ""} />
-                <strong>Browse by filters</strong>
-                <span class="bn muted">ক্যাটাগরি / সার্চ দিয়ে দেখুন</span>
-              </label>
+          <section class="vocab-study panel highlight">
+            <div class="vocab-study-top">
+              <span class="chip">${EFBVocab.esc(activeLabel())}</span>
+              <span class="chip">${words.length ? pageIndex + 1 : 0} / ${words.length}</span>
             </div>
+            <div class="bar" data-pct="${pct}" aria-hidden="true"><i style="width:${pct}%"></i></div>
+            <div id="vocab-card-stage" class="vocab-card-stage">${cardBlock}</div>
+            <div class="vocab-pager" role="group" aria-label="Word navigation">
+              <button type="button" class="btn btn-secondary" id="btn-prev" ${pageIndex <= 0 ? "disabled" : ""}>‹ Previous</button>
+              <button type="button" class="btn btn-primary" id="btn-next" ${!words.length || pageIndex >= words.length - 1 ? "disabled" : ""}>Next ›</button>
+            </div>
+            <p class="muted bn vocab-pager-hint">সোয়াইপ বা ← → কীবোর্ডও চলে</p>
           </section>
 
-          <section class="panel vocab-panel">
-            <h2 class="section-title">২) Category · POS · Level · Search</h2>
-            <div class="chip-row" id="cat-row">${catBtns}</div>
-            <div class="vocab-filters">
-              <label class="field">Part of speech
-                <select id="pos" class="field-input">
-                  <option value="all">All</option>
-                  <option value="verb">Verb</option>
-                  <option value="noun">Noun</option>
-                  <option value="adjective">Adjective</option>
-                  <option value="adverb">Adverb</option>
-                </select>
-              </label>
-              <label class="field">CEFR
-                <select id="level" class="field-input">
-                  <option value="all">All</option>
-                  <option value="A1">A1</option>
-                  <option value="A2">A2</option>
-                  <option value="B1">B1</option>
-                </select>
-              </label>
-              <label class="field bn">খুঁজুন
-                <input id="search" class="field-input" type="search" placeholder="word / অর্থ / synonym" value="${EFBVocab.esc(q)}" />
-              </label>
-              <label class="field">TTS accent
-                <select id="lang" class="field-input">
-                  <option value="en-GB">British (en-GB)</option>
-                  <option value="en-US">American (en-US)</option>
-                </select>
-              </label>
-            </div>
-          </section>
-
-          <section class="panel vocab-panel">
-            <h2 class="section-title">৩) Custom list · আপলোড / পেস্ট</h2>
-            <label class="field" style="display:flex;gap:0.5rem;align-items:center;font-weight:600">
-              <input type="checkbox" id="use-custom" ${useCustom ? "checked" : ""} />
-              <span class="bn">কাস্টম ওয়ার্ড বর্তমান ভিউতে যোগ করুন</span>
-            </label>
-            <div id="custom-box" class="${useCustom ? "" : "hidden"}">
-              <label class="field bn" for="custom-text">প্রতি লাইনে একটি শব্দ (বা word — note)
-                <textarea id="custom-text" class="type-input" rows="5" style="min-height:110px;resize:vertical" placeholder="deadline&#10;colleague&#10;pollution">${EFBVocab.esc(customText)}</textarea>
-              </label>
-              <div class="stack-actions">
-                <label class="btn btn-secondary" style="cursor:pointer">Upload .txt
-                  <input type="file" id="file-upload" accept=".txt,text/plain" hidden />
+          <details class="panel vocab-setup" id="setup-panel" ${setupOpen ? "open" : ""}>
+            <summary class="vocab-setup-summary">
+              <span>সেটআপ · Lists / Filter / Custom</span>
+              <span class="muted">ট্যাপ করে খুলুন</span>
+            </summary>
+            <div class="vocab-setup-body">
+              <h2 class="section-title">Target lists</h2>
+              <div class="vocab-list-grid">${listCards}
+                <label class="vocab-list-card ${!activeListId && !activeSavedId ? "is-active" : ""}">
+                  <input type="radio" name="target-list" value="" ${!activeListId && !activeSavedId ? "checked" : ""} />
+                  <strong>Browse by filters</strong>
+                  <span class="bn muted">ক্যাটাগরি দিয়ে</span>
                 </label>
-                <button type="button" class="btn btn-primary" id="btn-apply-custom">Apply custom</button>
-                <button type="button" class="btn btn-ghost" id="btn-save-my-list">Save as My List</button>
-                <span class="muted">${customWords.length} custom words</span>
               </div>
-            </div>
-            <h3 class="section-title" style="font-size:1.1rem;margin-top:1.25rem">My Lists</h3>
-            <div class="vocab-list-grid">${savedCards}</div>
-          </section>
 
-          <section class="vocab-results">
-            <div class="quiz-meta" style="margin-bottom:0.75rem">
-              <span class="chip">${words.length} words</span>
-              <span class="muted bn">প্রতিটি কার্ডে 🔊 উচ্চারণ · Similar · Opposite</span>
+              <h2 class="section-title">Category & filters</h2>
+              <div class="chip-row" id="cat-row">${catBtns}</div>
+              <div class="vocab-filters">
+                <label class="field">Part of speech
+                  <select id="pos" class="field-input">
+                    <option value="all">All</option>
+                    <option value="verb">Verb</option>
+                    <option value="noun">Noun</option>
+                    <option value="adjective">Adjective</option>
+                    <option value="adverb">Adverb</option>
+                  </select>
+                </label>
+                <label class="field">CEFR
+                  <select id="level" class="field-input">
+                    <option value="all">All</option>
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="B1">B1</option>
+                  </select>
+                </label>
+                <label class="field bn">খুঁজুন
+                  <input id="search" class="field-input" type="search" placeholder="word / অর্থ" value="${EFBVocab.esc(q)}" />
+                </label>
+                <label class="field">TTS
+                  <select id="lang" class="field-input">
+                    <option value="en-GB">British</option>
+                    <option value="en-US">American</option>
+                  </select>
+                </label>
+              </div>
+
+              <h2 class="section-title">Custom list</h2>
+              <label class="field check-row">
+                <input type="checkbox" id="use-custom" ${useCustom ? "checked" : ""} />
+                <span class="bn">কাস্টম ওয়ার্ড যোগ করুন</span>
+              </label>
+              <div id="custom-box" class="${useCustom ? "" : "hidden"}">
+                <label class="field bn" for="custom-text">প্রতি লাইনে একটি শব্দ
+                  <textarea id="custom-text" class="type-input" rows="4" placeholder="deadline&#10;colleague">${EFBVocab.esc(customText)}</textarea>
+                </label>
+                <div class="stack-actions">
+                  <label class="btn btn-secondary" style="cursor:pointer">Upload .txt
+                    <input type="file" id="file-upload" accept=".txt,text/plain" hidden />
+                  </label>
+                  <button type="button" class="btn btn-primary" id="btn-apply-custom">Apply</button>
+                  <button type="button" class="btn btn-ghost" id="btn-save-my-list">Save My List</button>
+                </div>
+              </div>
+              <h3 class="section-title" style="font-size:1.05rem">My Lists</h3>
+              <div class="vocab-list-grid">${savedCards}</div>
             </div>
-            <div id="list" class="lesson-block">${words.map(EFBVocab.cardHTML).join("") || '<div class="empty-state bn">কোনো শব্দ মেলেনি — ফিল্টার বদলান।</div>'}</div>
-          </section>
+          </details>
         `;
 
-        // restore select values
         root.querySelector("#pos").value = pos;
         root.querySelector("#level").value = level;
         root.querySelector("#lang").value = lang;
-
-        bind();
+        bind(words);
       }
 
-      function bind() {
+      function go(delta, words) {
+        const list = words || currentWords();
+        if (!list.length) return;
+        pageIndex = Math.max(0, Math.min(list.length - 1, pageIndex + delta));
+        render();
+        const stage = document.getElementById("vocab-card-stage");
+        if (stage) stage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+
+      function bind(words) {
+        const setup = root.querySelector("#setup-panel");
+        if (setup) {
+          setup.addEventListener("toggle", () => {
+            setupOpen = setup.open;
+          });
+        }
+
+        root.querySelector("#btn-prev").addEventListener("click", () => go(-1, words));
+        root.querySelector("#btn-next").addEventListener("click", () => go(1, words));
+
         root.querySelectorAll('input[name="target-list"]').forEach((el) => {
           el.addEventListener("change", () => {
             activeSavedId = null;
             activeListId = el.value || null;
             if (activeListId) category = "all";
+            setupOpen = false;
             render();
           });
         });
@@ -249,6 +305,7 @@
           activeListId = null;
           activeSavedId = null;
           category = btn.getAttribute("data-cat");
+          setupOpen = false;
           render();
         });
 
@@ -265,10 +322,13 @@
         });
 
         let searchTimer = null;
-        root.querySelector("#search").addEventListener("input", (e) => {
+        const search = root.querySelector("#search");
+        search.addEventListener("input", (e) => {
           clearTimeout(searchTimer);
           searchTimer = setTimeout(() => {
             q = e.target.value;
+            const wasOpen = setupOpen;
+            setupOpen = true;
             render();
             const s = root.querySelector("#search");
             if (s) {
@@ -277,11 +337,13 @@
                 s.setSelectionRange(s.value.length, s.value.length);
               } catch (err) {}
             }
+            setupOpen = wasOpen;
           }, 220);
         });
 
         root.querySelector("#use-custom").addEventListener("change", (e) => {
           useCustom = e.target.checked;
+          setupOpen = true;
           render();
         });
 
@@ -305,6 +367,7 @@
               customText = String(reader.result || "");
               customWords = EFBVocab.parseCustomText(customText);
               useCustom = true;
+              setupOpen = true;
               render();
             };
             reader.readAsText(f);
@@ -319,7 +382,7 @@
               alert("আগে কিছু শব্দ পেস্ট/আপলোড করুন।");
               return;
             }
-            const title = prompt("My List-এর নাম দিন:", "My Vocab " + (savedLists.length + 1));
+            const title = prompt("My List-এর নাম:", "My Vocab " + (savedLists.length + 1));
             if (!title) return;
             const item = {
               id: "saved-" + Date.now(),
@@ -331,6 +394,7 @@
             EFBVocab.saveSavedLists(savedLists);
             activeSavedId = item.id;
             activeListId = null;
+            setupOpen = false;
             render();
           });
         }
@@ -339,6 +403,7 @@
           btn.addEventListener("click", () => {
             activeSavedId = btn.getAttribute("data-id");
             activeListId = null;
+            setupOpen = false;
             render();
           });
         });
@@ -349,18 +414,51 @@
             savedLists = savedLists.filter((x) => x.id !== id);
             EFBVocab.saveSavedLists(savedLists);
             if (activeSavedId === id) activeSavedId = null;
+            setupOpen = true;
             render();
           });
         });
 
         root.querySelectorAll(".btn-speak, .btn-speak-slow").forEach((btn) => {
           btn.addEventListener("click", () => {
-            const word = btn.getAttribute("data-speak");
-            const slow = btn.getAttribute("data-slow") === "1" || slowDefault;
-            EFBVocab.speak(word, { lang: lang, slow: slow });
+            EFBVocab.speak(btn.getAttribute("data-speak"), {
+              lang: lang,
+              slow: btn.getAttribute("data-slow") === "1",
+            });
           });
         });
+
+        // Swipe on card stage
+        const stage = root.querySelector("#vocab-card-stage");
+        if (stage) {
+          let x0 = null;
+          stage.addEventListener(
+            "touchstart",
+            (e) => {
+              x0 = e.changedTouches[0].screenX;
+            },
+            { passive: true }
+          );
+          stage.addEventListener(
+            "touchend",
+            (e) => {
+              if (x0 == null) return;
+              const dx = e.changedTouches[0].screenX - x0;
+              x0 = null;
+              if (Math.abs(dx) < 50) return;
+              if (dx < 0) go(1, words);
+              else go(-1, words);
+            },
+            { passive: true }
+          );
+        }
       }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+        if (e.key === "ArrowRight") go(1);
+        if (e.key === "ArrowLeft") go(-1);
+      });
 
       document.getElementById("btn-study-filtered").addEventListener("click", () => {
         const words = currentWords();
