@@ -6,8 +6,8 @@
     "lines": [
       { "en": "Hi! My name is Imran.", "bn": "হাই! আমার নাম ইমরান।" },
       { "en": "Nice to meet you.", "bn": "আপনার সাথে দেখা হয়ে ভালো লাগল।" },
-      { "en": "Where are you from?", "bn": "আপনি কোথা থেকে এসেছেন?" },
-      { "en": "I am from Dhaka.", "bn": "আমি ঢাকা থেকে।" }
+      { "en": "Where are you from?", "bn": "আপনি কোন দেশ/শহরের মানুষ?" },
+      { "en": "I am from Dhaka.", "bn": "আমি ঢাকার।" }
     ]
   },
   {
@@ -19,6 +19,28 @@
       { "en": "It's 500 taka.", "bn": "৫০০ টাকা।" },
       { "en": "Do you have a smaller size?", "bn": "ছোট সাইজ আছে?" },
       { "en": "I will take this one, please.", "bn": "আমি এটা নেব, প্লিজ।" }
+    ]
+  },
+  {
+    "id": "spoken:directions-1",
+    "title": "Asking for directions",
+    "level": "A2",
+    "lines": [
+      { "en": "Excuse me, how do I get to the station?", "bn": "মাফ করবেন, স্টেশনে কীভাবে যাব?" },
+      { "en": "Go straight and turn left at the traffic lights.", "bn": "সোজা যান, তারপর ট্রাফিক লাইটে বামে ঘুরুন।" },
+      { "en": "Is it far from here?", "bn": "এখান থেকে কি দূরে?" },
+      { "en": "No, it's about five minutes on foot.", "bn": "না, হেঁটে প্রায় পাঁচ মিনিট।" }
+    ]
+  },
+  {
+    "id": "spoken:phone-1",
+    "title": "A short phone call",
+    "level": "A2",
+    "lines": [
+      { "en": "Hello, this is Rina speaking.", "bn": "হ্যালো, আমি রিনা বলছি।" },
+      { "en": "Could I speak to Karim, please?", "bn": "আমি কি করিমের সাথে কথা বলতে পারি?" },
+      { "en": "Sorry, he is busy right now.", "bn": "দুঃখিত, তিনি এখন ব্যস্ত।" },
+      { "en": "Please ask him to call me back.", "bn": "তাকে বলবেন আমাকে ফোন করতে।" }
     ]
   },
   {

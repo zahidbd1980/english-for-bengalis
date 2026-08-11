@@ -32,7 +32,7 @@
     }
 
     EFBApp.loadJSON("quizzes.json").then((all) => {
-      const skills = ["all", "vocabulary", "grammar", "phrasal", "spelling", "mistakes"];
+      const skills = ["all", "vocabulary", "grammar", "phrasal", "spelling", "mistakes", "translate"];
       document.getElementById("filters").innerHTML = skills.map((s) =>
         `<button type="button" class="btn ${s === skill ? "btn-primary" : "btn-secondary"}" data-s="${s}">${s}</button>`
       ).join("");

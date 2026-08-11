@@ -26,11 +26,13 @@
       { item_id: "vocab:improve", type: "type", question: "আমি আমার ইংরেজি উন্নত করতে চাই।", question_bn: "ইংরেজিতে লিখুন:", answer: "I want to improve my English.", explanation: "want to + verb" },
       { item_id: "grammar:present-continuous", type: "type", question: "আমি ইংরেজি শিখছি।", question_bn: "ইংরেজিতে লিখুন:", answer: "I am learning English.", explanation: "am + learning = Present Continuous" },
       { item_id: "mistake:i-am-agree", type: "type", question: "আমি একমত। (সতর্ক: I am agree নয়)", question_bn: "ইংরেজিতে লিখুন:", answer: "I agree.", explanation: "I agree — no am" },
-      { item_id: "pv:give-up", type: "type", question: "চেষ্টা ছেড়ে দিও না।", question_bn: "ইংরেজিতে লিখুন:", answer: "Don't give up.", explanation: "give up = stop trying" },
-      { item_id: "mistake:open-light", type: "type", question: "লাইটটা জ্বালাও / চালু করো।", question_bn: "ইংরেজিতে লিখুন:", answer: "Turn on the light.", explanation: "Not: open the light" },
+      { item_id: "pv:give-up", type: "type", question: "চেষ্টা ছেড়ে দিও না।", question_bn: "ইংরেজিতে লিখুন:", answer: "Don't give up.", answers: ["Do not give up."], explanation: "give up = stop trying" },
+      { item_id: "mistake:open-light", type: "type", question: "লাইটটা জ্বালাও / চালু করো।", question_bn: "ইংরেজিতে লিখুন:", answer: "Turn on the light.", answers: ["Please turn on the light.", "Turn the light on.", "Please turn the light on."], explanation: "Not: open the light" },
       { item_id: "vocab:available", type: "type", question: "আপনি কি কাল খালি আছেন?", question_bn: "ইংরেজিতে লিখুন:", answer: "Are you available tomorrow?", explanation: "available = free" },
+      { item_id: "mistake:i-am-student", type: "type", question: "আমি একজন শিক্ষার্থী। (article মনে রাখুন)", question_bn: "ইংরেজিতে লিখুন:", answer: "I am a student.", explanation: "a + singular countable noun" },
+      { item_id: "mistake:make-homework", type: "type", question: "আমি আমার হোমওয়ার্ক করি। (make নয় — do)", question_bn: "ইংরেজিতে লিখুন:", answer: "I do my homework.", explanation: "do homework" },
     ];
-    EFBQuiz.mount(document.getElementById("quiz-root"), { questions: items, limit: 6 });
+    EFBQuiz.mount(document.getElementById("quiz-root"), { questions: items, limit: 8 });
   </script>
 </body>
 </html>

@@ -48,6 +48,60 @@
     ]
   },
   {
+    "id": "grammar:past-simple",
+    "topic": "Past Simple",
+    "cefr": "A1",
+    "explanation": "Use Past Simple for finished actions in the past. Regular verbs add -ed. Common irregulars: go→went, see→saw, eat→ate, have→had, do→did, come→came. Questions/negatives use did + base verb.",
+    "bangla_explanation": "শেষ হয়ে যাওয়া অতীতের কাজের জন্য Past Simple। নিয়মিত ক্রিয়ায় -ed। অনিয়মিত: go→went, see→saw, eat→ate, have→had, do→did, come→came। প্রশ্ন/নেগেটিভে did + মূল verb।",
+    "examples": [
+      "I watched a film yesterday.",
+      "She went to school by rickshaw.",
+      "Did you finish your homework?",
+      "They did not come early."
+    ],
+    "common_errors": [
+      "Did he went home? → Did he go home?",
+      "I didn't saw him. → I didn't see him.",
+      "She goed to market. → She went to market."
+    ]
+  },
+  {
+    "id": "grammar:modals-can-should",
+    "topic": "Modals: can / should",
+    "cefr": "A2",
+    "explanation": "can = ability or permission. should = advice. After a modal, use the base verb (no to, no -s, no -ed).",
+    "bangla_explanation": "can = পারা / অনুমতি। should = পরামর্শ। Modal-এর পরে মূল verb বসে (to/-s/-ed লাগে না)।",
+    "examples": [
+      "I can swim.",
+      "Can I open the window?",
+      "You should practise every day.",
+      "He cannot drive yet."
+    ],
+    "common_errors": [
+      "I can to swim. → I can swim.",
+      "She cans speak English. → She can speak English.",
+      "You should to study. → You should study."
+    ]
+  },
+  {
+    "id": "grammar:subject-verb-agreement",
+    "topic": "Subject–Verb Agreement",
+    "cefr": "A2",
+    "explanation": "The verb must match the subject. He/she/it + verb-s in Present Simple. Use there is + singular; there are + plural.",
+    "bangla_explanation": "ক্রিয়া subject-এর সাথে মিলতে হবে। Present Simple-এ he/she/it-এর সাথে verb-s। there is + একবচন; there are + বহুবচন।",
+    "examples": [
+      "He works in an office.",
+      "They work in an office.",
+      "There is a book on the table.",
+      "There are three books on the table."
+    ],
+    "common_errors": [
+      "He work hard. → He works hard.",
+      "There is many students. → There are many students.",
+      "My friends likes tea. → My friends like tea."
+    ]
+  },
+  {
     "id": "grammar:articles",
     "topic": "Articles: a / an / the",
     "cefr": "A2",
@@ -60,19 +114,21 @@
     ],
     "common_errors": [
       "She is a honest woman. → She is an honest woman. (honest starts with vowel sound)",
-      "I go to the home. → I go home. (often no article)"
+      "I go to the home. → I go home. (often no article)",
+      "I am student. → I am a student."
     ]
   },
   {
     "id": "grammar:prepositions-in-on-at",
     "topic": "Prepositions: in / on / at",
     "cefr": "A2",
-    "explanation": "Common time/place patterns: at + clock time, on + day/date, in + month/year/city.",
-    "bangla_explanation": "সাধারণ প্যাটার্ন: at + সময়, on + দিন/তারিখ, in + মাস/বছর/শহর।",
+    "explanation": "Common time/place patterns: at + clock time, on + day/date, in + month/year/city. Also: in the morning, on the bus, at school/home (patterns vary—learn common chunks).",
+    "bangla_explanation": "সাধারণ প্যাটার্ন: at + সময়, on + দিন/তারিখ, in + মাস/বছর/শহর। আরও: in the morning, on the bus, at school/home।",
     "examples": [
       "The meeting is at 5 pm.",
       "My birthday is on Monday.",
-      "I live in Dhaka."
+      "I live in Dhaka.",
+      "She studies in the morning."
     ],
     "common_errors": [
       "I will meet you in 5 pm. → at 5 pm",
@@ -80,19 +136,39 @@
     ]
   },
   {
+    "id": "grammar:countable-uncountable",
+    "topic": "Countable & Uncountable Nouns",
+    "cefr": "A2",
+    "explanation": "Countable nouns can be singular/plural (a book / books). Uncountable nouns have no plural and take much/a little (water, information, advice, homework). Use many/a few with countable plurals.",
+    "bangla_explanation": "Countable = গণনাযোগ্য (a book / books)। Uncountable = বহুবচন হয় না; much/a little লাগে (water, information, advice, homework)। Countable plural-এ many/a few।",
+    "examples": [
+      "I need some water.",
+      "She gave me good advice.",
+      "There are many students here.",
+      "I have a little money."
+    ],
+    "common_errors": [
+      "Informations are useful. → Information is useful.",
+      "I need an advice. → I need some advice. / a piece of advice.",
+      "How many money? → How much money?"
+    ]
+  },
+  {
     "id": "grammar:present-perfect",
     "topic": "Present Perfect",
     "cefr": "A2",
-    "explanation": "have/has + past participle for life experience and past actions with present result.",
-    "bangla_explanation": "জীবনের অভিজ্ঞতা বা অতীতের কাজ যার ফল এখনো আছে — সেখানে have/has + past participle।",
+    "explanation": "have/has + past participle for life experience and past actions with present result. Use for + duration and since + starting point.",
+    "bangla_explanation": "জীবনের অভিজ্ঞতা বা অতীতের কাজ যার ফল এখনো আছে — have/has + past participle। সময়কালে for; শুরুর পয়েন্টে since।",
     "examples": [
       "I have finished my homework.",
       "She has visited Cox's Bazar.",
-      "Have you ever eaten sushi?"
+      "Have you ever eaten sushi?",
+      "I have lived here for 5 years. / since 2020."
     ],
     "common_errors": [
       "I have saw that movie. → I have seen that movie.",
-      "I am finished my work. → I have finished my work."
+      "I am finished my work. → I have finished my work.",
+      "I have lived here since 5 years. → for 5 years."
     ]
   }
 ]

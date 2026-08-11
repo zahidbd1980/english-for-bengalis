@@ -23,6 +23,38 @@
       .replace(/\s+/g, " ");
   }
 
+  // Accept common US/UK pairs so learners are not marked wrong unfairly
+  const SPELLING_ALTS = {
+    neighbour: ["neighbor"],
+    neighbor: ["neighbour"],
+    favourite: ["favorite"],
+    favorite: ["favourite"],
+    recognise: ["recognize"],
+    recognize: ["recognise"],
+    jewellery: ["jewelry"],
+    jewelry: ["jewellery"],
+    colour: ["color"],
+    color: ["colour"],
+    centre: ["center"],
+    center: ["centre"],
+    judgement: ["judgment"],
+    judgment: ["judgement"],
+    licence: ["license"],
+    license: ["licence"],
+    manoeuvre: ["maneuver"],
+    maneuver: ["manoeuvre"],
+    practise: ["practice"],
+    practice: ["practise"],
+  };
+
+  function answersMatch(user, target) {
+    const u = normalize(user);
+    const t = normalize(target);
+    if (u === t) return true;
+    const alts = SPELLING_ALTS[t] || [];
+    return alts.some((a) => normalize(a) === u);
+  }
+
   function shuffle(arr) {
     const a = arr.slice();
     for (let i = a.length - 1; i > 0; i--) {
@@ -40,7 +72,7 @@
       }
       global.speechSynthesis.cancel();
       const u = new SpeechSynthesisUtterance(word);
-      u.lang = (opts && opts.lang) || "en-US";
+      u.lang = (opts && opts.lang) || "en-GB";
       u.rate = opts && opts.slow ? 0.7 : 0.95;
       u.onend = () => resolve(true);
       u.onerror = () => resolve(false);
@@ -89,7 +121,7 @@
   function check(session, answer) {
     if (!session.current) return { ok: false, done: true };
     session.attempts += 1;
-    const ok = normalize(answer) === normalize(session.current);
+    const ok = answersMatch(answer, session.current);
     if (ok) {
       if (!session.correct.includes(session.current)) session.correct.push(session.current);
       session.lastResult = "correct";
@@ -138,6 +170,7 @@
   global.EFBSpelling = {
     dedupe,
     normalize,
+    answersMatch,
     shuffle,
     speak,
     createSession,

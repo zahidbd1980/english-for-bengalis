@@ -4,8 +4,8 @@
     "phrase": "give up",
     "meaning_en": "stop trying",
     "meaning_bn": "চেষ্টা ছেড়ে দেওয়া",
-    "example": "Don't give up on your dream.",
-    "example_bn": "তোমার স্বপ্ন ছেড়ে দিও না।",
+    "example": "Don't give up.",
+    "example_bn": "চেষ্টা ছেড়ে দিও না।",
     "cefr_level": "A2"
   },
   {
@@ -48,9 +48,9 @@
     "id": "pv:pick-up",
     "phrase": "pick up",
     "meaning_en": "collect someone/something; learn informally",
-    "meaning_bn": "নিয়ে আসা; অনানুষ্ঠানিকভাবে শেখা",
+    "meaning_bn": "গাড়িতে তুলে নেওয়া; অনানুষ্ঠানিকভাবে শেখা",
     "example": "I will pick you up at 6.",
-    "example_bn": "আমি তোমাকে ৬টায় নিয়ে আসব।",
+    "example_bn": "আমি তোমাকে ৬টায় গাড়িতে তুলে নেব।",
     "cefr_level": "A2"
   },
   {
@@ -70,5 +70,41 @@
     "example": "I came across an old photo.",
     "example_bn": "আমি একটা পুরনো ছবি হঠাৎ পেয়ে গেলাম।",
     "cefr_level": "B1"
+  },
+  {
+    "id": "pv:get-up",
+    "phrase": "get up",
+    "meaning_en": "rise from bed; stand",
+    "meaning_bn": "ঘুম থেকে ওঠা",
+    "example": "I get up at 6 every morning.",
+    "example_bn": "আমি প্রতিদিন সকাল ৬টায় উঠি।",
+    "cefr_level": "A1"
+  },
+  {
+    "id": "pv:look-for",
+    "phrase": "look for",
+    "meaning_en": "try to find",
+    "meaning_bn": "খোঁজা",
+    "example": "I am looking for my keys.",
+    "example_bn": "আমি আমার চাবি খুঁজছি।",
+    "cefr_level": "A1"
+  },
+  {
+    "id": "pv:run-out-of",
+    "phrase": "run out of",
+    "meaning_en": "have no more of something",
+    "meaning_bn": "শেষ হয়ে যাওয়া / ফুরিয়ে যাওয়া",
+    "example": "We have run out of milk.",
+    "example_bn": "আমাদের দুধ শেষ হয়ে গেছে।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:take-off",
+    "phrase": "take off",
+    "meaning_en": "remove clothes; (plane) leave the ground",
+    "meaning_bn": "কাপড় খোলা; (বিমান) উড্ডয়ন করা",
+    "example": "Please take off your shoes.",
+    "example_bn": "অনুগ্রহ করে জুতো খুলুন।",
+    "cefr_level": "A2"
   }
 ]

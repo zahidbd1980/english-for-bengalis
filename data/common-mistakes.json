@@ -27,9 +27,9 @@
     "id": "mistake:recommend-me",
     "incorrect": "Can you recommend me a hotel?",
     "correct": "Can you recommend a hotel to me?",
-    "bangla_tip": "recommend someone something নয় — recommend something to someone।",
+    "bangla_tip": "পরীক্ষা/ফর্মাল লেখার জন্য recommend something to someone নিরাপদ।",
     "category": "word-choice",
-    "explanation": "Recommend takes the thing first, then to + person."
+    "explanation": "Safer/formal pattern: recommend something to someone. Informal 'recommend me a hotel' is also heard, especially in British English—prefer the to-form for clear, careful English."
   },
   {
     "id": "mistake:return-back",
@@ -78,5 +78,61 @@
     "bangla_tip": "tell-এর পরে সরাসরি ব্যক্তি — tell me, tell him।",
     "category": "grammar",
     "explanation": "Tell takes an object pronoun without to in this pattern."
+  },
+  {
+    "id": "mistake:i-am-student",
+    "incorrect": "I am student.",
+    "correct": "I am a student.",
+    "bangla_tip": "একবচন countable noun-এর আগে সাধারণত a/an লাগে।",
+    "category": "grammar",
+    "explanation": "Singular countable nouns usually need a/an after be."
+  },
+  {
+    "id": "mistake:make-homework",
+    "incorrect": "I make my homework.",
+    "correct": "I do my homework.",
+    "bangla_tip": "homework-এর সাথে do; make নয়।",
+    "category": "word-choice",
+    "explanation": "Use do homework (and do exercise). Make is for creating something new."
+  },
+  {
+    "id": "mistake:said-me",
+    "incorrect": "He said me the news.",
+    "correct": "He told me the news.",
+    "bangla_tip": "ব্যক্তিকে object হিসেবে বললে tell; say-এর পরে সাধারণত to + person।",
+    "category": "word-choice",
+    "explanation": "tell someone something; say something (to someone)."
+  },
+  {
+    "id": "mistake:reach-to",
+    "incorrect": "We reached to Dhaka at noon.",
+    "correct": "We reached Dhaka at noon.",
+    "bangla_tip": "reach-এর পরে to লাগে না।",
+    "category": "prepositions",
+    "explanation": "Reach takes a direct object: reach a place (no to)."
+  },
+  {
+    "id": "mistake:interested-on",
+    "incorrect": "I am interested on music.",
+    "correct": "I am interested in music.",
+    "bangla_tip": "interested-এর সাথে in।",
+    "category": "prepositions",
+    "explanation": "Use interested in + noun/-ing."
+  },
+  {
+    "id": "mistake:depend-of",
+    "incorrect": "It depends of the weather.",
+    "correct": "It depends on the weather.",
+    "bangla_tip": "depend-এর সাথে on।",
+    "category": "prepositions",
+    "explanation": "Use depend on (not of / from)."
+  },
+  {
+    "id": "mistake:enter-into",
+    "incorrect": "Please enter into the room.",
+    "correct": "Please enter the room.",
+    "bangla_tip": "স্থানে ঢোকার অর্থে enter-এর পরে into সাধারণত লাগে না।",
+    "category": "prepositions",
+    "explanation": "For places, use enter + place. enter into is used for agreements/discussions."
   }
 ]

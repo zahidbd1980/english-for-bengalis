@@ -8,7 +8,7 @@
     "question_bn": "improve শব্দের অর্থ কী?",
     "options": ["to make better", "to forget", "to stop", "to hide"],
     "answer": "to make better",
-    "explanation": "Improve = to make better / উন্নতি করা।"
+    "explanation": "Improve = to make better / উন্নত করা।"
   },
   {
     "id": "q2",
@@ -146,9 +146,10 @@
     "skill": "translate",
     "item_id": "vocab:practice",
     "question": "Translate to English: আমি প্রতিদিন অনুশীলন করি।",
-    "question_bn": "ইংরেজিতে লিখুন (simple answer accepted): I practice every day.",
-    "answer": "I practice every day.",
-    "explanation": "I practice every day. / I practise every day. (US spelling used here: practice)"
+    "question_bn": "ইংরেজিতে লিখুন (US/UK spelling both OK):",
+    "answer": "I practice every day",
+    "answers": ["I practice every day.", "I practise every day", "I practise every day."],
+    "explanation": "Both US practice and UK practise (verb) are accepted here."
   },
   {
     "id": "q15",
@@ -160,5 +161,147 @@
     "options": ["I am learning English.", "I learning English.", "I am learn English.", "I learns English now."],
     "answer": "I am learning English.",
     "explanation": "am/is/are + verb-ing."
+  },
+  {
+    "id": "q16",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:past-simple",
+    "question": "Choose the correct question:",
+    "question_bn": "সঠিক প্রশ্ন:",
+    "options": ["Did he go home?", "Did he went home?", "Does he went home?", "Did he goes home?"],
+    "answer": "Did he go home?",
+    "explanation": "After did, use the base verb: go (not went)."
+  },
+  {
+    "id": "q17",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:modals-can-should",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য:",
+    "options": ["I can swim.", "I can to swim.", "I cans swim.", "I can swimming."],
+    "answer": "I can swim.",
+    "explanation": "Modal + base verb (no to)."
+  },
+  {
+    "id": "q18",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:subject-verb-agreement",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য:",
+    "options": ["There are many students.", "There is many students.", "There are a student.", "There is students."],
+    "answer": "There are many students.",
+    "explanation": "Plural noun → there are."
+  },
+  {
+    "id": "q19",
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:i-am-student",
+    "question": "Which sentence is correct?",
+    "question_bn": "কোন বাক্যটি সঠিক?",
+    "options": ["I am a student.", "I am student.", "I am the student always.", "I student am."],
+    "answer": "I am a student.",
+    "explanation": "Singular countable nouns usually need a/an."
+  },
+  {
+    "id": "q20",
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:make-homework",
+    "question": "Fix: I make my homework.",
+    "question_bn": "সংশোধন করুন:",
+    "options": ["I do my homework.", "I make my homework.", "I am make homework.", "I doing homework."],
+    "answer": "I do my homework.",
+    "explanation": "do homework — not make homework."
+  },
+  {
+    "id": "q21",
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:reach-to",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য:",
+    "options": ["We reached Dhaka at noon.", "We reached to Dhaka at noon.", "We reach to Dhaka at noon.", "We reached into Dhaka."],
+    "answer": "We reached Dhaka at noon.",
+    "explanation": "reach + place (no to)."
+  },
+  {
+    "id": "q22",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:borrow",
+    "question": "\"Can I borrow your pen?\" — borrow means:",
+    "question_bn": "borrow মানে:",
+    "options": ["take for a short time and return it", "give someone money forever", "throw away", "sell something"],
+    "answer": "take for a short time and return it",
+    "explanation": "borrow = ধার নেওয়া; lend = ধার দেওয়া।"
+  },
+  {
+    "id": "q23",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:lend",
+    "question": "Please ___ me your book for a day.",
+    "question_bn": "সঠিক শব্দ:",
+    "options": ["lend", "borrow", "lend from", "borrow to"],
+    "answer": "lend",
+    "explanation": "You lend something to someone; you borrow from someone."
+  },
+  {
+    "id": "q24",
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:run-out-of",
+    "question": "We have run out of milk. This means:",
+    "question_bn": "এর মানে:",
+    "options": ["We have no milk left", "We bought extra milk", "Milk is cold", "Milk is outside"],
+    "answer": "We have no milk left",
+    "explanation": "run out of = ফুরিয়ে যাওয়া।"
+  },
+  {
+    "id": "q25",
+    "type": "mcq",
+    "skill": "grammar",
+    "item_id": "grammar:countable-uncountable",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য:",
+    "options": ["I need some advice.", "I need an advice.", "I need advices.", "I need a advices."],
+    "answer": "I need some advice.",
+    "explanation": "advice is uncountable — use some / a piece of advice."
+  },
+  {
+    "id": "q26",
+    "type": "type",
+    "skill": "spelling",
+    "item_id": "spell:separate",
+    "question": "Spell the word: sep-a-rate (not seperate)",
+    "question_bn": "সঠিক বানান:",
+    "answer": "separate",
+    "explanation": "There is a rat in sep-a-rate."
+  },
+  {
+    "id": "q27",
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:interested-on",
+    "question": "I am interested ___ music.",
+    "question_bn": "সঠিক preposition:",
+    "options": ["in", "on", "at", "of"],
+    "answer": "in",
+    "explanation": "interested in."
+  },
+  {
+    "id": "q28",
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:get-up",
+    "question": "I get up at 6. get up means:",
+    "question_bn": "get up মানে:",
+    "options": ["rise from bed", "give up", "sit down", "turn off"],
+    "answer": "rise from bed",
+    "explanation": "get up = ঘুম থেকে ওঠা।"
   }
 ]

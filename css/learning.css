@@ -505,6 +505,23 @@ summary:focus-visible {
   letter-spacing: -0.02em;
 }
 
+.section-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  margin: 0 0 0.75rem;
+  color: var(--color-brand-dark);
+}
+
+.lesson-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.55;
+}
+
+.lesson-list li {
+  margin-bottom: 0.45rem;
+}
+
 .page-intro {
   color: var(--color-muted);
   margin: 0 0 1.5rem;

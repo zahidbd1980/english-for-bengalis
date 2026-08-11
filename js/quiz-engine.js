@@ -16,7 +16,17 @@
       .trim()
       .toLowerCase()
       .replace(/[’']/g, "'")
+      .replace(/[.?!…,;:]+$/g, "")
+      .replace(/^["'“”]+|["'“”]+$/g, "")
       .replace(/\s+/g, " ");
+  }
+
+  function isCorrect(userAnswer, question) {
+    const user = normalize(userAnswer);
+    const accepted = [];
+    if (question.answer != null) accepted.push(question.answer);
+    if (Array.isArray(question.answers)) accepted.push(...question.answers);
+    return accepted.some((a) => normalize(a) === user);
   }
 
   function mount(root, config) {
@@ -98,10 +108,7 @@
           return;
         }
 
-        const ok =
-          q.type === "type"
-            ? normalize(userAnswer) === normalize(q.answer)
-            : normalize(userAnswer) === normalize(q.answer);
+        const ok = isCorrect(userAnswer, q);
 
         answered = true;
         if (ok) score += 1;
@@ -164,5 +171,5 @@
     return escapeHtml(str).replace(/'/g, "&#39;");
   }
 
-  global.EFBQuiz = { mount, shuffle, normalize };
+  global.EFBQuiz = { mount, shuffle, normalize, isCorrect };
 })(window);
