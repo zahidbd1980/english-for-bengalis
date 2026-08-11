@@ -24,12 +24,20 @@
   <script src="../js/app.js"></script>
   <script>
     const skill = new URLSearchParams(location.search).get("skill") || "vocabulary";
+    const fromFilter = new URLSearchParams(location.search).get("from") === "filter";
     Promise.all([
       EFBApp.loadJSON("vocabulary.json"),
       EFBApp.loadJSON("phrasal-verbs.json"),
-    ]).then(([vocab, pv]) => {
+    ]).then(([vocabRaw, pv]) => {
+      const vocab = Array.isArray(vocabRaw) ? vocabRaw : vocabRaw.words || [];
       let cards = [];
-      if (skill === "phrasal") {
+      if (fromFilter && skill === "vocabulary") {
+        try {
+          const raw = sessionStorage.getItem("efb_vocab_study_set");
+          if (raw) cards = JSON.parse(raw) || [];
+        } catch (e) {}
+      }
+      if (!cards.length && skill === "phrasal") {
         cards = pv.map((p) => ({
           item_id: p.id,
           front: p.phrase,
@@ -37,7 +45,7 @@
           back_bn: p.meaning_bn,
           example: p.example,
         }));
-      } else {
+      } else if (!cards.length) {
         cards = vocab.map((w) => ({
           item_id: w.id,
           front: w.word,

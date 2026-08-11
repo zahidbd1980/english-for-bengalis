@@ -156,6 +156,7 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
             f'<script src="{base}/js/quiz-engine.js"></script>'
             f'<script src="{base}/js/daily-challenge.js"></script>'
             f'<script src="{base}/js/spelling-practice.js"></script>'
+            f'<script src="{base}/js/vocabulary.js"></script>'
             f'<script src="{base}/js/app.js"></script>'
         )
         # Fix fetch root: MUST run before page scripts that call loadJSON

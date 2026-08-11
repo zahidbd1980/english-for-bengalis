@@ -6,20 +6,32 @@
     "meaning_bn": "উন্নত করা / উন্নতি সাধন করা",
     "part_of_speech": "verb",
     "cefr_level": "A2",
+    "category": "education",
     "example": "I want to improve my English.",
     "example_bn": "আমি আমার ইংরেজি উন্নত করতে চাই।",
-    "category": "daily"
+    "synonyms": [
+      "enhance",
+      "develop"
+    ],
+    "antonyms": [
+      "worsen"
+    ]
   },
   {
     "id": "vocab:practice",
     "word": "practice",
-    "meaning_en": "to do something regularly to improve (US verb/noun; UK verb often 'practise')",
+    "meaning_en": "regular training to get better (US spelling; UK verb often practise)",
     "meaning_bn": "অনুশীলন (noun) / অনুশীলন করা (verb)",
     "part_of_speech": "verb/noun",
     "cefr_level": "A1",
+    "category": "education",
     "example": "Practice speaking every day.",
     "example_bn": "প্রতিদিন স্পিকিং অনুশীলন করুন।",
-    "category": "daily"
+    "synonyms": [
+      "rehearse",
+      "train"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:confident",
@@ -28,9 +40,17 @@
     "meaning_bn": "আত্মবিশ্বাসী",
     "part_of_speech": "adjective",
     "cefr_level": "A2",
+    "category": "office",
     "example": "She feels confident in interviews.",
     "example_bn": "সে ইন্টারভিউতে আত্মবিশ্বাসী বোধ করে।",
-    "category": "workplace"
+    "synonyms": [
+      "assured",
+      "self-assured"
+    ],
+    "antonyms": [
+      "nervous",
+      "shy"
+    ]
   },
   {
     "id": "vocab:appointment",
@@ -39,9 +59,14 @@
     "meaning_bn": "অ্যাপয়েন্টমেন্ট / নির্ধারিত সাক্ষাৎ",
     "part_of_speech": "noun",
     "cefr_level": "A2",
+    "category": "office",
     "example": "I have a doctor's appointment at 4 pm.",
     "example_bn": "বিকেল ৪টায় আমার ডাক্তারের অ্যাপয়েন্টমেন্ট আছে।",
-    "category": "daily"
+    "synonyms": [
+      "meeting",
+      "booking"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:recommend",
@@ -50,9 +75,16 @@
     "meaning_bn": "সুপারিশ করা",
     "part_of_speech": "verb",
     "cefr_level": "B1",
+    "category": "daily",
     "example": "Can you recommend a good book?",
     "example_bn": "আপনি কি একটি ভালো বই সুপারিশ করতে পারেন?",
-    "category": "daily"
+    "synonyms": [
+      "suggest",
+      "advise"
+    ],
+    "antonyms": [
+      "discourage"
+    ]
   },
   {
     "id": "vocab:deadline",
@@ -61,9 +93,14 @@
     "meaning_bn": "শেষ সময়সীমা",
     "part_of_speech": "noun",
     "cefr_level": "B1",
+    "category": "office",
     "example": "The project deadline is Friday.",
     "example_bn": "প্রজেক্টের ডেডলাইন শুক্রবার।",
-    "category": "workplace"
+    "synonyms": [
+      "due date",
+      "time limit"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:polite",
@@ -72,9 +109,16 @@
     "meaning_bn": "বিনয়ী / ভদ্র",
     "part_of_speech": "adjective",
     "cefr_level": "A2",
+    "category": "daily",
     "example": "Please be polite to customers.",
     "example_bn": "অনুগ্রহ করে কাস্টমারদের সাথে ভদ্র থাকুন।",
-    "category": "workplace"
+    "synonyms": [
+      "courteous",
+      "respectful"
+    ],
+    "antonyms": [
+      "rude"
+    ]
   },
   {
     "id": "vocab:journey",
@@ -83,9 +127,14 @@
     "meaning_bn": "যাত্রা",
     "part_of_speech": "noun",
     "cefr_level": "A2",
+    "category": "travel",
     "example": "It was a long journey by bus.",
     "example_bn": "বাস করে লম্বা যাত্রা ছিল।",
-    "category": "travel"
+    "synonyms": [
+      "trip",
+      "voyage"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:necessary",
@@ -94,9 +143,17 @@
     "meaning_bn": "প্রয়োজনীয়",
     "part_of_speech": "adjective",
     "cefr_level": "A2",
+    "category": "daily",
     "example": "Is a passport necessary?",
     "example_bn": "পাসপোর্ট কি প্রয়োজনীয়?",
-    "category": "daily"
+    "synonyms": [
+      "essential",
+      "required"
+    ],
+    "antonyms": [
+      "unnecessary",
+      "optional"
+    ]
   },
   {
     "id": "vocab:opportunity",
@@ -105,9 +162,14 @@
     "meaning_bn": "সুযোগ",
     "part_of_speech": "noun",
     "cefr_level": "B1",
+    "category": "office",
     "example": "This job is a great opportunity.",
     "example_bn": "এই চাকরিটি একটি বড় সুযোগ।",
-    "category": "workplace"
+    "synonyms": [
+      "chance",
+      "opening"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:explain",
@@ -116,9 +178,16 @@
     "meaning_bn": "ব্যাখ্যা করা",
     "part_of_speech": "verb",
     "cefr_level": "A2",
+    "category": "education",
     "example": "Can you explain this grammar rule?",
     "example_bn": "আপনি কি এই গ্রামার রুল ব্যাখ্যা করতে পারেন?",
-    "category": "daily"
+    "synonyms": [
+      "clarify",
+      "describe"
+    ],
+    "antonyms": [
+      "confuse"
+    ]
   },
   {
     "id": "vocab:available",
@@ -127,20 +196,33 @@
     "meaning_bn": "উপলব্ধ; (সময়) ফাঁকা",
     "part_of_speech": "adjective",
     "cefr_level": "A2",
+    "category": "office",
     "example": "Are you available tomorrow?",
     "example_bn": "আপনি কি কাল খালি আছেন?",
-    "category": "daily"
+    "synonyms": [
+      "free",
+      "open"
+    ],
+    "antonyms": [
+      "busy",
+      "unavailable"
+    ]
   },
   {
     "id": "vocab:family",
     "word": "family",
-    "meaning_en": "parents, children, and relatives living as a group",
+    "meaning_en": "parents, children, and relatives as a group",
     "meaning_bn": "পরিবার",
     "part_of_speech": "noun",
     "cefr_level": "A1",
+    "category": "home",
     "example": "My family lives in Chittagong.",
     "example_bn": "আমার পরিবার চট্টগ্রামে থাকে।",
-    "category": "daily"
+    "synonyms": [
+      "relatives",
+      "household"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:yesterday",
@@ -149,9 +231,13 @@
     "meaning_bn": "গতকাল",
     "part_of_speech": "adverb/noun",
     "cefr_level": "A1",
+    "category": "daily",
     "example": "I met her yesterday.",
     "example_bn": "আমি তাকে গতকাল দেখেছিলাম।",
-    "category": "daily"
+    "synonyms": [],
+    "antonyms": [
+      "tomorrow"
+    ]
   },
   {
     "id": "vocab:tomorrow",
@@ -160,9 +246,13 @@
     "meaning_bn": "আগামীকাল",
     "part_of_speech": "adverb/noun",
     "cefr_level": "A1",
+    "category": "daily",
     "example": "We will start tomorrow.",
     "example_bn": "আমরা আগামীকাল শুরু করব।",
-    "category": "daily"
+    "synonyms": [],
+    "antonyms": [
+      "yesterday"
+    ]
   },
   {
     "id": "vocab:hungry",
@@ -171,9 +261,15 @@
     "meaning_bn": "ক্ষুধার্ত",
     "part_of_speech": "adjective",
     "cefr_level": "A1",
+    "category": "food",
     "example": "I am hungry after class.",
     "example_bn": "ক্লাসের পর আমি ক্ষুধার্ত।",
-    "category": "daily"
+    "synonyms": [
+      "starving"
+    ],
+    "antonyms": [
+      "full"
+    ]
   },
   {
     "id": "vocab:thirsty",
@@ -182,9 +278,11 @@
     "meaning_bn": "তৃষ্ণার্ত",
     "part_of_speech": "adjective",
     "cefr_level": "A1",
+    "category": "food",
     "example": "She is thirsty; she needs water.",
     "example_bn": "সে তৃষ্ণার্ত; তার পানি দরকার।",
-    "category": "daily"
+    "synonyms": [],
+    "antonyms": []
   },
   {
     "id": "vocab:station",
@@ -193,20 +291,30 @@
     "meaning_bn": "স্টেশন",
     "part_of_speech": "noun",
     "cefr_level": "A1",
+    "category": "travel",
     "example": "Meet me at the bus station.",
     "example_bn": "বাস স্টেশনে আমার সাথে দেখা করো।",
-    "category": "travel"
+    "synonyms": [
+      "terminal",
+      "stop"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:ticket",
     "word": "ticket",
-    "meaning_en": "a piece of paper or digital pass that lets you travel or enter",
+    "meaning_en": "a pass that lets you travel or enter",
     "meaning_bn": "টিকিট",
     "part_of_speech": "noun",
     "cefr_level": "A1",
+    "category": "travel",
     "example": "I bought a train ticket.",
     "example_bn": "আমি একটা ট্রেনের টিকিট কিনেছি।",
-    "category": "travel"
+    "synonyms": [
+      "pass",
+      "fare"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:medicine",
@@ -215,31 +323,46 @@
     "meaning_bn": "ওষুধ",
     "part_of_speech": "noun",
     "cefr_level": "A2",
+    "category": "health",
     "example": "Take this medicine twice a day.",
     "example_bn": "এই ওষুধ দিনে দুবার খান।",
-    "category": "daily"
+    "synonyms": [
+      "medication",
+      "drug"
+    ],
+    "antonyms": []
   },
   {
     "id": "vocab:borrow",
     "word": "borrow",
-    "meaning_en": "to take something for a short time and return it later",
+    "meaning_en": "to take something briefly and return it",
     "meaning_bn": "ধার নেওয়া",
     "part_of_speech": "verb",
     "cefr_level": "A2",
+    "category": "verbs",
     "example": "Can I borrow your pen?",
     "example_bn": "আমি কি তোমার কলমটা ধার নিতে পারি?",
-    "category": "daily"
+    "synonyms": [],
+    "antonyms": [
+      "lend"
+    ]
   },
   {
     "id": "vocab:lend",
     "word": "lend",
-    "meaning_en": "to give something to someone for a short time",
+    "meaning_en": "to give something briefly to someone",
     "meaning_bn": "ধার দেওয়া",
     "part_of_speech": "verb",
     "cefr_level": "A2",
+    "category": "verbs",
     "example": "Please lend me your book.",
     "example_bn": "অনুগ্রহ করে আমাকে তোমার বইটা ধার দাও।",
-    "category": "daily"
+    "synonyms": [
+      "loan"
+    ],
+    "antonyms": [
+      "borrow"
+    ]
   },
   {
     "id": "vocab:busy",
@@ -248,31 +371,48 @@
     "meaning_bn": "ব্যস্ত",
     "part_of_speech": "adjective",
     "cefr_level": "A1",
+    "category": "office",
     "example": "Sorry, I am busy today.",
     "example_bn": "দুঃখিত, আজ আমি ব্যস্ত।",
-    "category": "daily"
+    "synonyms": [
+      "occupied"
+    ],
+    "antonyms": [
+      "free",
+      "available"
+    ]
   },
   {
     "id": "vocab:early",
     "word": "early",
-    "meaning_en": "before the usual or expected time",
+    "meaning_en": "before the usual time",
     "meaning_bn": "তাড়াতাড়ি / আগে",
     "part_of_speech": "adjective/adverb",
     "cefr_level": "A1",
+    "category": "daily",
     "example": "Please come early tomorrow.",
     "example_bn": "কাল অনুগ্রহ করে তাড়াতাড়ি এসো।",
-    "category": "daily"
+    "synonyms": [],
+    "antonyms": [
+      "late"
+    ]
   },
   {
     "id": "vocab:late",
     "word": "late",
-    "meaning_en": "after the usual or expected time",
+    "meaning_en": "after the usual time",
     "meaning_bn": "দেরি / বিলম্বে",
     "part_of_speech": "adjective/adverb",
     "cefr_level": "A1",
+    "category": "daily",
     "example": "The bus was late.",
     "example_bn": "বাসটা দেরি করেছিল।",
-    "category": "travel"
+    "synonyms": [
+      "delayed"
+    ],
+    "antonyms": [
+      "early"
+    ]
   },
   {
     "id": "vocab:forget",
@@ -281,9 +421,13 @@
     "meaning_bn": "ভুলে যাওয়া",
     "part_of_speech": "verb",
     "cefr_level": "A1",
+    "category": "verbs",
     "example": "Don't forget your homework.",
     "example_bn": "তোমার হোমওয়ার্ক ভুলো না।",
-    "category": "daily"
+    "synonyms": [],
+    "antonyms": [
+      "remember"
+    ]
   },
   {
     "id": "vocab:remember",
@@ -292,9 +436,15 @@
     "meaning_bn": "মনে রাখা",
     "part_of_speech": "verb",
     "cefr_level": "A1",
+    "category": "verbs",
     "example": "I remember your name.",
     "example_bn": "আমি তোমার নাম মনে রেখেছি।",
-    "category": "daily"
+    "synonyms": [
+      "recall"
+    ],
+    "antonyms": [
+      "forget"
+    ]
   },
   {
     "id": "vocab:arrive",
@@ -303,9 +453,17 @@
     "meaning_bn": "পৌঁছানো",
     "part_of_speech": "verb",
     "cefr_level": "A2",
+    "category": "travel",
     "example": "We arrived at the station at 9.",
     "example_bn": "আমরা ৯টায় স্টেশনে পৌঁছালাম।",
-    "category": "travel"
+    "synonyms": [
+      "reach",
+      "get to"
+    ],
+    "antonyms": [
+      "leave",
+      "depart"
+    ]
   },
   {
     "id": "vocab:leave",
@@ -314,8 +472,1087 @@
     "meaning_bn": "ছেড়ে যাওয়া / বের হওয়া",
     "part_of_speech": "verb",
     "cefr_level": "A1",
+    "category": "travel",
     "example": "I leave home at 7 am.",
     "example_bn": "আমি সকাল ৭টায় বাড়ি থেকে বের হই।",
-    "category": "travel"
+    "synonyms": [
+      "depart",
+      "go"
+    ],
+    "antonyms": [
+      "arrive",
+      "stay"
+    ]
+  },
+  {
+    "id": "vocab:kitchen",
+    "word": "kitchen",
+    "meaning_en": "the room where you cook",
+    "meaning_bn": "রান্নাঘর",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "home",
+    "example": "Mum is in the kitchen.",
+    "example_bn": "মা রান্নাঘরে আছেন।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:bedroom",
+    "word": "bedroom",
+    "meaning_en": "a room for sleeping",
+    "meaning_bn": "শোবার ঘর",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "home",
+    "example": "My bedroom is upstairs.",
+    "example_bn": "আমার শোবার ঘর উপরতলায়।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:clean",
+    "word": "clean",
+    "meaning_en": "not dirty; to remove dirt",
+    "meaning_bn": "পরিষ্কার; পরিষ্কার করা",
+    "part_of_speech": "adjective/verb",
+    "cefr_level": "A1",
+    "category": "home",
+    "example": "Please clean the table.",
+    "example_bn": "অনুগ্রহ করে টেবিলটা পরিষ্কার করো।",
+    "synonyms": [
+      "tidy",
+      "wash"
+    ],
+    "antonyms": [
+      "dirty"
+    ]
+  },
+  {
+    "id": "vocab:dirty",
+    "word": "dirty",
+    "meaning_en": "not clean",
+    "meaning_bn": "নোংরা / ময়লা",
+    "part_of_speech": "adjective",
+    "cefr_level": "A1",
+    "category": "home",
+    "example": "These clothes are dirty.",
+    "example_bn": "এই কাপড়গুলো নোংরা।",
+    "synonyms": [
+      "messy"
+    ],
+    "antonyms": [
+      "clean"
+    ]
+  },
+  {
+    "id": "vocab:neighbour",
+    "word": "neighbour",
+    "meaning_en": "a person living near you",
+    "meaning_bn": "প্রতিবেশী",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "home",
+    "example": "Our neighbour is very kind.",
+    "example_bn": "আমাদের প্রতিবেশী খুব দয়ালু।",
+    "synonyms": [
+      "resident"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:furniture",
+    "word": "furniture",
+    "meaning_en": "tables, chairs, beds, etc.",
+    "meaning_bn": "আসবাবপত্র",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "home",
+    "example": "We bought new furniture.",
+    "example_bn": "আমরা নতুন আসবাব কিনেছি।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:rent",
+    "word": "rent",
+    "meaning_en": "money paid to live in a house; to pay for temporary use",
+    "meaning_bn": "ভাড়া; ভাড়া নেওয়া",
+    "part_of_speech": "noun/verb",
+    "cefr_level": "A2",
+    "category": "home",
+    "example": "How much is the rent?",
+    "example_bn": "ভাড়া কত?",
+    "synonyms": [
+      "hire"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:meeting",
+    "word": "meeting",
+    "meaning_en": "people gathering to discuss work",
+    "meaning_bn": "মিটিং / সভা",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "office",
+    "example": "The meeting starts at 10.",
+    "example_bn": "মিটিং ১০টায় শুরু।",
+    "synonyms": [
+      "discussion",
+      "conference"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:email",
+    "word": "email",
+    "meaning_en": "an electronic message",
+    "meaning_bn": "ইমেইল",
+    "part_of_speech": "noun/verb",
+    "cefr_level": "A1",
+    "category": "office",
+    "example": "Please send me an email.",
+    "example_bn": "অনুগ্রহ করে আমাকে ইমেইল পাঠান।",
+    "synonyms": [
+      "message"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:schedule",
+    "word": "schedule",
+    "meaning_en": "a plan of times for work or events",
+    "meaning_bn": "সময়সূচি",
+    "part_of_speech": "noun/verb",
+    "cefr_level": "A2",
+    "category": "office",
+    "example": "Check the schedule for today.",
+    "example_bn": "আজকের সময়সূচি দেখুন।",
+    "synonyms": [
+      "timetable",
+      "agenda"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:salary",
+    "word": "salary",
+    "meaning_en": "money you earn from a job each month",
+    "meaning_bn": "বেতন",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "office",
+    "example": "His salary increased this year.",
+    "example_bn": "এই বছর তার বেতন বেড়েছে।",
+    "synonyms": [
+      "pay",
+      "wage"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:colleague",
+    "word": "colleague",
+    "meaning_en": "a person you work with",
+    "meaning_bn": "সহকর্মী",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "office",
+    "example": "My colleague helped me.",
+    "example_bn": "আমার সহকর্মী আমাকে সাহায্য করেছে।",
+    "synonyms": [
+      "coworker"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:report",
+    "word": "report",
+    "meaning_en": "a written description of work or facts",
+    "meaning_bn": "রিপোর্ট / বিবরণী",
+    "part_of_speech": "noun/verb",
+    "cefr_level": "B1",
+    "category": "office",
+    "example": "I finished the sales report.",
+    "example_bn": "আমি সেলস রিপোর্ট শেষ করেছি।",
+    "synonyms": [
+      "document",
+      "summary"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:manager",
+    "word": "manager",
+    "meaning_en": "a person who controls a team or shop",
+    "meaning_bn": "ম্যানেজার / ব্যবস্থাপক",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "office",
+    "example": "Speak to the manager, please.",
+    "example_bn": "অনুগ্রহ করে ম্যানেজারের সাথে কথা বলুন।",
+    "synonyms": [
+      "boss",
+      "supervisor"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:task",
+    "word": "task",
+    "meaning_en": "a piece of work to do",
+    "meaning_bn": "কাজ / অ্যাসাইনমেন্ট",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "office",
+    "example": "This task will take one hour.",
+    "example_bn": "এই কাজটিতে এক ঘণ্টা লাগবে।",
+    "synonyms": [
+      "job",
+      "duty"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:park",
+    "word": "park",
+    "meaning_en": "a public green area for walking and rest",
+    "meaning_bn": "পার্ক",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "outdoor",
+    "example": "Children play in the park.",
+    "example_bn": "শিশুরা পার্কে খেলে।",
+    "synonyms": [
+      "garden"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:bridge",
+    "word": "bridge",
+    "meaning_en": "a structure that crosses a river or road",
+    "meaning_bn": "সেতু",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "outdoor",
+    "example": "Cross the bridge carefully.",
+    "example_bn": "সাবধানে সেতু পার হও।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:traffic",
+    "word": "traffic",
+    "meaning_en": "cars and buses on the road",
+    "meaning_bn": "ট্রাফিক / যানজট",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "outdoor",
+    "example": "Traffic is heavy in the morning.",
+    "example_bn": "সকালে ট্রাফিক খুব বেশি।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:river",
+    "word": "river",
+    "meaning_en": "a large natural flow of water",
+    "meaning_bn": "নদী",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "nature",
+    "example": "The Padma is a wide river.",
+    "example_bn": "পদ্মা একটি প্রশস্ত নদী।",
+    "synonyms": [
+      "stream"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:forest",
+    "word": "forest",
+    "meaning_en": "a large area with many trees",
+    "meaning_bn": "বন",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "nature",
+    "example": "We walked through the forest.",
+    "example_bn": "আমরা বনের ভিতর দিয়ে হেঁটেছি।",
+    "synonyms": [
+      "woods"
+    ],
+    "antonyms": [
+      "desert"
+    ]
+  },
+  {
+    "id": "vocab:mountain",
+    "word": "mountain",
+    "meaning_en": "a very high hill",
+    "meaning_bn": "পর্বত / পাহাড়",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "nature",
+    "example": "They climbed the mountain.",
+    "example_bn": "তারা পাহাড়ে উঠেছিল।",
+    "synonyms": [
+      "hill",
+      "peak"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:weather",
+    "word": "weather",
+    "meaning_en": "conditions like rain, sun, wind",
+    "meaning_bn": "আবহাওয়া",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "nature",
+    "example": "The weather is hot today.",
+    "example_bn": "আজ আবহাওয়া গরম।",
+    "synonyms": [
+      "climate"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:rain",
+    "word": "rain",
+    "meaning_en": "water falling from clouds",
+    "meaning_bn": "বৃষ্টি",
+    "part_of_speech": "noun/verb",
+    "cefr_level": "A1",
+    "category": "nature",
+    "example": "It will rain this evening.",
+    "example_bn": "আজ সন্ধ্যায় বৃষ্টি হবে।",
+    "synonyms": [
+      "shower"
+    ],
+    "antonyms": [
+      "drought"
+    ]
+  },
+  {
+    "id": "vocab:sunny",
+    "word": "sunny",
+    "meaning_en": "bright with sunshine",
+    "meaning_bn": "রৌদ্রোজ্জ্বল",
+    "part_of_speech": "adjective",
+    "cefr_level": "A1",
+    "category": "nature",
+    "example": "It is a sunny morning.",
+    "example_bn": "আজ রৌদ্রোজ্জ্বল সকাল।",
+    "synonyms": [
+      "bright"
+    ],
+    "antonyms": [
+      "cloudy",
+      "rainy"
+    ]
+  },
+  {
+    "id": "vocab:pollution",
+    "word": "pollution",
+    "meaning_en": "dirty air, water, or land from human activity",
+    "meaning_bn": "দূষণ",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "nature",
+    "example": "Air pollution is a big problem.",
+    "example_bn": "বায়ু দূষণ একটি বড় সমস্যা।",
+    "synonyms": [
+      "contamination"
+    ],
+    "antonyms": [
+      "purity"
+    ]
+  },
+  {
+    "id": "vocab:breakfast",
+    "word": "breakfast",
+    "meaning_en": "the first meal of the day",
+    "meaning_bn": "নাস্তা / সকালের খাবার",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "food",
+    "example": "I eat breakfast at 8.",
+    "example_bn": "আমি ৮টায় নাস্তা করি।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:lunch",
+    "word": "lunch",
+    "meaning_en": "the midday meal",
+    "meaning_bn": "দুপুরের খাবার",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "food",
+    "example": "Let's have lunch together.",
+    "example_bn": "চলো একসাথে লাঞ্চ করি।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:dinner",
+    "word": "dinner",
+    "meaning_en": "the main evening meal",
+    "meaning_bn": "রাতের খাবার",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "food",
+    "example": "Dinner is ready.",
+    "example_bn": "ডিনার রেডি।",
+    "synonyms": [
+      "supper"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:delicious",
+    "word": "delicious",
+    "meaning_en": "very tasty",
+    "meaning_bn": "খুব সুস্বাদু",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "category": "food",
+    "example": "This curry is delicious.",
+    "example_bn": "এই তরকারি খুব সুস্বাদু।",
+    "synonyms": [
+      "tasty",
+      "yummy"
+    ],
+    "antonyms": [
+      "tasteless"
+    ]
+  },
+  {
+    "id": "vocab:vegetable",
+    "word": "vegetable",
+    "meaning_en": "a plant used as food",
+    "meaning_bn": "সবজি",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "food",
+    "example": "Eat more vegetables.",
+    "example_bn": "আরও সবজি খান।",
+    "synonyms": [
+      "greens"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:spicy",
+    "word": "spicy",
+    "meaning_en": "hot in taste from chilli",
+    "meaning_bn": "ঝাল / মশলাদার",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "category": "food",
+    "example": "Bengali food can be spicy.",
+    "example_bn": "বাঙালি খাবার ঝাল হতে পারে।",
+    "synonyms": [
+      "hot"
+    ],
+    "antonyms": [
+      "mild"
+    ]
+  },
+  {
+    "id": "vocab:passport",
+    "word": "passport",
+    "meaning_en": "an official document for foreign travel",
+    "meaning_bn": "পাসপোর্ট",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "travel",
+    "example": "Keep your passport safe.",
+    "example_bn": "পাসপোর্ট নিরাপদে রাখুন।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:airport",
+    "word": "airport",
+    "meaning_en": "a place where planes take off and land",
+    "meaning_bn": "বিমানবন্দর",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "travel",
+    "example": "We reached the airport early.",
+    "example_bn": "আমরা তাড়াতাড়ি এয়ারপোর্টে পৌঁছালাম।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:luggage",
+    "word": "luggage",
+    "meaning_en": "bags you take when travelling",
+    "meaning_bn": "মালপত্র / লাগেজ",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "travel",
+    "example": "My luggage is heavy.",
+    "example_bn": "আমার লাগেজ ভারী।",
+    "synonyms": [
+      "baggage",
+      "bags"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:direction",
+    "word": "direction",
+    "meaning_en": "the way to go somewhere",
+    "meaning_bn": "দিক / পথনির্দেশ",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "travel",
+    "example": "Can you give me directions?",
+    "example_bn": "আমাকে পথ বলে দিতে পারবেন?",
+    "synonyms": [
+      "route",
+      "way"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:doctor",
+    "word": "doctor",
+    "meaning_en": "a person who treats sick people",
+    "meaning_bn": "ডাক্তার",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "health",
+    "example": "I need to see a doctor.",
+    "example_bn": "আমাকে ডাক্তার দেখাতে হবে।",
+    "synonyms": [
+      "physician"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:hospital",
+    "word": "hospital",
+    "meaning_en": "a place where sick people are treated",
+    "meaning_bn": "হাসপাতাল",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "health",
+    "example": "She works in a hospital.",
+    "example_bn": "সে হাসপাতালে কাজ করে।",
+    "synonyms": [
+      "clinic"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:fever",
+    "word": "fever",
+    "meaning_en": "high body temperature from illness",
+    "meaning_bn": "জ্বর",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "health",
+    "example": "He has a high fever.",
+    "example_bn": "তার হাই ফিভার।",
+    "synonyms": [],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:healthy",
+    "word": "healthy",
+    "meaning_en": "in good health",
+    "meaning_bn": "সুস্থ / স্বাস্থ্যকর",
+    "part_of_speech": "adjective",
+    "cefr_level": "A1",
+    "category": "health",
+    "example": "Exercise keeps you healthy.",
+    "example_bn": "ব্যায়াম আপনাকে সুস্থ রাখে।",
+    "synonyms": [
+      "fit",
+      "well"
+    ],
+    "antonyms": [
+      "ill",
+      "unhealthy"
+    ]
+  },
+  {
+    "id": "vocab:exercise",
+    "word": "exercise",
+    "meaning_en": "physical activity to stay fit",
+    "meaning_bn": "ব্যায়াম",
+    "part_of_speech": "noun/verb",
+    "cefr_level": "A2",
+    "category": "health",
+    "example": "I exercise every morning.",
+    "example_bn": "আমি প্রতিদিন সকালে ব্যায়াম করি।",
+    "synonyms": [
+      "workout"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:student",
+    "word": "student",
+    "meaning_en": "a person who is learning",
+    "meaning_bn": "শিক্ষার্থী / ছাত্র-ছাত্রী",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "education",
+    "example": "I am a student.",
+    "example_bn": "আমি একজন শিক্ষার্থী।",
+    "synonyms": [
+      "learner",
+      "pupil"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:teacher",
+    "word": "teacher",
+    "meaning_en": "a person who teaches",
+    "meaning_bn": "শিক্ষক / শিক্ষিকা",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "education",
+    "example": "Our teacher is patient.",
+    "example_bn": "আমাদের শিক্ষক ধৈর্যশীল।",
+    "synonyms": [
+      "tutor",
+      "instructor"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:homework",
+    "word": "homework",
+    "meaning_en": "school work done at home",
+    "meaning_bn": "হোমওয়ার্ক / বাড়ির কাজ",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "education",
+    "example": "I do my homework after dinner.",
+    "example_bn": "ডিনারের পর আমি হোমওয়ার্ক করি।",
+    "synonyms": [
+      "assignment"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:exam",
+    "word": "exam",
+    "meaning_en": "a formal test of knowledge",
+    "meaning_bn": "পরীক্ষা",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "education",
+    "example": "The exam is next week.",
+    "example_bn": "পরের সপ্তাহে পরীক্ষা।",
+    "synonyms": [
+      "test"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:dictionary",
+    "word": "dictionary",
+    "meaning_en": "a book or app of word meanings",
+    "meaning_bn": "অভিধান",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "education",
+    "example": "Look up the word in a dictionary.",
+    "example_bn": "অভিধানে শব্দটা দেখো।",
+    "synonyms": [
+      "lexicon"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:begin",
+    "word": "begin",
+    "meaning_en": "to start",
+    "meaning_bn": "শুরু করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A1",
+    "category": "verbs",
+    "example": "Let's begin the lesson.",
+    "example_bn": "চলো লেসন শুরু করি।",
+    "synonyms": [
+      "start",
+      "commence"
+    ],
+    "antonyms": [
+      "end",
+      "finish"
+    ]
+  },
+  {
+    "id": "vocab:finish",
+    "word": "finish",
+    "meaning_en": "to complete something",
+    "meaning_bn": "শেষ করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A1",
+    "category": "verbs",
+    "example": "I finished my work.",
+    "example_bn": "আমি কাজ শেষ করেছি।",
+    "synonyms": [
+      "complete",
+      "end"
+    ],
+    "antonyms": [
+      "begin",
+      "start"
+    ]
+  },
+  {
+    "id": "vocab:choose",
+    "word": "choose",
+    "meaning_en": "to pick one option",
+    "meaning_bn": "বাছাই করা / বেছে নেওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "A1",
+    "category": "verbs",
+    "example": "Choose the correct answer.",
+    "example_bn": "সঠিক উত্তর বেছে নাও।",
+    "synonyms": [
+      "select",
+      "pick"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:decide",
+    "word": "decide",
+    "meaning_en": "to choose after thinking",
+    "meaning_bn": "সিদ্ধান্ত নেওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "We decided to stay home.",
+    "example_bn": "আমরা বাড়িতে থাকার সিদ্ধান্ত নিলাম।",
+    "synonyms": [
+      "determine"
+    ],
+    "antonyms": [
+      "hesitate"
+    ]
+  },
+  {
+    "id": "vocab:prefer",
+    "word": "prefer",
+    "meaning_en": "to like one thing more than another",
+    "meaning_bn": "বেশি পছন্দ করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "I prefer tea to coffee.",
+    "example_bn": "কফির চেয়ে চা বেশি পছন্দ করি।",
+    "synonyms": [
+      "favour"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:suggest",
+    "word": "suggest",
+    "meaning_en": "to offer an idea",
+    "meaning_bn": "পরামর্শ দেওয়া / প্রস্তাব করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "I suggest we leave early.",
+    "example_bn": "আমি পরামর্শ দিই আমরা তাড়াতাড়ি যাই।",
+    "synonyms": [
+      "recommend",
+      "propose"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:accept",
+    "word": "accept",
+    "meaning_en": "to say yes to an offer",
+    "meaning_bn": "গ্রহণ করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "She accepted the job offer.",
+    "example_bn": "সে চাকরির অফার গ্রহণ করেছে।",
+    "synonyms": [
+      "agree to"
+    ],
+    "antonyms": [
+      "reject",
+      "refuse"
+    ]
+  },
+  {
+    "id": "vocab:refuse",
+    "word": "refuse",
+    "meaning_en": "to say no",
+    "meaning_bn": "প্রত্যাখ্যান করা / না বলা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "He refused to help.",
+    "example_bn": "সে সাহায্য করতে রাজি হয়নি।",
+    "synonyms": [
+      "decline",
+      "reject"
+    ],
+    "antonyms": [
+      "accept"
+    ]
+  },
+  {
+    "id": "vocab:compare",
+    "word": "compare",
+    "meaning_en": "to look at similarities and differences",
+    "meaning_bn": "তুলনা করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "verbs",
+    "example": "Compare these two sentences.",
+    "example_bn": "এই দুই বাক্য তুলনা করো।",
+    "synonyms": [
+      "contrast"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:describe",
+    "word": "describe",
+    "meaning_en": "to say what something is like",
+    "meaning_bn": "বর্ণনা করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "Describe your hometown.",
+    "example_bn": "তোমার শহরের বর্ণনা দাও।",
+    "synonyms": [
+      "explain",
+      "portray"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:prepare",
+    "word": "prepare",
+    "meaning_en": "to get ready",
+    "meaning_bn": "প্রস্তুত করা / তৈরি হওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "Prepare for the interview.",
+    "example_bn": "ইন্টারভিউয়ের জন্য প্রস্তুত হও।",
+    "synonyms": [
+      "ready",
+      "arrange"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:solve",
+    "word": "solve",
+    "meaning_en": "to find an answer to a problem",
+    "meaning_bn": "সমাধান করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "Can you solve this problem?",
+    "example_bn": "এই সমস্যা সমাধান করতে পারবে?",
+    "synonyms": [
+      "resolve",
+      "fix"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:notice",
+    "word": "notice",
+    "meaning_en": "to see or become aware of something",
+    "meaning_bn": "লক্ষ্য করা",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "verbs",
+    "example": "Did you notice the sign?",
+    "example_bn": "সাইনবোর্ডটা লক্ষ্য করেছ?",
+    "synonyms": [
+      "observe",
+      "spot"
+    ],
+    "antonyms": [
+      "ignore"
+    ]
+  },
+  {
+    "id": "vocab:avoid",
+    "word": "avoid",
+    "meaning_en": "to stay away from something",
+    "meaning_bn": "এড়িয়ে চলা",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "verbs",
+    "example": "Avoid junk food.",
+    "example_bn": "জাঙ্ক ফুড এড়িয়ে চলো।",
+    "synonyms": [
+      "keep away from"
+    ],
+    "antonyms": [
+      "face",
+      "seek"
+    ]
+  },
+  {
+    "id": "vocab:price",
+    "word": "price",
+    "meaning_en": "how much something costs",
+    "meaning_bn": "দাম / মূল্য",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "shopping",
+    "example": "What is the price of this shirt?",
+    "example_bn": "এই শার্টের দাম কত?",
+    "synonyms": [
+      "cost",
+      "rate"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:cheap",
+    "word": "cheap",
+    "meaning_en": "low in price",
+    "meaning_bn": "সস্তা",
+    "part_of_speech": "adjective",
+    "cefr_level": "A1",
+    "category": "shopping",
+    "example": "These shoes are cheap.",
+    "example_bn": "এই জুতোগুলো সস্তা।",
+    "synonyms": [
+      "inexpensive"
+    ],
+    "antonyms": [
+      "expensive"
+    ]
+  },
+  {
+    "id": "vocab:expensive",
+    "word": "expensive",
+    "meaning_en": "costing a lot of money",
+    "meaning_bn": "দামি / ব্যয়বহুল",
+    "part_of_speech": "adjective",
+    "cefr_level": "A1",
+    "category": "shopping",
+    "example": "That phone is expensive.",
+    "example_bn": "ওই ফোনটা দামি।",
+    "synonyms": [
+      "costly"
+    ],
+    "antonyms": [
+      "cheap"
+    ]
+  },
+  {
+    "id": "vocab:customer",
+    "word": "customer",
+    "meaning_en": "a person who buys something",
+    "meaning_bn": "ক্রেতা / কাস্টমার",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "shopping",
+    "example": "The customer asked for a receipt.",
+    "example_bn": "কাস্টমার রসিদ চেয়েছে।",
+    "synonyms": [
+      "buyer",
+      "client"
+    ],
+    "antonyms": [
+      "seller"
+    ]
+  },
+  {
+    "id": "vocab:discount",
+    "word": "discount",
+    "meaning_en": "a reduction in price",
+    "meaning_bn": "ছাড় / ডিসকাউন্ট",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "shopping",
+    "example": "There is a 20% discount today.",
+    "example_bn": "আজ ২০% ছাড় আছে।",
+    "synonyms": [
+      "reduction",
+      "offer"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:password",
+    "word": "password",
+    "meaning_en": "a secret word to open an account",
+    "meaning_bn": "পাসওয়ার্ড",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "example": "Never share your password.",
+    "example_bn": "পাসওয়ার্ড কখনো শেয়ার করো না।",
+    "synonyms": [
+      "passcode"
+    ],
+    "antonyms": []
+  },
+  {
+    "id": "vocab:download",
+    "word": "download",
+    "meaning_en": "to copy a file from the internet to your device",
+    "meaning_bn": "ডাউনলোড করা",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "example": "Download the app first.",
+    "example_bn": "আগে অ্যাপটা ডাউনলোড করো।",
+    "synonyms": [],
+    "antonyms": [
+      "upload"
+    ]
+  },
+  {
+    "id": "vocab:upload",
+    "word": "upload",
+    "meaning_en": "to send a file from your device to the internet",
+    "meaning_bn": "আপলোড করা",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "example": "Upload your photo here.",
+    "example_bn": "এখানে তোমার ছবি আপলোড করো।",
+    "synonyms": [],
+    "antonyms": [
+      "download"
+    ]
+  },
+  {
+    "id": "vocab:website",
+    "word": "website",
+    "meaning_en": "a set of pages on the internet",
+    "meaning_bn": "ওয়েবসাইট",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "example": "Visit our website for lessons.",
+    "example_bn": "লেসনের জন্য আমাদের ওয়েবসাইট দেখুন।",
+    "synonyms": [
+      "site",
+      "webpage"
+    ],
+    "antonyms": []
   }
 ]

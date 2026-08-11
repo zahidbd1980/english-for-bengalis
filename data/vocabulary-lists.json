@@ -1,0 +1,301 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "label": "All",
+      "label_bn": "সব"
+    },
+    {
+      "id": "home",
+      "label": "Home",
+      "label_bn": "বাড়ি"
+    },
+    {
+      "id": "office",
+      "label": "Office",
+      "label_bn": "অফিস"
+    },
+    {
+      "id": "outdoor",
+      "label": "Outdoor",
+      "label_bn": "বাইরে"
+    },
+    {
+      "id": "nature",
+      "label": "Nature",
+      "label_bn": "প্রকৃতি"
+    },
+    {
+      "id": "food",
+      "label": "Food",
+      "label_bn": "খাবার"
+    },
+    {
+      "id": "travel",
+      "label": "Travel",
+      "label_bn": "ভ্রমণ"
+    },
+    {
+      "id": "health",
+      "label": "Health",
+      "label_bn": "স্বাস্থ্য"
+    },
+    {
+      "id": "education",
+      "label": "Education",
+      "label_bn": "শিক্ষা"
+    },
+    {
+      "id": "verbs",
+      "label": "Import Verbs",
+      "label_bn": "গুরুত্বপূর্ণ ক্রিয়া"
+    },
+    {
+      "id": "shopping",
+      "label": "Shopping",
+      "label_bn": "কেনাকাটা"
+    },
+    {
+      "id": "technology",
+      "label": "Technology",
+      "label_bn": "প্রযুক্তি"
+    },
+    {
+      "id": "daily",
+      "label": "Daily",
+      "label_bn": "দৈনন্দিন"
+    }
+  ],
+  "lists": [
+    {
+      "id": "target-a1-core",
+      "title": "A1 Core Target",
+      "title_bn": "A1 মূল টার্গেট লিস্ট",
+      "description": "Survival words every beginner should know first.",
+      "description_bn": "শুরুতেই জানা দরকার এমন প্রয়োজনীয় শব্দ।",
+      "word_ids": [
+        "vocab:practice",
+        "vocab:family",
+        "vocab:yesterday",
+        "vocab:tomorrow",
+        "vocab:hungry",
+        "vocab:thirsty",
+        "vocab:station",
+        "vocab:ticket",
+        "vocab:busy",
+        "vocab:early",
+        "vocab:late",
+        "vocab:forget",
+        "vocab:remember",
+        "vocab:leave",
+        "vocab:kitchen",
+        "vocab:bedroom",
+        "vocab:clean",
+        "vocab:dirty",
+        "vocab:neighbour",
+        "vocab:email",
+        "vocab:park",
+        "vocab:river",
+        "vocab:mountain",
+        "vocab:weather",
+        "vocab:rain",
+        "vocab:sunny",
+        "vocab:breakfast",
+        "vocab:lunch",
+        "vocab:dinner",
+        "vocab:vegetable",
+        "vocab:airport",
+        "vocab:doctor",
+        "vocab:hospital",
+        "vocab:healthy",
+        "vocab:student",
+        "vocab:teacher",
+        "vocab:homework",
+        "vocab:begin",
+        "vocab:finish",
+        "vocab:choose"
+      ]
+    },
+    {
+      "id": "import-verbs",
+      "title": "Important Verbs",
+      "title_bn": "গুরুত্বপূর্ণ ক্রিয়াপদ",
+      "description": "High-frequency action verbs for speaking and writing.",
+      "description_bn": "কথা ও লেখার জন্য জরুরি action verbs।",
+      "word_ids": [
+        "vocab:borrow",
+        "vocab:lend",
+        "vocab:forget",
+        "vocab:remember",
+        "vocab:begin",
+        "vocab:finish",
+        "vocab:choose",
+        "vocab:decide",
+        "vocab:prefer",
+        "vocab:suggest",
+        "vocab:accept",
+        "vocab:refuse",
+        "vocab:compare",
+        "vocab:describe",
+        "vocab:prepare",
+        "vocab:solve",
+        "vocab:notice",
+        "vocab:avoid"
+      ]
+    },
+    {
+      "id": "office-vocab",
+      "title": "Office Vocabulary",
+      "title_bn": "অফিস ভোকাবুলারি",
+      "description": "Meetings, email, deadlines, colleagues.",
+      "description_bn": "মিটিং, ইমেইল, ডেডলাইন, সহকর্মী।",
+      "word_ids": [
+        "vocab:confident",
+        "vocab:appointment",
+        "vocab:deadline",
+        "vocab:opportunity",
+        "vocab:available",
+        "vocab:busy",
+        "vocab:meeting",
+        "vocab:email",
+        "vocab:schedule",
+        "vocab:salary",
+        "vocab:colleague",
+        "vocab:report",
+        "vocab:manager",
+        "vocab:task"
+      ]
+    },
+    {
+      "id": "home-vocab",
+      "title": "Home Vocabulary",
+      "title_bn": "বাড়ির শব্দ",
+      "description": "Rooms, cleaning, neighbours, rent.",
+      "description_bn": "ঘর, পরিষ্কার, প্রতিবেশী, ভাড়া।",
+      "word_ids": [
+        "vocab:family",
+        "vocab:kitchen",
+        "vocab:bedroom",
+        "vocab:clean",
+        "vocab:dirty",
+        "vocab:neighbour",
+        "vocab:furniture",
+        "vocab:rent"
+      ]
+    },
+    {
+      "id": "outdoor-nature",
+      "title": "Outdoor & Nature",
+      "title_bn": "বাইরে ও প্রকৃতি",
+      "description": "Park, traffic, weather, river, pollution.",
+      "description_bn": "পার্ক, ট্রাফিক, আবহাওয়া, নদী, দূষণ।",
+      "word_ids": [
+        "vocab:park",
+        "vocab:bridge",
+        "vocab:traffic",
+        "vocab:river",
+        "vocab:forest",
+        "vocab:mountain",
+        "vocab:weather",
+        "vocab:rain",
+        "vocab:sunny",
+        "vocab:pollution"
+      ]
+    },
+    {
+      "id": "food-health",
+      "title": "Food & Health",
+      "title_bn": "খাবার ও স্বাস্থ্য",
+      "description": "Meals, taste, doctor, exercise.",
+      "description_bn": "খাবার, স্বাদ, ডাক্তার, ব্যায়াম।",
+      "word_ids": [
+        "vocab:hungry",
+        "vocab:thirsty",
+        "vocab:medicine",
+        "vocab:breakfast",
+        "vocab:lunch",
+        "vocab:dinner",
+        "vocab:delicious",
+        "vocab:vegetable",
+        "vocab:spicy",
+        "vocab:doctor",
+        "vocab:hospital",
+        "vocab:fever",
+        "vocab:healthy",
+        "vocab:exercise"
+      ]
+    },
+    {
+      "id": "travel-shopping",
+      "title": "Travel & Shopping",
+      "title_bn": "ভ্রমণ ও কেনাকাটা",
+      "description": "Tickets, airport, price, discount.",
+      "description_bn": "টিকিট, এয়ারপোর্ট, দাম, ছাড়।",
+      "word_ids": [
+        "vocab:journey",
+        "vocab:station",
+        "vocab:ticket",
+        "vocab:arrive",
+        "vocab:leave",
+        "vocab:passport",
+        "vocab:airport",
+        "vocab:luggage",
+        "vocab:direction",
+        "vocab:price",
+        "vocab:cheap",
+        "vocab:expensive",
+        "vocab:customer",
+        "vocab:discount"
+      ]
+    },
+    {
+      "id": "opposites-pack",
+      "title": "Opposites Pack",
+      "title_bn": "বিপরীত শব্দ প্যাক",
+      "description": "Words that come with useful antonyms.",
+      "description_bn": "যেসব শব্দের সাথে antonym শেখা সহজ।",
+      "word_ids": [
+        "vocab:improve",
+        "vocab:confident",
+        "vocab:recommend",
+        "vocab:polite",
+        "vocab:necessary",
+        "vocab:explain",
+        "vocab:available",
+        "vocab:yesterday",
+        "vocab:tomorrow",
+        "vocab:hungry",
+        "vocab:borrow",
+        "vocab:lend",
+        "vocab:busy",
+        "vocab:early",
+        "vocab:late",
+        "vocab:forget",
+        "vocab:remember",
+        "vocab:arrive",
+        "vocab:leave",
+        "vocab:clean",
+        "vocab:dirty",
+        "vocab:forest",
+        "vocab:rain",
+        "vocab:sunny",
+        "vocab:pollution",
+        "vocab:delicious",
+        "vocab:spicy",
+        "vocab:healthy",
+        "vocab:begin",
+        "vocab:finish",
+        "vocab:decide",
+        "vocab:accept",
+        "vocab:refuse",
+        "vocab:notice",
+        "vocab:avoid",
+        "vocab:cheap",
+        "vocab:expensive",
+        "vocab:customer",
+        "vocab:download",
+        "vocab:upload"
+      ]
+    }
+  ]
+}

@@ -6,7 +6,12 @@
     "item_id": "vocab:improve",
     "question": "What does \"improve\" mean?",
     "question_bn": "improve শব্দের অর্থ কী?",
-    "options": ["to make better", "to forget", "to stop", "to hide"],
+    "options": [
+      "to make better",
+      "to forget",
+      "to stop",
+      "to hide"
+    ],
     "answer": "to make better",
     "explanation": "Improve = to make better / উন্নত করা।"
   },
@@ -17,7 +22,12 @@
     "item_id": "vocab:deadline",
     "question": "A \"deadline\" is:",
     "question_bn": "deadline মানে কী?",
-    "options": ["the latest time to finish something", "a holiday", "a classroom", "a soft pillow"],
+    "options": [
+      "the latest time to finish something",
+      "a holiday",
+      "a classroom",
+      "a soft pillow"
+    ],
     "answer": "the latest time to finish something",
     "explanation": "Deadline = শেষ সময়সীমা।"
   },
@@ -28,7 +38,12 @@
     "item_id": "pv:give-up",
     "question": "\"Don't give up\" means:",
     "question_bn": "Don't give up মানে?",
-    "options": ["Don't stop trying", "Don't wake up", "Don't sit down", "Don't turn off"],
+    "options": [
+      "Don't stop trying",
+      "Don't wake up",
+      "Don't sit down",
+      "Don't turn off"
+    ],
     "answer": "Don't stop trying",
     "explanation": "give up = stop trying."
   },
@@ -39,7 +54,12 @@
     "item_id": "pv:look-after",
     "question": "She looks after her brother. What does look after mean?",
     "question_bn": "look after মানে কী?",
-    "options": ["take care of", "look at photos", "search online", "run away"],
+    "options": [
+      "take care of",
+      "look at photos",
+      "search online",
+      "run away"
+    ],
     "answer": "take care of",
     "explanation": "look after = দেখাশোনা করা।"
   },
@@ -50,7 +70,12 @@
     "item_id": "grammar:present-simple",
     "question": "Choose the correct sentence:",
     "question_bn": "সঠিক বাক্যটি বেছে নিন:",
-    "options": ["He goes to school.", "He go to school.", "He going to school.", "He gone to school."],
+    "options": [
+      "He goes to school.",
+      "He go to school.",
+      "He going to school.",
+      "He gone to school."
+    ],
     "answer": "He goes to school.",
     "explanation": "he/she/it + verb-s in Present Simple."
   },
@@ -61,7 +86,12 @@
     "item_id": "grammar:articles",
     "question": "Choose the correct article: She is ___ honest woman.",
     "question_bn": "সঠিক article কোনটি?",
-    "options": ["an", "a", "the", "no article"],
+    "options": [
+      "an",
+      "a",
+      "the",
+      "no article"
+    ],
     "answer": "an",
     "explanation": "honest starts with a vowel sound → an."
   },
@@ -72,7 +102,12 @@
     "item_id": "mistake:i-am-agree",
     "question": "Which sentence is correct?",
     "question_bn": "কোন বাক্যটি সঠিক?",
-    "options": ["I agree.", "I am agree.", "I am agrees.", "I agreeing."],
+    "options": [
+      "I agree.",
+      "I am agree.",
+      "I am agrees.",
+      "I agreeing."
+    ],
     "answer": "I agree.",
     "explanation": "Do not say I am agree."
   },
@@ -83,7 +118,12 @@
     "item_id": "mistake:discuss-about",
     "question": "Fix the sentence: We discussed about the issue.",
     "question_bn": "সংশোধন করুন:",
-    "options": ["We discussed the issue.", "We discussed about the issue.", "We discuss about the issue.", "We discussing the issue."],
+    "options": [
+      "We discussed the issue.",
+      "We discussed about the issue.",
+      "We discuss about the issue.",
+      "We discussing the issue."
+    ],
     "answer": "We discussed the issue.",
     "explanation": "No about after discuss."
   },
@@ -114,7 +154,12 @@
     "item_id": "grammar:prepositions-in-on-at",
     "question": "I will meet you ___ 5 pm.",
     "question_bn": "সঠিক preposition:",
-    "options": ["at", "in", "on", "by"],
+    "options": [
+      "at",
+      "in",
+      "on",
+      "by"
+    ],
     "answer": "at",
     "explanation": "at + clock time."
   },
@@ -125,7 +170,12 @@
     "item_id": "vocab:available",
     "question": "\"Are you available tomorrow?\" means:",
     "question_bn": "এর মানে কী?",
-    "options": ["Are you free tomorrow?", "Are you angry tomorrow?", "Are you traveling forever?", "Are you sleeping now?"],
+    "options": [
+      "Are you free tomorrow?",
+      "Are you angry tomorrow?",
+      "Are you traveling forever?",
+      "Are you sleeping now?"
+    ],
     "answer": "Are you free tomorrow?",
     "explanation": "available = free / উপলব্ধ।"
   },
@@ -136,7 +186,12 @@
     "item_id": "mistake:open-light",
     "question": "Choose the natural English:",
     "question_bn": "স্বাভাবিক ইংরেজি কোনটি?",
-    "options": ["Please turn on the light.", "Please open the light.", "Please start the light open.", "Please on the light."],
+    "options": [
+      "Please turn on the light.",
+      "Please open the light.",
+      "Please start the light open.",
+      "Please on the light."
+    ],
     "answer": "Please turn on the light.",
     "explanation": "Bangla direct translation causes \"open the light\"."
   },
@@ -148,7 +203,11 @@
     "question": "Translate to English: আমি প্রতিদিন অনুশীলন করি।",
     "question_bn": "ইংরেজিতে লিখুন (US/UK spelling both OK):",
     "answer": "I practice every day",
-    "answers": ["I practice every day.", "I practise every day", "I practise every day."],
+    "answers": [
+      "I practice every day.",
+      "I practise every day",
+      "I practise every day."
+    ],
     "explanation": "Both US practice and UK practise (verb) are accepted here."
   },
   {
@@ -158,7 +217,12 @@
     "item_id": "grammar:present-continuous",
     "question": "Choose the correct sentence:",
     "question_bn": "সঠিক বাক্য:",
-    "options": ["I am learning English.", "I learning English.", "I am learn English.", "I learns English now."],
+    "options": [
+      "I am learning English.",
+      "I learning English.",
+      "I am learn English.",
+      "I learns English now."
+    ],
     "answer": "I am learning English.",
     "explanation": "am/is/are + verb-ing."
   },
@@ -169,7 +233,12 @@
     "item_id": "grammar:past-simple",
     "question": "Choose the correct question:",
     "question_bn": "সঠিক প্রশ্ন:",
-    "options": ["Did he go home?", "Did he went home?", "Does he went home?", "Did he goes home?"],
+    "options": [
+      "Did he go home?",
+      "Did he went home?",
+      "Does he went home?",
+      "Did he goes home?"
+    ],
     "answer": "Did he go home?",
     "explanation": "After did, use the base verb: go (not went)."
   },
@@ -180,7 +249,12 @@
     "item_id": "grammar:modals-can-should",
     "question": "Choose the correct sentence:",
     "question_bn": "সঠিক বাক্য:",
-    "options": ["I can swim.", "I can to swim.", "I cans swim.", "I can swimming."],
+    "options": [
+      "I can swim.",
+      "I can to swim.",
+      "I cans swim.",
+      "I can swimming."
+    ],
     "answer": "I can swim.",
     "explanation": "Modal + base verb (no to)."
   },
@@ -191,7 +265,12 @@
     "item_id": "grammar:subject-verb-agreement",
     "question": "Choose the correct sentence:",
     "question_bn": "সঠিক বাক্য:",
-    "options": ["There are many students.", "There is many students.", "There are a student.", "There is students."],
+    "options": [
+      "There are many students.",
+      "There is many students.",
+      "There are a student.",
+      "There is students."
+    ],
     "answer": "There are many students.",
     "explanation": "Plural noun → there are."
   },
@@ -202,7 +281,12 @@
     "item_id": "mistake:i-am-student",
     "question": "Which sentence is correct?",
     "question_bn": "কোন বাক্যটি সঠিক?",
-    "options": ["I am a student.", "I am student.", "I am the student always.", "I student am."],
+    "options": [
+      "I am a student.",
+      "I am student.",
+      "I am the student always.",
+      "I student am."
+    ],
     "answer": "I am a student.",
     "explanation": "Singular countable nouns usually need a/an."
   },
@@ -213,7 +297,12 @@
     "item_id": "mistake:make-homework",
     "question": "Fix: I make my homework.",
     "question_bn": "সংশোধন করুন:",
-    "options": ["I do my homework.", "I make my homework.", "I am make homework.", "I doing homework."],
+    "options": [
+      "I do my homework.",
+      "I make my homework.",
+      "I am make homework.",
+      "I doing homework."
+    ],
     "answer": "I do my homework.",
     "explanation": "do homework — not make homework."
   },
@@ -224,7 +313,12 @@
     "item_id": "mistake:reach-to",
     "question": "Choose the correct sentence:",
     "question_bn": "সঠিক বাক্য:",
-    "options": ["We reached Dhaka at noon.", "We reached to Dhaka at noon.", "We reach to Dhaka at noon.", "We reached into Dhaka."],
+    "options": [
+      "We reached Dhaka at noon.",
+      "We reached to Dhaka at noon.",
+      "We reach to Dhaka at noon.",
+      "We reached into Dhaka."
+    ],
     "answer": "We reached Dhaka at noon.",
     "explanation": "reach + place (no to)."
   },
@@ -235,7 +329,12 @@
     "item_id": "vocab:borrow",
     "question": "\"Can I borrow your pen?\" — borrow means:",
     "question_bn": "borrow মানে:",
-    "options": ["take for a short time and return it", "give someone money forever", "throw away", "sell something"],
+    "options": [
+      "take for a short time and return it",
+      "give someone money forever",
+      "throw away",
+      "sell something"
+    ],
     "answer": "take for a short time and return it",
     "explanation": "borrow = ধার নেওয়া; lend = ধার দেওয়া।"
   },
@@ -246,7 +345,12 @@
     "item_id": "vocab:lend",
     "question": "Please ___ me your book for a day.",
     "question_bn": "সঠিক শব্দ:",
-    "options": ["lend", "borrow", "lend from", "borrow to"],
+    "options": [
+      "lend",
+      "borrow",
+      "lend from",
+      "borrow to"
+    ],
     "answer": "lend",
     "explanation": "You lend something to someone; you borrow from someone."
   },
@@ -257,7 +361,12 @@
     "item_id": "pv:run-out-of",
     "question": "We have run out of milk. This means:",
     "question_bn": "এর মানে:",
-    "options": ["We have no milk left", "We bought extra milk", "Milk is cold", "Milk is outside"],
+    "options": [
+      "We have no milk left",
+      "We bought extra milk",
+      "Milk is cold",
+      "Milk is outside"
+    ],
     "answer": "We have no milk left",
     "explanation": "run out of = ফুরিয়ে যাওয়া।"
   },
@@ -268,7 +377,12 @@
     "item_id": "grammar:countable-uncountable",
     "question": "Choose the correct sentence:",
     "question_bn": "সঠিক বাক্য:",
-    "options": ["I need some advice.", "I need an advice.", "I need advices.", "I need a advices."],
+    "options": [
+      "I need some advice.",
+      "I need an advice.",
+      "I need advices.",
+      "I need a advices."
+    ],
     "answer": "I need some advice.",
     "explanation": "advice is uncountable — use some / a piece of advice."
   },
@@ -289,7 +403,12 @@
     "item_id": "mistake:interested-on",
     "question": "I am interested ___ music.",
     "question_bn": "সঠিক preposition:",
-    "options": ["in", "on", "at", "of"],
+    "options": [
+      "in",
+      "on",
+      "at",
+      "of"
+    ],
     "answer": "in",
     "explanation": "interested in."
   },
@@ -300,8 +419,93 @@
     "item_id": "pv:get-up",
     "question": "I get up at 6. get up means:",
     "question_bn": "get up মানে:",
-    "options": ["rise from bed", "give up", "sit down", "turn off"],
+    "options": [
+      "rise from bed",
+      "give up",
+      "sit down",
+      "turn off"
+    ],
     "answer": "rise from bed",
     "explanation": "get up = ঘুম থেকে ওঠা।"
+  },
+  {
+    "id": "q29",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:colleague",
+    "question": "A \"colleague\" is:",
+    "question_bn": "colleague মানে?",
+    "options": [
+      "a person you work with",
+      "a school subject",
+      "a type of food",
+      "a bus stop"
+    ],
+    "answer": "a person you work with",
+    "explanation": "colleague = সহকর্মী।"
+  },
+  {
+    "id": "q30",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:borrow",
+    "question": "I need a pen. Can I ___ yours?",
+    "question_bn": "সঠিক শব্দ:",
+    "options": [
+      "borrow",
+      "lend",
+      "lend from",
+      "borrow to"
+    ],
+    "answer": "borrow",
+    "explanation": "You borrow from someone; you lend to someone."
+  },
+  {
+    "id": "q31",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:pollution",
+    "question": "Air pollution means:",
+    "question_bn": "এর মানে:",
+    "options": [
+      "dirty air from human activity",
+      "clean mountain air",
+      "a type of medicine",
+      "a bus ticket"
+    ],
+    "answer": "dirty air from human activity",
+    "explanation": "pollution = দূষণ।"
+  },
+  {
+    "id": "q32",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:accept",
+    "question": "Opposite of accept:",
+    "question_bn": "accept-এর বিপরীত:",
+    "options": [
+      "refuse",
+      "begin",
+      "improve",
+      "arrive"
+    ],
+    "answer": "refuse",
+    "explanation": "accept ↔ refuse / reject."
+  },
+  {
+    "id": "q33",
+    "type": "mcq",
+    "skill": "vocabulary",
+    "item_id": "vocab:deadline",
+    "question": "A project deadline is:",
+    "question_bn": "deadline মানে:",
+    "options": [
+      "the latest time to finish",
+      "the first day of holiday",
+      "a salary increase",
+      "a meeting room"
+    ],
+    "answer": "the latest time to finish",
+    "explanation": "deadline = শেষ সময়সীমা।"
   }
 ]

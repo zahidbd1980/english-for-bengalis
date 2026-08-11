@@ -939,3 +939,70 @@ input.field-input {
 .sp-phase { display: inline-flex; margin-bottom: 0.75rem; }
 .sp-feedback.ok { border-left: 4px solid var(--color-success); }
 .sp-feedback.bad { border-left: 4px solid var(--color-danger); }
+
+/* Vocabulary hub */
+.vocab-shell { display: grid; gap: 1rem; }
+.vocab-panel { margin: 0; }
+.vocab-list-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  margin-top: 0.75rem;
+}
+.vocab-list-card {
+  display: grid;
+  gap: 0.25rem;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  background: var(--color-surface);
+  cursor: pointer;
+}
+.vocab-list-card input { margin: 0 0 0.35rem; }
+.vocab-list-card.is-active {
+  border-color: var(--color-brand);
+  background: var(--color-wash);
+}
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.75rem 0 1rem;
+}
+.chip-btn {
+  border: 1px solid var(--color-border);
+  background: #fff;
+  border-radius: 999px;
+  padding: 0.35rem 0.75rem;
+  font: inherit;
+  font-size: 0.88rem;
+  cursor: pointer;
+  color: var(--color-ink);
+}
+.chip-btn.is-active {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: #fff;
+}
+.chip-btn .bn { opacity: 0.85; font-size: 0.8rem; }
+.vocab-filters {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.vocab-card .vocab-word {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+}
+.vocab-actions { margin: 0.35rem 0 0.65rem; }
+.vocab-relations { margin-top: 0.65rem; display: grid; gap: 0.35rem; }
+.vocab-rel { margin: 0; display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.rel-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-muted);
+  margin-right: 0.25rem;
+}
+.vocab-results { margin-top: 0.25rem; }

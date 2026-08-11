@@ -29,7 +29,8 @@
       EFBApp.loadJSON("spelling.json"),
       EFBApp.loadJSON("grammar.json"),
       EFBApp.loadJSON("common-mistakes.json"),
-    ]).then(([vocab, pv, spell, grammar, mistakes]) => {
+    ]).then(([vocabRaw, pv, spell, grammar, mistakes]) => {
+      const vocab = Array.isArray(vocabRaw) ? vocabRaw : vocabRaw.words || [];
       const state = EFBStorage.load();
       const due = EFBProgress.dueItems();
       const countMastered = (list) => list.filter((x) => state.items[x.id] && state.items[x.id].status === 5).length;
