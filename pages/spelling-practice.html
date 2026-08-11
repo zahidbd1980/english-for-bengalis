@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spelling Practice — Listen & Type | English for Bengalis</title>
-  <meta name="description" content="Listen to a word and type the spelling. Wrong words retry until all are correct. Keyboard-friendly." />
+  <meta name="description" content="Listen to a word and type the spelling. Merge preset lists, upload custom lists, save My Lists. Keyboard-friendly mastery loop." />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/learning.css" />
 </head>
@@ -18,8 +18,7 @@
       <a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Spelling Practice</span>
     </nav>
     <h1 class="page-title">Spelling Practice · শুনে লেখো</h1>
-    <p class="page-intro bn">উচ্চারণ শুনুন, বানান লিখুন। ভুলগুলো দিয়ে আবার অনুশীলন — সব Correct না হওয়া পর্যন্ত। মাউস ছাড়াও কীবোর্ডে চলে।</p>
-
+    <p class="page-intro bn">প্রিসেট মিশিয়ে বা কাস্টম আপলোড করে লিস্ট বানান। শুনে লিখুন — ভুল কিউ শেষ না হওয়া পর্যন্ত চলবে। কীবোর্ডেও চলে।</p>
     <div id="app" class="sp-shell"></div>
   </main>
 
@@ -31,21 +30,36 @@
   <script src="../js/app.js"></script>
   <script>
     (function () {
+      const SAVED_KEY = "efb_spelling_my_lists_v1";
       const root = document.getElementById("app");
       let listsData = [];
-      let selectedListId = null;
+      let selectedPresetIds = new Set();
+      let useCustom = false;
       let customWords = [];
+      let savedLists = loadSaved();
+      let activeSavedId = null;
       let session = null;
       let slow = false;
       let lang = "en-US";
       let showHint = false;
       let showHelp = true;
       let awaitingNext = false;
+      let sessionLimit = 0; // 0 = all
 
-      // Chrome voices load async
       if (window.speechSynthesis) {
         speechSynthesis.getVoices();
         speechSynthesis.onvoiceschanged = function () { speechSynthesis.getVoices(); };
+      }
+
+      function loadSaved() {
+        try {
+          return JSON.parse(localStorage.getItem(SAVED_KEY) || "[]");
+        } catch (e) {
+          return [];
+        }
+      }
+      function persistSaved() {
+        localStorage.setItem(SAVED_KEY, JSON.stringify(savedLists));
       }
 
       function esc(s) {
@@ -56,122 +70,208 @@
           .replace(/"/g, "&quot;");
       }
 
-      function selectedWords() {
-        if (selectedListId === "custom") return customWords.slice();
-        const list = listsData.find((l) => l.id === selectedListId);
-        return list ? list.words.slice() : [];
+      function buildWordPool() {
+        let words = [];
+        if (activeSavedId) {
+          const s = savedLists.find((x) => x.id === activeSavedId);
+          if (s) words = s.words.slice();
+        } else {
+          selectedPresetIds.forEach((id) => {
+            const list = listsData.find((l) => l.id === id);
+            if (list) words = words.concat(list.words || []);
+          });
+          if (useCustom) words = words.concat(customWords);
+        }
+        return EFBSpelling.dedupe(words);
+      }
+
+      function applyLimit(words) {
+        const n = Number(sessionLimit) || 0;
+        if (!n || n <= 0 || n >= words.length) return words;
+        return EFBSpelling.shuffle(words).slice(0, n);
       }
 
       function renderSetup() {
         session = null;
         awaitingNext = false;
+        const pool = buildWordPool();
         root.innerHTML = `
           <div class="panel">
-            <h2 style="margin-top:0;font-family:var(--font-display)">১) লিস্ট বেছে নিন</h2>
-            <p class="muted bn">প্রিসেট দিয়ে শুরু করুন, অথবা নিজের ওয়ার্ড পেস্ট/আপলোড করুন। লিস্টে ডুপ্লিকেট অটো কেটে যাবে।</p>
+            <h2 style="margin-top:0;font-family:var(--font-display)">১) প্রিসেট সিলেক্ট (একাধিক OK)</h2>
+            <p class="muted bn">একাধিক লিস্ট টিক দিয়ে মিশিয়ে নতুন প্র্যাকটিস সেট বানান। ডুপ্লিকেট অটো কাটা যাবে।</p>
             <div class="grid grid-3" id="list-picker" style="margin:1rem 0"></div>
-            <div id="custom-box" class="hidden">
-              <label class="field bn" for="custom-text">কাস্টম লিস্ট (প্রতি লাইনে একটি ওয়ার্ড)
-                <textarea id="custom-text" class="type-input" rows="6" placeholder="definitely&#10;necessary&#10;separate" style="min-height:140px;resize:vertical"></textarea>
+
+            <h2 style="font-family:var(--font-display);font-size:1.25rem">২) কাস্টম ওয়ার্ড</h2>
+            <label class="field" style="display:flex;gap:0.5rem;align-items:center;font-weight:600;margin:0.5rem 0">
+              <input type="checkbox" id="use-custom" ${useCustom ? "checked" : ""} />
+              <span class="bn">কাস্টম লিস্টও যোগ করুন</span>
+            </label>
+            <div id="custom-box" class="${useCustom ? "" : "hidden"}">
+              <label class="field bn" for="custom-text">প্রতি লাইনে একটি ওয়ার্ড
+                <textarea id="custom-text" class="type-input" rows="5" placeholder="definitely&#10;necessary&#10;separate" style="min-height:120px;resize:vertical"></textarea>
               </label>
               <div class="stack-actions">
                 <label class="btn btn-secondary" style="cursor:pointer">Upload .txt
                   <input type="file" id="file-upload" accept=".txt,text/plain" hidden />
                 </label>
+                <span class="muted" id="custom-count">${customWords.length} custom words</span>
               </div>
             </div>
-            <div class="stack-actions" style="margin-top:1rem">
+
+            <h2 style="font-family:var(--font-display);font-size:1.25rem;margin-top:1.25rem">৩) My Lists (সেভ করা)</h2>
+            <div id="saved-box" class="stack-actions" style="margin:0.5rem 0 1rem"></div>
+            <div class="stack-actions">
+              <input id="save-name" class="type-input" style="max-width:260px;min-height:44px" placeholder="List name e.g. Week 1" />
+              <button type="button" class="btn btn-secondary" id="btn-save-list">Save current as My List</button>
+            </div>
+
+            <h2 style="font-family:var(--font-display);font-size:1.25rem;margin-top:1.25rem">৪) সেশন সেটিংস</h2>
+            <div class="stack-actions" style="align-items:end">
               <label class="field">Accent
                 <select id="accent" class="field-input">
                   <option value="en-US">US</option>
                   <option value="en-GB">UK</option>
                 </select>
               </label>
+              <label class="field">Words this session
+                <select id="limit" class="field-input">
+                  <option value="0">All selected (${pool.length})</option>
+                  <option value="10">10</option>
+                  <option value="20">20</option>
+                  <option value="30">30</option>
+                  <option value="50">50</option>
+                </select>
+              </label>
             </div>
+            <p class="bn" id="pool-summary"><strong>${pool.length}</strong> unique words ready</p>
+
             <div class="stack-actions">
-              <button type="button" class="btn btn-primary" id="start-btn">Start practice · শুরু (Enter)</button>
-              <a class="btn btn-ghost" href="spelling.html">Study tips / word notes</a>
+              <button type="button" class="btn btn-primary" id="start-btn">Start practice · শুরু</button>
+              <a class="btn btn-ghost" href="spelling.html">Study tips</a>
             </div>
-            <div class="sp-help" id="help">
-              <strong>Keyboard:</strong>
-              <kbd>Enter</kbd> start/check/next ·
-              <kbd>Ctrl</kbd>+<kbd>L</kbd> listen ·
-              <kbd>Shift</kbd>+<kbd>L</kbd> slow ·
-              <kbd>?</kbd> help ·
-              <kbd>S</kbd> slow toggle ·
-              <kbd>H</kbd> letter-count hint
-            </div>
+            ${showHelp ? `<div class="sp-help"><kbd>Enter</kbd> start/check/next · <kbd>Ctrl+L</kbd> listen · <kbd>H</kbd> hint · <kbd>?</kbd> help</div>` : ""}
           </div>
         `;
 
         const picker = document.getElementById("list-picker");
-        listsData.forEach((list, idx) => {
+        listsData.forEach((list) => {
+          const on = selectedPresetIds.has(list.id) && !activeSavedId;
           const btn = document.createElement("button");
           btn.type = "button";
-          btn.className = "sp-list-card" + (selectedListId === list.id ? " selected" : "");
-          btn.setAttribute("aria-pressed", selectedListId === list.id ? "true" : "false");
-          btn.dataset.id = list.id;
+          btn.className = "sp-list-card" + (on ? " selected" : "");
+          btn.setAttribute("aria-pressed", on ? "true" : "false");
           btn.innerHTML = `<strong>${esc(list.title)}</strong>
             <span class="bn muted">${esc(list.title_bn || "")}</span><br>
-            <span class="muted">${list.words.length} words now · target ${list.target_size || "—"}</span>`;
+            <span class="muted">${list.words.length} words · target ${list.target_size || "—"}</span>
+            <div class="muted" style="margin-top:0.35rem">${on ? "✓ Selected" : "Click to toggle"}</div>`;
           btn.addEventListener("click", () => {
-            selectedListId = list.id;
+            activeSavedId = null;
+            if (selectedPresetIds.has(list.id)) selectedPresetIds.delete(list.id);
+            else selectedPresetIds.add(list.id);
             renderSetup();
           });
           picker.appendChild(btn);
         });
 
-        const customBtn = document.createElement("button");
-        customBtn.type = "button";
-        customBtn.className = "sp-list-card" + (selectedListId === "custom" ? " selected" : "");
-        customBtn.setAttribute("aria-pressed", selectedListId === "custom" ? "true" : "false");
-        customBtn.innerHTML = `<strong>Custom list</strong><span class="bn muted">নিজের লিস্ট</span><br><span class="muted">Paste or upload</span>`;
-        customBtn.addEventListener("click", () => {
-          selectedListId = "custom";
+        document.getElementById("use-custom").onchange = (e) => {
+          activeSavedId = null;
+          useCustom = e.target.checked;
           renderSetup();
-        });
-        picker.appendChild(customBtn);
+        };
 
-        if (selectedListId === "custom") {
-          document.getElementById("custom-box").classList.remove("hidden");
+        if (useCustom) {
           const ta = document.getElementById("custom-text");
           ta.value = customWords.join("\n");
           ta.addEventListener("input", () => {
             customWords = EFBSpelling.parseCustomText(ta.value);
+            document.getElementById("custom-count").textContent = customWords.length + " custom words";
+            document.getElementById("pool-summary").innerHTML =
+              `<strong>${buildWordPool().length}</strong> unique words ready`;
           });
           document.getElementById("file-upload").addEventListener("change", async (e) => {
             const f = e.target.files && e.target.files[0];
             if (!f) return;
-            const text = await f.text();
-            customWords = EFBSpelling.parseCustomText(text);
-            ta.value = customWords.join("\n");
+            customWords = EFBSpelling.parseCustomText(await f.text());
+            useCustom = true;
+            renderSetup();
           });
         }
 
-        document.getElementById("accent").value = lang;
-        document.getElementById("accent").addEventListener("change", (e) => {
-          lang = e.target.value;
-        });
+        const savedBox = document.getElementById("saved-box");
+        if (!savedLists.length) {
+          savedBox.innerHTML = `<span class="muted bn">এখনো সেভ করা লিস্ট নেই।</span>`;
+        } else {
+          savedLists.forEach((s) => {
+            const wrap = document.createElement("div");
+            wrap.style.display = "flex";
+            wrap.style.gap = "0.4rem";
+            wrap.style.flexWrap = "wrap";
+            wrap.style.alignItems = "center";
+            const b = document.createElement("button");
+            b.type = "button";
+            b.className = "btn " + (activeSavedId === s.id ? "btn-primary" : "btn-secondary");
+            b.textContent = `${s.name} (${s.words.length})`;
+            b.onclick = () => {
+              activeSavedId = s.id;
+              selectedPresetIds = new Set();
+              useCustom = false;
+              renderSetup();
+            };
+            const del = document.createElement("button");
+            del.type = "button";
+            del.className = "btn btn-ghost";
+            del.textContent = "Delete";
+            del.onclick = () => {
+              if (!confirm("Delete this saved list?")) return;
+              savedLists = savedLists.filter((x) => x.id !== s.id);
+              if (activeSavedId === s.id) activeSavedId = null;
+              persistSaved();
+              renderSetup();
+            };
+            wrap.appendChild(b);
+            wrap.appendChild(del);
+            savedBox.appendChild(wrap);
+          });
+        }
 
-        document.getElementById("start-btn").addEventListener("click", startSession);
+        document.getElementById("btn-save-list").onclick = () => {
+          const name = (document.getElementById("save-name").value || "").trim();
+          const words = buildWordPool();
+          if (!name) return alert("লিস্টের নাম লিখুন");
+          if (!words.length) return alert("আগে কিছু ওয়ার্ড সিলেক্ট/পেস্ট করুন");
+          savedLists.unshift({ id: "saved_" + Date.now(), name, words, createdAt: new Date().toISOString() });
+          savedLists = savedLists.slice(0, 30);
+          persistSaved();
+          activeSavedId = savedLists[0].id;
+          alert("Saved: " + name);
+          renderSetup();
+        };
+
+        document.getElementById("accent").value = lang;
+        document.getElementById("accent").onchange = (e) => (lang = e.target.value);
+        document.getElementById("limit").value = String(sessionLimit || 0);
+        document.getElementById("limit").onchange = (e) => {
+          sessionLimit = Number(e.target.value) || 0;
+        };
+
+        document.getElementById("start-btn").onclick = startSession;
       }
 
       function startSession() {
-        const words = selectedWords();
+        lang = document.getElementById("accent") ? document.getElementById("accent").value : lang;
+        if (document.getElementById("limit")) sessionLimit = Number(document.getElementById("limit").value) || 0;
+        let words = applyLimit(buildWordPool());
         if (!words.length) {
-          alert("আগে একটি লিস্ট বেছে নিন বা কাস্টম ওয়ার্ড দিন।");
+          alert("কমপক্ষে একটি প্রিসেট টিক দিন, কাস্টম যোগ করুন, অথবা My List সিলেক্ট করুন।");
           return;
         }
-        lang = document.getElementById("accent") ? document.getElementById("accent").value : lang;
         session = EFBSpelling.createSession(words);
         EFBSpelling.nextWord(session);
         renderPractice(true);
       }
 
       function renderPractice(autoSpeak) {
-        if (!session || session.phase === "done" || !session.current) {
-          return renderDone();
-        }
+        if (!session || session.phase === "done" || !session.current) return renderDone();
         const st = EFBSpelling.stats(session);
         const phaseLabel = session.phase === "wrong" ? "Wrong-list retry" : "Main list";
         root.innerHTML = `
@@ -182,46 +282,37 @@
           </div>
           <div class="sp-stage">
             <span class="chip sp-phase">${esc(phaseLabel)}${slow ? " · slow" : ""}</span>
-            <p class="bn muted" style="margin-top:0">স্পেলিং দেখাবে না — শুনে লিখুন।</p>
+            <p class="bn muted" style="margin-top:0">স্পেলিং লুকানো — শুনে লিখুন।</p>
             <div class="sp-listen">
-              <button type="button" class="btn btn-accent" id="btn-listen" title="Ctrl+L">🔊 Listen</button>
-              <button type="button" class="btn btn-secondary" id="btn-slow" title="Shift+L">Slow replay</button>
-              <button type="button" class="btn btn-secondary" id="btn-hint" title="H">Hint ${showHint ? "ON" : "OFF"}</button>
+              <button type="button" class="btn btn-accent" id="btn-listen">Listen</button>
+              <button type="button" class="btn btn-secondary" id="btn-slow">Slow</button>
+              <button type="button" class="btn btn-secondary" id="btn-hint">Hint ${showHint ? "ON" : "OFF"}</button>
             </div>
-            <p id="hint-line" class="muted ${showHint ? "" : "hidden"}">Letters: <strong>${session.current.length}</strong> · starts with <strong>${esc(session.current[0].toUpperCase())}</strong></p>
-            <label class="sr-only" for="answer">Type the spelling</label>
+            <p class="muted ${showHint ? "" : "hidden"}">Letters: <strong>${session.current.length}</strong> · starts with <strong>${esc(session.current[0].toUpperCase())}</strong></p>
+            <label class="sr-only" for="answer">Type spelling</label>
             <input id="answer" class="sp-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the word…" />
             <div class="stack-actions">
               <button type="button" class="btn btn-primary" id="btn-check">Check · Enter</button>
-              <button type="button" class="btn btn-secondary hidden" id="btn-next">Next · Enter / N</button>
-              <button type="button" class="btn btn-ghost" id="btn-quit">End session</button>
+              <button type="button" class="btn btn-secondary hidden" id="btn-next">Next</button>
+              <button type="button" class="btn btn-ghost" id="btn-quit">End</button>
             </div>
             <div id="feedback" class="feedback" role="status" aria-live="assertive"></div>
-            ${showHelp ? `<div class="sp-help"><kbd>Ctrl+L</kbd> listen · <kbd>Enter</kbd> check/next · <kbd>Esc</kbd> clear · <kbd>?</kbd> toggle this help</div>` : ""}
+            ${showHelp ? `<div class="sp-help"><kbd>Ctrl+L</kbd> listen · <kbd>Enter</kbd> check/next · <kbd>Esc</kbd> clear</div>` : ""}
           </div>
           <div class="sp-columns">
-            <div class="sp-col ok"><h3>Correct list (${session.correct.length})</h3><ul>${session.correct.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>"}</ul></div>
+            <div class="sp-col ok"><h3>Correct (${session.correct.length})</h3><ul>${session.correct.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>"}</ul></div>
             <div class="sp-col bad"><h3>Wrong queue (${session.wrongQueue.length})</h3><ul>${session.wrongQueue.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>"}</ul></div>
           </div>
         `;
-
         const input = document.getElementById("answer");
         input.focus();
-
         const listen = (useSlow) => EFBSpelling.speak(session.current, { lang, slow: useSlow || slow });
         document.getElementById("btn-listen").onclick = () => listen(false);
         document.getElementById("btn-slow").onclick = () => listen(true);
-        document.getElementById("btn-hint").onclick = () => {
-          showHint = !showHint;
-          renderPractice(false);
-        };
+        document.getElementById("btn-hint").onclick = () => { showHint = !showHint; renderPractice(false); };
         document.getElementById("btn-check").onclick = submitAnswer;
         document.getElementById("btn-next").onclick = goNext;
-        document.getElementById("btn-quit").onclick = () => {
-          session.phase = "done";
-          renderDone();
-        };
-
+        document.getElementById("btn-quit").onclick = () => { session.phase = "done"; renderDone(); };
         input.addEventListener("keydown", (e) => {
           if (e.key === "Enter") {
             e.preventDefault();
@@ -229,7 +320,6 @@
             else submitAnswer();
           }
         });
-
         if (autoSpeak) listen(false);
       }
 
@@ -248,16 +338,13 @@
         const fb = document.getElementById("feedback");
         fb.className = "feedback show sp-feedback " + (result.ok ? "ok" : "bad");
         fb.innerHTML = result.ok
-          ? `<strong>Correct!</strong> <span class="bn">সঠিক</span> — <em>${esc(result.word)}</em>`
-          : `<strong>Wrong.</strong> You wrote <em>${esc(val)}</em> · Correct: <em>${esc(result.word)}</em>`;
+          ? `<strong>Correct!</strong> — <em>${esc(result.word)}</em>`
+          : `<strong>Wrong.</strong> You: <em>${esc(val)}</em> · Correct: <em>${esc(result.word)}</em>`;
         document.getElementById("btn-check").classList.add("hidden");
         document.getElementById("btn-next").classList.remove("hidden");
         document.getElementById("btn-next").focus();
-        // refresh side lists without full remount to keep feedback — simpler remount:
-        const correctUl = document.querySelector(".sp-col.ok ul");
-        const wrongUl = document.querySelector(".sp-col.bad ul");
-        if (correctUl) correctUl.innerHTML = session.correct.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>";
-        if (wrongUl) wrongUl.innerHTML = session.wrongQueue.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>";
+        document.querySelector(".sp-col.ok ul").innerHTML = session.correct.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>";
+        document.querySelector(".sp-col.bad ul").innerHTML = session.wrongQueue.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>";
         document.querySelectorAll(".sp-stat strong")[0].textContent = `${session.correct.length}/${session.totalTarget}`;
         document.querySelectorAll(".sp-stat strong")[1].textContent = String(session.mainQueue.length);
         document.querySelectorAll(".sp-stat strong")[2].textContent = String(session.wrongQueue.length);
@@ -273,73 +360,57 @@
 
       function renderDone() {
         const mins = session ? Math.max(1, Math.round((Date.now() - session.startedAt) / 60000)) : 0;
+        const left = session ? session.wrongQueue.length : 0;
         root.innerHTML = `
           <div class="panel highlight">
-            <h2 style="margin-top:0;font-family:var(--font-display)">Session complete 🎯</h2>
-            <p class="bn">সব ওয়ার্ড Correct list-এ চলে গেছে${session && session.correct.length < (session.totalTarget || 0) ? " (বা সেশন শেষ করেছেন)" : ""}।</p>
-            <p>Correct: <strong>${session ? session.correct.length : 0}</strong> / ${session ? session.totalTarget : 0} · Attempts: <strong>${session ? session.attempts : 0}</strong> · ~${mins} min</p>
+            <h2 style="margin-top:0;font-family:var(--font-display)">Session complete</h2>
+            <p>Correct: <strong>${session ? session.correct.length : 0}</strong> / ${session ? session.totalTarget : 0}
+               · Attempts: <strong>${session ? session.attempts : 0}</strong> · ~${mins} min
+               ${left ? ` · Still in wrong queue when ended: ${left}` : ""}</p>
             <div class="stack-actions">
-              <button type="button" class="btn btn-primary" id="again">Practice same list</button>
-              <button type="button" class="btn btn-secondary" id="newlist">Choose another list</button>
+              <button type="button" class="btn btn-primary" id="again">Same setup again</button>
+              <button type="button" class="btn btn-secondary" id="newlist">Change lists</button>
             </div>
-          </div>
-        `;
+          </div>`;
         document.getElementById("again").onclick = startSession;
         document.getElementById("newlist").onclick = renderSetup;
         document.getElementById("again").focus();
       }
 
-      // Global shortcuts
       document.addEventListener("keydown", (e) => {
         const tag = (e.target && e.target.tagName) || "";
         const typing = tag === "INPUT" || tag === "TEXTAREA";
-
-        if (e.key === "?" && !e.ctrlKey && !e.metaKey && !typing) {
+        if (e.key === "?" && !typing) {
           showHelp = !showHelp;
           if (session && session.current) renderPractice(false);
           else renderSetup();
           return;
         }
-
         if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "l") {
           e.preventDefault();
           if (session && session.current) EFBSpelling.speak(session.current, { lang, slow: e.shiftKey || slow });
           return;
         }
-
-        if (e.shiftKey && e.key.toLowerCase() === "l" && !typing) {
-          e.preventDefault();
-          if (session && session.current) EFBSpelling.speak(session.current, { lang, slow: true });
-          return;
-        }
-
         if (!typing && e.key.toLowerCase() === "s") {
           slow = !slow;
           if (session && session.current) renderPractice(false);
           return;
         }
-
         if (!typing && e.key.toLowerCase() === "h") {
           showHint = !showHint;
           if (session && session.current) renderPractice(false);
           return;
         }
-
         if (!typing && e.key.toLowerCase() === "n" && awaitingNext) {
           e.preventDefault();
           goNext();
           return;
         }
-
         if (e.key === "Escape") {
           const input = document.getElementById("answer");
-          if (input) {
-            input.value = "";
-            input.focus();
-          }
+          if (input) { input.value = ""; input.focus(); }
           return;
         }
-
         if (!session && e.key === "Enter" && !typing) {
           e.preventDefault();
           startSession();
@@ -349,7 +420,7 @@
       EFBApp.loadJSON("spelling-lists.json")
         .then((data) => {
           listsData = data.lists || [];
-          selectedListId = listsData[0] ? listsData[0].id : "custom";
+          if (listsData[0]) selectedPresetIds.add(listsData[0].id);
           renderSetup();
         })
         .catch((err) => {

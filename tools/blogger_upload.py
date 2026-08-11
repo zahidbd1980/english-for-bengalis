@@ -40,8 +40,10 @@ WELCOME_HTML = """
   <h3>শুরু করুন</h3>
   <ul>
     <li><a href="/p/learn.html">Learn · শিখুন</a></li>
+    <li><a href="/p/spelling-practice.html">Spelling Practice · শুনে লেখো</a></li>
     <li><a href="/p/daily-challenge.html">Daily Challenge</a></li>
     <li><a href="/p/common-mistakes.html">Common Mistakes · সাধারণ ভুল</a></li>
+    <li><a href="/p/quizzes.html">Quizzes</a></li>
     <li><a href="/p/level-test.html">Level Test</a></li>
     <li><a href="/p/my-progress.html">My Progress</a></li>
   </ul>
