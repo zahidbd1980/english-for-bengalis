@@ -372,6 +372,21 @@ def cmd_upload_welcome(draft: bool):
     result = upsert_welcome(service, blog["id"], cfg, draft=draft)
     print("Welcome post ->", result.get("url") or result.get("id"))
 
+    # Safety: if a leftover "Home" Page still exists (from older workflow),
+    # keep it in sync with index.html so menu links to /p/home.html are not stale.
+    # Canonical home remains blog root URL + Featured Welcome post.
+    asset = (cfg.get("asset_base_url") or "").strip()
+    home_page = find_page(service, blog["id"], "Home")
+    if home_page:
+        print(
+            "NOTE: Found leftover Page titled 'Home' (/p/home.html).\n"
+            "  Syncing it to latest index.html so it is not an outdated landing.\n"
+            "  Preferred setup: Menu Home → blog root `/` and delete this Page later."
+        )
+        content = build_page_content("index.html", asset)
+        updated = upsert_page(service, blog["id"], "Home", content, draft=draft)
+        print("  Home page synced ->", updated.get("url") or updated.get("id"))
+
 
 def main():
     parser = argparse.ArgumentParser(description="Upload site content to Blogger via API")

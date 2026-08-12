@@ -54,3 +54,5 @@ Blogger Settings → Search preferences → Custom redirects:
 ## Dashboard cleanup
 
 যদি “Home” নামে Page (`/p/home.html`) তৈরি হয়ে গেছে — **Pages → Home → Delete** করতে পারেন। Menu-তে Home রাখুন blog root (`/`) লিংকে।
+
+`upload-welcome` এখন দেখতে পারলে সেই leftover Home Page-কে **latest `index.html` দিয়ে sync** করে দেয় (যাতে menu ভুল URL-এ গেলেও পুরনো landing না দেখায়)। তবু canonical home = **root URL + Featured Welcome**।
