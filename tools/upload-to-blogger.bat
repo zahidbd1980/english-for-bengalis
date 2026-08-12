@@ -68,8 +68,8 @@ if errorlevel 1 (
 echo.
 echo ============================================
 echo  DONE - Blogger site updated
-echo  Live: https://englishforbengalis.blogspot.com/
-echo  Home page: https://englishforbengalis.blogspot.com/p/home.html
+echo  Live home: https://englishforbengalis.blogspot.com/
+echo  (Home = blog root URL, not a separate /p/home page)
 echo.
 echo  Workflow reminder:
 echo   1. Edit code in this project

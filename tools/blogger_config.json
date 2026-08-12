@@ -1,13 +1,8 @@
 {
   "blog_url": "https://englishforbengalis.blogspot.com/",
   "asset_base_url": "https://zahidbd1980.github.io/english-for-bengalis",
-  "comment": "BLOGGER = your real site. GitHub Pages (asset_base_url) = CDN for css/js/data only. After any change: git push THEN upload-to-blogger.bat",
+  "comment": "BLOGGER = real site at englishforbengalis.blogspot.com/ (that URL IS home). GitHub Pages = css/js/data CDN only. Home is NOT a Page — it is the blog root + Featured Welcome post.",
   "pages": [
-    {
-      "title": "Home",
-      "file": "index.html",
-      "kind": "page"
-    },
     {
       "title": "About",
       "file": "pages/about.html",

@@ -214,8 +214,8 @@ window.EFB_ASSET_BASE = "{base}";
         out = notice + out
 
     # Local page links → Blogger-ish /p/ slugs (best effort)
-    out = out.replace('href="../index.html"', 'href="/p/home.html"')
-    out = out.replace('href="index.html"', 'href="/p/home.html"')
+    out = out.replace('href="../index.html"', 'href="/"')
+    out = out.replace('href="index.html"', 'href="/"')
     out = re.sub(
         r'href="([a-z0-9\-]+)\.html"',
         lambda m: f'href="/p/{m.group(1)}.html"',

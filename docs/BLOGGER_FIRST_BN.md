@@ -1,26 +1,56 @@
 # Blogger প্রথম — GitHub Pages শুধু asset
 
-## আপনার সাইট কোথায়?
+## Home কোথায়? (সহজ উত্তর)
+
+**হ্যাঁ — আপনি ঠিক বলেছেন।**
+
+User যখন address bar-এ লিখবে:
+
+`https://englishforbengalis.blogspot.com/`
+
+তখন যা খুলবে **সেটাই Home**। Blogger-এ এটাকে **blog homepage** বলে (`blog.homepageUrl`).
+
+**আলাদা “Home” নামের Page (`/p/home.html`) home নয়** — এটা শুধু একটা static page, URL আলাদা। সাধারণত **দরকার নেই**।
+
+## Blogger-এ ৩ ধরনের URL
+
+| ধরন | উদাহরণ | কী |
+|------|--------|-----|
+| **Home (blog index)** | `englishforbengalis.blogspot.com/` | Address bar URL = এটাই home |
+| **Static Page** | `/p/learn.html`, `/p/vocabulary.html` | Learn, Vocabulary ইত্যাদি |
+| **Blog Post** | `/2026/08/welcome-...html` | Welcome post, future articles |
+
+Menu-র **“Home”** লিংক theme-এ সাধারণত `englishforbengalis.blogspot.com/` — সেটা সঠিক।
+
+## আমাদের home-এ কী দেখাবে?
+
+আপনার Indie theme-এ homepage-এ **Featured Post** widget আছে।  
+আমরা **Welcome post**-এ `index.html` landing content upload করি — সেটা featured হলে visitor root URL-এ landing দেখে।
+
+নিচে theme অনুযায়ী আরও post list থাকতে পারে (Welcome post list-এ duplicate না দেখানোর logic theme-এ আছে).
+
+## GitHub Pages কেন?
 
 | জায়গা | URL | কাজ |
 |--------|-----|-----|
-| **Blogger (মূল সাইট)** | https://englishforbengalis.blogspot.com/ | Learners এখানে আসে |
-| **GitHub Pages (CDN)** | https://zahidbd1980.github.io/english-for-bengalis/ | css, js, data JSON |
+| **Blogger** | https://englishforbengalis.blogspot.com/ | Learners এখানে |
+| **GitHub Pages** | zahidbd1980.github.io/english-for-bengalis/ | css, js, data JSON (CDN) |
 
-Blogger পেজে quiz/vocabulary/spelling কাজ করে কারণ HTML Blogger-এ, কিন্তু `learning.css`, `app.js`, `vocabulary.json` GitHub Pages থেকে লোড হয়।
+## প্রতিবার update
 
-## প্রতিবার improvement-এর পর
+1. `git push` — assets
+2. `tools\upload-to-blogger.bat` — Welcome post + Pages (Home Page upload **না**)
 
-1. `git push` — GitHub Pages asset আপডেট (১–২ মিনিট)
-2. `tools\upload-to-blogger.bat` — Blogger Pages + Welcome post আপডেট
+## Optional (শুধু যদি চান)
 
-## Home page Blogger-এ
+Blogger Settings → Search preferences → Custom redirects:
 
-- **Welcome post** = blog homepage (`/`) এ featured landing (index.html থেকে)
-- **Home Page** = `/p/home.html` — পূর্ণ landing সরাসরি লিংক
+- From: `/`
+- To: `/p/some-landing.html`
+- Permanent 301
 
-Theme-এ menu-র Home লিংক `/p/home.html` করতে চাইলে: Layout → Pages widget → Home URL বদলান।
+এটা root URL থেকে static page-এ redirect — **default দরকার নেই** যদি Featured Welcome post ঠিকমতো দেখায়।
 
-## মনে রাখুন
+## Dashboard cleanup
 
-যেকোনো UI, content, SEO improvement **Blogger visitor-দের জন্যই** — GitHub শুধু backend CDN।
+যদি “Home” নামে Page (`/p/home.html`) তৈরি হয়ে গেছে — **Pages → Home → Delete** করতে পারেন। Menu-তে Home রাখুন blog root (`/`) লিংকে।
