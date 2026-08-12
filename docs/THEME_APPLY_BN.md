@@ -11,6 +11,7 @@ Backup: `backup/theme-indie-original-backup.xml`
 4. **Fonts** — Fraunces + Source Sans 3 + Noto Sans Bengali
 5. **Hero** — removed stock photo; teal header, shorter height
 6. **learning.css** loaded from GitHub Pages for quiz/page widgets
+7. **Homepage Featured Post = FULL body** (not truncated snippet) — so root URL shows designed `index.html` landing
 
 ## How to paste in Blogger
 

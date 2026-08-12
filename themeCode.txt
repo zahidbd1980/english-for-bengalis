@@ -2658,6 +2658,14 @@ margin-left:40px
 .blog-name .PageList ul.tabs li a{padding:8px 11px !important;border-radius:8px;font-weight:700}
 .blog-name .PageList ul.tabs li.selected a,.blog-name .PageList ul.tabs li a:hover{background:rgba(255,255,255,0.16)}
 .sticky .PageList ul.tabs li a{color:#0f6b5c !important}
+
+/* EFB: homepage Featured Post = full landing (not Indie snippet card) */
+.efb-home-featured,.efb-featured-full{max-width:100%;width:100%}
+.FeaturedPost .efb-featured-full{margin:0;padding:0}
+.FeaturedPost .efb-featured-full .wrap-home,.FeaturedPost .efb-featured-full .efb-v2-home{max-width:100%}
+.FeaturedPost h3.post-title,.FeaturedPost .post-title,.FeaturedPost .jump-link,.FeaturedPost .post-bottom{display:none !important}
+body.homepage .FeaturedPost .widget-content{border:0;padding:0}
+body.homepage #page_body .FeaturedPost{margin:0 0 1.5rem}
 ]]></b:skin>
 
     <b:template-skin>
@@ -2860,12 +2868,10 @@ margin-left:40px
       </b:defaultmarkup>
       <b:defaultmarkup type='FeaturedPost'>
         <b:includable id='snippetedPostContent'>
-          <b:comment>Re-order the thumbnail before the snippet, add &#39;Keep reading&#39; link.</b:comment>
-          <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
-          <b:include name='headerByline'/>
-          <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' data='post' name='snippetedPostThumbnail'/>
-          <b:include cond='data:this.postDisplay.showSnippet' data='post' name='postSnippet'/>
-          <b:include data='post' name='postFooter'/>
+          <b:comment>EFB default: full post body for FeaturedPost (homepage landing).</b:comment>
+          <div class='post-body entry-content efb-featured-full' expr:id='&quot;post-body-featured-&quot; + data:post.id'>
+            <data:post.body/>
+          </div>
         </b:includable>
         <b:includable id='snippetedPostThumbnail'>
           <div class='snippet-thumbnail'>
@@ -3207,13 +3213,13 @@ margin-left:40px
                   <b:widget cond='data:view.isHomepage' id='FeaturedPost1' locked='true' title='' type='FeaturedPost' visible='true'>
                     <b:widget-settings>
                       <b:widget-setting name='showSnippet'>true</b:widget-setting>
-                      <b:widget-setting name='showPostTitle'>true</b:widget-setting>
-                      <b:widget-setting name='showFirstImage'>true</b:widget-setting>
+                      <b:widget-setting name='showPostTitle'>false</b:widget-setting>
+                      <b:widget-setting name='showFirstImage'>false</b:widget-setting>
                       <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
                     </b:widget-settings>
                     <b:includable id='main' var='this'>
   <b:include name='widget-title'/>
-  <div class='widget-content'>
+  <div class='widget-content efb-home-featured'>
     <b:include name='snippetedPosts'/>
   </div>
 </b:includable>
@@ -3232,52 +3238,31 @@ margin-left:40px
           </a>
         </b:includable>
                     <b:includable id='headerByline'>
-          <b:include cond='data:view.isMultipleItems or data:widgets.Blog.first.headerByline.items.share' data='{ shareButtonClass: &quot;post-share-buttons-top&quot;, overridden: true }' name='maybeAddShareButtons'/>
-          <b:include name='super.headerByline'/>
+          <b:comment>EFB: hide byline on homepage landing.</b:comment>
         </b:includable>
                     <b:includable id='postFooter' var='post'>
-          <div class='post-bottom'>
-            <div class='post-footer float-container'>
-              <b:include name='footerBylines'/>
-              <b:include cond='data:widget.type == &quot;Blog&quot;' data='post' name='postFooterAuthorProfile'/>
-            </div>
-            <b:if cond='data:view.isSingleItem'>
-                <b:include data='{ shareButtonClass: &quot;post-share-buttons-bottom invisible&quot;, overridden: true }' name='maybeAddShareButtons'/>
-            <b:else/>
-              <b:include data='post' name='postFooterJumpLink'/>
-            </b:if>
-          </div>
+          <b:comment>EFB: no post footer chrome on homepage landing.</b:comment>
         </b:includable>
                     <b:includable id='postFooterJumpLink'>
-          <b:comment>Ripple, and show &#39;keep reading&#39; as the default.</b:comment>
-          <div class='jump-link flat-button ripple'>
-            <a expr:href='data:post.hasJumpLink ? data:post.url fragment &quot;more&quot; : data:post.url' expr:title='data:post.title'>
-              <data:blog.jumpLinkMessage/>
-            </a>
-          </div>
+          <b:comment>EFB: hide Keep reading on full homepage landing.</b:comment>
         </b:includable>
                     <b:includable id='postJumpLink'>
           <b:comment>Overridden, and migrated to postFooter. Called as postFooterJumpLink.</b:comment>
         </b:includable>
                     <b:includable id='postLabels'>
           <b:comment>We don&#39;t display labels on the home page.</b:comment>
-          <b:if cond='data:view.isSingleItem and data:widget.type == &quot;Blog&quot;'>
-            <b:include name='super.postLabels'/>
-          </b:if>
         </b:includable>
                     <b:includable id='postShareButtons' var='post'>
           <b:comment>We call super.postShareButtons from the migrated positions.</b:comment>
         </b:includable>
                     <b:includable id='snippetedPostByline'>
-          <b:include name='headerByline'/>
+          <b:comment>EFB: hide byline on homepage landing.</b:comment>
         </b:includable>
                     <b:includable id='snippetedPostContent'>
-          <b:comment>Re-order the thumbnail before the snippet, add &#39;Keep reading&#39; link.</b:comment>
-          <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
-          <b:include name='headerByline'/>
-          <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' data='post' name='snippetedPostThumbnail'/>
-          <b:include cond='data:this.postDisplay.showSnippet' data='post' name='postSnippet'/>
-          <b:include data='post' name='postFooter'/>
+          <b:comment>EFB: show FULL Welcome landing on homepage (not truncated snippet).</b:comment>
+          <div class='post-body entry-content efb-featured-full' expr:id='&quot;post-body-featured-&quot; + data:post.id'>
+            <data:post.body/>
+          </div>
         </b:includable>
                     <b:includable id='snippetedPostThumbnail'>
           <div class='snippet-thumbnail'>

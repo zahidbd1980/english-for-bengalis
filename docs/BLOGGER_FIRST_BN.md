@@ -20,8 +20,8 @@ Menu-র **Home** লিংক = blog root `/` (কখনো `/p/home.html` ন�
 
 ## Root-এ কী দেখাবে?
 
-Theme-এর **Featured Post** = Welcome post।  
-Welcome-এ `index.html` landing upload হয় (`--upload-welcome` / `--fix-home`)।
+Theme-এর **Featured Post** = Welcome post — এবং সেটা **full body** দেখাতে হবে (snippet/excerpt নয়)।  
+`themeCode.txt`-এ এটা লক করা আছে; Blogger-এ Theme HTML paste করতে হবে (`docs/HOME_ROOT_DESIGN_FIX.md`)।
 
 ## GitHub Pages কেন?
 
