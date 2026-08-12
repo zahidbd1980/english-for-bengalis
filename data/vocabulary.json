@@ -160,7 +160,8 @@
       "due date",
       "time limit"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:polite",
@@ -211,7 +212,8 @@
       "trip",
       "voyage"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:necessary",
@@ -347,7 +349,8 @@
       "relatives",
       "household"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:yesterday",
@@ -362,7 +365,8 @@
     "synonyms": [],
     "antonyms": [
       "tomorrow"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:tomorrow",
@@ -377,7 +381,8 @@
     "synonyms": [],
     "antonyms": [
       "yesterday"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:hungry",
@@ -437,7 +442,8 @@
       "terminal",
       "stop"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:ticket",
@@ -453,7 +459,8 @@
       "pass",
       "fare"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:medicine",
@@ -469,7 +476,8 @@
       "medication",
       "drug"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:borrow",
@@ -712,7 +720,8 @@
     "example": "Mum is in the kitchen.",
     "example_bn": "মা রান্নাঘরে আছেন।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:bedroom",
@@ -725,7 +734,8 @@
     "example": "My bedroom is upstairs.",
     "example_bn": "আমার শোবার ঘর উপরতলায়।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:clean",
@@ -896,7 +906,8 @@
     "synonyms": [
       "message"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:schedule",
@@ -957,7 +968,8 @@
     "synonyms": [
       "coworker"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:report",
@@ -1024,7 +1036,8 @@
       "job",
       "duty"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:park",
@@ -1039,7 +1052,8 @@
     "synonyms": [
       "garden"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:bridge",
@@ -1052,7 +1066,8 @@
     "example": "Cross the bridge carefully.",
     "example_bn": "সাবধানে সেতু পার হও।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:traffic",
@@ -1065,7 +1080,8 @@
     "example": "Traffic is heavy in the morning.",
     "example_bn": "সকালে ট্রাফিক খুব বেশি।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:river",
@@ -1080,7 +1096,8 @@
     "synonyms": [
       "stream"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:forest",
@@ -1097,7 +1114,8 @@
     ],
     "antonyms": [
       "desert"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:mountain",
@@ -1113,7 +1131,8 @@
       "hill",
       "peak"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:weather",
@@ -1128,7 +1147,8 @@
     "synonyms": [
       "climate"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:rain",
@@ -1145,7 +1165,8 @@
     ],
     "antonyms": [
       "drought"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:sunny",
@@ -1163,7 +1184,8 @@
     "antonyms": [
       "cloudy",
       "rainy"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:pollution",
@@ -1210,7 +1232,8 @@
     "example": "I eat breakfast at 8.",
     "example_bn": "আমি ৮টায় নাস্তা করি।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:lunch",
@@ -1223,7 +1246,8 @@
     "example": "Let's have lunch together.",
     "example_bn": "চলো একসাথে লাঞ্চ করি।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:dinner",
@@ -1238,7 +1262,8 @@
     "synonyms": [
       "supper"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:delicious",
@@ -1302,7 +1327,8 @@
     ],
     "antonyms": [
       "mild"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:passport",
@@ -1315,7 +1341,8 @@
     "example": "Keep your passport safe.",
     "example_bn": "পাসপোর্ট নিরাপদে রাখুন।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:airport",
@@ -1328,7 +1355,8 @@
     "example": "We reached the airport early.",
     "example_bn": "আমরা তাড়াতাড়ি এয়ারপোর্টে পৌঁছালাম।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:luggage",
@@ -1344,7 +1372,8 @@
       "baggage",
       "bags"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:direction",
@@ -1392,7 +1421,8 @@
     "synonyms": [
       "physician"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:hospital",
@@ -1407,7 +1437,8 @@
     "synonyms": [
       "clinic"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:fever",
@@ -1420,7 +1451,8 @@
     "example": "He has a high fever.",
     "example_bn": "তার হাই ফিভার।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:healthy",
@@ -1466,7 +1498,8 @@
     "synonyms": [
       "workout"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:student",
@@ -1532,7 +1565,8 @@
     "synonyms": [
       "assignment"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:exam",
@@ -1547,7 +1581,8 @@
     "synonyms": [
       "test"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:dictionary",
@@ -1562,7 +1597,8 @@
     "synonyms": [
       "lexicon"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:begin",
@@ -2099,7 +2135,8 @@
       "reduction",
       "offer"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:password",
@@ -2114,7 +2151,8 @@
     "synonyms": [
       "passcode"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:download",
@@ -2129,7 +2167,8 @@
     "synonyms": [],
     "antonyms": [
       "upload"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:upload",
@@ -2144,7 +2183,8 @@
     "synonyms": [],
     "antonyms": [
       "download"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:website",
@@ -2160,7 +2200,8 @@
       "site",
       "webpage"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:analyse",
@@ -2276,7 +2317,8 @@
     ],
     "antonyms": [
       "benefit"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:evidence",
@@ -2520,7 +2562,8 @@
       "generally",
       "mainly"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:therefore",
@@ -2536,7 +2579,8 @@
       "so",
       "thus"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:however",
@@ -2552,7 +2596,8 @@
       "but",
       "nevertheless"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:furthermore",
@@ -2568,7 +2613,8 @@
       "moreover",
       "also"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:although",
@@ -2584,7 +2630,8 @@
       "though",
       "even though"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:whereas",
@@ -2600,7 +2647,8 @@
       "while",
       "but"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:consequently",
@@ -2616,7 +2664,8 @@
       "therefore",
       "as a result"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:argue",
@@ -3293,7 +3342,8 @@
       "pastime",
       "interest"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:neighbourhood",
@@ -3309,7 +3359,8 @@
       "area",
       "locality"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:celebrate",
@@ -3354,7 +3405,8 @@
     ],
     "antonyms": [
       "energetic"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:happy",
@@ -3400,7 +3452,8 @@
     ],
     "antonyms": [
       "happy"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:angry",
@@ -3441,7 +3494,8 @@
     ],
     "antonyms": [
       "brave"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:careful",
@@ -3641,7 +3695,8 @@
     ],
     "antonyms": [
       "interesting"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:beautiful",
@@ -3716,7 +3771,8 @@
     ],
     "antonyms": [
       "strong"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:quick",
@@ -3825,7 +3881,8 @@
     "synonyms": [],
     "antonyms": [
       "full"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:full",
@@ -3840,7 +3897,8 @@
     "synonyms": [],
     "antonyms": [
       "empty"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:open",
@@ -3877,7 +3935,8 @@
     "synonyms": [],
     "antonyms": [
       "open"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:heavy",
@@ -3892,7 +3951,8 @@
     "synonyms": [],
     "antonyms": [
       "light"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:light",
@@ -3907,7 +3967,8 @@
     "synonyms": [],
     "antonyms": [
       "heavy"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:rainy",
@@ -3944,7 +4005,8 @@
     "synonyms": [],
     "antonyms": [
       "sunny"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:windy",
@@ -3957,7 +4019,8 @@
     "example": "It is windy outside.",
     "example_bn": "বাইরে ঝোড়ো হাওয়া।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:hot",
@@ -3974,7 +4037,8 @@
     ],
     "antonyms": [
       "cold"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:cold",
@@ -3991,7 +4055,8 @@
     ],
     "antonyms": [
       "hot"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:warm",
@@ -4006,7 +4071,8 @@
     "synonyms": [],
     "antonyms": [
       "cool"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:buy",
@@ -4092,7 +4158,8 @@
     "synonyms": [
       "price"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:order",
@@ -4105,7 +4172,8 @@
     "example": "I would like to order tea.",
     "example_bn": "আমি চা অর্ডার করতে চাই।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:menu",
@@ -4118,7 +4186,8 @@
     "example": "Can I see the menu?",
     "example_bn": "মেনুটা দেখতে পারি?",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:bill",
@@ -4133,7 +4202,8 @@
     "synonyms": [
       "check"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:taste",
@@ -4148,7 +4218,8 @@
     "synonyms": [
       "flavour"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:fresh",
@@ -4163,7 +4234,8 @@
     "synonyms": [],
     "antonyms": [
       "stale"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:sweet",
@@ -4178,7 +4250,8 @@
     "synonyms": [],
     "antonyms": [
       "bitter"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:pain",
@@ -4213,7 +4286,8 @@
     "example": "I have a bad cough.",
     "example_bn": "আমার খারাপ কাশি আছে।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:message",
@@ -4228,7 +4302,8 @@
     "synonyms": [
       "note"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:call",
@@ -4243,7 +4318,8 @@
     "synonyms": [
       "phone"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:internet",
@@ -4258,7 +4334,8 @@
     "synonyms": [
       "web"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:screen",
@@ -4273,7 +4350,8 @@
     "synonyms": [
       "display"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:office",
@@ -4288,7 +4366,8 @@
     "synonyms": [
       "workplace"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:boss",
@@ -4303,7 +4382,8 @@
     "synonyms": [
       "manager"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:team",
@@ -4318,7 +4398,8 @@
     "synonyms": [
       "group"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:travel",
@@ -4353,7 +4434,8 @@
     "example": "We stayed in a hotel.",
     "example_bn": "আমরা হোটেলে ছিলাম।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:map",
@@ -4366,7 +4448,8 @@
     "example": "Look at the map.",
     "example_bn": "মানচিত্র দেখুন।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:street",
@@ -4381,7 +4464,8 @@
     "synonyms": [
       "road"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:city",
@@ -4440,7 +4524,8 @@
     "example": "Where is the bathroom?",
     "example_bn": "বাথরুম কোথায়?",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:lesson",
@@ -4455,7 +4540,8 @@
     "synonyms": [
       "class"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:library",
@@ -4468,7 +4554,8 @@
     "example": "I study in the library.",
     "example_bn": "আমি লাইব্রেরিতে পড়ি।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:university",
@@ -4483,7 +4570,8 @@
     "synonyms": [
       "college"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:knowledge",
@@ -4572,7 +4660,8 @@
     ],
     "antonyms": [
       "question"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:question",
@@ -4587,7 +4676,8 @@
     "synonyms": [],
     "antonyms": [
       "answer"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:success",
@@ -4658,7 +4748,8 @@
     "synonyms": [],
     "antonyms": [
       "past"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:past",
@@ -4673,7 +4764,8 @@
     "synonyms": [],
     "antonyms": [
       "future"
-    ]
+    ],
+    "word_family": []
   },
   {
     "id": "vocab:promise",
@@ -4686,7 +4778,8 @@
     "example": "I promise to help you.",
     "example_bn": "আমি সাহায্য করার প্রতিশ্রুতি দিচ্ছি।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:invite",
@@ -4886,7 +4979,8 @@
     "synonyms": [
       "apologetic"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
     "id": "vocab:welcome",
@@ -4899,14 +4993,13 @@
     "example": "Welcome to our class!",
     "example_bn": "আমাদের ক্লাসে স্বাগতম!",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": []
   },
   {
-    "id": "v227",
+    "id": "vocab:agree",
     "word": "agree",
     "phonetic": "/əˈɡriː/",
-    "pos": "verb",
-    "cefr": "A1",
     "meaning_en": "to have the same opinion",
     "meaning_bn": "একমত হওয়া",
     "example": "I agree with you.",
@@ -4931,14 +5024,15 @@
         "pos": "verb",
         "bn": "অসম্মত হওয়া"
       }
-    ]
+    ],
+    "cefr_level": "A1",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v233",
+    "id": "vocab:discuss",
     "word": "discuss",
     "phonetic": "/dɪˈskʌs/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to talk about something",
     "meaning_bn": "আলোচনা করা",
     "example": "We discussed the plan.",
@@ -4956,14 +5050,15 @@
         "pos": "noun",
         "bn": "আলোচনা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "work"
   },
   {
-    "id": "v234",
+    "id": "vocab:mention",
     "word": "mention",
     "phonetic": "/ˈmenʃn/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to speak about briefly",
     "meaning_bn": "উল্লেখ করা",
     "example": "He mentioned your name.",
@@ -4974,14 +5069,16 @@
     "synonyms": [
       "refer to"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v236",
+    "id": "vocab:allow",
     "word": "allow",
     "phonetic": "/əˈlaʊ/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to let someone do something",
     "meaning_bn": "অনুমতি দেওয়া",
     "example": "Parents allow children to play.",
@@ -5001,14 +5098,15 @@
         "pos": "noun",
         "bn": "অনুমতি"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v237",
+    "id": "vocab:forbid",
     "word": "forbid",
     "phonetic": "/fəˈbɪd/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to not allow",
     "meaning_bn": "নিষেধ করা",
     "example": "Smoking is forbidden here.",
@@ -5021,14 +5119,16 @@
     ],
     "antonyms": [
       "allow"
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "formal",
+    "word_family": []
   },
   {
-    "id": "v238",
+    "id": "vocab:encourage",
     "word": "encourage",
     "phonetic": "/ɪnˈkʌrɪdʒ/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to give support or confidence",
     "meaning_bn": "উৎসাহ দেওয়া",
     "example": "Teachers encourage students.",
@@ -5048,14 +5148,15 @@
         "pos": "noun",
         "bn": "উৎসাহ"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "study"
   },
   {
-    "id": "v240",
+    "id": "vocab:develop",
     "word": "develop",
     "phonetic": "/dɪˈveləp/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to grow or create",
     "meaning_bn": "বিকাশ করা",
     "example": "Cities develop quickly.",
@@ -5073,14 +5174,15 @@
         "pos": "noun",
         "bn": "উন্নয়ন"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "academic"
   },
   {
-    "id": "v241",
+    "id": "vocab:increase",
     "word": "increase",
     "phonetic": "/ɪnˈkriːs/",
-    "pos": "verb/noun",
-    "cefr": "A2",
     "meaning_en": "to become larger",
     "meaning_bn": "বৃদ্ধি পাওয়া / বৃদ্ধি",
     "example": "Prices increased.",
@@ -5093,14 +5195,16 @@
     ],
     "antonyms": [
       "decrease"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb/noun",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v242",
+    "id": "vocab:decrease",
     "word": "decrease",
     "phonetic": "/dɪˈkriːs/",
-    "pos": "verb/noun",
-    "cefr": "B1",
     "meaning_en": "to become smaller",
     "meaning_bn": "কমে যাওয়া / হ্রাস",
     "example": "The number decreased.",
@@ -5113,14 +5217,16 @@
     ],
     "antonyms": [
       "increase"
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb/noun",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v243",
+    "id": "vocab:reduce",
     "word": "reduce",
     "phonetic": "/rɪˈdjuːs/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to make smaller",
     "meaning_bn": "কমানো",
     "example": "We should reduce waste.",
@@ -5140,14 +5246,15 @@
         "pos": "noun",
         "bn": "হ্রাস"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "academic"
   },
   {
-    "id": "v244",
+    "id": "vocab:include",
     "word": "include",
     "phonetic": "/ɪnˈkluːd/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to contain as part",
     "meaning_bn": "অন্তর্ভুক্ত করা",
     "example": "The price includes tax.",
@@ -5167,14 +5274,15 @@
         "pos": "prep",
         "bn": "সহ"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v245",
+    "id": "vocab:exclude",
     "word": "exclude",
     "phonetic": "/ɪkˈskluːd/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to leave out",
     "meaning_bn": "বাদ দেওয়া",
     "example": "Do not exclude anyone.",
@@ -5187,14 +5295,16 @@
     ],
     "antonyms": [
       "include"
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "formal",
+    "word_family": []
   },
   {
-    "id": "v246",
+    "id": "vocab:provide",
     "word": "provide",
     "phonetic": "/prəˈvaɪd/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to give something needed",
     "meaning_bn": "সরবরাহ করা",
     "example": "The school provides books.",
@@ -5212,14 +5322,15 @@
         "pos": "noun",
         "bn": "সরবরাহকারী"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "work"
   },
   {
-    "id": "v247",
+    "id": "vocab:require",
     "word": "require",
     "phonetic": "/rɪˈkwaɪər/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to need",
     "meaning_bn": "প্রয়োজন হওয়া",
     "example": "This job requires experience.",
@@ -5237,14 +5348,15 @@
         "pos": "noun",
         "bn": "প্রয়োজনীয়তা"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "work"
   },
   {
-    "id": "v248",
+    "id": "vocab:consider",
     "word": "consider",
     "phonetic": "/kənˈsɪdər/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to think carefully about",
     "meaning_bn": "বিবেচনা করা",
     "example": "Consider all options.",
@@ -5262,14 +5374,15 @@
         "pos": "noun",
         "bn": "বিবেচনা"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "academic"
   },
   {
-    "id": "v249",
+    "id": "vocab:expect",
     "word": "expect",
     "phonetic": "/ɪkˈspekt/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to think something will happen",
     "meaning_bn": "আশা করা / প্রত্যাশা করা",
     "example": "I expect good news.",
@@ -5287,14 +5400,15 @@
         "pos": "noun",
         "bn": "প্রত্যাশা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v250",
+    "id": "vocab:realize",
     "word": "realize",
     "phonetic": "/ˈrɪəlaɪz/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to understand clearly",
     "meaning_bn": "উপলব্ধি করা",
     "example": "I realized my mistake.",
@@ -5312,14 +5426,15 @@
         "pos": "noun",
         "bn": "উপলব্ধি"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v251",
+    "id": "vocab:recognize",
     "word": "recognize",
     "phonetic": "/ˈrekəɡnaɪz/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to know someone or something again",
     "meaning_bn": "চেনা / স্বীকৃতি দেওয়া",
     "example": "I recognized her voice.",
@@ -5337,14 +5452,15 @@
         "pos": "noun",
         "bn": "স্বীকৃতি"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v254",
+    "id": "vocab:imagine",
     "word": "imagine",
     "phonetic": "/ɪˈmædʒɪn/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to form a picture in the mind",
     "meaning_bn": "কল্পনা করা",
     "example": "Imagine a better future.",
@@ -5362,14 +5478,15 @@
         "pos": "noun",
         "bn": "কল্পনা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v256",
+    "id": "vocab:appear",
     "word": "appear",
     "phonetic": "/əˈpɪər/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to become visible / seem",
     "meaning_bn": "দেখা যাওয়া / মনে হওয়া",
     "example": "He appeared suddenly.",
@@ -5389,14 +5506,15 @@
         "pos": "noun",
         "bn": "চেহারা/উপস্থিতি"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v257",
+    "id": "vocab:disappear",
     "word": "disappear",
     "phonetic": "/ˌdɪsəˈpɪər/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to go out of sight",
     "meaning_bn": "অদৃশ্য হয়ে যাওয়া",
     "example": "The sun disappeared.",
@@ -5409,14 +5527,16 @@
     ],
     "antonyms": [
       "appear"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v258",
+    "id": "vocab:remain",
     "word": "remain",
     "phonetic": "/rɪˈmeɪn/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to stay",
     "meaning_bn": "থাকা / অবশিষ্ট থাকা",
     "example": "Please remain seated.",
@@ -5427,14 +5547,16 @@
     "synonyms": [
       "stay"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "formal",
+    "word_family": []
   },
   {
-    "id": "v259",
+    "id": "vocab:continue",
     "word": "continue",
     "phonetic": "/kənˈtɪnjuː/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to keep doing",
     "meaning_bn": "চালিয়ে যাওয়া",
     "example": "Please continue.",
@@ -5454,14 +5576,15 @@
         "pos": "adj",
         "bn": "অবিচ্ছিন্ন"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v260",
+    "id": "vocab:complete",
     "word": "complete",
     "phonetic": "/kəmˈpliːt/",
-    "pos": "verb/adj",
-    "cefr": "A2",
     "meaning_en": "to finish / whole",
     "meaning_bn": "সম্পূর্ণ করা / সম্পূর্ণ",
     "example": "Complete the form.",
@@ -5481,14 +5604,15 @@
         "pos": "noun",
         "bn": "সম্পন্নতা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb/adj",
+    "category": "daily"
   },
   {
-    "id": "v261",
+    "id": "vocab:achieve",
     "word": "achieve",
     "phonetic": "/əˈtʃiːv/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to succeed in doing",
     "meaning_bn": "অর্জন করা",
     "example": "She achieved her goal.",
@@ -5506,14 +5630,15 @@
         "pos": "noun",
         "bn": "অর্জন"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "academic"
   },
   {
-    "id": "v262",
+    "id": "vocab:fail",
     "word": "fail",
     "phonetic": "/feɪl/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to not succeed",
     "meaning_bn": "ব্যর্থ হওয়া",
     "example": "He failed the test.",
@@ -5531,14 +5656,15 @@
         "pos": "noun",
         "bn": "ব্যর্থতা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "study"
   },
   {
-    "id": "v263",
+    "id": "vocab:succeed",
     "word": "succeed",
     "phonetic": "/səkˈsiːd/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to achieve what you want",
     "meaning_bn": "সফল হওয়া",
     "example": "Hard work helps you succeed.",
@@ -5563,14 +5689,15 @@
         "pos": "adj",
         "bn": "সফল"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "study"
   },
   {
-    "id": "v266",
+    "id": "vocab:perform",
     "word": "perform",
     "phonetic": "/pərˈfɔːrm/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to do a task or act",
     "meaning_bn": "সম্পাদন করা / পরিবেশন করা",
     "example": "They performed well.",
@@ -5588,14 +5715,15 @@
         "pos": "noun",
         "bn": "পারফরম্যান্স"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "work"
   },
   {
-    "id": "v267",
+    "id": "vocab:produce",
     "word": "produce",
     "phonetic": "/prəˈdjuːs/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to make or create",
     "meaning_bn": "উৎপাদন করা",
     "example": "Farms produce rice.",
@@ -5618,14 +5746,15 @@
         "pos": "noun",
         "bn": "উৎপাদন"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "academic"
   },
   {
-    "id": "v268",
+    "id": "vocab:create",
     "word": "create",
     "phonetic": "/kriˈeɪt/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to make something new",
     "meaning_bn": "তৈরি করা",
     "example": "Artists create beauty.",
@@ -5648,14 +5777,15 @@
         "pos": "adj",
         "bn": "সৃজনশীল"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v269",
+    "id": "vocab:protect",
     "word": "protect",
     "phonetic": "/prəˈtekt/",
-    "pos": "verb",
-    "cefr": "A2",
     "meaning_en": "to keep safe",
     "meaning_bn": "রক্ষা করা",
     "example": "Wear a helmet to protect your head.",
@@ -5673,14 +5803,15 @@
         "pos": "noun",
         "bn": "সুরক্ষা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "daily"
   },
   {
-    "id": "v270",
+    "id": "vocab:prevent",
     "word": "prevent",
     "phonetic": "/prɪˈvent/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to stop something from happening",
     "meaning_bn": "প্রতিরোধ করা",
     "example": "Exercise can prevent illness.",
@@ -5698,14 +5829,15 @@
         "pos": "noun",
         "bn": "প্রতিরোধ"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "health"
   },
   {
-    "id": "v271",
+    "id": "vocab:suffer",
     "word": "suffer",
     "phonetic": "/ˈsʌfər/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to experience pain or difficulty",
     "meaning_bn": "ভোগা / কষ্ট পাওয়া",
     "example": "Many people suffer from allergies.",
@@ -5716,14 +5848,16 @@
     "synonyms": [
       "endure"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "health",
+    "word_family": []
   },
   {
-    "id": "v272",
+    "id": "vocab:recover",
     "word": "recover",
     "phonetic": "/rɪˈkʌvər/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to get better after illness",
     "meaning_bn": "সুস্থ হয়ে ওঠা",
     "example": "She recovered quickly.",
@@ -5741,14 +5875,15 @@
         "pos": "noun",
         "bn": "সুস্থতা ফিরে পাওয়া"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "health"
   },
   {
-    "id": "v273",
+    "id": "vocab:treat",
     "word": "treat",
     "phonetic": "/triːt/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to give medical care / behave toward",
     "meaning_bn": "চিকিৎসা করা / আচরণ করা",
     "example": "Doctors treat patients.",
@@ -5766,14 +5901,15 @@
         "pos": "noun",
         "bn": "চিকিৎসা"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "health"
   },
   {
-    "id": "v274",
+    "id": "vocab:affect",
     "word": "affect",
     "phonetic": "/əˈfekt/",
-    "pos": "verb",
-    "cefr": "B1",
     "meaning_en": "to influence",
     "meaning_bn": "প্রভাবিত করা",
     "example": "Rain affects traffic.",
@@ -5784,14 +5920,16 @@
     "synonyms": [
       "influence"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "verb",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v275",
+    "id": "vocab:effect",
     "word": "effect",
     "phonetic": "/ɪˈfekt/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "a result",
     "meaning_bn": "প্রভাব / ফলাফল",
     "example": "What is the effect of pollution?",
@@ -5802,14 +5940,16 @@
     "synonyms": [
       "result"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v276",
+    "id": "vocab:cause",
     "word": "cause",
     "phonetic": "/kɔːz/",
-    "pos": "verb/noun",
-    "cefr": "A2",
     "meaning_en": "to make happen / reason",
     "meaning_bn": "কারণ হওয়া / কারণ",
     "example": "What caused the accident?",
@@ -5820,14 +5960,16 @@
     "synonyms": [
       "reason"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "verb/noun",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v277",
+    "id": "vocab:result",
     "word": "result",
     "phonetic": "/rɪˈzʌlt/",
-    "pos": "noun/verb",
-    "cefr": "A2",
     "meaning_en": "outcome",
     "meaning_bn": "ফলাফল",
     "example": "The result was good.",
@@ -5838,14 +5980,16 @@
     "synonyms": [
       "outcome"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "noun/verb",
+    "category": "study",
+    "word_family": []
   },
   {
-    "id": "v281",
+    "id": "vocab:purpose",
     "word": "purpose",
     "phonetic": "/ˈpɜːpəs/",
-    "pos": "noun",
-    "cefr": "A2",
     "meaning_en": "the reason for something",
     "meaning_bn": "উদ্দেশ্য",
     "example": "What is the purpose of this meeting?",
@@ -5856,14 +6000,16 @@
     "synonyms": [
       "aim"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "noun",
+    "category": "work",
+    "word_family": []
   },
   {
-    "id": "v282",
+    "id": "vocab:goal",
     "word": "goal",
     "phonetic": "/ɡəʊl/",
-    "pos": "noun",
-    "cefr": "A2",
     "meaning_en": "something you want to achieve",
     "meaning_bn": "লক্ষ্য",
     "example": "My goal is Band 7.",
@@ -5875,14 +6021,16 @@
       "aim",
       "target"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "noun",
+    "category": "study",
+    "word_family": []
   },
   {
-    "id": "v286",
+    "id": "vocab:problem",
     "word": "problem",
     "phonetic": "/ˈprɒbləm/",
-    "pos": "noun",
-    "cefr": "A1",
     "meaning_en": "something difficult to deal with",
     "meaning_bn": "সমস্যা",
     "example": "We have a small problem.",
@@ -5893,14 +6041,16 @@
     "synonyms": [
       "issue"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A1",
+    "part_of_speech": "noun",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v287",
+    "id": "vocab:situation",
     "word": "situation",
     "phonetic": "/ˌsɪtʃuˈeɪʃn/",
-    "pos": "noun",
-    "cefr": "A2",
     "meaning_en": "the way things are",
     "meaning_bn": "পরিস্থিতি",
     "example": "The situation is under control.",
@@ -5911,14 +6061,16 @@
     "synonyms": [
       "circumstance"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "noun",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v288",
+    "id": "vocab:condition",
     "word": "condition",
     "phonetic": "/kənˈdɪʃn/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "state of something",
     "meaning_bn": "অবস্থা / শর্ত",
     "example": "The road is in bad condition.",
@@ -5929,14 +6081,16 @@
     "synonyms": [
       "state"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v289",
+    "id": "vocab:quality",
     "word": "quality",
     "phonetic": "/ˈkwɒləti/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "how good something is",
     "meaning_bn": "গুণমান",
     "example": "High quality products last longer.",
@@ -5947,14 +6101,16 @@
     "synonyms": [
       "standard"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "work",
+    "word_family": []
   },
   {
-    "id": "v290",
+    "id": "vocab:quantity",
     "word": "quantity",
     "phonetic": "/ˈkwɒntəti/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "amount",
     "meaning_bn": "পরিমাণ",
     "example": "Buy a large quantity.",
@@ -5965,14 +6121,16 @@
     "synonyms": [
       "amount"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v291",
+    "id": "vocab:amount",
     "word": "amount",
     "phonetic": "/əˈmaʊnt/",
-    "pos": "noun",
-    "cefr": "A2",
     "meaning_en": "a quantity of something",
     "meaning_bn": "পরিমাণ",
     "example": "A large amount of money.",
@@ -5983,14 +6141,16 @@
     "synonyms": [
       "quantity"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "noun",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v292",
+    "id": "vocab:value",
     "word": "value",
     "phonetic": "/ˈvæljuː/",
-    "pos": "noun/verb",
-    "cefr": "B1",
     "meaning_en": "worth",
     "meaning_bn": "মূল্য",
     "example": "Education has great value.",
@@ -6001,14 +6161,16 @@
     "synonyms": [
       "worth"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun/verb",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v295",
+    "id": "vocab:profit",
     "word": "profit",
     "phonetic": "/ˈprɒfɪt/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "money gained in business",
     "meaning_bn": "লাভ",
     "example": "The company made a profit.",
@@ -6021,14 +6183,16 @@
     ],
     "antonyms": [
       "loss"
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "work",
+    "word_family": []
   },
   {
-    "id": "v296",
+    "id": "vocab:loss",
     "word": "loss",
     "phonetic": "/lɒs/",
-    "pos": "noun",
-    "cefr": "A2",
     "meaning_en": "something lost",
     "meaning_bn": "ক্ষতি / হারানো",
     "example": "They suffered a loss.",
@@ -6040,14 +6204,16 @@
     "antonyms": [
       "profit",
       "gain"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "noun",
+    "category": "work",
+    "word_family": []
   },
   {
-    "id": "v297",
+    "id": "vocab:budget",
     "word": "budget",
     "phonetic": "/ˈbʌdʒɪt/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "a plan for spending money",
     "meaning_bn": "বাজেট",
     "example": "We have a tight budget.",
@@ -6056,14 +6222,16 @@
       "work"
     ],
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "work",
+    "word_family": []
   },
   {
-    "id": "v298",
+    "id": "vocab:expense",
     "word": "expense",
     "phonetic": "/ɪkˈspens/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "money spent",
     "meaning_bn": "খরচ",
     "example": "Travel expenses are high.",
@@ -6074,14 +6242,16 @@
     "synonyms": [
       "cost"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "work",
+    "word_family": []
   },
   {
-    "id": "v299",
+    "id": "vocab:income",
     "word": "income",
     "phonetic": "/ˈɪnkʌm/",
-    "pos": "noun",
-    "cefr": "B1",
     "meaning_en": "money received",
     "meaning_bn": "আয়",
     "example": "His income increased.",
@@ -6092,14 +6262,16 @@
     "synonyms": [
       "earnings"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "noun",
+    "category": "work",
+    "word_family": []
   },
   {
-    "id": "v301",
+    "id": "vocab:patient",
     "word": "patient",
     "phonetic": "/ˈpeɪʃnt/",
-    "pos": "adj/noun",
-    "cefr": "A2",
     "meaning_en": "able to wait calmly / sick person",
     "meaning_bn": "ধৈর্যশীল / রোগী",
     "example": "Be patient.",
@@ -6110,14 +6282,16 @@
     "synonyms": [],
     "antonyms": [
       "impatient"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj/noun",
+    "category": "health",
+    "word_family": []
   },
   {
-    "id": "v302",
+    "id": "vocab:nervous",
     "word": "nervous",
     "phonetic": "/ˈnɜːvəs/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "worried or anxious",
     "meaning_bn": "নার্ভাস / উদ্বিগ্ন",
     "example": "I feel nervous before exams.",
@@ -6130,14 +6304,16 @@
     ],
     "antonyms": [
       "calm"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v304",
+    "id": "vocab:curious",
     "word": "curious",
     "phonetic": "/ˈkjʊəriəs/",
-    "pos": "adj",
-    "cefr": "B1",
     "meaning_en": "wanting to know more",
     "meaning_bn": "কৌতূহলী",
     "example": "Children are curious.",
@@ -6148,14 +6324,16 @@
     "synonyms": [
       "inquisitive"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "cefr_level": "B1",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v305",
+    "id": "vocab:honest",
     "word": "honest",
     "phonetic": "/ˈɒnɪst/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "truthful",
     "meaning_bn": "সৎ",
     "example": "Be honest with me.",
@@ -6175,14 +6353,15 @@
         "pos": "noun",
         "bn": "সততা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily"
   },
   {
-    "id": "v307",
+    "id": "vocab:rude",
     "word": "rude",
     "phonetic": "/ruːd/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "not polite",
     "meaning_bn": "অভদ্র",
     "example": "That comment was rude.",
@@ -6195,14 +6374,16 @@
     ],
     "antonyms": [
       "polite"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v308",
+    "id": "vocab:brave",
     "word": "brave",
     "phonetic": "/breɪv/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "ready to face danger",
     "meaning_bn": "সাহসী",
     "example": "Firefighters are brave.",
@@ -6215,14 +6396,16 @@
     ],
     "antonyms": [
       "cowardly"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v309",
+    "id": "vocab:clever",
     "word": "clever",
     "phonetic": "/ˈklevər/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "intelligent",
     "meaning_bn": "চতুর / বুদ্ধিমান",
     "example": "That was a clever idea.",
@@ -6235,14 +6418,16 @@
     ],
     "antonyms": [
       "stupid"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v310",
+    "id": "vocab:lazy",
     "word": "lazy",
     "phonetic": "/ˈleɪzi/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "not willing to work",
     "meaning_bn": "অলস",
     "example": "Don't be lazy.",
@@ -6253,14 +6438,16 @@
     "synonyms": [],
     "antonyms": [
       "hardworking"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v312",
+    "id": "vocab:careless",
     "word": "careless",
     "phonetic": "/ˈkeələs/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "not careful",
     "meaning_bn": "অসাবধান",
     "example": "A careless mistake.",
@@ -6273,14 +6460,16 @@
     ],
     "antonyms": [
       "careful"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v313",
+    "id": "vocab:useful",
     "word": "useful",
     "phonetic": "/ˈjuːsfl/",
-    "pos": "adj",
-    "cefr": "A1",
     "meaning_en": "helpful",
     "meaning_bn": "দরকারি",
     "example": "This app is useful.",
@@ -6293,14 +6482,16 @@
     ],
     "antonyms": [
       "useless"
-    ]
+    ],
+    "cefr_level": "A1",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v314",
+    "id": "vocab:useless",
     "word": "useless",
     "phonetic": "/ˈjuːsləs/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "not useful",
     "meaning_bn": "অকেজো",
     "example": "The broken phone is useless.",
@@ -6311,14 +6502,16 @@
     "synonyms": [],
     "antonyms": [
       "useful"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v315",
+    "id": "vocab:possible",
     "word": "possible",
     "phonetic": "/ˈpɒsəbl/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "able to be done",
     "meaning_bn": "সম্ভব",
     "example": "Is it possible?",
@@ -6338,14 +6531,15 @@
         "pos": "noun",
         "bn": "সম্ভাবনা"
       }
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily"
   },
   {
-    "id": "v316",
+    "id": "vocab:impossible",
     "word": "impossible",
     "phonetic": "/ɪmˈpɒsəbl/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "not possible",
     "meaning_bn": "অসম্ভব",
     "example": "Nothing is impossible.",
@@ -6356,14 +6550,16 @@
     "synonyms": [],
     "antonyms": [
       "possible"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v318",
+    "id": "vocab:popular",
     "word": "popular",
     "phonetic": "/ˈpɒpjələr/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "liked by many people",
     "meaning_bn": "জনপ্রিয়",
     "example": "This song is popular.",
@@ -6376,14 +6572,16 @@
     ],
     "antonyms": [
       "unpopular"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v319",
+    "id": "vocab:modern",
     "word": "modern",
     "phonetic": "/ˈmɒdn/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "of the present time",
     "meaning_bn": "আধুনিক",
     "example": "Modern technology helps us.",
@@ -6396,14 +6594,16 @@
     ],
     "antonyms": [
       "old-fashioned"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v320",
+    "id": "vocab:traditional",
     "word": "traditional",
     "phonetic": "/trəˈdɪʃənl/",
-    "pos": "adj",
-    "cefr": "B1",
     "meaning_en": "following old customs",
     "meaning_bn": "ঐতিহ্যবাহী",
     "example": "Traditional food is tasty.",
@@ -6423,14 +6623,15 @@
         "pos": "noun",
         "bn": "ঐতিহ্য"
       }
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "adj",
+    "category": "culture"
   },
   {
-    "id": "v321",
+    "id": "vocab:foreign",
     "word": "foreign",
     "phonetic": "/ˈfɒrən/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "from another country",
     "meaning_bn": "বিদেশি",
     "example": "He speaks a foreign language.",
@@ -6441,14 +6642,16 @@
     "synonyms": [],
     "antonyms": [
       "local"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v322",
+    "id": "vocab:local",
     "word": "local",
     "phonetic": "/ˈləʊkl/",
-    "pos": "adj/noun",
-    "cefr": "A2",
     "meaning_en": "from this area",
     "meaning_bn": "স্থানীয়",
     "example": "Buy local products.",
@@ -6459,14 +6662,16 @@
     "synonyms": [],
     "antonyms": [
       "foreign"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj/noun",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v323",
+    "id": "vocab:public",
     "word": "public",
     "phonetic": "/ˈpʌblɪk/",
-    "pos": "adj/noun",
-    "cefr": "A2",
     "meaning_en": "for everyone",
     "meaning_bn": "প্রকাশ্য / জনসাধারণ",
     "example": "Public transport is cheap.",
@@ -6477,14 +6682,16 @@
     "synonyms": [],
     "antonyms": [
       "private"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj/noun",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v324",
+    "id": "vocab:private",
     "word": "private",
     "phonetic": "/ˈpraɪvət/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "for one person or group only",
     "meaning_bn": "ব্যক্তিগত",
     "example": "This is a private message.",
@@ -6495,14 +6702,16 @@
     "synonyms": [],
     "antonyms": [
       "public"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v325",
+    "id": "vocab:similar",
     "word": "similar",
     "phonetic": "/ˈsɪmələr/",
-    "pos": "adj",
-    "cefr": "A2",
     "meaning_en": "almost the same",
     "meaning_bn": "অনুরূপ",
     "example": "The two words are similar.",
@@ -6515,14 +6724,16 @@
     ],
     "antonyms": [
       "different"
-    ]
+    ],
+    "cefr_level": "A2",
+    "part_of_speech": "adj",
+    "category": "academic",
+    "word_family": []
   },
   {
-    "id": "v326",
+    "id": "vocab:different",
     "word": "different",
     "phonetic": "/ˈdɪfrənt/",
-    "pos": "adj",
-    "cefr": "A1",
     "meaning_en": "not the same",
     "meaning_bn": "আলাদা",
     "example": "We have different opinions.",
@@ -6536,14 +6747,16 @@
     "antonyms": [
       "same",
       "similar"
-    ]
+    ],
+    "cefr_level": "A1",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   },
   {
-    "id": "v327",
+    "id": "vocab:reliable",
     "word": "reliable",
     "phonetic": "/rɪˈlaɪəbl/",
-    "pos": "adj",
-    "cefr": "B1",
     "meaning_en": "can be trusted",
     "meaning_bn": "নির্ভরযোগ্য",
     "example": "He is a reliable friend.",
@@ -6556,6 +6769,10 @@
     ],
     "antonyms": [
       "unreliable"
-    ]
+    ],
+    "cefr_level": "B1",
+    "part_of_speech": "adj",
+    "category": "daily",
+    "word_family": []
   }
 ]

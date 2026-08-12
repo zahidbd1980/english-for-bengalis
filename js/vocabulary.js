@@ -5,9 +5,24 @@
   const SAVED_KEY = "efb_vocab_my_lists_v1";
 
   function asWords(data) {
-    if (Array.isArray(data)) return data;
-    if (data && Array.isArray(data.words)) return data.words;
-    return [];
+    const list = Array.isArray(data) ? data : data && Array.isArray(data.words) ? data.words : [];
+    return list.map((w) => {
+      if (!w || typeof w !== "object") return w;
+      const out = Object.assign({}, w);
+      if (!out.cefr_level && out.cefr) out.cefr_level = out.cefr;
+      if (!out.part_of_speech && out.pos) out.part_of_speech = out.pos;
+      if (!out.category) {
+        const tags = out.tags || [];
+        out.category = tags[0] || "general";
+      }
+      if (out.id && !String(out.id).startsWith("vocab:") && out.word) {
+        out.id = "vocab:" + normalizeWord(out.word).replace(/\s+/g, "-");
+      }
+      out.synonyms = out.synonyms || [];
+      out.antonyms = out.antonyms || [];
+      out.word_family = out.word_family || [];
+      return out;
+    });
   }
 
   function esc(s) {

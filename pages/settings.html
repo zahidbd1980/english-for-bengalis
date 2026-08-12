@@ -36,6 +36,16 @@
           <option value="20">20</option>
         </select>
       </label>
+      <label class="field">Vocabulary target (শিখব)
+        <select class="field-input" id="vocab_target">
+          <option value="300">300</option>
+          <option value="500">500</option>
+          <option value="1000">1000</option>
+          <option value="2000">2000</option>
+          <option value="3000">3000</option>
+          <option value="5000">5000</option>
+        </select>
+      </label>
       <button type="button" class="btn btn-primary" id="save">সেভ করুন</button>
     </div>
     <div class="panel" style="margin-top:1rem">
@@ -60,12 +70,14 @@
     ui_language.value = state.settings.ui_language;
     accent.value = state.settings.accent;
     daily_new_cap.value = String(state.settings.daily_new_cap);
+    vocab_target.value = String(state.settings.vocab_target || 2000);
 
     document.getElementById("save").onclick = () => {
       EFBStorage.update((s) => {
         s.settings.ui_language = ui_language.value;
         s.settings.accent = accent.value;
         s.settings.daily_new_cap = Number(daily_new_cap.value);
+        s.settings.vocab_target = Number(vocab_target.value) || 2000;
       });
       msg.textContent = "Saved.";
     };

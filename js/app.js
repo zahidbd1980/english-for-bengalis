@@ -243,8 +243,19 @@
   document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("app-body");
     mountChrome();
-    renderHomeProgress();
-    animateBars();
+    // One-time remap of legacy vocab ids so My Progress counts stay accurate
+    if (window.EFBStorage && EFBStorage.applyIdMap) {
+      loadJSON("progress_id_migrate.json")
+        .then((map) => EFBStorage.applyIdMap(map || {}))
+        .catch(() => {})
+        .finally(() => {
+          renderHomeProgress();
+          animateBars();
+        });
+    } else {
+      renderHomeProgress();
+      animateBars();
+    }
   });
 
   window.EFBApp = {

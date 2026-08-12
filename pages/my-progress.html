@@ -14,18 +14,23 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>My Progress</span></nav>
     <h1 class="page-title">আমার প্রোগ্রেস</h1>
-    <p class="page-intro bn">মাস্টারি ও রিভিউ এক নজরে। ব্রাউজার ডেটা হারাতে পারে — নিয়মিত Export করুন।</p>
+    <p class="page-intro bn">কত শিখেছেন এক নজরে। ব্রাউজার ডেটা হারাতে পারে — নিয়মিত Export করুন।</p>
     <div id="dash" class="lesson-block"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
   <script src="../js/storage.js"></script>
   <script src="../js/progress.js"></script>
   <script src="../js/review-session.js"></script>
+  <script src="../js/vocabulary.js"></script>
   <script src="../js/app.js"></script>
   <script>
     function pct(n, d) { return d ? Math.round((n / d) * 100) : 0; }
     function shortLabel(id) {
       return String(id || "").replace(/^(vocab|pv|spell|grammar|mistake):/, "");
+    }
+    function statusOf(state, id) {
+      const it = state.items[id];
+      return it ? it.status || 0 : 0;
     }
 
     Promise.all([
@@ -34,41 +39,61 @@
       EFBApp.loadJSON("spelling.json"),
       EFBApp.loadJSON("grammar.json"),
       EFBApp.loadJSON("common-mistakes.json"),
-    ]).then(([vocabRaw, pv, spell, grammar, mistakes]) => {
-      const vocab = Array.isArray(vocabRaw) ? vocabRaw : vocabRaw.words || [];
+      EFBApp.loadJSON("progress_id_migrate.json").catch(() => ({})),
+    ]).then(([vocabRaw, pv, spell, grammar, mistakes, idMap]) => {
+      if (idMap && EFBStorage.applyIdMap) EFBStorage.applyIdMap(idMap);
+      const vocab = EFBVocab.asWords(vocabRaw);
       const state = EFBStorage.load();
       const due = EFBProgress.dueItems();
       const weak = EFBReview.weakAreas(5);
-      const countMastered = (list) => list.filter((x) => state.items[x.id] && state.items[x.id].status === 5).length;
-      const countStarted = (list) => list.filter((x) => state.items[x.id] && state.items[x.id].status > 0).length;
+      const countMastered = (list) => list.filter((x) => statusOf(state, x.id) === 5).length;
+      const countStarted = (list) => list.filter((x) => statusOf(state, x.id) > 0).length;
+      const countPracticed = (list) => list.filter((x) => statusOf(state, x.id) >= 3).length;
+
+      const vocabTarget = Number(state.settings.vocab_target) || 2000;
+      const vocabStarted = countStarted(vocab);
+      const vocabMastered = countMastered(vocab);
+      const vocabPracticed = countPracticed(vocab);
 
       const rows = [
-        { name: "Vocabulary", started: countStarted(vocab), mastered: countMastered(vocab), total: vocab.length },
-        { name: "Phrasal Verbs", started: countStarted(pv), mastered: countMastered(pv), total: pv.length },
-        { name: "Spelling", started: countStarted(spell), mastered: countMastered(spell), total: spell.length },
-        { name: "Grammar", started: countStarted(grammar), mastered: countMastered(grammar), total: grammar.length },
-        { name: "Common Mistakes", started: countStarted(mistakes), mastered: countMastered(mistakes), total: mistakes.length },
+        { name: "Vocabulary", started: vocabStarted, practiced: vocabPracticed, mastered: vocabMastered, total: vocab.length },
+        { name: "Phrasal Verbs", started: countStarted(pv), practiced: countPracticed(pv), mastered: countMastered(pv), total: pv.length },
+        { name: "Spelling", started: countStarted(spell), practiced: countPracticed(spell), mastered: countMastered(spell), total: spell.length },
+        { name: "Grammar", started: countStarted(grammar), practiced: countPracticed(grammar), mastered: countMastered(grammar), total: grammar.length },
+        { name: "Common Mistakes", started: countStarted(mistakes), practiced: countPracticed(mistakes), mastered: countMastered(mistakes), total: mistakes.length },
       ];
 
       document.getElementById("dash").innerHTML = `
         <div class="panel highlight">
-          <p class="chip">Overview</p>
-          <p class="bn">Estimated level: <strong>${state.profile.estimated_level || "এখনো টেস্ট হয়নি"}</strong></p>
-          <p>Streak: <strong>${state.streak.current}</strong> (longest ${state.streak.longest}) · Goal: <strong>${state.settings.goal}</strong></p>
-          <p class="muted">Daily challenge today: ${state.challenge.date === EFBProgress.todayStr() && state.challenge.completed ? "Completed ✔" : "Not completed yet"}</p>
+          <p class="chip">Vocabulary goal</p>
+          <p class="bn" style="font-size:1.15rem;margin:0.35rem 0">
+            শিখেছেন <strong>${vocabStarted}</strong> · অনুশীলন <strong>${vocabPracticed}</strong> · মাস্টার্ড <strong>${vocabMastered}</strong>
+          </p>
+          <p class="muted bn">ব্যক্তিগত টার্গেট: <strong>${vocabStarted}</strong> / ${vocabTarget} (${pct(vocabStarted, vocabTarget)}%)</p>
+          <div class="bar" data-pct="${pct(vocabStarted, vocabTarget)}"><i></i></div>
+          <p class="muted" style="margin-top:0.75rem">ব্যাংকে এখন ${vocab.length}টি শব্দ · বাকি টার্গেট Settings থেকে বদলাতে পারবেন</p>
           <div class="stack-actions">
+            <a class="btn btn-primary" href="vocabulary.html">Vocabulary চালিয়ে যান</a>
+            <a class="btn btn-secondary" href="settings.html">টার্গেট / Export</a>
             <a class="btn btn-accent" href="daily-challenge.html">Daily Challenge</a>
-            <a class="btn btn-secondary" href="settings.html">Export / Settings</a>
             ${!state.profile.estimated_level ? `<a class="btn btn-ghost" href="level-test.html">Level Test</a>` : ""}
           </div>
         </div>
         <div class="panel">
+          <p class="chip">Overview</p>
+          <p class="bn">Estimated level: <strong>${state.profile.estimated_level || "এখনো টেস্ট হয়নি"}</strong></p>
+          <p>Streak: <strong>${state.streak.current}</strong> (longest ${state.streak.longest}) · Goal: <strong>${state.settings.goal}</strong></p>
+          <p class="muted">Daily challenge today: ${state.challenge.date === EFBProgress.todayStr() && state.challenge.completed ? "Completed ✔" : "Not completed yet"}</p>
+        </div>
+        <div class="panel">
           <h2 style="margin-top:0;font-family:var(--font-display)">Skill progress</h2>
+          <p class="muted bn" style="margin-top:0">Started = দেখেছেন · Practiced = কুইজ/কার্ড করেছেন · Mastered = ভালোভাবে আয়ত্ত</p>
           <div class="stat-row">
             ${rows.map((r) => `
               <div class="stat">
-                <div class="stat-top"><span>${r.name}</span><span>${r.mastered}/${r.total} mastered · ${r.started} started</span></div>
-                <div class="bar" data-pct="${pct(r.mastered, r.total)}"><i></i></div>
+                <div class="stat-top"><span>${r.name}</span><span>${r.started}/${r.total} started · ${r.mastered} mastered</span></div>
+                <div class="bar" data-pct="${pct(r.started, r.total)}"><i></i></div>
+                <p class="muted" style="margin:0.35rem 0 0;font-size:0.9rem">practiced ${r.practiced} · mastered ${r.mastered}/${r.total} (${pct(r.mastered, r.total)}%)</p>
               </div>`).join("")}
           </div>
         </div>

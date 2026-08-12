@@ -14,6 +14,7 @@
         accent: "us",
         daily_new_cap: 15,
         goal: "spoken_english",
+        vocab_target: 2000,
       },
       profile: {
         estimated_level: null,
@@ -70,6 +71,29 @@
     return save(state);
   }
 
+  /** Remap legacy item ids (e.g. v227 → vocab:agree) once after schema fixes. */
+  function applyIdMap(map) {
+    if (!map || typeof map !== "object") return load();
+    return update((state) => {
+      if (state._id_migrate_v1) return;
+      const next = {};
+      Object.keys(state.items || {}).forEach((id) => {
+        const dest = map[id] || id;
+        if (!next[dest]) next[dest] = state.items[id];
+        else {
+          // Prefer higher mastery if both exist
+          const a = next[dest];
+          const b = state.items[id];
+          next[dest] =
+            (b.mastery_score || 0) > (a.mastery_score || 0) ? Object.assign({}, a, b) : Object.assign({}, b, a);
+        }
+      });
+      state.items = next;
+      state.mistakes = (state.mistakes || []).map((id) => map[id] || id);
+      state._id_migrate_v1 = true;
+    });
+  }
+
   function exportJSON() {
     const state = load();
     state.exported_at = new Date().toISOString();
@@ -115,6 +139,7 @@
     load,
     save,
     update,
+    applyIdMap,
     exportJSON,
     importJSON,
     reset,
