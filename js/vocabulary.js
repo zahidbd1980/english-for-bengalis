@@ -101,6 +101,7 @@
         example_bn: "",
         synonyms: [],
         antonyms: [],
+        word_family: [],
         custom: true,
       };
     });
@@ -126,7 +127,8 @@
     if (opts.q) {
       const q = normalizeWord(opts.q);
       list = list.filter((w) => {
-        const blob = [w.word, w.meaning_en, w.meaning_bn, w.example, (w.synonyms || []).join(" "), (w.antonyms || []).join(" ")]
+        const fam = (w.word_family || []).map((f) => [f.word, f.meaning_bn, f.pos].join(" ")).join(" ");
+        const blob = [w.word, w.meaning_en, w.meaning_bn, w.example, (w.synonyms || []).join(" "), (w.antonyms || []).join(" "), fam]
           .join(" ")
           .toLowerCase();
         return blob.indexOf(q) !== -1;
@@ -141,6 +143,24 @@
   function cardHTML(w) {
     const syn = (w.synonyms || []).filter(Boolean);
     const ant = (w.antonyms || []).filter(Boolean);
+    const head = normalizeWord(w.word);
+    const family = (w.word_family || []).filter((f) => f && f.word && normalizeWord(f.word) !== head);
+    const familyBlock = family.length
+      ? `<div class="vocab-family" aria-label="Word family">
+          <p class="vocab-family-title"><span class="rel-label">Word family</span> <span class="bn muted">শব্দ পরিবার</span></p>
+          <ul class="vocab-family-list">
+            ${family
+              .map((f) => {
+                const pos = f.pos ? ` <span class="vocab-family-pos">(${esc(f.pos)})</span>` : "";
+                const bn = f.meaning_bn ? ` <span class="bn muted">— ${esc(f.meaning_bn)}</span>` : "";
+                return `<li><strong class="vocab-family-word">${esc(f.word)}</strong>${pos}${bn}
+                  <button type="button" class="btn-speak-inline btn-speak" data-speak="${esc(f.word)}" aria-label="Pronounce ${esc(f.word)}">🔊</button>
+                </li>`;
+              })
+              .join("")}
+          </ul>
+        </div>`
+      : "";
     return `
       <article class="panel vocab-card vocab-card-focus" data-id="${esc(w.id)}" data-word="${esc(w.word)}">
         <div class="quiz-meta">
@@ -160,6 +180,7 @@
             ? `<div class="example">${esc(w.example)}${w.example_bn ? `<br><span class="bn muted">${esc(w.example_bn)}</span>` : ""}</div>`
             : ""
         }
+        ${familyBlock}
         <div class="vocab-relations">
           ${
             syn.length

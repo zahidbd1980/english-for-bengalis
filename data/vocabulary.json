@@ -15,6 +15,18 @@
     ],
     "antonyms": [
       "worsen"
+    ],
+    "word_family": [
+      {
+        "word": "improvement",
+        "pos": "noun",
+        "meaning_bn": "উন্নতি / উন্নয়ন"
+      },
+      {
+        "word": "improved",
+        "pos": "adjective",
+        "meaning_bn": "উন্নত"
+      }
     ]
   },
   {
@@ -31,7 +43,24 @@
       "rehearse",
       "train"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "practise",
+        "pos": "verb",
+        "meaning_bn": "অনুশীলন করা (UK)"
+      },
+      {
+        "word": "practical",
+        "pos": "adjective",
+        "meaning_bn": "ব্যবহারিক"
+      },
+      {
+        "word": "practically",
+        "pos": "adverb",
+        "meaning_bn": "প্রায় / ব্যবহারিকভাবে"
+      }
+    ]
   },
   {
     "id": "vocab:confident",
@@ -50,6 +79,18 @@
     "antonyms": [
       "nervous",
       "shy"
+    ],
+    "word_family": [
+      {
+        "word": "confidence",
+        "pos": "noun",
+        "meaning_bn": "আত্মবিশ্বাস"
+      },
+      {
+        "word": "confidently",
+        "pos": "adverb",
+        "meaning_bn": "আত্মবিশ্বাসের সাথে"
+      }
     ]
   },
   {
@@ -66,7 +107,14 @@
       "meeting",
       "booking"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "appoint",
+        "pos": "verb",
+        "meaning_bn": "নিয়োগ করা / নির্ধারণ করা"
+      }
+    ]
   },
   {
     "id": "vocab:recommend",
@@ -84,6 +132,18 @@
     ],
     "antonyms": [
       "discourage"
+    ],
+    "word_family": [
+      {
+        "word": "recommendation",
+        "pos": "noun",
+        "meaning_bn": "সুপারিশ"
+      },
+      {
+        "word": "recommended",
+        "pos": "adjective",
+        "meaning_bn": "সুপারিশকৃত"
+      }
     ]
   },
   {
@@ -118,6 +178,23 @@
     ],
     "antonyms": [
       "rude"
+    ],
+    "word_family": [
+      {
+        "word": "politeness",
+        "pos": "noun",
+        "meaning_bn": "ভদ্রতা"
+      },
+      {
+        "word": "politely",
+        "pos": "adverb",
+        "meaning_bn": "ভদ্রভাবে"
+      },
+      {
+        "word": "impolite",
+        "pos": "adjective",
+        "meaning_bn": "অভদ্র"
+      }
     ]
   },
   {
@@ -153,6 +230,23 @@
     "antonyms": [
       "unnecessary",
       "optional"
+    ],
+    "word_family": [
+      {
+        "word": "necessity",
+        "pos": "noun",
+        "meaning_bn": "প্রয়োজনীয়তা"
+      },
+      {
+        "word": "necessarily",
+        "pos": "adverb",
+        "meaning_bn": "অবশ্যই / প্রয়োজনীয়ভাবে"
+      },
+      {
+        "word": "unnecessary",
+        "pos": "adjective",
+        "meaning_bn": "অপ্রয়োজনীয়"
+      }
     ]
   },
   {
@@ -169,7 +263,14 @@
       "chance",
       "opening"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "opportune",
+        "pos": "adjective",
+        "meaning_bn": "উপযুক্ত সময়ের"
+      }
+    ]
   },
   {
     "id": "vocab:explain",
@@ -187,6 +288,18 @@
     ],
     "antonyms": [
       "confuse"
+    ],
+    "word_family": [
+      {
+        "word": "explanation",
+        "pos": "noun",
+        "meaning_bn": "ব্যাখ্যা"
+      },
+      {
+        "word": "explanatory",
+        "pos": "adjective",
+        "meaning_bn": "ব্যাখ্যামূলক"
+      }
     ]
   },
   {
@@ -206,6 +319,18 @@
     "antonyms": [
       "busy",
       "unavailable"
+    ],
+    "word_family": [
+      {
+        "word": "availability",
+        "pos": "noun",
+        "meaning_bn": "সহজলভ্যতা"
+      },
+      {
+        "word": "unavailable",
+        "pos": "adjective",
+        "meaning_bn": "অপ্রাপ্য"
+      }
     ]
   },
   {
@@ -269,6 +394,13 @@
     ],
     "antonyms": [
       "full"
+    ],
+    "word_family": [
+      {
+        "word": "hunger",
+        "pos": "noun",
+        "meaning_bn": "ক্ষুধা"
+      }
     ]
   },
   {
@@ -282,7 +414,14 @@
     "example": "She is thirsty; she needs water.",
     "example_bn": "সে তৃষ্ণার্ত; তার পানি দরকার।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "thirst",
+        "pos": "noun",
+        "meaning_bn": "তৃষ্ণা"
+      }
+    ]
   },
   {
     "id": "vocab:station",
@@ -345,6 +484,13 @@
     "synonyms": [],
     "antonyms": [
       "lend"
+    ],
+    "word_family": [
+      {
+        "word": "borrower",
+        "pos": "noun",
+        "meaning_bn": "ধার নেওয়া ব্যক্তি"
+      }
     ]
   },
   {
@@ -362,6 +508,13 @@
     ],
     "antonyms": [
       "borrow"
+    ],
+    "word_family": [
+      {
+        "word": "lender",
+        "pos": "noun",
+        "meaning_bn": "ধারদাতা"
+      }
     ]
   },
   {
@@ -380,6 +533,13 @@
     "antonyms": [
       "free",
       "available"
+    ],
+    "word_family": [
+      {
+        "word": "busily",
+        "pos": "adverb",
+        "meaning_bn": "ব্যস্তভাবে"
+      }
     ]
   },
   {
@@ -395,6 +555,13 @@
     "synonyms": [],
     "antonyms": [
       "late"
+    ],
+    "word_family": [
+      {
+        "word": "earliness",
+        "pos": "noun",
+        "meaning_bn": "আগাম / অকালতা"
+      }
     ]
   },
   {
@@ -412,6 +579,18 @@
     ],
     "antonyms": [
       "early"
+    ],
+    "word_family": [
+      {
+        "word": "lateness",
+        "pos": "noun",
+        "meaning_bn": "দেরি"
+      },
+      {
+        "word": "lately",
+        "pos": "adverb",
+        "meaning_bn": "সম্প্রতি"
+      }
     ]
   },
   {
@@ -427,6 +606,18 @@
     "synonyms": [],
     "antonyms": [
       "remember"
+    ],
+    "word_family": [
+      {
+        "word": "forgetful",
+        "pos": "adjective",
+        "meaning_bn": "ভুলুকে"
+      },
+      {
+        "word": "forgetfulness",
+        "pos": "noun",
+        "meaning_bn": "ভুলুকতা"
+      }
     ]
   },
   {
@@ -444,6 +635,18 @@
     ],
     "antonyms": [
       "forget"
+    ],
+    "word_family": [
+      {
+        "word": "memory",
+        "pos": "noun",
+        "meaning_bn": "স্মৃতি"
+      },
+      {
+        "word": "memorable",
+        "pos": "adjective",
+        "meaning_bn": "স্মরণীয়"
+      }
     ]
   },
   {
@@ -463,6 +666,13 @@
     "antonyms": [
       "leave",
       "depart"
+    ],
+    "word_family": [
+      {
+        "word": "arrival",
+        "pos": "noun",
+        "meaning_bn": "আগমন"
+      }
     ]
   },
   {
@@ -482,6 +692,13 @@
     "antonyms": [
       "arrive",
       "stay"
+    ],
+    "word_family": [
+      {
+        "word": "departure",
+        "pos": "noun",
+        "meaning_bn": "প্রস্থান"
+      }
     ]
   },
   {
@@ -526,6 +743,23 @@
     ],
     "antonyms": [
       "dirty"
+    ],
+    "word_family": [
+      {
+        "word": "cleanliness",
+        "pos": "noun",
+        "meaning_bn": "পরিচ্ছন্নতা"
+      },
+      {
+        "word": "cleaner",
+        "pos": "noun",
+        "meaning_bn": "পরিচ্ছন্নতাকারী"
+      },
+      {
+        "word": "cleanly",
+        "pos": "adverb",
+        "meaning_bn": "পরিচ্ছন্নভাবে"
+      }
     ]
   },
   {
@@ -543,6 +777,13 @@
     ],
     "antonyms": [
       "clean"
+    ],
+    "word_family": [
+      {
+        "word": "dirt",
+        "pos": "noun",
+        "meaning_bn": "ময়লা"
+      }
     ]
   },
   {
@@ -558,7 +799,19 @@
     "synonyms": [
       "resident"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "neighbourhood",
+        "pos": "noun",
+        "meaning_bn": "পাড়া / এলাকা"
+      },
+      {
+        "word": "neighbouring",
+        "pos": "adjective",
+        "meaning_bn": "পার্শ্ববর্তী"
+      }
+    ]
   },
   {
     "id": "vocab:furniture",
@@ -571,7 +824,14 @@
     "example": "We bought new furniture.",
     "example_bn": "আমরা নতুন আসবাব কিনেছি।",
     "synonyms": [],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "furnish",
+        "pos": "verb",
+        "meaning_bn": "আসবাব দিয়ে সাজানো"
+      }
+    ]
   },
   {
     "id": "vocab:rent",
@@ -586,7 +846,19 @@
     "synonyms": [
       "hire"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "rental",
+        "pos": "noun/adjective",
+        "meaning_bn": "ভাড়া সংক্রান্ত"
+      },
+      {
+        "word": "renter",
+        "pos": "noun",
+        "meaning_bn": "ভাড়াটে"
+      }
+    ]
   },
   {
     "id": "vocab:meeting",
@@ -602,7 +874,14 @@
       "discussion",
       "conference"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "meet",
+        "pos": "verb",
+        "meaning_bn": "সাক্ষাৎ করা"
+      }
+    ]
   },
   {
     "id": "vocab:email",
@@ -633,7 +912,14 @@
       "timetable",
       "agenda"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "scheduled",
+        "pos": "adjective",
+        "meaning_bn": "নির্ধারিত"
+      }
+    ]
   },
   {
     "id": "vocab:salary",
@@ -649,7 +935,14 @@
       "pay",
       "wage"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "salaried",
+        "pos": "adjective",
+        "meaning_bn": "বেতনভুক্ত"
+      }
+    ]
   },
   {
     "id": "vocab:colleague",
@@ -680,7 +973,14 @@
       "document",
       "summary"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "reporter",
+        "pos": "noun",
+        "meaning_bn": "প্রতিবেদক"
+      }
+    ]
   },
   {
     "id": "vocab:manager",
@@ -696,7 +996,19 @@
       "boss",
       "supervisor"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "manage",
+        "pos": "verb",
+        "meaning_bn": "পরিচালনা করা"
+      },
+      {
+        "word": "management",
+        "pos": "noun",
+        "meaning_bn": "ব্যবস্থাপনা"
+      }
+    ]
   },
   {
     "id": "vocab:task",
@@ -868,6 +1180,23 @@
     ],
     "antonyms": [
       "purity"
+    ],
+    "word_family": [
+      {
+        "word": "pollute",
+        "pos": "verb",
+        "meaning_bn": "দূষিত করা"
+      },
+      {
+        "word": "polluted",
+        "pos": "adjective",
+        "meaning_bn": "দূষিত"
+      },
+      {
+        "word": "pollutant",
+        "pos": "noun",
+        "meaning_bn": "দূষক পদার্থ"
+      }
     ]
   },
   {
@@ -927,6 +1256,13 @@
     ],
     "antonyms": [
       "tasteless"
+    ],
+    "word_family": [
+      {
+        "word": "deliciously",
+        "pos": "adverb",
+        "meaning_bn": "সুস্বাদুভাবে"
+      }
     ]
   },
   {
@@ -942,7 +1278,14 @@
     "synonyms": [
       "greens"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "vegetarian",
+        "pos": "noun/adjective",
+        "meaning_bn": "নিরামিষভোজী"
+      }
+    ]
   },
   {
     "id": "vocab:spicy",
@@ -1017,7 +1360,24 @@
       "route",
       "way"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "direct",
+        "pos": "verb/adjective",
+        "meaning_bn": "নির্দেশ করা / সরাসরি"
+      },
+      {
+        "word": "directly",
+        "pos": "adverb",
+        "meaning_bn": "সরাসরি"
+      },
+      {
+        "word": "director",
+        "pos": "noun",
+        "meaning_bn": "পরিচালক"
+      }
+    ]
   },
   {
     "id": "vocab:doctor",
@@ -1079,6 +1439,18 @@
     "antonyms": [
       "ill",
       "unhealthy"
+    ],
+    "word_family": [
+      {
+        "word": "health",
+        "pos": "noun",
+        "meaning_bn": "স্বাস্থ্য"
+      },
+      {
+        "word": "unhealthy",
+        "pos": "adjective",
+        "meaning_bn": "অস্বাস্থ্যকর"
+      }
     ]
   },
   {
@@ -1110,7 +1482,14 @@
       "learner",
       "pupil"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "study",
+        "pos": "verb/noun",
+        "meaning_bn": "পড়াশোনা করা / অধ্যয়ন"
+      }
+    ]
   },
   {
     "id": "vocab:teacher",
@@ -1126,7 +1505,19 @@
       "tutor",
       "instructor"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "teach",
+        "pos": "verb",
+        "meaning_bn": "শেখানো"
+      },
+      {
+        "word": "teaching",
+        "pos": "noun",
+        "meaning_bn": "শিক্ষাদান"
+      }
+    ]
   },
   {
     "id": "vocab:homework",
@@ -1190,6 +1581,18 @@
     "antonyms": [
       "end",
       "finish"
+    ],
+    "word_family": [
+      {
+        "word": "beginning",
+        "pos": "noun",
+        "meaning_bn": "শুরু"
+      },
+      {
+        "word": "beginner",
+        "pos": "noun",
+        "meaning_bn": "শিক্ষানবিশ"
+      }
     ]
   },
   {
@@ -1209,6 +1612,13 @@
     "antonyms": [
       "begin",
       "start"
+    ],
+    "word_family": [
+      {
+        "word": "finished",
+        "pos": "adjective",
+        "meaning_bn": "শেষ / সম্পন্ন"
+      }
     ]
   },
   {
@@ -1225,7 +1635,19 @@
       "select",
       "pick"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "choice",
+        "pos": "noun",
+        "meaning_bn": "পছন্দ / বাছাই"
+      },
+      {
+        "word": "chosen",
+        "pos": "adjective",
+        "meaning_bn": "নির্বাচিত"
+      }
+    ]
   },
   {
     "id": "vocab:decide",
@@ -1242,6 +1664,18 @@
     ],
     "antonyms": [
       "hesitate"
+    ],
+    "word_family": [
+      {
+        "word": "decision",
+        "pos": "noun",
+        "meaning_bn": "সিদ্ধান্ত"
+      },
+      {
+        "word": "decisive",
+        "pos": "adjective",
+        "meaning_bn": "দৃঢ়সংকল্প"
+      }
     ]
   },
   {
@@ -1257,7 +1691,24 @@
     "synonyms": [
       "favour"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "preference",
+        "pos": "noun",
+        "meaning_bn": "পছন্দ / অগ্রাধিকার"
+      },
+      {
+        "word": "preferable",
+        "pos": "adjective",
+        "meaning_bn": "অধিক পছন্দনীয়"
+      },
+      {
+        "word": "preferably",
+        "pos": "adverb",
+        "meaning_bn": "অধিকতর ভালো হয় যদি"
+      }
+    ]
   },
   {
     "id": "vocab:suggest",
@@ -1273,7 +1724,19 @@
       "recommend",
       "propose"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "suggestion",
+        "pos": "noun",
+        "meaning_bn": "পরামর্শ"
+      },
+      {
+        "word": "suggested",
+        "pos": "adjective",
+        "meaning_bn": "প্রস্তাবিত"
+      }
+    ]
   },
   {
     "id": "vocab:accept",
@@ -1291,6 +1754,23 @@
     "antonyms": [
       "reject",
       "refuse"
+    ],
+    "word_family": [
+      {
+        "word": "acceptance",
+        "pos": "noun",
+        "meaning_bn": "গ্রহণ"
+      },
+      {
+        "word": "acceptable",
+        "pos": "adjective",
+        "meaning_bn": "গ্রহণযোগ্য"
+      },
+      {
+        "word": "unacceptable",
+        "pos": "adjective",
+        "meaning_bn": "অগ্রহণযোগ্য"
+      }
     ]
   },
   {
@@ -1309,6 +1789,18 @@
     ],
     "antonyms": [
       "accept"
+    ],
+    "word_family": [
+      {
+        "word": "refusal",
+        "pos": "noun",
+        "meaning_bn": "প্রত্যাখ্যান"
+      },
+      {
+        "word": "refused",
+        "pos": "adjective",
+        "meaning_bn": "প্রত্যাখ্যাত"
+      }
     ]
   },
   {
@@ -1324,7 +1816,24 @@
     "synonyms": [
       "contrast"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "comparison",
+        "pos": "noun",
+        "meaning_bn": "তুলনা"
+      },
+      {
+        "word": "comparative",
+        "pos": "adjective",
+        "meaning_bn": "তুলনামূলক"
+      },
+      {
+        "word": "comparatively",
+        "pos": "adverb",
+        "meaning_bn": "তুলনামূলকভাবে"
+      }
+    ]
   },
   {
     "id": "vocab:describe",
@@ -1340,7 +1849,19 @@
       "explain",
       "portray"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "description",
+        "pos": "noun",
+        "meaning_bn": "বর্ণনা"
+      },
+      {
+        "word": "descriptive",
+        "pos": "adjective",
+        "meaning_bn": "বর্ণনামূলক"
+      }
+    ]
   },
   {
     "id": "vocab:prepare",
@@ -1356,7 +1877,19 @@
       "ready",
       "arrange"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "preparation",
+        "pos": "noun",
+        "meaning_bn": "প্রস্তুতি"
+      },
+      {
+        "word": "prepared",
+        "pos": "adjective",
+        "meaning_bn": "প্রস্তুত"
+      }
+    ]
   },
   {
     "id": "vocab:solve",
@@ -1372,7 +1905,19 @@
       "resolve",
       "fix"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "solution",
+        "pos": "noun",
+        "meaning_bn": "সমাধান"
+      },
+      {
+        "word": "solvable",
+        "pos": "adjective",
+        "meaning_bn": "সমাধানযোগ্য"
+      }
+    ]
   },
   {
     "id": "vocab:notice",
@@ -1390,6 +1935,13 @@
     ],
     "antonyms": [
       "ignore"
+    ],
+    "word_family": [
+      {
+        "word": "noticeable",
+        "pos": "adjective",
+        "meaning_bn": "লক্ষণীয়"
+      }
     ]
   },
   {
@@ -1408,6 +1960,18 @@
     "antonyms": [
       "face",
       "seek"
+    ],
+    "word_family": [
+      {
+        "word": "avoidance",
+        "pos": "noun",
+        "meaning_bn": "এড়িয়ে চলা"
+      },
+      {
+        "word": "avoidable",
+        "pos": "adjective",
+        "meaning_bn": "এড়ানো যায় এমন"
+      }
     ]
   },
   {
@@ -1424,7 +1988,19 @@
       "cost",
       "rate"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "pricey",
+        "pos": "adjective",
+        "meaning_bn": "দামি"
+      },
+      {
+        "word": "priced",
+        "pos": "adjective",
+        "meaning_bn": "মূল্য নির্ধারিত"
+      }
+    ]
   },
   {
     "id": "vocab:cheap",
@@ -1441,6 +2017,18 @@
     ],
     "antonyms": [
       "expensive"
+    ],
+    "word_family": [
+      {
+        "word": "cheaply",
+        "pos": "adverb",
+        "meaning_bn": "সস্তায়"
+      },
+      {
+        "word": "cheapness",
+        "pos": "noun",
+        "meaning_bn": "সস্তাভাব"
+      }
     ]
   },
   {
@@ -1458,6 +2046,13 @@
     ],
     "antonyms": [
       "cheap"
+    ],
+    "word_family": [
+      {
+        "word": "expense",
+        "pos": "noun",
+        "meaning_bn": "খরচ"
+      }
     ]
   },
   {
@@ -1476,6 +2071,18 @@
     ],
     "antonyms": [
       "seller"
+    ],
+    "word_family": [
+      {
+        "word": "customise",
+        "pos": "verb",
+        "meaning_bn": "কাস্টমাইজ করা"
+      },
+      {
+        "word": "custom",
+        "pos": "noun",
+        "meaning_bn": "প্রথা / কাস্টম"
+      }
     ]
   },
   {
@@ -1569,7 +2176,24 @@
       "examine",
       "study"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "analysis",
+        "pos": "noun",
+        "meaning_bn": "বিশ্লেষণ"
+      },
+      {
+        "word": "analyst",
+        "pos": "noun",
+        "meaning_bn": "বিশ্লেষক"
+      },
+      {
+        "word": "analytical",
+        "pos": "adjective",
+        "meaning_bn": "বিশ্লেষণাত্মক"
+      }
+    ]
   },
   {
     "id": "vocab:significant",
@@ -1587,6 +2211,23 @@
     ],
     "antonyms": [
       "minor"
+    ],
+    "word_family": [
+      {
+        "word": "significance",
+        "pos": "noun",
+        "meaning_bn": "গুরুত্ব / তাৎপর্য"
+      },
+      {
+        "word": "significantly",
+        "pos": "adverb",
+        "meaning_bn": "উল্লেখযোগ্যভাবে"
+      },
+      {
+        "word": "insignificant",
+        "pos": "adjective",
+        "meaning_bn": "তুচ্ছ / অগুরুত্বপূর্ণ"
+      }
     ]
   },
   {
@@ -1605,6 +2246,18 @@
     ],
     "antonyms": [
       "drawback"
+    ],
+    "word_family": [
+      {
+        "word": "beneficial",
+        "pos": "adjective",
+        "meaning_bn": "উপকারী"
+      },
+      {
+        "word": "beneficiary",
+        "pos": "noun",
+        "meaning_bn": "উপকারভোগী"
+      }
     ]
   },
   {
@@ -1639,7 +2292,19 @@
       "proof",
       "data"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "evident",
+        "pos": "adjective",
+        "meaning_bn": "স্পষ্ট / প্রতীয়মান"
+      },
+      {
+        "word": "evidently",
+        "pos": "adverb",
+        "meaning_bn": "স্পষ্টতই"
+      }
+    ]
   },
   {
     "id": "vocab:approach",
@@ -1655,7 +2320,14 @@
       "method",
       "strategy"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "approachable",
+        "pos": "adjective",
+        "meaning_bn": "সহজে কাছে যাওয়া যায় এমন"
+      }
+    ]
   },
   {
     "id": "vocab:impact",
@@ -1671,7 +2343,14 @@
       "effect",
       "influence"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "impactful",
+        "pos": "adjective",
+        "meaning_bn": "প্রভাবশালী"
+      }
+    ]
   },
   {
     "id": "vocab:issue",
@@ -1687,7 +2366,14 @@
       "problem",
       "matter"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "issuing",
+        "pos": "noun/verb",
+        "meaning_bn": "জারি করা"
+      }
+    ]
   },
   {
     "id": "vocab:solution",
@@ -1703,7 +2389,19 @@
       "answer",
       "remedy"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "solve",
+        "pos": "verb",
+        "meaning_bn": "সমাধান করা"
+      },
+      {
+        "word": "solvable",
+        "pos": "adjective",
+        "meaning_bn": "সমাধানযোগ্য"
+      }
+    ]
   },
   {
     "id": "vocab:trend",
@@ -1719,7 +2417,14 @@
       "pattern",
       "tendency"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "trendy",
+        "pos": "adjective",
+        "meaning_bn": "ফ্যাশনেবল / চলতি"
+      }
+    ]
   },
   {
     "id": "vocab:proportion",
@@ -1735,7 +2440,19 @@
       "percentage",
       "share"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "proportional",
+        "pos": "adjective",
+        "meaning_bn": "আনুপাতিক"
+      },
+      {
+        "word": "proportionately",
+        "pos": "adverb",
+        "meaning_bn": "আনুপাতিকভাবে"
+      }
+    ]
   },
   {
     "id": "vocab:contrast",
@@ -1752,6 +2469,13 @@
     ],
     "antonyms": [
       "similarity"
+    ],
+    "word_family": [
+      {
+        "word": "contrasting",
+        "pos": "adjective",
+        "meaning_bn": "বৈসাদৃশ্যপূর্ণ"
+      }
     ]
   },
   {
@@ -1768,7 +2492,19 @@
       "decide",
       "summarise"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "conclusion",
+        "pos": "noun",
+        "meaning_bn": "উপসংহার / সিদ্ধান্ত"
+      },
+      {
+        "word": "conclusive",
+        "pos": "adjective",
+        "meaning_bn": "চূড়ান্ত / নিশ্চিত"
+      }
+    ]
   },
   {
     "id": "vocab:overall",
@@ -1896,7 +2632,19 @@
       "claim",
       "reason"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "argument",
+        "pos": "noun",
+        "meaning_bn": "যুক্তি / তর্ক"
+      },
+      {
+        "word": "argumentative",
+        "pos": "adjective",
+        "meaning_bn": "তর্কপ্রিয়"
+      }
+    ]
   },
   {
     "id": "vocab:opinion",
@@ -1912,7 +2660,14 @@
       "view",
       "belief"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "opinionated",
+        "pos": "adjective",
+        "meaning_bn": "একগুঁয়ে মতামতের"
+      }
+    ]
   },
   {
     "id": "vocab:advantage",
@@ -1930,6 +2685,18 @@
     ],
     "antonyms": [
       "disadvantage"
+    ],
+    "word_family": [
+      {
+        "word": "advantageous",
+        "pos": "adjective",
+        "meaning_bn": "সুবিধাজনক"
+      },
+      {
+        "word": "disadvantage",
+        "pos": "noun",
+        "meaning_bn": "অসুবিধা"
+      }
     ]
   },
   {
@@ -1948,6 +2715,18 @@
     ],
     "antonyms": [
       "advantage"
+    ],
+    "word_family": [
+      {
+        "word": "disadvantaged",
+        "pos": "adjective",
+        "meaning_bn": "সুবিধাবঞ্চিত"
+      },
+      {
+        "word": "advantage",
+        "pos": "noun",
+        "meaning_bn": "সুবিধা"
+      }
     ]
   },
   {
@@ -1964,7 +2743,19 @@
       "nature",
       "surroundings"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "environmental",
+        "pos": "adjective",
+        "meaning_bn": "পরিবেশগত"
+      },
+      {
+        "word": "environmentally",
+        "pos": "adverb",
+        "meaning_bn": "পরিবেশগতভাবে"
+      }
+    ]
   },
   {
     "id": "vocab:sustainable",
@@ -1982,6 +2773,23 @@
     ],
     "antonyms": [
       "unsustainable"
+    ],
+    "word_family": [
+      {
+        "word": "sustain",
+        "pos": "verb",
+        "meaning_bn": "টিকিয়ে রাখা"
+      },
+      {
+        "word": "sustainability",
+        "pos": "noun",
+        "meaning_bn": "টেকসইতা"
+      },
+      {
+        "word": "unsustainable",
+        "pos": "adjective",
+        "meaning_bn": "অটেকসই"
+      }
     ]
   },
   {
@@ -1999,6 +2807,18 @@
     ],
     "antonyms": [
       "waste"
+    ],
+    "word_family": [
+      {
+        "word": "recycling",
+        "pos": "noun",
+        "meaning_bn": "রিসাইক্লিং"
+      },
+      {
+        "word": "recyclable",
+        "pos": "adjective",
+        "meaning_bn": "রিসাইকেলযোগ্য"
+      }
     ]
   },
   {
@@ -2016,6 +2836,13 @@
     ],
     "antonyms": [
       "rural"
+    ],
+    "word_family": [
+      {
+        "word": "urbanisation",
+        "pos": "noun",
+        "meaning_bn": "নগরায়ণ"
+      }
     ]
   },
   {
@@ -2033,6 +2860,13 @@
     ],
     "antonyms": [
       "urban"
+    ],
+    "word_family": [
+      {
+        "word": "rurality",
+        "pos": "noun",
+        "meaning_bn": "গ্রামীণ বৈশিষ্ট্য"
+      }
     ]
   },
   {
@@ -2050,6 +2884,18 @@
     ],
     "antonyms": [
       "wealth"
+    ],
+    "word_family": [
+      {
+        "word": "poor",
+        "pos": "adjective",
+        "meaning_bn": "দরিদ্র"
+      },
+      {
+        "word": "impoverished",
+        "pos": "adjective",
+        "meaning_bn": "দারিদ্র্যপীড়িত"
+      }
     ]
   },
   {
@@ -2067,6 +2913,23 @@
     ],
     "antonyms": [
       "inequality"
+    ],
+    "word_family": [
+      {
+        "word": "equal",
+        "pos": "adjective",
+        "meaning_bn": "সমান"
+      },
+      {
+        "word": "equally",
+        "pos": "adverb",
+        "meaning_bn": "সমানভাবে"
+      },
+      {
+        "word": "unequal",
+        "pos": "adjective",
+        "meaning_bn": "অসমান"
+      }
     ]
   },
   {
@@ -2083,7 +2946,14 @@
       "society",
       "neighbourhood"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "communal",
+        "pos": "adjective",
+        "meaning_bn": "সাম্প্রদায়িক / যৌথ"
+      }
+    ]
   },
   {
     "id": "vocab:government",
@@ -2099,7 +2969,19 @@
       "authorities",
       "state"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "govern",
+        "pos": "verb",
+        "meaning_bn": "শাসন করা"
+      },
+      {
+        "word": "governmental",
+        "pos": "adjective",
+        "meaning_bn": "সরকারি"
+      }
+    ]
   },
   {
     "id": "vocab:academic",
@@ -2115,7 +2997,19 @@
       "educational",
       "scholarly"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "academy",
+        "pos": "noun",
+        "meaning_bn": "একাডেমি"
+      },
+      {
+        "word": "academically",
+        "pos": "adverb",
+        "meaning_bn": "একাডেমিকভাবে"
+      }
+    ]
   },
   {
     "id": "vocab:research",
@@ -2131,7 +3025,14 @@
       "study",
       "investigation"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "researcher",
+        "pos": "noun",
+        "meaning_bn": "গবেষক"
+      }
+    ]
   },
   {
     "id": "vocab:skill",
@@ -2147,7 +3048,24 @@
       "ability",
       "expertise"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "skilled",
+        "pos": "adjective",
+        "meaning_bn": "দক্ষ"
+      },
+      {
+        "word": "skilful",
+        "pos": "adjective",
+        "meaning_bn": "দক্ষ / কুশলী"
+      },
+      {
+        "word": "unskilled",
+        "pos": "adjective",
+        "meaning_bn": "অদক্ষ"
+      }
+    ]
   },
   {
     "id": "vocab:career",
@@ -2163,7 +3081,14 @@
       "profession",
       "occupation"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "careerist",
+        "pos": "noun",
+        "meaning_bn": "ক্যারিয়ারমুখী ব্যক্তি"
+      }
+    ]
   },
   {
     "id": "vocab:innovation",
@@ -2179,7 +3104,24 @@
       "invention",
       "advance"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "innovate",
+        "pos": "verb",
+        "meaning_bn": "উদ্ভাবন করা"
+      },
+      {
+        "word": "innovative",
+        "pos": "adjective",
+        "meaning_bn": "উদ্ভাবনী"
+      },
+      {
+        "word": "innovator",
+        "pos": "noun",
+        "meaning_bn": "উদ্ভাবক"
+      }
+    ]
   },
   {
     "id": "vocab:digital",
@@ -2197,6 +3139,18 @@
     ],
     "antonyms": [
       "analogue"
+    ],
+    "word_family": [
+      {
+        "word": "digitally",
+        "pos": "adverb",
+        "meaning_bn": "ডিজিটালভাবে"
+      },
+      {
+        "word": "digitise",
+        "pos": "verb",
+        "meaning_bn": "ডিজিটাইজ করা"
+      }
     ]
   },
   {
@@ -2213,7 +3167,24 @@
       "entry",
       "availability"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "accessible",
+        "pos": "adjective",
+        "meaning_bn": "সহজলভ্য / প্রবেশযোগ্য"
+      },
+      {
+        "word": "accessibility",
+        "pos": "noun",
+        "meaning_bn": "প্রবেশযোগ্যতা"
+      },
+      {
+        "word": "inaccessible",
+        "pos": "adjective",
+        "meaning_bn": "দুর্লভ / অপ্রবেশযোগ্য"
+      }
+    ]
   },
   {
     "id": "vocab:efficient",
@@ -2231,6 +3202,23 @@
     ],
     "antonyms": [
       "inefficient"
+    ],
+    "word_family": [
+      {
+        "word": "efficiency",
+        "pos": "noun",
+        "meaning_bn": "দক্ষতা"
+      },
+      {
+        "word": "efficiently",
+        "pos": "adverb",
+        "meaning_bn": "দক্ষভাবে"
+      },
+      {
+        "word": "inefficient",
+        "pos": "adjective",
+        "meaning_bn": "অদক্ষ"
+      }
     ]
   },
   {
@@ -2249,6 +3237,18 @@
     ],
     "antonyms": [
       "optional"
+    ],
+    "word_family": [
+      {
+        "word": "essentially",
+        "pos": "adverb",
+        "meaning_bn": "মূলত"
+      },
+      {
+        "word": "essence",
+        "pos": "noun",
+        "meaning_bn": "সারকথা / সারাংশ"
+      }
     ]
   },
   {
@@ -2265,7 +3265,19 @@
       "difficulty",
       "obstacle"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "challenging",
+        "pos": "adjective",
+        "meaning_bn": "চ্যালেঞ্জিং / কঠিন"
+      },
+      {
+        "word": "challenger",
+        "pos": "noun",
+        "meaning_bn": "প্রতিদ্বন্দ্বী"
+      }
+    ]
   },
   {
     "id": "vocab:hobby",
@@ -2313,6 +3325,18 @@
       "mark",
       "observe"
     ],
-    "antonyms": []
+    "antonyms": [],
+    "word_family": [
+      {
+        "word": "celebration",
+        "pos": "noun",
+        "meaning_bn": "উদযাপন"
+      },
+      {
+        "word": "celebratory",
+        "pos": "adjective",
+        "meaning_bn": "উৎসবমুখর"
+      }
+    ]
   }
 ]
