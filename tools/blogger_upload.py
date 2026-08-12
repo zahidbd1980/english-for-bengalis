@@ -381,7 +381,7 @@ def cmd_upload_welcome(draft: bool):
         print(
             "NOTE: Found leftover Page titled 'Home' (/p/home.html).\n"
             "  Syncing it to latest index.html so it is not an outdated landing.\n"
-            "  Preferred setup: Menu Home → blog root `/` and delete this Page later."
+            "  Preferred setup: Menu Home -> blog root / and delete this Page later."
         )
         content = build_page_content("index.html", asset)
         updated = upsert_page(service, blog["id"], "Home", content, draft=draft)
