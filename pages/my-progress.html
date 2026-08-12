@@ -20,9 +20,13 @@
   <footer class="site-footer" id="site-footer"></footer>
   <script src="../js/storage.js"></script>
   <script src="../js/progress.js"></script>
+  <script src="../js/review-session.js"></script>
   <script src="../js/app.js"></script>
   <script>
     function pct(n, d) { return d ? Math.round((n / d) * 100) : 0; }
+    function shortLabel(id) {
+      return String(id || "").replace(/^(vocab|pv|spell|grammar|mistake):/, "");
+    }
 
     Promise.all([
       EFBApp.loadJSON("vocabulary.json"),
@@ -34,6 +38,7 @@
       const vocab = Array.isArray(vocabRaw) ? vocabRaw : vocabRaw.words || [];
       const state = EFBStorage.load();
       const due = EFBProgress.dueItems();
+      const weak = EFBReview.weakAreas(5);
       const countMastered = (list) => list.filter((x) => state.items[x.id] && state.items[x.id].status === 5).length;
       const countStarted = (list) => list.filter((x) => state.items[x.id] && state.items[x.id].status > 0).length;
 
@@ -54,6 +59,7 @@
           <div class="stack-actions">
             <a class="btn btn-accent" href="daily-challenge.html">Daily Challenge</a>
             <a class="btn btn-secondary" href="settings.html">Export / Settings</a>
+            ${!state.profile.estimated_level ? `<a class="btn btn-ghost" href="level-test.html">Level Test</a>` : ""}
           </div>
         </div>
         <div class="panel">
@@ -68,14 +74,31 @@
         </div>
         <div class="panel">
           <h2 style="margin-top:0;font-family:var(--font-display)">Review due</h2>
-          ${due.length ? `<ul class="list-clean">${due.slice(0, 12).map((d) => `<li><a href="quizzes.html">${d.id}</a></li>`).join("")}</ul>
-            <a class="btn btn-primary" href="quizzes.html">রিভিউ কুইজ</a>` : `<p class="empty-state bn">আজ রিভিউ নেই — নতুন লেসন করুন।</p>
+          ${due.length ? `
+            <p class="bn muted">${due.length}টি আইটেম আজ রিভিউর জন্য due।</p>
+            <ul class="list-clean">${due.slice(0, 12).map((d) => `<li><code>${shortLabel(d.id)}</code></li>`).join("")}</ul>
+            <a class="btn btn-primary" href="quizzes.html?mode=review">রিভিউ সেশন শুরু · Start review</a>
+          ` : `<p class="empty-state bn">আজ রিভিউ নেই — নতুন লেসন করুন।</p>
             <a class="btn btn-primary" href="learn.html">শিখুন</a>`}
         </div>
         <div class="panel">
           <h2 style="margin-top:0;font-family:var(--font-display)">Mistake Bank</h2>
-          ${state.mistakes.length ? `<ul>${state.mistakes.slice(0, 15).map((m) => `<li><code>${m}</code></li>`).join("")}</ul>
-            <a class="btn btn-secondary" href="quizzes.html?skill=mistakes">Mistakes quiz</a>` : `<p class="muted bn">এখনো কোনো ভুল জমা হয়নি। কুইজ দিলে ভুলগুলো এখানে আসবে।</p>`}
+          ${state.mistakes.length ? `
+            <p class="bn muted">${state.mistakes.length}টি ভুল জমা আছে — সঠিক উত্তর দিলে তালিকা থেকে সরবে।</p>
+            <ul>${state.mistakes.slice(0, 15).map((m) => `<li><code>${shortLabel(m)}</code></li>`).join("")}</ul>
+            <a class="btn btn-secondary" href="quizzes.html?mode=mistakes">Mistake Bank practice</a>
+          ` : `<p class="muted bn">এখনো কোনো ভুল জমা হয়নি। কুইজ দিলে ভুলগুলো এখানে আসবে।</p>
+            <a class="btn btn-ghost" href="quizzes.html">Quizzes খুলুন</a>`}
+        </div>
+        <div class="panel">
+          <h2 style="margin-top:0;font-family:var(--font-display)">Weak areas</h2>
+          ${weak.length ? `
+            <ul class="list-clean">${weak.map((w) => `
+              <li><code>${shortLabel(w.id)}</code>
+                <span class="muted"> — wrong ${w.wrong_count} · mastery ${w.mastery_score}</span>
+              </li>`).join("")}</ul>
+            <a class="btn btn-ghost" href="quizzes.html?mode=review">দুর্বল অংশ রিভিউ</a>
+          ` : `<p class="muted bn">এখনো যথেষ্ট ডেটা নেই — কয়েকটা কুইজ দিয়ে শুরু করুন।</p>`}
         </div>
       `;
       EFBApp.animateBars();

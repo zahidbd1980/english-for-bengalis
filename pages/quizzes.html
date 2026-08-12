@@ -13,8 +13,8 @@
   <div class="nav-drawer" id="nav-drawer"></div>
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Quizzes</span></nav>
-    <h1 class="page-title">Quizzes · কুইজ</h1>
-    <p class="page-intro bn">উত্তর দিয়ে mastery বাড়ান। ভুল হলে Mistake Bank-এ জমা হবে।</p>
+    <h1 class="page-title" id="page-title">Quizzes · কুইজ</h1>
+    <p class="page-intro bn" id="page-intro">উত্তর দিয়ে mastery বাড়ান। ভুল হলে Mistake Bank-এ জমা হবে।</p>
     <div class="stack-actions" style="margin-bottom:1rem" id="filters"></div>
     <div id="quiz-root"></div>
   </main>
@@ -22,32 +22,86 @@
   <script src="../js/storage.js"></script>
   <script src="../js/progress.js"></script>
   <script src="../js/quiz-engine.js"></script>
+  <script src="../js/review-session.js"></script>
   <script src="../js/app.js"></script>
   <script>
     const params = new URLSearchParams(location.search);
     let skill = params.get("skill") || "all";
+    const mode = params.get("mode"); // review | mistakes
 
-    function start(all) {
+    function startSkill(all) {
       const filtered = skill === "all" ? all : all.filter((q) => q.skill === skill);
       EFBQuiz.mount(document.getElementById("quiz-root"), { questions: filtered, limit: 10 });
     }
 
-    EFBApp.loadJSON("quizzes.json").then((all) => {
+    function startMode(all, banks) {
+      const session = EFBReview.buildSession({
+        mode: mode,
+        quizzes: all,
+        banks: banks,
+        limit: 10,
+      });
+      document.getElementById("page-title").textContent = session.title + " · " + session.title_bn;
+      document.getElementById("page-intro").textContent =
+        mode === "mistakes"
+          ? "আগের ভুল আইটেমগুলো আবার অনুশীলন করুন। সঠিক উত্তর দিলে Mistake Bank থেকে সরে যাবে।"
+          : "আজকের due রিভিউ আইটেম। SRS অনুযায়ী আজ পুনরাবৃত্তি দরকার।";
+      document.getElementById("filters").innerHTML = `
+        <a class="btn btn-secondary" href="my-progress.html">← Progress</a>
+        <a class="btn btn-ghost" href="quizzes.html">সব কুইজ</a>
+        <span class="chip">${session.questions.length} items</span>
+      `;
+      if (!session.questions.length) {
+        document.getElementById("quiz-root").innerHTML = `
+          <div class="empty-state bn">
+            ${mode === "mistakes" ? "Mistake Bank খালি — আগে কুইজ দিয়ে ভুল জমান।" : "আজ রিভিউ নেই। নতুন অনুশীলন করুন।"}
+            <div class="stack-actions" style="margin-top:1rem;justify-content:center">
+              <a class="btn btn-primary" href="quizzes.html">Quizzes</a>
+              <a class="btn btn-secondary" href="daily-challenge.html">Daily Challenge</a>
+            </div>
+          </div>`;
+        return;
+      }
+      EFBQuiz.mount(document.getElementById("quiz-root"), {
+        questions: session.questions,
+        limit: 10,
+        onComplete: function () {
+          /* progress already recorded per item */
+        },
+      });
+    }
+
+    Promise.all([
+      EFBApp.loadJSON("quizzes.json"),
+      EFBApp.loadJSON("vocabulary.json"),
+      EFBApp.loadJSON("phrasal-verbs.json"),
+      EFBApp.loadJSON("spelling.json"),
+      EFBApp.loadJSON("grammar.json"),
+      EFBApp.loadJSON("common-mistakes.json"),
+    ]).then(([all, vocab, phrasal, spelling, grammar, mistakes]) => {
+      if (mode === "review" || mode === "mistakes") {
+        startMode(all, { vocab: vocab, phrasal: phrasal, spelling: spelling, grammar: grammar, mistakes: mistakes });
+        return;
+      }
+
       const skills = ["all", "vocabulary", "grammar", "phrasal", "spelling", "mistakes", "translate"];
-      document.getElementById("filters").innerHTML = skills.map((s) =>
-        `<button type="button" class="btn ${s === skill ? "btn-primary" : "btn-secondary"}" data-s="${s}">${s}</button>`
-      ).join("");
+      document.getElementById("filters").innerHTML =
+        skills
+          .map((s) => `<button type="button" class="btn ${s === skill ? "btn-primary" : "btn-secondary"}" data-s="${s}">${s}</button>`)
+          .join("") +
+        `<a class="btn btn-ghost" href="quizzes.html?mode=review">Review due</a>` +
+        `<a class="btn btn-ghost" href="quizzes.html?mode=mistakes">Mistake Bank</a>`;
       document.getElementById("filters").addEventListener("click", (e) => {
         const btn = e.target.closest("button[data-s]");
         if (!btn) return;
         skill = btn.getAttribute("data-s");
         history.replaceState(null, "", skill === "all" ? "quizzes.html" : "quizzes.html?skill=" + skill);
-        start(all);
+        startSkill(all);
         [...document.querySelectorAll("#filters button")].forEach((b) => {
           b.className = "btn " + (b.getAttribute("data-s") === skill ? "btn-primary" : "btn-secondary");
         });
       });
-      start(all);
+      startSkill(all);
     });
   </script>
 </body>

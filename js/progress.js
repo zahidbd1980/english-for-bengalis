@@ -71,6 +71,8 @@
         item.mastery_score = clamp(item.mastery_score + gain, 0, 100);
         if (item.status < STATUS.PRACTICED) item.status = STATUS.PRACTICED;
         applySrsSuccess(item, "good");
+        // Cleared mistakes drop out of Mistake Bank practice queue
+        state.mistakes = (state.mistakes || []).filter((id) => id !== itemId);
       } else {
         item.wrong_count += 1;
         item.mastery_score = clamp(item.mastery_score - 15, 0, 100);

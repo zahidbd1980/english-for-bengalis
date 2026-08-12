@@ -1,9 +1,9 @@
 # English Learning Platform for Bengali Speakers
 ## Complete Product, Content, SEO, AdSense & Development Master Plan
 
-**Document version:** 1.2 (IA + Navigation + UI/UX complete)  
-**Date:** 11 August 2026  
-**Last enriched:** 11 August 2026  
+**Document version:** 1.3.1 (Phase 4 start + progress dashboard)  
+**Date:** 12 August 2026  
+**Last enriched:** 12 August 2026  
 **Primary platform:** Blogger.com (V1 content + SEO layer)  
 **Working URL:** https://englishforbengalis.blogspot.com  
 **Target custom domain (recommended ASAP):** to be decided (e.g. englishforbengalis.com)  
@@ -27,6 +27,21 @@
 - Added MVP nav vs Full nav, breadcrumbs, screen inventory
 - Added Design system, wireframe notes, quiz/progress UX, empty/error/loading states
 - Added remaining planning gaps: search UX, settings, 404, publish workflow UI, component list
+
+### Changelog (v1.3)
+
+- Locked **teacher universal vocabulary card format** (incl. `word_family`)
+- Mapped **all content banks/lists → consumer pages** (site-wide content inventory)
+- Decided against browser Admin that “publishes live” on static hosting (insecure)
+- Specified **Desktop Content Manager** (local tool/script) as the official way to add/edit/delete/import lists, then `git push` to GitHub Pages
+- Added §141 Content Operations & Desktop Content Manager
+
+### Changelog (v1.3.1) — progress checkpoint
+
+- Added **§142 Build Progress Dashboard** (phase status vs live product)
+- Started **Phase 4 Learning Intelligence**: Review due + Mistake Bank are real practice sessions (`js/review-session.js`, `quizzes.html?mode=review|mistakes`)
+- Weak-areas panel on My Progress; correct answers clear Mistake Bank queue
+- Desktop Content Manager remains **planned, not started** (deferred by product choice)
 
 ---
 
@@ -1295,27 +1310,49 @@ Future:
 
 Do not build thousands of pages manually without structured data.
 
-## Vocabulary schema
+> **v1.3 note:** Live site banks live under Git `data/*.json` and are served via GitHub Pages CDN. Authoring is **not** done inside Blogger posts. See **§141** for the Content Manager plan and bank→page map. Teacher-locked vocabulary format below supersedes older draft fields where they conflict.
+
+## Vocabulary schema (teacher-locked V1 card)
+
+**Required on every word**
 
 ```text
-id
+id                  # vocab:slug
 word
-meaning_en
-meaning_bn
-pronunciation
-audio
-part_of_speech
-difficulty
-cefr_level
-category
-example
+meaning_en          # one short learner-friendly line
+meaning_bn          # Bangla gloss; optional dual sense with /
+part_of_speech      # noun | verb | adjective | adverb | … (or noun/verb)
+cefr_level          # A1–C2
+category            # e.g. daily | education | ielts | …
+example             # must contain the headword in natural use
 example_bn
-synonyms
-antonyms
-collocations
-common_mistake
-quiz_ids
+synonyms            # list; max 3; may be []
+antonyms            # list; max 3; may be []
 ```
+
+**Optional (hide in UI when empty)**
+
+```text
+word_family         # max 4 related POS forms; do not invent fake families
+  [{ word, pos, meaning_bn }]
+```
+
+**Deferred (Phase 2+ — do not block V1)**
+
+```text
+pronunciation / audio / collocations / common_mistake / quiz_ids
+```
+
+**Card display order (Vocabulary UI)**
+
+1. Word + CEFR + POS + category  
+2. TTS (normal / slow)  
+3. meaning_en → meaning_bn  
+4. example → example_bn  
+5. word_family (if any)  
+6. Similar / Opposite (if any)
+
+**Lists are separate from the bank:** `vocabulary-lists.json` holds categories + target lists (`word_ids` only). Do not duplicate meanings inside lists.
 
 ## Phrasal verb schema
 
@@ -3825,6 +3862,8 @@ Track these decisions in writing when made:
 | Primary goal for marketing | Spoken vs Grammar vs IELTS | Spoken + Common Mistakes for growth; Grammar for SEO |
 | Backend later | Firebase vs Supabase | Supabase if SQL comfort; Firebase if speed-to-auth |
 | When to leave Blogger for lessons | never / hybrid / full migrate | Hybrid: Blogger SEO + `app.` for engine |
+| How teachers edit word banks/lists | Browser password Admin that writes live vs Export-only Admin vs **Desktop Content Manager** | **Desktop Content Manager** (§141) — edit local `data/*.json`, then `git push`. Reject live browser publish on static hosting (password in JS is not real security). |
+| Vocab card universal format | Minimal word-only vs full teacher card | **Teacher-locked card** in §38 (incl. optional `word_family`, syn/ant caps) |
 
 ---
 
@@ -4345,7 +4384,8 @@ These should exist as separate files under `/docs` when build starts (see §86).
 | `product-plan.md` | Vision, MVP, roadmap | Covered (§1, 68–69, 121) |
 | `ia-navigation.md` | Menus, pages, URLs | **Added §124–128** |
 | `ui-ux-spec.md` | Design system + screens | **Added §129–133** |
-| `data-model.md` | JSON schemas | Covered (§38–39, 108) |
+| `data-model.md` | JSON schemas | Covered (§38–39, 108) + **§141 bank map** |
+| `content-ops.md` | Desktop Content Manager + publish data | **Added §141** |
 | `content-guidelines.md` | Editorial rules | Covered (§53–54, 82–83) |
 | `seo-plan.md` | Clusters + Bangla SEO | Covered (§46–52, 105) |
 | `adsense-checklist.md` | Monetization safety | Covered (§55–56, 116) |
@@ -4366,9 +4406,11 @@ These should exist as separate files under `/docs` when build starts (see §86).
 
 # 137. Publish Runbook (Page / Post operations)
 
+> **Data-only updates** (words, lists, quizzes JSON): follow **§141.8** (Desktop Content Manager → git push). Below is for Blogger Page/Post chrome.
+
 ### New lesson post
 
-1. Add/update JSON item(s) in Git `data/`  
+1. Add/update JSON item(s) in Git `data/` **via Desktop Content Manager / merge scripts (§141)**  
 2. Draft post in Blogger using lesson template  
 3. Apply labels (skill + level + format)  
 4. Paste embed hook with correct `data-id`  
@@ -4430,12 +4472,183 @@ These should exist as separate files under `/docs` when build starts (see §86).
 | Screen list | Missing | §129 |
 | UI design system | Named only | §130–131 |
 | Empty/error UX | Missing | §132–133 |
-| Publish ops | Pipeline only | §137 |
+| Publish ops | Pipeline only | §137 + **§141.8 data path** |
+| Content banks / authoring | Vague | **§38 locked vocab + §141 Content Manager** |
 
 **Planning completeness for IA + Navigation + UI/UX:** previously ~35–40% → **target ~90%** for V1 build readiness. Remaining ~10% = final brand lock, visual mockups in Figma (optional), and QA scripts during implementation.
 
 ---
 
-## End of Master Plan (v1.2)
+# 141. Content Operations — Banks, Lists & Desktop Content Manager (v1.3)
 
-*This document supersedes v1.0 and v1.1 where they conflict. Canonical schedules/formulas: §24–25, 41, 68, 92. Canonical IA/nav/UI: §44–45, 124–140.*
+This section records the **12 Aug 2026** product decision: before building authoring UI, inventory every word-bank / list on the site, lock formats, and choose a **safe update path** for a static Blogger + GitHub Pages stack.
+
+## 141.1 Problem
+
+Learners need many curated lists (vocab targets, spelling listen-lists, quizzes, etc.). Teachers need to **add / edit / delete / create lists / import** without editing raw JSON by hand forever — but the live site has **no trusted server secret**, so a public “password Admin page that uploads to the site” is **not** a secure publish channel.
+
+## 141.2 Decision (locked)
+
+| Option | What it does | Verdict |
+|---|---|---|
+| A. Browser Admin → writes only `localStorage` | Looks like save; does not update all visitors | Reject for official content |
+| B. Browser Admin → password → Export JSON/CSV only | Safe-ish draft tool; still no live upload | Optional later helper; **not** primary |
+| C. Cloud Admin (Worker + secrets) → GitHub commit | Real remote publish | Future (when needed) |
+| **D. Desktop Content Manager / script** | Edits project `data/*.json` on PC → teacher `git push` | **Primary V1 path** |
+
+**Publish path for all content banks:**
+
+```text
+Desktop Content Manager (edit)
+  → writes data/*.json in repo
+  → git push
+  → GitHub Pages CDN updates
+  → Blogger tools load fresh JSON (HTML re-upload usually not required for data-only)
+```
+
+Student **Custom list / My Lists** on Vocabulary & Spelling Practice remain **personal** (localStorage) and are **not** the official bank.
+
+## 141.3 Bank vs List rule
+
+- **Bank** = full learning entries (meanings, examples, tips, explanations).  
+- **List** = curated selection for study modes (`word_ids` or plain `words[]`).  
+- Never duplicate full meanings inside a list file when a bank already holds them.  
+- Empty optional blocks (family / synonyms / antonyms) → **hide in UI**, do not invent filler.
+
+## 141.4 Site content inventory (bank/list → pages)
+
+| Data file | Kind | Consumer pages / features | Manager module |
+|---|---|---|---|
+| `data/vocabulary.json` | Word bank | Vocabulary, Flashcards (vocab), Home Word-of-Day, Progress counts | Words → Vocabulary |
+| `data/vocabulary-lists.json` | Categories + target lists (`word_ids`) | Vocabulary hub (Target lists / filters) | Lists → Vocab targets |
+| `data/spelling.json` | Spelling tips bank | Spelling study page, Progress | Words → Spelling tips |
+| `data/spelling-lists.json` | Listen/type preset lists (`words[]`) | Spelling Practice | Lists → Spelling practice |
+| `data/phrasal-verbs.json` | Phrasal bank | Phrasal Verbs, Flashcards (phrasal), Progress | Words → Phrasals |
+| `data/quizzes.json` | Quiz items (`skill`: vocabulary/grammar/…) | Quizzes, Daily Challenge, Level Test | Quizzes |
+| `data/grammar.json` | Grammar lessons | Grammar page | Lessons → Grammar |
+| `data/common-mistakes.json` | Mistake bank | Common Mistakes (+ related quiz skill) | Lessons → Mistakes |
+| `data/spoken.json` | Dialogues | Spoken English | Lessons → Spoken |
+
+**Pages without their own bank (compose from above):** IELTS hub, Practice hub, Learn hub, Home quiz teaser — they link to tools/data above; do not create parallel unofficial JSON unless a new skill needs it.
+
+## 141.5 Desktop Content Manager — product shape
+
+One local app (GUI preferred; CLI acceptable for power users) opened against the repo root.
+
+```text
+Content Manager (Desktop)
+├── Words
+│   ├── Vocabulary bank          (± word_family, syn/ant)
+│   ├── Phrasal verbs
+│   └── Spelling tips
+├── Lists
+│   ├── Vocab target lists (+ categories)
+│   └── Spelling practice lists
+├── Lessons
+│   ├── Grammar
+│   ├── Common mistakes
+│   └── Spoken dialogues
+└── Quizzes
+    └── quizzes.json (all skills)
+```
+
+**Must-have actions per module:** view table, add, edit, delete, duplicate, import (CSV/JSON), export, validate required fields, Save to the correct `data/*.json`.
+
+**Nice-to-have:** dry-run diff, “remind to git push”, open folder, run `tools/merge_vocab.py --check`.
+
+## 141.6 Build phases
+
+| Phase | Scope | Why first |
+|---|---|---|
+| **Phase 1** | Vocabulary bank + vocabulary-lists + spelling-lists | Highest churn; IELTS/target lists; listen practice |
+| **Phase 2** | Spelling tips bank + phrasal-verbs + quizzes | Completes Practice loop content |
+| **Phase 3** | Grammar + common-mistakes + spoken | Lesson banks; slower edit cadence |
+
+Supporting CLI already aligned with this direction: `tools/merge_vocab.py`, `tools/add_word_families.py`, `tools/add_ielts_vocab.py`, `data/vocab_import_template.csv`. GUI should call the same validation rules as §38.
+
+## 141.7 Security / ops notes
+
+- Do **not** embed GitHub tokens or “site upload passwords” in any public Blogger/GitHub Pages HTML/JS.  
+- Desktop tool may store nothing secret, or only local OS-user config — never commit secrets.  
+- Official content trust boundary = **who can push to the GitHub repo**, not who knows an Admin page password.  
+- After data push, hard-refresh / CDN cache may lag a few minutes; document that in the publish runbook (§137).
+
+## 141.8 Update to publish runbook (§137 addendum)
+
+When shipping **data-only** content (new words/lists/quizzes):
+
+1. Edit via Desktop Content Manager (or merge script)  
+2. `python tools/merge_vocab.py --check` (and future per-type validators)  
+3. Commit + `git push` to Pages repo  
+4. Spot-check live Vocabulary / Spelling Practice / Quizzes  
+5. Blogger HTML re-upload **only** if page chrome/JS changed — not for JSON-only updates  
+
+---
+
+## End of Master Plan (v1.3)
+
+*This document supersedes v1.0–v1.2 where they conflict. Canonical schedules/formulas: §24–25, 41, 68, 92. Canonical IA/nav/UI: §44–45, 124–140. Canonical content banks + authoring: §38 + §141.*
+
+---
+
+# 142. Build Progress Dashboard (living — update when shipping)
+
+**Last progress update:** 12 August 2026  
+**Current product stage:** Soft-launch capable skeleton · **mid Phase 2 (content volume)** · **Phase 3 engine mostly done** · **Phase 4 started**
+
+## 142.1 Phase status
+
+| Phase | Plan name | Status | Notes |
+|---|---|---|---|
+| 0 | Research & Architecture | **Done** | IA, schemas, Blogger-first model |
+| 1 | Blogger Foundation | **Done** | Pages + GitHub Pages CDN (`docs/BLOGGER_FIRST_BN.md`) |
+| 2 | Content MVP | **In progress** | Volumes below §68 targets (see 142.2) |
+| 3 | Interactive Engine | **Mostly done** | Quiz, flashcards, spelling practice, vocab hub, daily challenge, streak, export/import |
+| 4 | Learning Intelligence | **Started** | Review due + Mistake Bank sessions live; weak-area panel v1; recommendations / full SRS polish next |
+| 5 | IELTS | Landing only | Hub + disclaimer; not full suite |
+| 6–7 | Cloud / Advanced | Not started | Accounts, AI tutor, etc. |
+
+## 142.2 Content volumes vs §68 MVP
+
+| Content | MVP target | Live (approx.) | Gap |
+|---|---:|---:|---|
+| Vocabulary | 300 | 143 | Expand bank + lists |
+| Phrasal verbs | 50 | 12 | Expand |
+| Spelling tips bank | 100 | 8 (`spelling.json`) | Practice lists already larger |
+| Grammar topics | 10 | 10 | Met (depth can grow) |
+| Spoken dialogues | 100 sentences | 5 dialogues | Expand |
+| Common mistakes | 50 | 17 | Expand (USP) |
+| Quizzes | rich pools | 33 | Thin spelling/phrasal pools |
+
+## 142.3 Feature checklist (product, not Content Manager)
+
+| Feature | Status |
+|---|---|
+| Home gamification (streak / WOTD / quiz teaser) | Done |
+| Vocabulary hub + target lists + word_family | Done |
+| Spelling Practice listen/type | Done |
+| Quiz engine MCQ + type | Done |
+| Daily Challenge | Done |
+| Progress + export/import | Done |
+| Soft Level Test | Thin but live |
+| Translation Lab | v0 (few inline items) — needs data-driven scale |
+| **Review due → practice session** | **Done (v1.3.1)** — `quizzes.html?mode=review` |
+| **Mistake Bank → practice session** | **Done (v1.3.1)** — `quizzes.html?mode=mistakes` |
+| Weak-area panel | **Done v1** on My Progress |
+| First-run onboarding (S21) | Not started |
+| Sentence Builder page | Not started |
+| Site-wide search | Not started |
+| Desktop Content Manager (§141) | Planned — deferred until content/engine P0s stabilize |
+
+## 142.4 Next implementation queue (priority order)
+
+1. **Content volume push** toward §68 (vocab, mistakes, phrasals, quiz pools) — editorial  
+2. **First-run onboarding** on Home (Level Test → first practice → Progress → Export tip)  
+3. Translation Lab → `data/`-driven items (USP pillar)  
+4. Stronger Level Test (skill mix, not only random 8)  
+5. Sentence Builder (P1)  
+6. Desktop Content Manager when editing friction becomes the bottleneck  
+
+## 142.5 How to update this section
+
+When a milestone ships: change Status cells, bump **Last progress update**, add one line under Changelog (v1.3.x). Do not rewrite older sections — append facts here.
