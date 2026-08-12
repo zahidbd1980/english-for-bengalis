@@ -21,3 +21,5 @@ API cannot paste theme safely from here every time — apply once:
 ## Still true
 - Home = **root URL only** (no `/p/home.html` Page)
 - Landing content = Welcome post body (`index.html` via `--upload-welcome`)
+- Featured Post is **pinned** to Welcome post id `7429782684369907641` (`useMostRecentPost=false`) so new lesson posts do **not** replace the homepage landing
+- New posts appear in the **Blog Posts** list under the landing (and at their own `/yyyy/mm/slug.html` URL)

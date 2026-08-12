@@ -3215,7 +3215,8 @@ body.homepage #page_body .FeaturedPost{margin:0 0 1.5rem}
                       <b:widget-setting name='showSnippet'>true</b:widget-setting>
                       <b:widget-setting name='showPostTitle'>false</b:widget-setting>
                       <b:widget-setting name='showFirstImage'>false</b:widget-setting>
-                      <b:widget-setting name='useMostRecentPost'>true</b:widget-setting>
+                      <b:widget-setting name='useMostRecentPost'>false</b:widget-setting>
+                      <b:widget-setting name='postId'>7429782684369907641</b:widget-setting>
                     </b:widget-settings>
                     <b:includable id='main' var='this'>
   <b:include name='widget-title'/>
