@@ -64,6 +64,11 @@
       "id": "daily",
       "label": "Daily",
       "label_bn": "দৈনন্দিন"
+    },
+    {
+      "id": "ielts",
+      "label": "IELTS",
+      "label_bn": "আইইএলটিএস"
     }
   ],
   "lists": [
@@ -295,6 +300,122 @@
         "vocab:customer",
         "vocab:download",
         "vocab:upload"
+      ]
+    },
+    {
+      "id": "ielts-academic-core",
+      "title": "IELTS Academic Core",
+      "title_bn": "IELTS একাডেমিক মূল শব্দ",
+      "description": "High-value words for Reading/Writing (analyse, evidence, impact…). Unofficial practice.",
+      "description_bn": "রিডিং/রাইটিংয়ের জরুরি শব্দ। অনঅফিসিয়াল প্র্যাকটিস।",
+      "word_ids": [
+        "vocab:analyse",
+        "vocab:significant",
+        "vocab:benefit",
+        "vocab:drawback",
+        "vocab:evidence",
+        "vocab:approach",
+        "vocab:impact",
+        "vocab:issue",
+        "vocab:solution",
+        "vocab:trend",
+        "vocab:proportion",
+        "vocab:compare",
+        "vocab:contrast",
+        "vocab:conclude",
+        "vocab:overall",
+        "vocab:research",
+        "vocab:academic",
+        "vocab:essential",
+        "vocab:efficient",
+        "vocab:challenge"
+      ]
+    },
+    {
+      "id": "ielts-writing-linkers",
+      "title": "IELTS Writing Linkers",
+      "title_bn": "IELTS রাইটিং সংযোগকারী শব্দ",
+      "description": "Linking words for Task 2 essays: however, therefore, although…",
+      "description_bn": "Task 2 রচনার জন্য linking words।",
+      "word_ids": [
+        "vocab:therefore",
+        "vocab:however",
+        "vocab:furthermore",
+        "vocab:although",
+        "vocab:whereas",
+        "vocab:consequently",
+        "vocab:argue",
+        "vocab:opinion",
+        "vocab:advantage",
+        "vocab:disadvantage",
+        "vocab:overall",
+        "vocab:conclude",
+        "vocab:contrast"
+      ]
+    },
+    {
+      "id": "ielts-environment-society",
+      "title": "IELTS Environment & Society",
+      "title_bn": "IELTS পরিবেশ ও সমাজ",
+      "description": "Common essay themes: pollution, urban/rural, poverty, equality.",
+      "description_bn": "প্রবন্ধের সাধারণ থিম: দূষণ, শহর-গ্রাম, দারিদ্র্য, সমতা।",
+      "word_ids": [
+        "vocab:environment",
+        "vocab:pollution",
+        "vocab:sustainable",
+        "vocab:recycle",
+        "vocab:urban",
+        "vocab:rural",
+        "vocab:poverty",
+        "vocab:equality",
+        "vocab:community",
+        "vocab:government",
+        "vocab:issue",
+        "vocab:solution",
+        "vocab:impact",
+        "vocab:benefit"
+      ]
+    },
+    {
+      "id": "ielts-education-tech",
+      "title": "IELTS Education & Technology",
+      "title_bn": "IELTS শিক্ষা ও প্রযুক্তি",
+      "description": "Study and tech vocabulary for essays and speaking.",
+      "description_bn": "পড়াশোনা ও প্রযুক্তি বিষয়ক শব্দ।",
+      "word_ids": [
+        "vocab:academic",
+        "vocab:research",
+        "vocab:skill",
+        "vocab:career",
+        "vocab:innovation",
+        "vocab:digital",
+        "vocab:access",
+        "vocab:efficient",
+        "vocab:essential",
+        "vocab:opportunity",
+        "vocab:improve",
+        "vocab:explain"
+      ]
+    },
+    {
+      "id": "ielts-speaking-topics",
+      "title": "IELTS Speaking Topics",
+      "title_bn": "IELTS স্পিকিং টপিক",
+      "description": "Useful words for Part 1–2: hobby, neighbourhood, prefer, describe…",
+      "description_bn": "Part 1–2 এর জন্য দরকারি শব্দ।",
+      "word_ids": [
+        "vocab:hobby",
+        "vocab:neighbourhood",
+        "vocab:celebrate",
+        "vocab:prefer",
+        "vocab:describe",
+        "vocab:opinion",
+        "vocab:family",
+        "vocab:journey",
+        "vocab:weather",
+        "vocab:neighbour",
+        "vocab:polite",
+        "vocab:confident"
       ]
     }
   ]
