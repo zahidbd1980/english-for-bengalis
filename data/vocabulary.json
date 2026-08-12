@@ -5053,7 +5053,7 @@
     ],
     "cefr_level": "A2",
     "part_of_speech": "verb",
-    "category": "work"
+    "category": "office"
   },
   {
     "id": "vocab:mention",
@@ -5122,7 +5122,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "formal",
+    "category": "office",
     "word_family": []
   },
   {
@@ -5151,7 +5151,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "study"
+    "category": "education"
   },
   {
     "id": "vocab:develop",
@@ -5177,7 +5177,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "academic"
+    "category": "ielts"
   },
   {
     "id": "vocab:increase",
@@ -5198,7 +5198,7 @@
     ],
     "cefr_level": "A2",
     "part_of_speech": "verb/noun",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -5220,7 +5220,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb/noun",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -5249,7 +5249,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "academic"
+    "category": "ielts"
   },
   {
     "id": "vocab:include",
@@ -5298,7 +5298,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "formal",
+    "category": "office",
     "word_family": []
   },
   {
@@ -5325,7 +5325,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "work"
+    "category": "office"
   },
   {
     "id": "vocab:require",
@@ -5351,7 +5351,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "work"
+    "category": "office"
   },
   {
     "id": "vocab:consider",
@@ -5377,7 +5377,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "academic"
+    "category": "ielts"
   },
   {
     "id": "vocab:expect",
@@ -5550,7 +5550,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "formal",
+    "category": "office",
     "word_family": []
   },
   {
@@ -5633,7 +5633,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "academic"
+    "category": "ielts"
   },
   {
     "id": "vocab:fail",
@@ -5659,7 +5659,7 @@
     ],
     "cefr_level": "A2",
     "part_of_speech": "verb",
-    "category": "study"
+    "category": "education"
   },
   {
     "id": "vocab:succeed",
@@ -5692,7 +5692,7 @@
     ],
     "cefr_level": "A2",
     "part_of_speech": "verb",
-    "category": "study"
+    "category": "education"
   },
   {
     "id": "vocab:perform",
@@ -5718,7 +5718,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "work"
+    "category": "office"
   },
   {
     "id": "vocab:produce",
@@ -5749,7 +5749,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "academic"
+    "category": "ielts"
   },
   {
     "id": "vocab:create",
@@ -5923,7 +5923,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "verb",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -5943,7 +5943,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "noun",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -5983,7 +5983,7 @@
     "antonyms": [],
     "cefr_level": "A2",
     "part_of_speech": "noun/verb",
-    "category": "study",
+    "category": "education",
     "word_family": []
   },
   {
@@ -6003,7 +6003,7 @@
     "antonyms": [],
     "cefr_level": "A2",
     "part_of_speech": "noun",
-    "category": "work",
+    "category": "office",
     "word_family": []
   },
   {
@@ -6024,7 +6024,7 @@
     "antonyms": [],
     "cefr_level": "A2",
     "part_of_speech": "noun",
-    "category": "study",
+    "category": "education",
     "word_family": []
   },
   {
@@ -6104,7 +6104,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "noun",
-    "category": "work",
+    "category": "office",
     "word_family": []
   },
   {
@@ -6124,7 +6124,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "noun",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -6164,7 +6164,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "noun/verb",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -6186,7 +6186,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "noun",
-    "category": "work",
+    "category": "office",
     "word_family": []
   },
   {
@@ -6207,7 +6207,7 @@
     ],
     "cefr_level": "A2",
     "part_of_speech": "noun",
-    "category": "work",
+    "category": "office",
     "word_family": []
   },
   {
@@ -6225,7 +6225,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "noun",
-    "category": "work",
+    "category": "office",
     "word_family": []
   },
   {
@@ -6245,7 +6245,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "noun",
-    "category": "work",
+    "category": "office",
     "word_family": []
   },
   {
@@ -6265,7 +6265,7 @@
     "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "noun",
-    "category": "work",
+    "category": "office",
     "word_family": []
   },
   {
@@ -6597,7 +6597,7 @@
     ],
     "cefr_level": "A2",
     "part_of_speech": "adj",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -6626,7 +6626,7 @@
     ],
     "cefr_level": "B1",
     "part_of_speech": "adj",
-    "category": "culture"
+    "category": "daily"
   },
   {
     "id": "vocab:foreign",
@@ -6727,7 +6727,7 @@
     ],
     "cefr_level": "A2",
     "part_of_speech": "adj",
-    "category": "academic",
+    "category": "ielts",
     "word_family": []
   },
   {
@@ -6774,5 +6774,364 @@
     "part_of_speech": "adj",
     "category": "daily",
     "word_family": []
+  },
+  {
+    "id": "vocab:living-room",
+    "word": "living room",
+    "phonetic": "/ˈlɪvɪŋ ruːm/",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "home",
+    "meaning_en": "a room for sitting and relaxing",
+    "meaning_bn": "লিভিং রুম / বসার ঘর",
+    "example": "We watch TV in the living room.",
+    "example_bn": "আমরা লিভিং রুমে টিভি দেখি।",
+    "synonyms": [
+      "sitting room"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:balcony",
+    "word": "balcony",
+    "phonetic": "/ˈbælkəni/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "home",
+    "meaning_en": "an outside platform on a building",
+    "meaning_bn": "ব্যালকনি",
+    "example": "She waters plants on the balcony.",
+    "example_bn": "সে ব্যালকনিতে গাছে পানি দেয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:fridge",
+    "word": "fridge",
+    "phonetic": "/frɪdʒ/",
+    "part_of_speech": "noun",
+    "cefr_level": "A1",
+    "category": "home",
+    "meaning_en": "a cold box for keeping food fresh",
+    "meaning_bn": "ফ্রিজ",
+    "example": "Put the milk in the fridge.",
+    "example_bn": "দুধ ফ্রিজে রাখুন।",
+    "synonyms": [
+      "refrigerator"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:laundry",
+    "word": "laundry",
+    "phonetic": "/ˈlɔːndri/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "home",
+    "meaning_en": "clothes that need washing",
+    "meaning_bn": "কাপড় কাচা / লন্ড্রি",
+    "example": "I did the laundry yesterday.",
+    "example_bn": "গতকাল আমি কাপড় কেচেছি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:roommate",
+    "word": "roommate",
+    "phonetic": "/ˈruːmmeɪt/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "home",
+    "meaning_en": "a person who shares your room or flat",
+    "meaning_bn": "রুমমেট",
+    "example": "My roommate is from Dhaka.",
+    "example_bn": "আমার রুমমেট ঢাকার।",
+    "synonyms": [
+      "flatmate"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:chores",
+    "word": "chores",
+    "phonetic": "/tʃɔːz/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "home",
+    "meaning_en": "small jobs at home",
+    "meaning_bn": "ঘরের কাজ",
+    "example": "Children help with chores.",
+    "example_bn": "শিশুরা ঘরের কাজে সাহায্য করে।",
+    "synonyms": [
+      "housework"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:apartment",
+    "word": "apartment",
+    "phonetic": "/əˈpɑːtmənt/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "home",
+    "meaning_en": "a flat / set of rooms to live in",
+    "meaning_bn": "অ্যাপার্টমেন্ট / ফ্ল্যাট",
+    "example": "They rented a small apartment.",
+    "example_bn": "তারা একটি ছোট অ্যাপার্টমেন্ট ভাড়া নিয়েছে।",
+    "synonyms": [
+      "flat"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:app",
+    "word": "app",
+    "phonetic": "/æp/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "meaning_en": "a program on a phone or computer",
+    "meaning_bn": "অ্যাপ",
+    "example": "This learning app is useful.",
+    "example_bn": "এই লার্নিং অ্যাপ দরকারি।",
+    "synonyms": [
+      "application"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:update",
+    "word": "update",
+    "phonetic": "/ˈʌpdeɪt/",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "meaning_en": "to make something newer / new information",
+    "meaning_bn": "আপডেট করা / আপডেট",
+    "example": "Please update the app.",
+    "example_bn": "অ্যাপটি আপডেট করুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:online",
+    "word": "online",
+    "phonetic": "/ˌɒnˈlaɪn/",
+    "part_of_speech": "adj/adv",
+    "cefr_level": "A2",
+    "category": "technology",
+    "meaning_en": "connected to the internet",
+    "meaning_bn": "অনলাইন",
+    "example": "I study English online.",
+    "example_bn": "আমি অনলাইনে ইংরেজি শিখি।",
+    "synonyms": [],
+    "antonyms": [
+      "offline"
+    ],
+    "word_family": []
+  },
+  {
+    "id": "vocab:offline",
+    "word": "offline",
+    "phonetic": "/ˌɒfˈlaɪn/",
+    "part_of_speech": "adj/adv",
+    "cefr_level": "A2",
+    "category": "technology",
+    "meaning_en": "not connected to the internet",
+    "meaning_bn": "অফলাইন",
+    "example": "The file works offline.",
+    "example_bn": "ফাইলটি অফলাইনে কাজ করে।",
+    "synonyms": [],
+    "antonyms": [
+      "online"
+    ],
+    "word_family": []
+  },
+  {
+    "id": "vocab:search",
+    "word": "search",
+    "phonetic": "/sɜːtʃ/",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "meaning_en": "to look for information",
+    "meaning_bn": "সার্চ করা / খোঁজা",
+    "example": "Search for the meaning online.",
+    "example_bn": "অনলাইনে অর্থ সার্চ করুন।",
+    "synonyms": [
+      "look up"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:click",
+    "word": "click",
+    "phonetic": "/klɪk/",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "technology",
+    "meaning_en": "to press a mouse or button",
+    "meaning_bn": "ক্লিক করা",
+    "example": "Click the green button.",
+    "example_bn": "সবুজ বাটনে ক্লিক করুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:battery",
+    "word": "battery",
+    "phonetic": "/ˈbætri/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "technology",
+    "meaning_en": "power stored in a device",
+    "meaning_bn": "ব্যাটারি",
+    "example": "My phone battery is low.",
+    "example_bn": "আমার ফোনের ব্যাটারি কম।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:except",
+    "word": "except",
+    "phonetic": "/ɪkˈsept/",
+    "part_of_speech": "prep",
+    "cefr_level": "A2",
+    "category": "daily",
+    "meaning_en": "not including",
+    "meaning_bn": "ছাড়া / ব্যতীত",
+    "example": "Everyone came except Rafi.",
+    "example_bn": "রাফি ছাড়া সবাই এসেছে।",
+    "synonyms": [
+      "apart from"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:advice",
+    "word": "advice",
+    "phonetic": "/ədˈvaɪs/",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "daily",
+    "meaning_en": "a suggestion about what to do",
+    "meaning_bn": "উপদেশ / পরামর্শ (বিশেষ্য)",
+    "example": "She gave me good advice.",
+    "example_bn": "সে আমাকে ভালো পরামর্শ দিয়েছে।",
+    "synonyms": [
+      "tip"
+    ],
+    "antonyms": [],
+    "word_family": [
+      {
+        "form": "advise",
+        "pos": "verb",
+        "bn": "উপদেশ দেওয়া"
+      }
+    ]
+  },
+  {
+    "id": "vocab:advise",
+    "word": "advise",
+    "phonetic": "/ədˈvaɪz/",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "daily",
+    "meaning_en": "to give advice",
+    "meaning_bn": "উপদেশ দেওয়া (ক্রিয়া)",
+    "example": "I advise you to practice daily.",
+    "example_bn": "আমি উপদেশ দিই প্রতিদিন অনুশীলন করুন।",
+    "synonyms": [
+      "recommend"
+    ],
+    "antonyms": [],
+    "word_family": [
+      {
+        "form": "advice",
+        "pos": "noun",
+        "bn": "উপদেশ"
+      }
+    ]
+  },
+  {
+    "id": "vocab:interested",
+    "word": "interested",
+    "phonetic": "/ˈɪntrəstɪd/",
+    "part_of_speech": "adj",
+    "cefr_level": "A2",
+    "category": "daily",
+    "meaning_en": "wanting to know more (about something)",
+    "meaning_bn": "আগ্রহী (কোনো কিছুতে)",
+    "example": "I am interested in English.",
+    "example_bn": "আমি ইংরেজিতে আগ্রহী।",
+    "synonyms": [],
+    "antonyms": [
+      "bored"
+    ],
+    "word_family": [
+      {
+        "form": "interesting",
+        "pos": "adj",
+        "bn": "মজার/আকর্ষণীয়"
+      },
+      {
+        "form": "interest",
+        "pos": "noun",
+        "bn": "আগ্রহ"
+      }
+    ]
+  },
+  {
+    "id": "vocab:reach",
+    "word": "reach",
+    "phonetic": "/riːtʃ/",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "travel",
+    "meaning_en": "to arrive at a place",
+    "meaning_bn": "পৌঁছানো",
+    "example": "We reached home at 9.",
+    "example_bn": "আমরা ৯টায় বাড়ি পৌঁছেছি।",
+    "synonyms": [
+      "arrive at"
+    ],
+    "antonyms": [],
+    "word_family": []
+  },
+  {
+    "id": "vocab:bored",
+    "word": "bored",
+    "phonetic": "/bɔːd/",
+    "part_of_speech": "adj",
+    "cefr_level": "A1",
+    "category": "daily",
+    "meaning_en": "feeling tired because nothing interesting is happening",
+    "meaning_bn": "বিরক্ত (অনুভূতি)",
+    "example": "I feel bored at home.",
+    "example_bn": "বাড়িতে বিরক্ত লাগে।",
+    "synonyms": [],
+    "antonyms": [
+      "interested"
+    ],
+    "word_family": [
+      {
+        "form": "boring",
+        "pos": "adj",
+        "bn": "একঘেয়ে"
+      }
+    ]
   }
 ]

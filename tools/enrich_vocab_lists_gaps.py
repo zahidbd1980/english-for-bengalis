@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+"""Add high-value gap words (home, tech, false-friends, daily) then rebuild lists."""
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+VP = ROOT / "data" / "vocabulary.json"
+
+NEW = [
+  {"id":"vocab:bathroom","word":"bathroom","phonetic":"/ˈbɑːθruːm/","part_of_speech":"noun","cefr_level":"A1","category":"home","meaning_en":"a room with a bath or shower","meaning_bn":"বাথরুম","example":"The bathroom is upstairs.","example_bn":"বাথরুম উপরে।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:living-room","word":"living room","phonetic":"/ˈlɪvɪŋ ruːm/","part_of_speech":"noun","cefr_level":"A1","category":"home","meaning_en":"a room for sitting and relaxing","meaning_bn":"লিভিং রুম / বসার ঘর","example":"We watch TV in the living room.","example_bn":"আমরা লিভিং রুমে টিভি দেখি।","synonyms":["sitting room"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:balcony","word":"balcony","phonetic":"/ˈbælkəni/","part_of_speech":"noun","cefr_level":"A2","category":"home","meaning_en":"an outside platform on a building","meaning_bn":"ব্যালকনি","example":"She waters plants on the balcony.","example_bn":"সে ব্যালকনিতে গাছে পানি দেয়।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:fridge","word":"fridge","phonetic":"/frɪdʒ/","part_of_speech":"noun","cefr_level":"A1","category":"home","meaning_en":"a cold box for keeping food fresh","meaning_bn":"ফ্রিজ","example":"Put the milk in the fridge.","example_bn":"দুধ ফ্রিজে রাখুন।","synonyms":["refrigerator"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:laundry","word":"laundry","phonetic":"/ˈlɔːndri/","part_of_speech":"noun","cefr_level":"A2","category":"home","meaning_en":"clothes that need washing","meaning_bn":"কাপড় কাচা / লন্ড্রি","example":"I did the laundry yesterday.","example_bn":"গতকাল আমি কাপড় কেচেছি।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:roommate","word":"roommate","phonetic":"/ˈruːmmeɪt/","part_of_speech":"noun","cefr_level":"A2","category":"home","meaning_en":"a person who shares your room or flat","meaning_bn":"রুমমেট","example":"My roommate is from Dhaka.","example_bn":"আমার রুমমেট ঢাকার।","synonyms":["flatmate"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:chores","word":"chores","phonetic":"/tʃɔːz/","part_of_speech":"noun","cefr_level":"A2","category":"home","meaning_en":"small jobs at home","meaning_bn":"ঘরের কাজ","example":"Children help with chores.","example_bn":"শিশুরা ঘরের কাজে সাহায্য করে।","synonyms":["housework"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:apartment","word":"apartment","phonetic":"/əˈpɑːtmənt/","part_of_speech":"noun","cefr_level":"A2","category":"home","meaning_en":"a flat / set of rooms to live in","meaning_bn":"অ্যাপার্টমেন্ট / ফ্ল্যাট","example":"They rented a small apartment.","example_bn":"তারা একটি ছোট অ্যাপার্টমেন্ট ভাড়া নিয়েছে।","synonyms":["flat"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:password","word":"password","phonetic":"/ˈpɑːswɜːd/","part_of_speech":"noun","cefr_level":"A2","category":"technology","meaning_en":"a secret word to open an account","meaning_bn":"পাসওয়ার্ড","example":"Do not share your password.","example_bn":"পাসওয়ার্ড শেয়ার করবেন না।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:website","word":"website","phonetic":"/ˈwebsaɪt/","part_of_speech":"noun","cefr_level":"A2","category":"technology","meaning_en":"pages on the internet","meaning_bn":"ওয়েবসাইট","example":"Visit our website for lessons.","example_bn":"লেসনের জন্য আমাদের ওয়েবসাইট দেখুন।","synonyms":["site"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:app","word":"app","phonetic":"/æp/","part_of_speech":"noun","cefr_level":"A2","category":"technology","meaning_en":"a program on a phone or computer","meaning_bn":"অ্যাপ","example":"This learning app is useful.","example_bn":"এই লার্নিং অ্যাপ দরকারি।","synonyms":["application"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:update","word":"update","phonetic":"/ˈʌpdeɪt/","part_of_speech":"verb/noun","cefr_level":"A2","category":"technology","meaning_en":"to make something newer / new information","meaning_bn":"আপডেট করা / আপডেট","example":"Please update the app.","example_bn":"অ্যাপটি আপডেট করুন।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:online","word":"online","phonetic":"/ˌɒnˈlaɪn/","part_of_speech":"adj/adv","cefr_level":"A2","category":"technology","meaning_en":"connected to the internet","meaning_bn":"অনলাইন","example":"I study English online.","example_bn":"আমি অনলাইনে ইংরেজি শিখি।","synonyms":[],"antonyms":["offline"],"word_family":[]},
+  {"id":"vocab:offline","word":"offline","phonetic":"/ˌɒfˈlaɪn/","part_of_speech":"adj/adv","cefr_level":"A2","category":"technology","meaning_en":"not connected to the internet","meaning_bn":"অফলাইন","example":"The file works offline.","example_bn":"ফাইলটি অফলাইনে কাজ করে।","synonyms":[],"antonyms":["online"],"word_family":[]},
+  {"id":"vocab:search","word":"search","phonetic":"/sɜːtʃ/","part_of_speech":"verb/noun","cefr_level":"A2","category":"technology","meaning_en":"to look for information","meaning_bn":"সার্চ করা / খোঁজা","example":"Search for the meaning online.","example_bn":"অনলাইনে অর্থ সার্চ করুন।","synonyms":["look up"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:click","word":"click","phonetic":"/klɪk/","part_of_speech":"verb","cefr_level":"A2","category":"technology","meaning_en":"to press a mouse or button","meaning_bn":"ক্লিক করা","example":"Click the green button.","example_bn":"সবুজ বাটনে ক্লিক করুন।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:battery","word":"battery","phonetic":"/ˈbætri/","part_of_speech":"noun","cefr_level":"A2","category":"technology","meaning_en":"power stored in a device","meaning_bn":"ব্যাটারি","example":"My phone battery is low.","example_bn":"আমার ফোনের ব্যাটারি কম।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:except","word":"except","phonetic":"/ɪkˈsept/","part_of_speech":"prep","cefr_level":"A2","category":"daily","meaning_en":"not including","meaning_bn":"ছাড়া / ব্যতীত","example":"Everyone came except Rafi.","example_bn":"রাফি ছাড়া সবাই এসেছে।","synonyms":["apart from"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:advice","word":"advice","phonetic":"/ədˈvaɪs/","part_of_speech":"noun","cefr_level":"A2","category":"daily","meaning_en":"a suggestion about what to do","meaning_bn":"উপদেশ / পরামর্শ (বিশেষ্য)","example":"She gave me good advice.","example_bn":"সে আমাকে ভালো পরামর্শ দিয়েছে।","synonyms":["tip"],"antonyms":[],"word_family":[{"form":"advise","pos":"verb","bn":"উপদেশ দেওয়া"}]},
+  {"id":"vocab:advise","word":"advise","phonetic":"/ədˈvaɪz/","part_of_speech":"verb","cefr_level":"B1","category":"daily","meaning_en":"to give advice","meaning_bn":"উপদেশ দেওয়া (ক্রিয়া)","example":"I advise you to practice daily.","example_bn":"আমি উপদেশ দিই প্রতিদিন অনুশীলন করুন।","synonyms":["recommend"],"antonyms":[],"word_family":[{"form":"advice","pos":"noun","bn":"উপদেশ"}]},
+  {"id":"vocab:interested","word":"interested","phonetic":"/ˈɪntrəstɪd/","part_of_speech":"adj","cefr_level":"A2","category":"daily","meaning_en":"wanting to know more (about something)","meaning_bn":"আগ্রহী (কোনো কিছুতে)","example":"I am interested in English.","example_bn":"আমি ইংরেজিতে আগ্রহী।","synonyms":[],"antonyms":["bored"],"word_family":[{"form":"interesting","pos":"adj","bn":"মজার/আকর্ষণীয়"},{"form":"interest","pos":"noun","bn":"আগ্রহ"}]},
+  {"id":"vocab:interesting","word":"interesting","phonetic":"/ˈɪntrəstɪŋ/","part_of_speech":"adj","cefr_level":"A1","category":"daily","meaning_en":"holding your attention","meaning_bn":"মজার / আকর্ষণীয়","example":"This lesson is interesting.","example_bn":"এই লেসনটা মজার।","synonyms":["engaging"],"antonyms":["boring"],"word_family":[{"form":"interested","pos":"adj","bn":"আগ্রহী"}]},
+  {"id":"vocab:hobby","word":"hobby","phonetic":"/ˈhɒbi/","part_of_speech":"noun","cefr_level":"A1","category":"daily","meaning_en":"an activity you do for fun","meaning_bn":"শখ","example":"My hobby is reading.","example_bn":"আমার শখ পড়া।","synonyms":["pastime"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:neighbourhood","word":"neighbourhood","phonetic":"/ˈneɪbəhʊd/","part_of_speech":"noun","cefr_level":"A2","category":"daily","meaning_en":"the area around where you live","meaning_bn":"পাড়া / এলাকা","example":"Our neighbourhood is quiet.","example_bn":"আমাদের পাড়া শান্ত।","synonyms":["area"],"antonyms":[],"word_family":[{"form":"neighbour","pos":"noun","bn":"প্রতিবেশী"}]},
+  {"id":"vocab:celebrate","word":"celebrate","phonetic":"/ˈselɪbreɪt/","part_of_speech":"verb","cefr_level":"A2","category":"daily","meaning_en":"to do something special for an event","meaning_bn":"উদযাপন করা","example":"We celebrate Pohela Boishakh.","example_bn":"আমরা পহেলা বৈশাখ উদযাপন করি।","synonyms":[],"antonyms":[],"word_family":[{"form":"celebration","pos":"noun","bn":"উদযাপন"}]},
+  {"id":"vocab:reach","word":"reach","phonetic":"/riːtʃ/","part_of_speech":"verb","cefr_level":"A2","category":"travel","meaning_en":"to arrive at a place","meaning_bn":"পৌঁছানো","example":"We reached home at 9.","example_bn":"আমরা ৯টায় বাড়ি পৌঁছেছি।","synonyms":["arrive at"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:skill","word":"skill","phonetic":"/skɪl/","part_of_speech":"noun","cefr_level":"A2","category":"education","meaning_en":"the ability to do something well","meaning_bn":"দক্ষতা","example":"Speaking is an important skill.","example_bn":"কথা বলা একটি গুরুত্বপূর্ণ দক্ষতা।","synonyms":["ability"],"antonyms":[],"word_family":[{"form":"skilled","pos":"adj","bn":"দক্ষ"}]},
+  {"id":"vocab:career","word":"career","phonetic":"/kəˈrɪər/","part_of_speech":"noun","cefr_level":"B1","category":"office","meaning_en":"a job or profession over time","meaning_bn":"ক্যারিয়ার / পেশাজীবন","example":"She wants a career in teaching.","example_bn":"সে শিক্ষকতায় ক্যারিয়ার চায়।","synonyms":["profession"],"antonyms":[],"word_family":[]},
+  {"id":"vocab:innovation","word":"innovation","phonetic":"/ˌɪnəˈveɪʃn/","part_of_speech":"noun","cefr_level":"B1","category":"technology","meaning_en":"a new idea or method","meaning_bn":"উদ্ভাবন","example":"Innovation helps businesses grow.","example_bn":"উদ্ভাবন ব্যবসাকে বাড়ায়।","synonyms":["invention"],"antonyms":[],"word_family":[{"form":"innovate","pos":"verb","bn":"উদ্ভাবন করা"}]},
+  {"id":"vocab:digital","word":"digital","phonetic":"/ˈdɪdʒɪtl/","part_of_speech":"adj","cefr_level":"A2","category":"technology","meaning_en":"using computer technology","meaning_bn":"ডিজিটাল","example":"We live in a digital world.","example_bn":"আমরা ডিজিটাল পৃথিবীতে বাস করি।","synonyms":[],"antonyms":["analogue"],"word_family":[]},
+  {"id":"vocab:access","word":"access","phonetic":"/ˈækses/","part_of_speech":"noun/verb","cefr_level":"B1","category":"technology","meaning_en":"the right or ability to use something","meaning_bn":"প্রবেশাধিকার / অ্যাক্সেস","example":"Students need internet access.","example_bn":"শিক্ষার্থীদের ইন্টারনেট অ্যাক্সেস দরকার।","synonyms":[],"antonyms":[],"word_family":[]},
+  {"id":"vocab:download","word":"download","phonetic":"/ˌdaʊnˈləʊd/","part_of_speech":"verb/noun","cefr_level":"A2","category":"technology","meaning_en":"to copy a file from the internet","meaning_bn":"ডাউনলোড করা","example":"Download the PDF notes.","example_bn":"পিডিএফ নোট ডাউনলোড করুন।","synonyms":[],"antonyms":["upload"],"word_family":[]},
+  {"id":"vocab:upload","word":"upload","phonetic":"/ˌʌpˈləʊd/","part_of_speech":"verb/noun","cefr_level":"A2","category":"technology","meaning_en":"to send a file to the internet","meaning_bn":"আপলোড করা","example":"Upload your homework.","example_bn":"হোমওয়ার্ক আপলোড করুন।","synonyms":[],"antonyms":["download"],"word_family":[]},
+  {"id":"vocab:boring","word":"boring","phonetic":"/ˈbɔːrɪŋ/","part_of_speech":"adj","cefr_level":"A1","category":"daily","meaning_en":"not interesting","meaning_bn":"একঘেয়ে / বিরক্তিকর","example":"The lecture was boring.","example_bn":"লেকচারটা একঘেয়ে ছিল।","synonyms":["dull"],"antonyms":["interesting"],"word_family":[{"form":"bored","pos":"adj","bn":"বিরক্ত"}]},
+  {"id":"vocab:bored","word":"bored","phonetic":"/bɔːd/","part_of_speech":"adj","cefr_level":"A1","category":"daily","meaning_en":"feeling tired because nothing interesting is happening","meaning_bn":"বিরক্ত (অনুভূতি)","example":"I feel bored at home.","example_bn":"বাড়িতে বিরক্ত লাগে।","synonyms":[],"antonyms":["interested"],"word_family":[{"form":"boring","pos":"adj","bn":"একঘেয়ে"}]},
+]
+
+
+def main():
+    vocab = json.loads(VP.read_text(encoding="utf-8"))
+    have = {w["word"].lower() for w in vocab}
+    have_id = {w["id"] for w in vocab}
+    added = 0
+    for w in NEW:
+        if w["word"].lower() in have or w["id"] in have_id:
+            continue
+        vocab.append(w)
+        have.add(w["word"].lower())
+        have_id.add(w["id"])
+        added += 1
+    VP.write_text(json.dumps(vocab, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("added", added, "total", len(vocab))
+
+
+if __name__ == "__main__":
+    main()
