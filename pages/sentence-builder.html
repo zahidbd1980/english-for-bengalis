@@ -153,15 +153,20 @@
       function next() {
         idx += 1;
         if (idx >= queue.length) {
+          const actions =
+            window.EFBApp && EFBApp.nextRoundActions
+              ? EFBApp.nextRoundActions({ skill: "sentence" })
+              : `<div class="stack-actions" style="margin-top:1rem;justify-content:center">
+                  <button type="button" class="btn btn-primary" data-next="retry">আবার</button>
+                  <a class="btn btn-secondary" href="practice.html">Practice hub</a>
+                </div>`;
           document.getElementById("root").innerHTML = `
             <div class="empty-state bn">
-              এই রাউন্ড শেষ!
-              <div class="stack-actions" style="margin-top:1rem;justify-content:center">
-                <button type="button" class="btn btn-primary" id="sb-again">আবার</button>
-                <a class="btn btn-secondary" href="practice.html">Practice hub</a>
-              </div>
+              এই রাউন্ড শেষ — প্রোগ্রেস সেভ হয়েছে!
+              ${actions}
             </div>`;
-          document.getElementById("sb-again").onclick = startQueue;
+          const again = document.querySelector('[data-next="retry"]');
+          if (again) again.onclick = startQueue;
           return;
         }
         loadItem();

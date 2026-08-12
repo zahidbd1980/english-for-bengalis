@@ -128,6 +128,7 @@
       session.revealed = session.current;
       if (window.EFBProgress) {
         EFBProgress.recordResult("spell:" + session.current, true, "type");
+        EFBProgress.setLastLesson("spelling", "spelling-practice");
       }
     } else {
       session.wrongQueue.push(session.current);

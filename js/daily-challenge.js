@@ -46,6 +46,7 @@
       s.challenge.score = score;
       s.challenge.total = total;
     });
+    if (window.EFBProgress) EFBProgress.setLastLesson("daily", "daily-challenge");
   }
 
   function mountFlashcards(root, cards) {
@@ -55,8 +56,38 @@
     }
     let i = 0;
     let showBack = false;
+    let knows = 0;
+    let hards = 0;
+    if (window.EFBProgress) EFBProgress.setLastLesson("flashcards", "flash-session");
 
     function paint() {
+      if (i >= cards.length) {
+        const skillGuess = (cards[0] && String(cards[0].item_id || "").split(":")[0]) || "vocabulary";
+        const skill =
+          skillGuess === "pv" ? "phrasal" : skillGuess === "vocab" ? "vocabulary" : skillGuess;
+        const actions =
+          window.EFBApp && EFBApp.nextRoundActions
+            ? EFBApp.nextRoundActions({ skill: skill })
+            : '<div class="stack-actions"><button type="button" class="btn btn-primary" data-next="retry">আবার</button></div>';
+        root.innerHTML = `
+          <div class="panel highlight">
+            <p class="chip">Deck complete</p>
+            <h2 class="page-title" style="font-size:1.6rem">জানি ${knows} · কঠিন ${hards}</h2>
+            <p class="muted bn">প্রোগ্রেস সেভ হয়েছে। পরের রাউন্ড বেছে নিন।</p>
+            ${actions}
+          </div>`;
+        const retry = root.querySelector('[data-next="retry"]');
+        if (retry) {
+          retry.addEventListener("click", () => {
+            i = 0;
+            knows = 0;
+            hards = 0;
+            showBack = false;
+            paint();
+          });
+        }
+        return;
+      }
       const c = cards[i];
       if (c.item_id) EFBProgress.markSeen(c.item_id);
       root.innerHTML = `
@@ -93,23 +124,25 @@
       root.querySelector("#card").addEventListener("click", flip);
       root.querySelector("#flip").addEventListener("click", flip);
       root.querySelector("#prev").addEventListener("click", () => {
-        i = (i - 1 + cards.length) % cards.length;
+        i = Math.max(0, i - 1);
         showBack = false;
         paint();
       });
       root.querySelector("#next").addEventListener("click", () => {
-        i = (i + 1) % cards.length;
+        i = i + 1;
         showBack = false;
         paint();
       });
       root.querySelector("#know").addEventListener("click", () => {
         if (c.item_id) EFBProgress.recordResult(c.item_id, true, "mcq");
-        i = (i + 1) % cards.length;
+        knows += 1;
+        i = i + 1;
         showBack = false;
         paint();
       });
       root.querySelector("#hard").addEventListener("click", () => {
         if (c.item_id) EFBProgress.recordResult(c.item_id, false, "mcq");
+        hards += 1;
         showBack = true;
         paint();
       });

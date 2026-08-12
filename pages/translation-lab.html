@@ -43,12 +43,14 @@
       }));
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions: questions,
+        skill: "translate",
         limit: Math.min(10, Math.max(questions.length, 1)),
       });
     }
 
     EFBApp.loadJSON("translation-lab.json").then((items) => {
       allItems = Array.isArray(items) ? items : [];
+      if (window.EFBProgress) EFBProgress.setLastLesson("translate", "translation-lab");
       const topics = ["all"].concat(
         Array.from(new Set(allItems.map((x) => x.topic).filter(Boolean))).sort()
       );

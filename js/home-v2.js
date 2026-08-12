@@ -363,6 +363,12 @@
     var link = document.getElementById("home-continue-link");
     if (!link || !global.EFBStorage) return;
     var state = EFBStorage.load();
+    if (global.EFBApp && EFBApp.resolveContinue) {
+      var cont = EFBApp.resolveContinue(state);
+      link.href = cont.href;
+      link.textContent = cont.label;
+      return;
+    }
     var p = pagesPrefix();
     var due = global.EFBProgress ? EFBProgress.dueItems() : [];
     var today = global.EFBProgress ? EFBProgress.todayStr() : "";
@@ -386,7 +392,10 @@
         grammar: "grammar.html",
         spelling: "spelling-practice.html",
         phrasal: "phrasal-verbs.html",
-        mistakes: "common-mistakes.html"
+        mistakes: "common-mistakes.html",
+        sentence: "sentence-builder.html",
+        translate: "translation-lab.html",
+        spoken: "spoken-english.html"
       };
       link.href = p + (map[skill] || "my-progress.html");
       link.textContent = "Continue · " + skill + " →";

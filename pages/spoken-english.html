@@ -14,7 +14,11 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Spoken</span></nav>
     <h1 class="page-title">Spoken English · কথ্য ইংরেজি</h1>
-    <p class="page-intro bn">ডায়ালগ পড়ুন, জোরে বলুন, পরে Translation Lab-এ অনুবাদ অনুশীলন করুন।</p>
+    <p class="page-intro bn">ডায়ালগ পড়ুন, জোরে বলুন — পরে Translation Lab ও Sentence Builder করুন।</p>
+    <div class="stack-actions" style="margin-bottom:1rem">
+      <a class="btn btn-primary" href="translation-lab.html">Translation Lab</a>
+      <a class="btn btn-secondary" href="sentence-builder.html">Sentence Builder</a>
+    </div>
     <div id="list" class="lesson-block"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -23,13 +27,17 @@
   <script src="../js/app.js"></script>
   <script>
     EFBApp.loadJSON("spoken.json").then((items) => {
-      document.getElementById("list").innerHTML = items.map((d) => {
-        EFBProgress.markSeen(d.id);
-        return `<article class="panel">
-          <div class="quiz-meta"><h2 style="margin:0;font-size:1.2rem">${d.title}</h2><span class="chip">${d.level}</span></div>
-          ${(d.lines || []).map((l) => `<div class="example"><strong>${l.en}</strong><br><span class="bn muted">${l.bn}</span></div>`).join("")}
+      const list = document.getElementById("list");
+      list.innerHTML = items.map((d) => {
+        const level = d.level || d.cefr || "";
+        const title = d.title_bn ? `${d.title} · ${d.title_bn}` : d.title;
+        return `<article class="panel" data-item-id="${d.id}">
+          <div class="quiz-meta"><h2 style="margin:0;font-size:1.2rem">${title}</h2><span class="chip">${level}</span></div>
+          ${(d.lines || []).map((l) => `<div class="example"><strong>${l.speaker ? l.speaker + ": " : ""}${l.en}</strong><br><span class="bn muted">${l.bn || ""}</span></div>`).join("")}
         </article>`;
       }).join("");
+      EFBApp.watchLessonSeen(list);
+      EFBProgress.setLastLesson("spoken", "spoken-list");
     });
   </script>
 </body>

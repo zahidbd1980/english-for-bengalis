@@ -14,8 +14,11 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Phrasal Verbs</span></nav>
     <h1 class="page-title">Phrasal Verbs</h1>
-    <p class="page-intro bn">দৈনন্দিন কথায় বহুল ব্যবহৃত ফ্রেজাল ভার্ব।</p>
-    <a class="btn btn-primary" href="quizzes.html?skill=phrasal" style="margin-bottom:1rem">Phrasal Quiz</a>
+    <p class="page-intro bn">দৈনন্দিন কথায় বহুল ব্যবহৃত ফ্রেজাল ভার্ব — পড়ে Quiz দিন।</p>
+    <div class="stack-actions" style="margin-bottom:1rem">
+      <a class="btn btn-primary" href="quizzes.html?skill=phrasal">Phrasal Quiz</a>
+      <a class="btn btn-secondary" href="flashcards.html?skill=phrasal">Flashcards</a>
+    </div>
     <div id="list" class="lesson-block"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -24,14 +27,14 @@
   <script src="../js/app.js"></script>
   <script>
     EFBApp.loadJSON("phrasal-verbs.json").then((items) => {
-      document.getElementById("list").innerHTML = items.map((p) => {
-        EFBProgress.markSeen(p.id);
-        return `<article class="panel">
+      const list = document.getElementById("list");
+      list.innerHTML = items.map((p) => `<article class="panel" data-item-id="${p.id}">
           <div class="quiz-meta"><strong style="font-size:1.2rem">${p.phrase}</strong><span class="chip">${p.cefr_level}</span></div>
           <p>${p.meaning_en} · <span class="bn">${p.meaning_bn}</span></p>
           <div class="example">${p.example}<br><span class="bn muted">${p.example_bn || ""}</span></div>
-        </article>`;
-      }).join("");
+        </article>`).join("");
+      EFBApp.watchLessonSeen(list);
+      EFBProgress.setLastLesson("phrasal", "phrasal-list");
     });
   </script>
 </body>

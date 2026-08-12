@@ -71,17 +71,17 @@
     return save(state);
   }
 
-  /** Remap legacy item ids (e.g. v227 → vocab:agree) once after schema fixes. */
+  /** Remap legacy item ids (e.g. v227 → vocab:agree) after schema fixes. */
   function applyIdMap(map) {
     if (!map || typeof map !== "object") return load();
     return update((state) => {
-      if (state._id_migrate_v1) return;
+      const version = 2;
+      if (state._id_migrate_ver >= version) return;
       const next = {};
       Object.keys(state.items || {}).forEach((id) => {
         const dest = map[id] || id;
         if (!next[dest]) next[dest] = state.items[id];
         else {
-          // Prefer higher mastery if both exist
           const a = next[dest];
           const b = state.items[id];
           next[dest] =
@@ -90,6 +90,7 @@
       });
       state.items = next;
       state.mistakes = (state.mistakes || []).map((id) => map[id] || id);
+      state._id_migrate_ver = version;
       state._id_migrate_v1 = true;
     });
   }

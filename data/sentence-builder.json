@@ -1,161 +1,293 @@
 [
   {
-    "id": "sb1",
+    "id": "sb:1",
     "cefr": "A1",
     "bn": "আমি একজন ছাত্র।",
-    "words": ["I", "am", "a", "student"],
+    "words": [
+      "I",
+      "am",
+      "a",
+      "student"
+    ],
     "answer": "I am a student",
     "hint": "am + a + noun"
   },
   {
-    "id": "sb2",
+    "id": "sb:2",
     "cefr": "A1",
     "bn": "সে প্রতিদিন স্কুলে যায়।",
-    "words": ["She", "goes", "to", "school", "every", "day"],
+    "words": [
+      "She",
+      "goes",
+      "to",
+      "school",
+      "every",
+      "day"
+    ],
     "answer": "She goes to school every day",
     "hint": "he/she + verb-s"
   },
   {
-    "id": "sb3",
+    "id": "sb:3",
     "cefr": "A1",
     "bn": "তারা এখন খেলছে।",
-    "words": ["They", "are", "playing", "now"],
+    "words": [
+      "They",
+      "are",
+      "playing",
+      "now"
+    ],
     "answer": "They are playing now",
     "hint": "are + -ing"
   },
   {
-    "id": "sb4",
+    "id": "sb:4",
     "cefr": "A2",
     "bn": "গতকাল আমি একটা বই কিনেছি।",
-    "words": ["I", "bought", "a", "book", "yesterday"],
+    "words": [
+      "I",
+      "bought",
+      "a",
+      "book",
+      "yesterday"
+    ],
     "answer": "I bought a book yesterday",
     "hint": "past simple"
   },
   {
-    "id": "sb5",
+    "id": "sb:5",
     "cefr": "A2",
     "bn": "আপনি কি ইংরেজি বলতে পারেন?",
-    "words": ["Can", "you", "speak", "English"],
+    "words": [
+      "Can",
+      "you",
+      "speak",
+      "English"
+    ],
     "answer": "Can you speak English",
     "hint": "Can + subject + verb"
   },
   {
-    "id": "sb6",
+    "id": "sb:6",
     "cefr": "A2",
     "bn": "আমার এক কাপ চা দরকার।",
-    "words": ["I", "need", "a", "cup", "of", "tea"],
+    "words": [
+      "I",
+      "need",
+      "a",
+      "cup",
+      "of",
+      "tea"
+    ],
     "answer": "I need a cup of tea",
     "hint": "a cup of…"
   },
   {
-    "id": "sb7",
+    "id": "sb:7",
     "cefr": "A2",
     "bn": "তিনি হাসপাতালে কাজ করেন।",
-    "words": ["He", "works", "in", "a", "hospital"],
+    "words": [
+      "He",
+      "works",
+      "in",
+      "a",
+      "hospital"
+    ],
     "answer": "He works in a hospital",
     "hint": "in + place"
   },
   {
-    "id": "sb8",
+    "id": "sb:8",
     "cefr": "A2",
     "bn": "আমরা সকাল ৮টায় উঠি।",
-    "words": ["We", "get", "up", "at", "8", "o'clock"],
+    "words": [
+      "We",
+      "get",
+      "up",
+      "at",
+      "8",
+      "o'clock"
+    ],
     "answer": "We get up at 8 o'clock",
     "hint": "get up + at + time"
   },
   {
-    "id": "sb9",
+    "id": "sb:9",
     "cefr": "A2",
     "bn": "দয়া করে আলো জ্বালান।",
-    "words": ["Please", "turn", "on", "the", "light"],
+    "words": [
+      "Please",
+      "turn",
+      "on",
+      "the",
+      "light"
+    ],
     "answer": "Please turn on the light",
     "hint": "turn on (not open)"
   },
   {
-    "id": "sb10",
+    "id": "sb:10",
     "cefr": "A2",
     "bn": "আমি আপনার সাথে একমত।",
-    "words": ["I", "agree", "with", "you"],
+    "words": [
+      "I",
+      "agree",
+      "with",
+      "you"
+    ],
     "answer": "I agree with you",
     "hint": "agree with (not am agree)"
   },
   {
-    "id": "sb11",
+    "id": "sb:11",
     "cefr": "B1",
     "bn": "বৃষ্টি হওয়া সত্ত্বেও তারা এসেছে।",
-    "words": ["They", "came", "despite", "the", "rain"],
+    "words": [
+      "They",
+      "came",
+      "despite",
+      "the",
+      "rain"
+    ],
     "answer": "They came despite the rain",
     "hint": "despite + noun (no of)"
   },
   {
-    "id": "sb12",
+    "id": "sb:12",
     "cefr": "B1",
     "bn": "আমি দুই বছর ধরে ইংরেজি শিখছি।",
-    "words": ["I", "have", "been", "learning", "English", "for", "two", "years"],
+    "words": [
+      "I",
+      "have",
+      "been",
+      "learning",
+      "English",
+      "for",
+      "two",
+      "years"
+    ],
     "answer": "I have been learning English for two years",
     "hint": "present perfect continuous"
   },
   {
-    "id": "sb13",
+    "id": "sb:13",
     "cefr": "B1",
     "bn": "যদি আমি সময় পাই, আমি তোমাকে সাহায্য করব।",
-    "words": ["If", "I", "have", "time", "I", "will", "help", "you"],
+    "words": [
+      "If",
+      "I",
+      "have",
+      "time",
+      "I",
+      "will",
+      "help",
+      "you"
+    ],
     "answer": "If I have time I will help you",
     "hint": "first conditional"
   },
   {
-    "id": "sb14",
+    "id": "sb:14",
     "cefr": "A2",
     "bn": "সে তার ছোট ভাইয়ের দেখাশোনা করে।",
-    "words": ["She", "looks", "after", "her", "little", "brother"],
+    "words": [
+      "She",
+      "looks",
+      "after",
+      "her",
+      "little",
+      "brother"
+    ],
     "answer": "She looks after her little brother",
     "hint": "look after = care for"
   },
   {
-    "id": "sb15",
+    "id": "sb:15",
     "cefr": "A2",
     "bn": "আমাদের দুধ শেষ হয়ে গেছে।",
-    "words": ["We", "have", "run", "out", "of", "milk"],
+    "words": [
+      "We",
+      "have",
+      "run",
+      "out",
+      "of",
+      "milk"
+    ],
     "answer": "We have run out of milk",
     "hint": "run out of"
   },
   {
-    "id": "sb16",
+    "id": "sb:16",
     "cefr": "A1",
     "bn": "এটা আমার বই।",
-    "words": ["This", "is", "my", "book"],
+    "words": [
+      "This",
+      "is",
+      "my",
+      "book"
+    ],
     "answer": "This is my book",
     "hint": "This is + possessive"
   },
   {
-    "id": "sb17",
+    "id": "sb:17",
     "cefr": "A2",
     "bn": "আপনি কি আমাকে সাহায্য করতে পারবেন?",
-    "words": ["Could", "you", "help", "me", "please"],
+    "words": [
+      "Could",
+      "you",
+      "help",
+      "me",
+      "please"
+    ],
     "answer": "Could you help me please",
     "hint": "polite request"
   },
   {
-    "id": "sb18",
+    "id": "sb:18",
     "cefr": "A2",
     "bn": "আমি চা পছন্দ করি কফি নয়।",
-    "words": ["I", "prefer", "tea", "to", "coffee"],
+    "words": [
+      "I",
+      "prefer",
+      "tea",
+      "to",
+      "coffee"
+    ],
     "answer": "I prefer tea to coffee",
     "hint": "prefer A to B"
   },
   {
-    "id": "sb19",
+    "id": "sb:19",
     "cefr": "B1",
     "bn": "পরিবেশ রক্ষা করা আমাদের দায়িত্ব।",
-    "words": ["It", "is", "our", "duty", "to", "protect", "the", "environment"],
+    "words": [
+      "It",
+      "is",
+      "our",
+      "duty",
+      "to",
+      "protect",
+      "the",
+      "environment"
+    ],
     "answer": "It is our duty to protect the environment",
     "hint": "It is + noun + to + verb"
   },
   {
-    "id": "sb20",
+    "id": "sb:20",
     "cefr": "B1",
     "bn": "তিনি চাকরি পেয়েছেন বলে খুশি।",
-    "words": ["She", "is", "happy", "because", "she", "got", "the", "job"],
+    "words": [
+      "She",
+      "is",
+      "happy",
+      "because",
+      "she",
+      "got",
+      "the",
+      "job"
+    ],
     "answer": "She is happy because she got the job",
     "hint": "because + clause"
   }

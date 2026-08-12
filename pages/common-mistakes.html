@@ -14,8 +14,11 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Common Mistakes</span></nav>
     <h1 class="page-title">Common Mistakes · সাধারণ ভুল</h1>
-    <p class="page-intro bn">বাংলাভাষীদের ঘন ঘন ভুল — ভুল দেখুন, সঠিক শিখুন, quiz দিয়ে আটকে রাখুন।</p>
-    <a class="btn btn-primary" href="quizzes.html?skill=mistakes" style="margin-bottom:1rem">Mistakes Quiz</a>
+    <p class="page-intro bn">বাংলাভাষীদের ঘন ঘন ভুল — পড়ে Quiz / Translation Lab করুন।</p>
+    <div class="stack-actions" style="margin-bottom:1rem">
+      <a class="btn btn-primary" href="quizzes.html?skill=mistakes">Mistakes Quiz</a>
+      <a class="btn btn-secondary" href="translation-lab.html">Translation Lab</a>
+    </div>
     <div id="list" class="lesson-block"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -24,9 +27,8 @@
   <script src="../js/app.js"></script>
   <script>
     EFBApp.loadJSON("common-mistakes.json").then((items) => {
-      document.getElementById("list").innerHTML = items.map((m) => {
-        EFBProgress.markSeen(m.id);
-        return `<article class="panel">
+      const list = document.getElementById("list");
+      list.innerHTML = items.map((m) => `<article class="panel" data-item-id="${m.id}">
           <span class="chip">${m.category}</span>
           <div class="mistake-pair">
             <div class="bad">✗ ${m.incorrect}</div>
@@ -34,8 +36,9 @@
           </div>
           <p class="bn"><strong>টিপ:</strong> ${m.bangla_tip}</p>
           <p class="muted">${m.explanation}</p>
-        </article>`;
-      }).join("");
+        </article>`).join("");
+      EFBApp.watchLessonSeen(list);
+      EFBProgress.setLastLesson("mistakes", "mistakes-list");
     });
   </script>
 </body>

@@ -178,6 +178,103 @@
     });
   }
 
+  function clamp(n, a, b) {
+    return Math.max(a, Math.min(b, n));
+  }
+
+  const SKILL_PAGE = {
+    vocabulary: "vocabulary.html",
+    grammar: "grammar.html",
+    spelling: "spelling-practice.html",
+    phrasal: "phrasal-verbs.html",
+    mistakes: "common-mistakes.html",
+    sentence: "sentence-builder.html",
+    translate: "translation-lab.html",
+    spoken: "spoken-english.html",
+    quizzes: "quizzes.html",
+    flashcards: "flashcards.html",
+    daily: "daily-challenge.html",
+    review: "quizzes.html?mode=review",
+  };
+
+  function pagesPrefix() {
+    if (/blogspot\.com/i.test(location.hostname)) return "/p/";
+    return rootPrefix() === "." ? "pages/" : "";
+  }
+
+  function skillHref(skill) {
+    return pagesPrefix() + (SKILL_PAGE[skill] || "my-progress.html");
+  }
+
+  /** Mark lesson items only when mostly on screen — not all on page load. */
+  function watchLessonSeen(container) {
+    if (!container || !window.EFBProgress) return;
+    const marked = new Set();
+    const mark = (id) => {
+      if (!id || marked.has(id)) return;
+      marked.add(id);
+      EFBProgress.markSeen(id);
+    };
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            if (!en.isIntersecting) return;
+            mark(en.target.getAttribute("data-item-id"));
+          });
+        },
+        { threshold: 0.65 }
+      );
+      container.querySelectorAll("[data-item-id]").forEach((el) => io.observe(el));
+    } else {
+      container.addEventListener("click", (e) => {
+        const art = e.target.closest("[data-item-id]");
+        if (art) mark(art.getAttribute("data-item-id"));
+      });
+    }
+  }
+
+  function resolveContinue(state) {
+    state = state || (window.EFBStorage ? EFBStorage.load() : null);
+    const p = pagesPrefix();
+    if (!state) return { href: p + "my-progress.html", label: "প্রোগ্রেস দেখুন →" };
+    const due = window.EFBProgress ? EFBProgress.dueItems() : [];
+    const today = window.EFBProgress ? EFBProgress.todayStr() : "";
+    const challengeDone =
+      state.challenge && state.challenge.date === today && state.challenge.completed;
+
+    if (due.length) {
+      return { href: p + "quizzes.html?mode=review", label: "Review due (" + due.length + ") · আজকের রিভিউ →" };
+    }
+    if (!challengeDone) {
+      return { href: p + "daily-challenge.html", label: "Daily Challenge শুরু করুন →" };
+    }
+    if (state.profile && state.profile.last_skill) {
+      const skill = state.profile.last_skill;
+      return { href: skillHref(skill), label: "Continue · " + skill + " →" };
+    }
+    if (state.mistakes && state.mistakes.length) {
+      return { href: p + "quizzes.html?mode=mistakes", label: "Mistake Bank practice →" };
+    }
+    return { href: p + "my-progress.html", label: "Continue where you left off →" };
+  }
+
+  function nextRoundActions(opts) {
+    opts = opts || {};
+    const p = pagesPrefix();
+    const skill = opts.skill || "";
+    const dueN = window.EFBProgress ? EFBProgress.dueItems().length : 0;
+    const bits = [];
+    bits.push('<button type="button" class="btn btn-primary" data-next="retry">আরেক রাউন্ড · Again</button>');
+    if (dueN) bits.push(`<a class="btn btn-accent" href="${p}quizzes.html?mode=review">রিভিউ (${dueN})</a>`);
+    if (skill && SKILL_PAGE[skill]) {
+      bits.push(`<a class="btn btn-secondary" href="${skillHref(skill)}">এই স্কিল চালিয়ে যান</a>`);
+    }
+    bits.push(`<a class="btn btn-ghost" href="${p}daily-challenge.html">Daily Challenge</a>`);
+    bits.push(`<a class="btn btn-ghost" href="${p}my-progress.html">প্রোগ্রেস</a>`);
+    return `<div class="stack-actions">${bits.join("")}</div>`;
+  }
+
   function renderHomeProgress() {
     const el = document.getElementById("home-progress");
     if (!el || !window.EFBStorage) return;
@@ -185,19 +282,14 @@
     const streak = state.streak.current || 0;
     const level = state.profile.estimated_level || null;
     const tracked = Object.keys(state.items).length;
-    const lastSkill = state.profile.last_skill;
-    const pages = rootPrefix() === "." ? "pages/" : "";
+    const pages = pagesPrefix();
+    const cont = resolveContinue(state);
 
     const continueLink = document.getElementById("home-continue-link");
     if (continueLink) {
-      if (tracked > 0 || lastSkill) {
-        const dest = lastSkill ? pages + lastSkill + ".html" : pages + "my-progress.html";
-        continueLink.href = dest;
-        continueLink.textContent = tracked > 0 ? "Continue where you left off →" : "View your progress →";
-        continueLink.parentElement.style.display = "";
-      } else {
-        continueLink.parentElement.style.display = "none";
-      }
+      continueLink.href = cont.href;
+      continueLink.textContent = cont.label;
+      if (continueLink.parentElement) continueLink.parentElement.style.display = "";
     }
 
     el.innerHTML = `
@@ -221,8 +313,9 @@
           </div>
         </div>
         <div class="stack-actions">
-          <a class="btn btn-primary" href="${pages}my-progress.html">পুরো প্রোগ্রেস</a>
-          <a class="btn btn-secondary" href="${pages}daily-challenge.html">ডেইলি চ্যালেঞ্জ</a>
+          <a class="btn btn-primary" href="${cont.href}">${cont.label}</a>
+          <a class="btn btn-secondary" href="${pages}my-progress.html">পুরো প্রোগ্রেস</a>
+          <a class="btn btn-ghost" href="${pages}daily-challenge.html">ডেইলি চ্যালেঞ্জ</a>
         </div>
       </article>
     `;
@@ -236,14 +329,9 @@
     });
   }
 
-  function clamp(n, a, b) {
-    return Math.max(a, Math.min(b, n));
-  }
-
   document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("app-body");
     mountChrome();
-    // One-time remap of legacy vocab ids so My Progress counts stay accurate
     if (window.EFBStorage && EFBStorage.applyIdMap) {
       loadJSON("progress_id_migrate.json")
         .then((map) => EFBStorage.applyIdMap(map || {}))
@@ -264,5 +352,10 @@
     loadJSON,
     mountChrome,
     animateBars,
+    watchLessonSeen,
+    resolveContinue,
+    nextRoundActions,
+    skillHref,
+    SKILL_PAGE,
   };
 })();

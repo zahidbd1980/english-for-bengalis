@@ -53,6 +53,7 @@
       }
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions: filtered,
+        skill: skill === "all" ? "quizzes" : skill,
         limit: itemId ? Math.min(10, Math.max(filtered.length, 1)) : 10,
       });
     }
@@ -87,6 +88,7 @@
       }
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions: session.questions,
+        skill: mode === "mistakes" ? "mistakes" : "review",
         limit: 10,
         onComplete: function () {
           /* progress already recorded per item */

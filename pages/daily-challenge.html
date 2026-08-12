@@ -49,6 +49,7 @@
 
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions,
+        skill: "daily",
         limit: questions.length || 10,
         onComplete: ({ score, total }) => EFBChallenge.markChallengeComplete(score, total),
       });

@@ -26,7 +26,7 @@
   <script>
     function pct(n, d) { return d ? Math.round((n / d) * 100) : 0; }
     function shortLabel(id) {
-      return String(id || "").replace(/^(vocab|pv|spell|grammar|mistake):/, "");
+      return String(id || "").replace(/^(vocab|pv|spell|grammar|mistake|spoken|sb):/, "");
     }
     function statusOf(state, id) {
       const it = state.items[id];
@@ -39,8 +39,10 @@
       EFBApp.loadJSON("spelling.json"),
       EFBApp.loadJSON("grammar.json"),
       EFBApp.loadJSON("common-mistakes.json"),
+      EFBApp.loadJSON("spoken.json"),
+      EFBApp.loadJSON("sentence-builder.json"),
       EFBApp.loadJSON("progress_id_migrate.json").catch(() => ({})),
-    ]).then(([vocabRaw, pv, spell, grammar, mistakes, idMap]) => {
+    ]).then(([vocabRaw, pv, spell, grammar, mistakes, spoken, sentence, idMap]) => {
       if (idMap && EFBStorage.applyIdMap) EFBStorage.applyIdMap(idMap);
       const vocab = EFBVocab.asWords(vocabRaw);
       const state = EFBStorage.load();
@@ -54,6 +56,7 @@
       const vocabStarted = countStarted(vocab);
       const vocabMastered = countMastered(vocab);
       const vocabPracticed = countPracticed(vocab);
+      const cont = EFBApp.resolveContinue ? EFBApp.resolveContinue(state) : null;
 
       const rows = [
         { name: "Vocabulary", started: vocabStarted, practiced: vocabPracticed, mastered: vocabMastered, total: vocab.length },
@@ -61,6 +64,8 @@
         { name: "Spelling", started: countStarted(spell), practiced: countPracticed(spell), mastered: countMastered(spell), total: spell.length },
         { name: "Grammar", started: countStarted(grammar), practiced: countPracticed(grammar), mastered: countMastered(grammar), total: grammar.length },
         { name: "Common Mistakes", started: countStarted(mistakes), practiced: countPracticed(mistakes), mastered: countMastered(mistakes), total: mistakes.length },
+        { name: "Spoken", started: countStarted(spoken), practiced: countPracticed(spoken), mastered: countMastered(spoken), total: spoken.length },
+        { name: "Sentence Builder", started: countStarted(sentence), practiced: countPracticed(sentence), mastered: countMastered(sentence), total: sentence.length },
       ];
 
       document.getElementById("dash").innerHTML = `
@@ -74,8 +79,9 @@
           <p class="muted" style="margin-top:0.75rem">ব্যাংকে এখন ${vocab.length}টি শব্দ · বাকি টার্গেট Settings থেকে বদলাতে পারবেন</p>
           <div class="stack-actions">
             <a class="btn btn-primary" href="vocabulary.html">Vocabulary চালিয়ে যান</a>
+            ${cont ? `<a class="btn btn-accent" href="${cont.href}">${cont.label}</a>` : ""}
             <a class="btn btn-secondary" href="settings.html">টার্গেট / Export</a>
-            <a class="btn btn-accent" href="daily-challenge.html">Daily Challenge</a>
+            <a class="btn btn-ghost" href="daily-challenge.html">Daily Challenge</a>
             ${!state.profile.estimated_level ? `<a class="btn btn-ghost" href="level-test.html">Level Test</a>` : ""}
           </div>
         </div>

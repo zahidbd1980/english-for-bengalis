@@ -377,7 +377,7 @@
     ]
   },
   {
-    "id": "sp16",
+    "id": "spoken:at-the-pharmacy",
     "title": "At the pharmacy",
     "title_bn": "ফার্মেসিতে",
     "cefr": "A2",
@@ -408,10 +408,11 @@
         "en": "Thank you.",
         "bn": "ধন্যবাদ।"
       }
-    ]
+    ],
+    "level": "A2"
   },
   {
-    "id": "sp17",
+    "id": "spoken:asking-for-directions",
     "title": "Asking for directions",
     "title_bn": "রাস্তা জিজ্ঞাসা",
     "cefr": "A2",
@@ -442,10 +443,11 @@
         "en": "Thanks a lot!",
         "bn": "অনেক ধন্যবাদ!"
       }
-    ]
+    ],
+    "level": "A2"
   },
   {
-    "id": "sp18",
+    "id": "spoken:at-a-restaurant",
     "title": "At a restaurant",
     "title_bn": "রেস্টুরেন্টে",
     "cefr": "A2",
@@ -476,10 +478,11 @@
         "en": "It will be ready in fifteen minutes.",
         "bn": "পনেরো মিনিটে রেডি হবে।"
       }
-    ]
+    ],
+    "level": "A2"
   },
   {
-    "id": "sp19",
+    "id": "spoken:making-an-appointment",
     "title": "Making an appointment",
     "title_bn": "অ্যাপয়েন্টমেন্ট",
     "cefr": "B1",
@@ -505,10 +508,11 @@
         "en": "You're booked for 10:15. Please bring your ID.",
         "bn": "আপনি ১০:১৫-এ বুক হয়েছেন। আইডি নিয়ে আসবেন।"
       }
-    ]
+    ],
+    "level": "B1"
   },
   {
-    "id": "sp20",
+    "id": "spoken:complaining-politely",
     "title": "Complaining politely",
     "title_bn": "ভদ্রভাবে অভিযোগ",
     "cefr": "B1",
@@ -539,10 +543,11 @@
         "en": "Thank you for your help.",
         "bn": "সাহায্যের জন্য ধন্যবাদ।"
       }
-    ]
+    ],
+    "level": "B1"
   },
   {
-    "id": "sp21",
+    "id": "spoken:small-talk-at-work",
     "title": "Small talk at work",
     "title_bn": "অফিসে ছোট কথা",
     "cefr": "B1",
@@ -568,10 +573,11 @@
         "en": "Sounds nice. Ready for the meeting?",
         "bn": "ভালো শুনতে। মিটিংয়ের জন্য প্রস্তুত?"
       }
-    ]
+    ],
+    "level": "B1"
   },
   {
-    "id": "sp22",
+    "id": "spoken:paying-a-bill",
     "title": "Paying a bill",
     "title_bn": "বিল পরিশোধ",
     "cefr": "A2",
@@ -602,6 +608,7 @@
         "en": "Here you are. Have a nice day!",
         "bn": "নিন। ভালো দিন কাটুক!"
       }
-    ]
+    ],
+    "level": "A2"
   }
 ]

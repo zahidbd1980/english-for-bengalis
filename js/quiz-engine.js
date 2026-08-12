@@ -136,23 +136,33 @@
 
     function renderResult() {
       const pct = Math.round((score / questions.length) * 100);
+      const skill = config.skill || (questions[0] && questions[0].skill) || "quizzes";
+      if (window.EFBProgress) {
+        EFBProgress.setLastLesson(skill, "quiz-session");
+      }
+      const actions =
+        window.EFBApp && EFBApp.nextRoundActions
+          ? EFBApp.nextRoundActions({ skill: skill })
+          : `<div class="stack-actions">
+            <button type="button" class="btn btn-primary" data-next="retry">আবার করুন</button>
+            <a class="btn btn-secondary" href="../pages/my-progress.html">প্রোগ্রেস</a>
+          </div>`;
       root.innerHTML = `
         <div class="panel highlight quiz-shell">
           <p class="chip">Quiz complete</p>
           <h2 class="page-title" style="font-size:1.8rem">স্কোর: ${score}/${questions.length} (${pct}%)</h2>
-          <p class="muted bn">প্রোগ্রেস আপডেট হয়েছে। নিয়মিত রিভিউ করলে mastery বাড়বে।</p>
-          <div class="stack-actions">
-            <a class="btn btn-primary" href="../pages/my-progress.html">প্রোগ্রেস দেখুন</a>
-            <button type="button" class="btn btn-secondary" id="retry">আবার করুন</button>
-            <a class="btn btn-ghost" href="../pages/practice.html">Practice hub</a>
-          </div>
+          <p class="muted bn">প্রোগ্রেস সেভ হয়েছে। নিচ থেকে পরের ধাপ বেছে নিন।</p>
+          ${actions}
         </div>
       `;
-      root.querySelector("#retry").addEventListener("click", () => {
-        index = 0;
-        score = 0;
-        mount(root, config);
-      });
+      const retry = root.querySelector('[data-next="retry"]');
+      if (retry) {
+        retry.addEventListener("click", () => {
+          index = 0;
+          score = 0;
+          mount(root, config);
+        });
+      }
       if (typeof config.onComplete === "function") config.onComplete({ score, total: questions.length });
     }
 
