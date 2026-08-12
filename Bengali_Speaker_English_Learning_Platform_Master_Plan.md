@@ -43,6 +43,12 @@
 - Weak-areas panel on My Progress; correct answers clear Mistake Bank queue
 - Desktop Content Manager remains **planned, not started** (deferred by product choice)
 
+### Changelog (v1.3.2)
+
+- **S21 first-run onboarding** on Home (inline 5-step path, dismissible)
+- Smart **Continue** link (due review → daily challenge → last skill → progress)
+- Progress docs updated (`docs/BUILD_PROGRESS.md`, §142)
+
 ---
 
 # 1. Executive Summary
@@ -4593,8 +4599,8 @@ When shipping **data-only** content (new words/lists/quizzes):
 
 # 142. Build Progress Dashboard (living — update when shipping)
 
-**Last progress update:** 12 August 2026  
-**Current product stage:** Soft-launch capable skeleton · **mid Phase 2 (content volume)** · **Phase 3 engine mostly done** · **Phase 4 started**
+**Last progress update:** 12 August 2026 (v1.3.2 onboarding)  
+**Current product stage:** Soft-launch capable skeleton · **mid Phase 2 (content volume)** · **Phase 3 engine mostly done** · **Phase 4 in progress** (review loops + first-run path)
 
 ## 142.1 Phase status
 
@@ -4635,7 +4641,7 @@ When shipping **data-only** content (new words/lists/quizzes):
 | **Review due → practice session** | **Done (v1.3.1)** — `quizzes.html?mode=review` |
 | **Mistake Bank → practice session** | **Done (v1.3.1)** — `quizzes.html?mode=mistakes` |
 | Weak-area panel | **Done v1** on My Progress |
-| First-run onboarding (S21) | Not started |
+| First-run onboarding (S21) | **Done v1** — Home inline path + dismiss |
 | Sentence Builder page | Not started |
 | Site-wide search | Not started |
 | Desktop Content Manager (§141) | Planned — deferred until content/engine P0s stabilize |
@@ -4643,7 +4649,7 @@ When shipping **data-only** content (new words/lists/quizzes):
 ## 142.4 Next implementation queue (priority order)
 
 1. **Content volume push** toward §68 (vocab, mistakes, phrasals, quiz pools) — editorial  
-2. **First-run onboarding** on Home (Level Test → first practice → Progress → Export tip)  
+2. ~~First-run onboarding~~ **Done (v1.3.2)**  
 3. Translation Lab → `data/`-driven items (USP pillar)  
 4. Stronger Level Test (skill mix, not only random 8)  
 5. Sentence Builder (P1)  

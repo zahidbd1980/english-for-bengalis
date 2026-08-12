@@ -279,6 +279,128 @@
     paint();
   }
 
+  function isNewLearner(state) {
+    if (!state) return true;
+    var items = state.items || {};
+    var attempts = 0;
+    Object.keys(items).forEach(function (id) {
+      attempts += items[id].attempts || 0;
+    });
+    return attempts === 0 && !state.profile.estimated_level;
+  }
+
+  function dismissOnboard() {
+    if (global.EFBStorage) {
+      EFBStorage.update(function (state) {
+        state.profile.onboarding_dismissed = true;
+        state.profile.onboarding_dismissed_at = new Date().toISOString();
+      });
+    } else {
+      try {
+        localStorage.setItem("efb_onboard_dismissed_v1", "1");
+      } catch (e) {}
+    }
+    var el = document.getElementById("efb-v2-onboard");
+    if (el) {
+      el.hidden = true;
+      el.innerHTML = "";
+    }
+  }
+
+  function renderOnboarding() {
+    var el = document.getElementById("efb-v2-onboard");
+    if (!el) return;
+    var state = global.EFBStorage ? EFBStorage.load() : null;
+    var dismissed =
+      (state && state.profile && state.profile.onboarding_dismissed) ||
+      (function () {
+        try {
+          return localStorage.getItem("efb_onboard_dismissed_v1") === "1";
+        } catch (e) {
+          return false;
+        }
+      })();
+    if (dismissed || !isNewLearner(state)) {
+      el.hidden = true;
+      el.innerHTML = "";
+      return;
+    }
+    var p = pagesPrefix();
+    el.hidden = false;
+    el.innerHTML =
+      '<div class="efb-v2-onboard-card" role="region" aria-label="First steps">' +
+      '<div class="efb-v2-onboard-head">' +
+      '<p class="efb-v2-kicker">৫ মিনিটে শুরু · First win</p>' +
+      '<button type="button" class="efb-v2-onboard-skip" id="efb-onboard-skip">এখন পরে</button>' +
+      "</div>" +
+      '<p class="efb-v2-onboard-lede bn">প্রথম সেশন — ধাপে ধাপে শেষ করুন।</p>' +
+      '<ol class="efb-v2-onboard-steps">' +
+      '<li><a href="' +
+      p +
+      'level-test.html"><strong>1. Level Test</strong><span class="bn">লেভেল অনুমান</span></a></li>' +
+      '<li><a href="' +
+      p +
+      'vocabulary.html"><strong>2. ৫টা শব্দ</strong><span class="bn">Vocabulary খুলুন</span></a></li>' +
+      '<li><a href="' +
+      p +
+      'quizzes.html"><strong>3. ছোট কুইজ</strong><span class="bn">মাস্টারি চেক</span></a></li>' +
+      '<li><a href="' +
+      p +
+      'my-progress.html"><strong>4. Progress</strong><span class="bn">দেখুন কতদূর এসেছেন</span></a></li>' +
+      '<li><a href="' +
+      p +
+      'settings.html"><strong>5. Export tip</strong><span class="bn">ডেটা ব্যাকআপ রাখুন</span></a></li>' +
+      "</ol>" +
+      '<a class="btn btn-primary" href="' +
+      p +
+      'level-test.html">এখনই শুরু · Start</a>' +
+      "</div>";
+    var skip = document.getElementById("efb-onboard-skip");
+    if (skip) skip.addEventListener("click", dismissOnboard);
+  }
+
+  function updateContinueLink() {
+    var link = document.getElementById("home-continue-link");
+    if (!link || !global.EFBStorage) return;
+    var state = EFBStorage.load();
+    var p = pagesPrefix();
+    var due = global.EFBProgress ? EFBProgress.dueItems() : [];
+    var today = global.EFBProgress ? EFBProgress.todayStr() : "";
+    var challengeDone =
+      state.challenge && state.challenge.date === today && state.challenge.completed;
+
+    if (due.length) {
+      link.href = p + "quizzes.html?mode=review";
+      link.textContent = "Review due (" + due.length + ") · আজকের রিভিউ →";
+      return;
+    }
+    if (!challengeDone) {
+      link.href = p + "daily-challenge.html";
+      link.textContent = "Daily Challenge শুরু করুন →";
+      return;
+    }
+    if (state.profile.last_skill) {
+      var skill = state.profile.last_skill;
+      var map = {
+        vocabulary: "vocabulary.html",
+        grammar: "grammar.html",
+        spelling: "spelling-practice.html",
+        phrasal: "phrasal-verbs.html",
+        mistakes: "common-mistakes.html"
+      };
+      link.href = p + (map[skill] || "my-progress.html");
+      link.textContent = "Continue · " + skill + " →";
+      return;
+    }
+    if (state.mistakes && state.mistakes.length) {
+      link.href = p + "quizzes.html?mode=mistakes";
+      link.textContent = "Mistake Bank practice →";
+      return;
+    }
+    link.href = p + "my-progress.html";
+    link.textContent = "Continue where you left off →";
+  }
+
   function pad(n) {
     return n < 10 ? "0" + n : String(n);
   }
@@ -303,6 +425,8 @@
   function mount() {
     if (!document.getElementById("efb-v2-home")) return;
     renderStreak();
+    renderOnboarding();
+    updateContinueLink();
     loadWotd();
     renderQuiz();
     tickCountdown();
