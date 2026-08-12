@@ -1,33 +1,27 @@
 # Blogger প্রথম — GitHub Pages শুধু asset
 
-## Home কোথায়? (সহজ উত্তর)
+## Home কোথায়? (লক করা সিদ্ধান্ত)
 
-**হ্যাঁ — আপনি ঠিক বলেছেন।**
-
-User যখন address bar-এ লিখবে:
+**Home = root URL only.**
 
 `https://englishforbengalis.blogspot.com/`
 
-তখন যা খুলবে **সেটাই Home**। Blogger-এ এটাকে **blog homepage** বলে (`blog.homepageUrl`).
+ওয়েব ইন্ডাস্ট্রিতে homepage মানেই এটা।  
+**“Home” নামের Blogger Page (`/p/home.html`) দরকার নেই — রাখা যাবে না।**
 
-**আলাদা “Home” নামের Page (`/p/home.html`) home নয়** — এটা শুধু একটা static page, URL আলাদা। সাধারণত **দরকার নেই**।
+| ধরন | URL | Home? |
+|------|-----|-------|
+| **Blog homepage (root)** | `englishforbengalis.blogspot.com/` | ✅ **এটাই Home** |
+| Static Page | `/p/learn.html`, `/p/vocabulary.html` | ❌ |
+| Welcome post | `/2026/08/welcome-...` | Featured content for root |
+| Page titled “Home” | `/p/home.html` | ❌ **Forbidden / auto-deleted** |
 
-## Blogger-এ ৩ ধরনের URL
+Menu-র **Home** লিংক = blog root `/` (কখনো `/p/home.html` নয়)।
 
-| ধরন | উদাহরণ | কী |
-|------|--------|-----|
-| **Home (blog index)** | `englishforbengalis.blogspot.com/` | Address bar URL = এটাই home |
-| **Static Page** | `/p/learn.html`, `/p/vocabulary.html` | Learn, Vocabulary ইত্যাদি |
-| **Blog Post** | `/2026/08/welcome-...html` | Welcome post, future articles |
+## Root-এ কী দেখাবে?
 
-Menu-র **“Home”** লিংক theme-এ সাধারণত `englishforbengalis.blogspot.com/` — সেটা সঠিক।
-
-## আমাদের home-এ কী দেখাবে?
-
-আপনার Indie theme-এ homepage-এ **Featured Post** widget আছে।  
-আমরা **Welcome post**-এ `index.html` landing content upload করি — সেটা featured হলে visitor root URL-এ landing দেখে।
-
-নিচে theme অনুযায়ী আরও post list থাকতে পারে (Welcome post list-এ duplicate না দেখানোর logic theme-এ আছে).
+Theme-এর **Featured Post** = Welcome post।  
+Welcome-এ `index.html` landing upload হয় (`--upload-welcome` / `--fix-home`)।
 
 ## GitHub Pages কেন?
 
@@ -38,21 +32,18 @@ Menu-র **“Home”** লিংক theme-এ সাধারণত `englishfor
 
 ## প্রতিবার update
 
-1. `git push` — assets
-2. `tools\upload-to-blogger.bat` — Welcome post + Pages (Home Page upload **না**)
+1. `git push` — assets  
+2. `tools\upload-to-blogger.bat` — Welcome + Pages  
 
-## Optional (শুধু যদি চান)
+Home fix (যদি আবার `/p/home.html` দেখা যায়):
 
-Blogger Settings → Search preferences → Custom redirects:
+```text
+python tools/blogger_upload.py --fix-home
+```
 
-- From: `/`
-- To: `/p/some-landing.html`
-- Permanent 301
+এটা leftover Home Page **মুছে** দেয় + Welcome refresh করে।
 
-এটা root URL থেকে static page-এ redirect — **default দরকার নেই** যদি Featured Welcome post ঠিকমতো দেখায়।
+## Dashboard
 
-## Dashboard cleanup
-
-যদি “Home” নামে Page (`/p/home.html`) তৈরি হয়ে গেছে — **Pages → Home → Delete** করতে পারেন। Menu-তে Home রাখুন blog root (`/`) লিংকে।
-
-`upload-welcome` এখন দেখতে পারলে সেই leftover Home Page-কে **latest `index.html` দিয়ে sync** করে দেয় (যাতে menu ভুল URL-এ গেলেও পুরনো landing না দেখায়)। তবু canonical home = **root URL + Featured Welcome**।
+Pages তালিকায় “Home” দেখলে Delete — অথবা উপরের `--fix-home` চালান।  
+Config-এ কখনো `"title": "Home"` যোগ করবেন না।

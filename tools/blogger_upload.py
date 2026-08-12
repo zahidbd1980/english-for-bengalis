@@ -355,14 +355,33 @@ def cmd_upload_pages(draft: bool):
     blog = get_blog(service, cfg["blog_url"])
     for item in cfg.get("pages") or []:
         title = item["title"]
+        if title.strip().lower() == "home":
+            print("SKIP: refusing to upload a Page titled 'Home' (home is blog root URL).")
+            continue
         file_rel = item["file"]
         print(f"Preparing: {title} <- {file_rel}")
         content = build_page_content(file_rel, asset)
         result = upsert_page(service, blog["id"], title, content, draft=draft)
         print(f"    -> {result.get('url') or result.get('id')}")
         time.sleep(3)  # gentle pacing to avoid Blogger quota spikes
+    # Enforce root-URL home model every pages upload
+    if delete_page_by_title(service, blog["id"], "Home"):
+        print("Removed leftover Page 'Home' after pages upload.")
     print("\nDone. Add pages to the Blogger menu under Pages.")
     print("Site:", cfg["blog_url"])
+    print("Home = blog root URL only (no /p/home.html).")
+
+
+def delete_page_by_title(service, blog_id: str, title: str) -> bool:
+    """Delete a Blogger Page by exact title. Returns True if deleted."""
+    existing = find_existing_page(service, blog_id, title)
+    if not existing:
+        return False
+    page_id = existing["id"]
+    url = existing.get("url") or ""
+    print(f"  Deleting page: {title} ({page_id}) {url}")
+    service.pages().delete(blogId=blog_id, pageId=page_id).execute()
+    return True
 
 
 def cmd_upload_welcome(draft: bool):
@@ -372,20 +391,30 @@ def cmd_upload_welcome(draft: bool):
     result = upsert_welcome(service, blog["id"], cfg, draft=draft)
     print("Welcome post ->", result.get("url") or result.get("id"))
 
-    # Safety: if a leftover "Home" Page still exists (from older workflow),
-    # keep it in sync with index.html so menu links to /p/home.html are not stale.
-    # Canonical home remains blog root URL + Featured Welcome post.
-    asset = (cfg.get("asset_base_url") or "").strip()
-    home_page = find_existing_page(service, blog["id"], "Home")
-    if home_page:
+    # Home = blog root URL only. Never keep a Page titled "Home".
+    if delete_page_by_title(service, blog["id"], "Home"):
         print(
-            "NOTE: Found leftover Page titled 'Home' (/p/home.html).\n"
-            "  Syncing it to latest index.html so it is not an outdated landing.\n"
-            "  Preferred setup: Menu Home -> blog root / and delete this Page later."
+            "Removed leftover Page 'Home' (/p/home.html).\n"
+            "Canonical home is blog root: "
+            + str(cfg.get("blog_url") or "/")
+            + " (Featured Welcome post)."
         )
-        content = build_page_content("index.html", asset)
-        updated = upsert_page(service, blog["id"], "Home", content, draft=draft)
-        print("  Home page synced ->", updated.get("url") or updated.get("id"))
+    else:
+        print("OK: no Page titled 'Home' (correct - home is root URL).")
+
+
+def cmd_fix_home(draft: bool = False):
+    """Delete leftover Home Page + refresh Featured Welcome landing."""
+    cfg = load_config()
+    service = build_service()
+    blog = get_blog(service, cfg["blog_url"])
+    print("Fixing home model: root URL only (no /p/home.html Page).")
+    deleted = delete_page_by_title(service, blog["id"], "Home")
+    if not deleted:
+        print("No Page titled 'Home' found.")
+    result = upsert_welcome(service, blog["id"], cfg, draft=draft)
+    print("Welcome post refreshed ->", result.get("url") or result.get("id"))
+    print("Done. Menu Home should point to / (blog root), not /p/home.html")
 
 
 def main():
@@ -394,11 +423,18 @@ def main():
     parser.add_argument("--list", action="store_true", help="List pages/posts")
     parser.add_argument("--upload-pages", action="store_true", help="Create/update Pages")
     parser.add_argument("--upload-welcome", action="store_true", help="Create/update welcome Post")
+    parser.add_argument(
+        "--fix-home",
+        action="store_true",
+        help="Delete leftover Home Page + refresh Welcome on blog root",
+    )
     parser.add_argument("--all", action="store_true", help="Auth check + welcome + pages")
     parser.add_argument("--draft", action="store_true", help="Create new items as drafts")
     args = parser.parse_args()
 
-    if not any([args.auth, args.list, args.upload_pages, args.upload_welcome, args.all]):
+    if not any(
+        [args.auth, args.list, args.upload_pages, args.upload_welcome, args.fix_home, args.all]
+    ):
         parser.print_help()
         print("\nQuick start:  upload-to-blogger.bat")
         return
@@ -407,6 +443,8 @@ def main():
         cmd_auth()
     if args.list:
         cmd_list()
+    if args.fix_home:
+        cmd_fix_home(draft=args.draft)
     if args.upload_welcome or args.all:
         if args.all:
             cmd_auth()
