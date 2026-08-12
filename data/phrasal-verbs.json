@@ -286,5 +286,185 @@
     "example": "I work out three times a week.",
     "example_bn": "আমি সপ্তাহে তিনবার ব্যায়াম করি।",
     "cefr_level": "A2"
+  },
+  {
+    "id": "pv:break-down",
+    "phrase": "break down",
+    "meaning_en": "stop working; become very upset",
+    "meaning_bn": "নষ্ট হয়ে যাওয়া; ভেঙে পড়া",
+    "example": "My bike broke down.",
+    "example_bn": "আমার সাইকেল নষ্ট হয়ে গেছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:break-up",
+    "phrase": "break up",
+    "meaning_en": "end a relationship",
+    "meaning_bn": "সম্পর্ক ভাঙা",
+    "example": "They broke up last year.",
+    "example_bn": "তারা গত বছর আলাদা হয়ে গেছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:catch-up",
+    "phrase": "catch up",
+    "meaning_en": "reach the same level; talk after a long time",
+    "meaning_bn": "তাল মেলানো; খোঁজখবর নেওয়া",
+    "example": "Let's catch up soon.",
+    "example_bn": "শীঘ্রই কথা বলে খোঁজখবর নেই।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:cut-down-on",
+    "phrase": "cut down on",
+    "meaning_en": "reduce",
+    "meaning_bn": "কমানো",
+    "example": "I am cutting down on sugar.",
+    "example_bn": "আমি চিনি কমাচ্ছি।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:end-up",
+    "phrase": "end up",
+    "meaning_en": "finally be in a situation",
+    "meaning_bn": "শেষমেশ এমন হওয়া",
+    "example": "We ended up at home.",
+    "example_bn": "শেষমেশ আমরা বাড়িতেই এসেছি।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:figure-out",
+    "phrase": "figure out",
+    "meaning_en": "understand / solve",
+    "meaning_bn": "বুঝে নেওয়া / সমাধান করা",
+    "example": "I can't figure out this problem.",
+    "example_bn": "এই সমস্যা বুঝতে পারছি না।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:get-back",
+    "phrase": "get back",
+    "meaning_en": "return",
+    "meaning_bn": "ফিরে আসা",
+    "example": "When did you get back?",
+    "example_bn": "কখন ফিরে এলে?",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:get-over",
+    "phrase": "get over",
+    "meaning_en": "recover from",
+    "meaning_bn": "কাটিয়ে ওঠা",
+    "example": "She got over the flu.",
+    "example_bn": "সে ফ্লু কাটিয়ে উঠেছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:give-away",
+    "phrase": "give away",
+    "meaning_en": "give free; reveal a secret",
+    "meaning_bn": "বিনামূল্যে দেওয়া; গোপন কথা ফাঁস",
+    "example": "Don't give away the ending.",
+    "example_bn": "শেষটা ফাঁস করবেন না।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:go-back",
+    "phrase": "go back",
+    "meaning_en": "return to a place",
+    "meaning_bn": "ফিরে যাওয়া",
+    "example": "I will go back tomorrow.",
+    "example_bn": "কাল ফিরে যাব।",
+    "cefr_level": "A1"
+  },
+  {
+    "id": "pv:grow-up",
+    "phrase": "grow up",
+    "meaning_en": "become an adult",
+    "meaning_bn": "বড় হওয়া",
+    "example": "I grew up in Dhaka.",
+    "example_bn": "আমি ঢাকায় বড় হয়েছি।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:hold-on",
+    "phrase": "hold on",
+    "meaning_en": "wait",
+    "meaning_bn": "অপেক্ষা করা",
+    "example": "Hold on a minute.",
+    "example_bn": "এক মিনিট অপেক্ষা করুন।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:look-up",
+    "phrase": "look up",
+    "meaning_en": "search for information",
+    "meaning_bn": "খুঁজে দেখা (অভিধান/অনলাইন)",
+    "example": "Look up the word in a dictionary.",
+    "example_bn": "অভিধানে শব্দটা দেখুন।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:put-on",
+    "phrase": "put on",
+    "meaning_en": "wear clothes",
+    "meaning_bn": "পরা",
+    "example": "Put on your jacket.",
+    "example_bn": "জ্যাকেট পরুন।",
+    "cefr_level": "A1"
+  },
+  {
+    "id": "pv:take-out",
+    "phrase": "take out",
+    "meaning_en": "remove; buy food to eat elsewhere",
+    "meaning_bn": "বের করা; পার্সেল খাবার",
+    "example": "Let's take out pizza.",
+    "example_bn": "চলো পিজা পার্সেল নিই।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:throw-away",
+    "phrase": "throw away",
+    "meaning_en": "put in the bin",
+    "meaning_bn": "ফেলে দেওয়া",
+    "example": "Don't throw away paper.",
+    "example_bn": "কাগজ ফেলবেন না।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:try-on",
+    "phrase": "try on",
+    "meaning_en": "put on clothes to see if they fit",
+    "meaning_bn": "পরে দেখা",
+    "example": "Can I try this on?",
+    "example_bn": "এটা পরে দেখতে পারি?",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:turn-up",
+    "phrase": "turn up",
+    "meaning_en": "appear; increase volume",
+    "meaning_bn": "হাজির হওয়া; ভলিউম বাড়ানো",
+    "example": "He turned up late.",
+    "example_bn": "সে দেরি করে এসেছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:wake-up",
+    "phrase": "wake up",
+    "meaning_en": "stop sleeping",
+    "meaning_bn": "ঘুম ভাঙা",
+    "example": "I wake up at 6.",
+    "example_bn": "আমি ৬টায় ঘুম ভাঙি।",
+    "cefr_level": "A1"
+  },
+  {
+    "id": "pv:write-down",
+    "phrase": "write down",
+    "meaning_en": "record in writing",
+    "meaning_bn": "লিখে রাখা",
+    "example": "Write down the address.",
+    "example_bn": "ঠিকানা লিখে রাখুন।",
+    "cefr_level": "A2"
   }
 ]

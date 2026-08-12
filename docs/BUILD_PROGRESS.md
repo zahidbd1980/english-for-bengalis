@@ -1,24 +1,23 @@
-# Site build progress (short mirror of Master Plan §142–143)
+# Site build progress (short mirror of Master Plan §142–144)
 
-**Updated:** 12 August 2026 (v1.3.3 teacher enrichment)
+**Updated:** 12 August 2026 (v1.3.4 volume + Sentence Builder)
 
 ## Where we are
 - Phase 0–1: Done
-- Phase 2: Content accelerating (mistakes 40, phrasals 32, quizzes 70, TL 40)
-- Phase 3: Engine mostly done
+- Phase 2: Content near §68 MVP volumes
+- Phase 3: Engine mostly done (+ Sentence Builder)
 - Phase 4: Review loops + USP onboarding
 
 ## Teacher review
-See Master Plan **§143** — required sections, P0/P1 gaps, enrichment shipped.
+See Master Plan **§143–144** — enrichment + volume push.
 
-## Shipped this batch
-- `data/translation-lab.json` (40) + topic filters
-- Common mistakes 17→40; Phrasals 12→32; Spoken 5→9; Quizzes 33→70
-- Balanced Level Test + pathway CTA
-- Onboarding: Mistakes + Translation Lab before Vocab
+## Shipped this batch (v1.3.4)
+- Vocabulary **300**; Mistakes **50**; Phrasals **52**; Spoken **22 dialogues / 101 lines**
+- Sentence Builder page + `data/sentence-builder.json` (20)
+- Grammar per-topic quiz deep-links (`quizzes.html?skill=grammar&item_id=…`)
 
 ## Next
-1. Vocabulary → 300
-2. Mistakes → 50; Phrasals → 50; Spoken lines → 100
-3. Sentence Builder
-4. Grammar per-topic quizzes
+1. More grammar topic quiz items (coverage gaps)
+2. Learning Path (A1 week plan)
+3. Tips/Blog index
+4. Desktop Content Manager when editing friction dominates

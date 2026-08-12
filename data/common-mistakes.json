@@ -318,5 +318,85 @@
     "bangla_tip": "since-এর সাথে often present perfect।",
     "category": "grammar",
     "explanation": "have been + since"
+  },
+  {
+    "id": "mistake:go-to-home-again",
+    "incorrect": "I will go to home now.",
+    "correct": "I will go home now.",
+    "bangla_tip": "go home — to লাগে না।",
+    "category": "prepositions",
+    "explanation": "go home (no to)"
+  },
+  {
+    "id": "mistake:explain-me",
+    "incorrect": "Please explain me this.",
+    "correct": "Please explain this to me.",
+    "bangla_tip": "explain something to someone।",
+    "category": "grammar",
+    "explanation": "explain X to Y"
+  },
+  {
+    "id": "mistake:suggest-me",
+    "incorrect": "Can you suggest me a book?",
+    "correct": "Can you suggest a book to me?",
+    "bangla_tip": "suggest something to someone নিরাপদ।",
+    "category": "grammar",
+    "explanation": "suggest something (to someone)"
+  },
+  {
+    "id": "mistake:congratulate-for",
+    "incorrect": "I congratulate you for your success.",
+    "correct": "I congratulate you on your success.",
+    "bangla_tip": "congratulate on।",
+    "category": "prepositions",
+    "explanation": "congratulate someone on something"
+  },
+  {
+    "id": "mistake:afraid-from",
+    "incorrect": "I am afraid from spiders.",
+    "correct": "I am afraid of spiders.",
+    "bangla_tip": "afraid of।",
+    "category": "prepositions",
+    "explanation": "afraid of"
+  },
+  {
+    "id": "mistake:similar-with",
+    "incorrect": "Your idea is similar with mine.",
+    "correct": "Your idea is similar to mine.",
+    "bangla_tip": "similar to।",
+    "category": "prepositions",
+    "explanation": "similar to"
+  },
+  {
+    "id": "mistake:different-than-bn",
+    "incorrect": "This is different than that. (careful formal)",
+    "correct": "This is different from that.",
+    "bangla_tip": "পরীক্ষায় different from নিরাপদ।",
+    "category": "prepositions",
+    "explanation": "prefer different from in careful English"
+  },
+  {
+    "id": "mistake:enjoy-to",
+    "incorrect": "I enjoy to swim.",
+    "correct": "I enjoy swimming.",
+    "bangla_tip": "enjoy-এর পরে verb-ing।",
+    "category": "grammar",
+    "explanation": "enjoy + -ing"
+  },
+  {
+    "id": "mistake:look-forward-to-ing",
+    "incorrect": "I look forward to meet you.",
+    "correct": "I look forward to meeting you.",
+    "bangla_tip": "look forward to + -ing।",
+    "category": "grammar",
+    "explanation": "look forward to + gerund"
+  },
+  {
+    "id": "mistake:used-to-do-now",
+    "incorrect": "I am used to wake up early.",
+    "correct": "I am used to waking up early.",
+    "bangla_tip": "be used to + -ing (অভ্যস্ত)।",
+    "category": "grammar",
+    "explanation": "be used to + -ing"
   }
 ]

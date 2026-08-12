@@ -55,6 +55,7 @@
             <a href="${p}quizzes.html">Quizzes</a>
             <a href="${p}flashcards.html">Flashcards</a>
             <a href="${p}translation-lab.html">Translation Lab</a>
+            <a href="${p}sentence-builder.html">Sentence Builder</a>
             <a href="${p}spelling-practice.html">Spelling Practice</a>
             <a href="${p}practice.html">Practice hub</a>
           </div>
@@ -101,6 +102,7 @@
       <a class="sub" href="${p}quizzes.html">Quizzes</a>
       <a class="sub" href="${p}flashcards.html">Flashcards</a>
       <a class="sub" href="${p}translation-lab.html">Translation Lab</a>
+      <a class="sub" href="${p}sentence-builder.html">Sentence Builder</a>
       <a class="sub" href="${p}spelling-practice.html">Spelling Practice</a>
       <a href="${p}my-progress.html">My Progress</a>
       <a href="${p}level-test.html">Level Test</a>
@@ -133,6 +135,7 @@
           <a href="${p}quizzes.html">Quizzes</a>
           <a href="${p}flashcards.html">Flashcards</a>
           <a href="${p}translation-lab.html">Translation Lab</a>
+          <a href="${p}sentence-builder.html">Sentence Builder</a>
           <a href="${p}spelling-practice.html">Spelling Practice</a>
         </div>
         <div>

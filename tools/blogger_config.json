@@ -109,6 +109,11 @@
       "kind": "page"
     },
     {
+      "title": "Sentence Builder",
+      "file": "pages/sentence-builder.html",
+      "kind": "page"
+    },
+    {
       "title": "Spelling Practice",
       "file": "pages/spelling-practice.html",
       "kind": "page"

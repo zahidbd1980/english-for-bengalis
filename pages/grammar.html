@@ -15,7 +15,7 @@
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Grammar</span></nav>
     <h1 class="page-title">Grammar · গ্রামার</h1>
     <p class="page-intro bn">মূল টপিকগুলো বাংলা ব্যাখ্যাসহ — পড়ার পর quiz দিন।</p>
-    <a class="btn btn-primary" href="quizzes.html?skill=grammar" style="margin-bottom:1rem">Grammar Quiz</a>
+    <a class="btn btn-primary" href="quizzes.html?skill=grammar" style="margin-bottom:1rem">সব Grammar Quiz</a>
     <div id="list" class="lesson-block"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -26,6 +26,7 @@
     EFBApp.loadJSON("grammar.json").then((items) => {
       document.getElementById("list").innerHTML = items.map((g) => {
         EFBProgress.markSeen(g.id);
+        const quizHref = "quizzes.html?skill=grammar&item_id=" + encodeURIComponent(g.id);
         return `<article class="panel" id="${g.id}">
           <div class="quiz-meta"><h2 style="margin:0;font-size:1.25rem">${g.topic}</h2><span class="chip">${g.cefr}</span></div>
           <p>${g.explanation}</p>
@@ -34,9 +35,17 @@
           ${(g.examples || []).map((e) => `<div class="example">${e}</div>`).join("")}
           <h3>Common errors</h3>
           <ul>${(g.common_errors || []).map((e) => `<li>${e}</li>`).join("")}</ul>
+          <div class="stack-actions" style="margin-top:1rem">
+            <a class="btn btn-secondary" href="${quizHref}">এই টপিকের Quiz</a>
+          </div>
         </article>`;
       }).join("");
       EFBProgress.setLastLesson("grammar", "grammar-list");
+      const hash = (location.hash || "").replace(/^#/, "");
+      if (hash) {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     });
   </script>
 </body>

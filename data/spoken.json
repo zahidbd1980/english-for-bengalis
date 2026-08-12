@@ -205,5 +205,403 @@
         "bn": "এই ফর্মটা পূরণ করুন।"
       }
     ]
+  },
+  {
+    "id": "spoken:weather-1",
+    "title": "Talking about weather",
+    "level": "A1",
+    "lines": [
+      {
+        "en": "How is the weather today?",
+        "bn": "আজ আবহাওয়া কেমন?"
+      },
+      {
+        "en": "It's sunny and hot.",
+        "bn": "রোদ আর গরম।"
+      },
+      {
+        "en": "It might rain later.",
+        "bn": "পরে বৃষ্টি হতে পারে।"
+      },
+      {
+        "en": "Don't forget your umbrella.",
+        "bn": "ছাতা ভুলবেন না।"
+      },
+      {
+        "en": "Thanks for the reminder.",
+        "bn": "মনে করিয়ে দেওয়ার জন্য ধন্যবাদ।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:market-1",
+    "title": "At the market",
+    "level": "A2",
+    "lines": [
+      {
+        "en": "How much are the bananas?",
+        "bn": "কলা কত করে?"
+      },
+      {
+        "en": "They are 80 taka a dozen.",
+        "bn": "ডজন ৮০ টাকা।"
+      },
+      {
+        "en": "Can you give me a discount?",
+        "bn": "একটু কম দেবেন?"
+      },
+      {
+        "en": "Okay, 70 taka.",
+        "bn": "ঠিক আছে, ৭০ টাকা।"
+      },
+      {
+        "en": "Please give me two dozen.",
+        "bn": "দুই ডজন দেন।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:bus-1",
+    "title": "On the bus",
+    "level": "A2",
+    "lines": [
+      {
+        "en": "Does this bus go to Gulshan?",
+        "bn": "এই বাস গুলশান যায়?"
+      },
+      {
+        "en": "Yes, get off at the next stop.",
+        "bn": "হ্যাঁ, পরের স্টপে নামবেন।"
+      },
+      {
+        "en": "How long will it take?",
+        "bn": "কতক্ষণ লাগবে?"
+      },
+      {
+        "en": "About twenty minutes.",
+        "bn": "প্রায় বিশ মিনিট।"
+      },
+      {
+        "en": "Thank you very much.",
+        "bn": "অনেক ধন্যবাদ।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:friend-1",
+    "title": "Making plans with a friend",
+    "level": "A2",
+    "lines": [
+      {
+        "en": "Are you free this evening?",
+        "bn": "আজ সন্ধ্যায় খালি আছো?"
+      },
+      {
+        "en": "Yes, what do you want to do?",
+        "bn": "হ্যাঁ, কী করতে চাও?"
+      },
+      {
+        "en": "Let's watch a film.",
+        "bn": "চলো একটা সিনেমা দেখি।"
+      },
+      {
+        "en": "Good idea. What time?",
+        "bn": "ভালো আইডিয়া। কখন?"
+      },
+      {
+        "en": "How about 7 pm?",
+        "bn": "সন্ধ্যা ৭টা কেমন?"
+      },
+      {
+        "en": "Perfect. See you then.",
+        "bn": "পারফেক্ট। তখন দেখা হবে।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:hotel-1",
+    "title": "At a hotel",
+    "level": "B1",
+    "lines": [
+      {
+        "en": "I have a reservation under Rahman.",
+        "bn": "রাহমান নামে আমার রিজার্ভেশন আছে।"
+      },
+      {
+        "en": "May I see your ID, please?",
+        "bn": "আইডি দেখতে পারি?"
+      },
+      {
+        "en": "Here you are.",
+        "bn": "এই যে।"
+      },
+      {
+        "en": "Your room is on the third floor.",
+        "bn": "আপনার রুম তৃতীয় তলায়।"
+      },
+      {
+        "en": "What time is breakfast?",
+        "bn": "ব্রেকফাস্ট কখন?"
+      },
+      {
+        "en": "From 7 to 10 in the morning.",
+        "bn": "সকাল ৭টা থেকে ১০টা।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:office-1",
+    "title": "At the office",
+    "level": "B1",
+    "lines": [
+      {
+        "en": "Could you send me the report today?",
+        "bn": "আজ রিপোর্টটা পাঠাতে পারবেন?"
+      },
+      {
+        "en": "Yes, I will email it by 5 pm.",
+        "bn": "হ্যাঁ, বিকেল ৫টার মধ্যে ইমেইল করব।"
+      },
+      {
+        "en": "Is the meeting still on?",
+        "bn": "মিটিং কি আছে?"
+      },
+      {
+        "en": "It has been put off until tomorrow.",
+        "bn": "কাল পর্যন্ত স্থগিত হয়েছে।"
+      },
+      {
+        "en": "Okay, thanks for letting me know.",
+        "bn": "ঠিক আছে, জানানোর জন্য ধন্যবাদ।"
+      }
+    ]
+  },
+  {
+    "id": "sp16",
+    "title": "At the pharmacy",
+    "title_bn": "ফার্মেসিতে",
+    "cefr": "A2",
+    "scenario": "Buying medicine",
+    "lines": [
+      {
+        "speaker": "You",
+        "en": "I have a headache. Do you have something for it?",
+        "bn": "আমার মাথাব্যথা। এর জন্য কিছু আছে?"
+      },
+      {
+        "speaker": "Pharmacist",
+        "en": "Yes. Take this twice a day after meals.",
+        "bn": "হ্যাঁ। দিনে দুবার খাবারের পর নিন।"
+      },
+      {
+        "speaker": "You",
+        "en": "How much is it?",
+        "bn": "এর দাম কত?"
+      },
+      {
+        "speaker": "Pharmacist",
+        "en": "One hundred twenty taka.",
+        "bn": "একশো বিশ টাকা।"
+      },
+      {
+        "speaker": "You",
+        "en": "Thank you.",
+        "bn": "ধন্যবাদ।"
+      }
+    ]
+  },
+  {
+    "id": "sp17",
+    "title": "Asking for directions",
+    "title_bn": "রাস্তা জিজ্ঞাসা",
+    "cefr": "A2",
+    "scenario": "Finding a place",
+    "lines": [
+      {
+        "speaker": "You",
+        "en": "Excuse me, where is the nearest metro station?",
+        "bn": "মাফ করবেন, নিকটতম মেট্রো স্টেশন কোথায়?"
+      },
+      {
+        "speaker": "Local",
+        "en": "Go straight and turn left at the traffic light.",
+        "bn": "সোজা যান এবং ট্রাফিক লাইটে বামে ঘুরুন।"
+      },
+      {
+        "speaker": "You",
+        "en": "Is it far?",
+        "bn": "দূরে কি?"
+      },
+      {
+        "speaker": "Local",
+        "en": "About five minutes on foot.",
+        "bn": "পায়ে হেঁটে প্রায় পাঁচ মিনিট।"
+      },
+      {
+        "speaker": "You",
+        "en": "Thanks a lot!",
+        "bn": "অনেক ধন্যবাদ!"
+      }
+    ]
+  },
+  {
+    "id": "sp18",
+    "title": "At a restaurant",
+    "title_bn": "রেস্টুরেন্টে",
+    "cefr": "A2",
+    "scenario": "Ordering food",
+    "lines": [
+      {
+        "speaker": "Waiter",
+        "en": "Are you ready to order?",
+        "bn": "অর্ডার দিতে প্রস্তুত?"
+      },
+      {
+        "speaker": "You",
+        "en": "Yes. I'll have chicken biryani, please.",
+        "bn": "হ্যাঁ। আমি চিকেন বিরিয়ানি নেব।"
+      },
+      {
+        "speaker": "Waiter",
+        "en": "Anything to drink?",
+        "bn": "কিছু পানীয়?"
+      },
+      {
+        "speaker": "You",
+        "en": "A soft drink, please.",
+        "bn": "একটা সফট ড্রিংক দিন।"
+      },
+      {
+        "speaker": "Waiter",
+        "en": "It will be ready in fifteen minutes.",
+        "bn": "পনেরো মিনিটে রেডি হবে।"
+      }
+    ]
+  },
+  {
+    "id": "sp19",
+    "title": "Making an appointment",
+    "title_bn": "অ্যাপয়েন্টমেন্ট",
+    "cefr": "B1",
+    "scenario": "Doctor booking",
+    "lines": [
+      {
+        "speaker": "You",
+        "en": "I'd like to make an appointment with Dr. Rahman.",
+        "bn": "ডা. রহমানের সাথে অ্যাপয়েন্টমেন্ট চাই।"
+      },
+      {
+        "speaker": "Reception",
+        "en": "Is Thursday morning okay?",
+        "bn": "বৃহস্পতিবার সকাল ঠিক আছে?"
+      },
+      {
+        "speaker": "You",
+        "en": "Yes, around ten o'clock.",
+        "bn": "হ্যাঁ, প্রায় দশটার দিকে।"
+      },
+      {
+        "speaker": "Reception",
+        "en": "You're booked for 10:15. Please bring your ID.",
+        "bn": "আপনি ১০:১৫-এ বুক হয়েছেন। আইডি নিয়ে আসবেন।"
+      }
+    ]
+  },
+  {
+    "id": "sp20",
+    "title": "Complaining politely",
+    "title_bn": "ভদ্রভাবে অভিযোগ",
+    "cefr": "B1",
+    "scenario": "Hotel room issue",
+    "lines": [
+      {
+        "speaker": "You",
+        "en": "Excuse me. There is a problem with my room.",
+        "bn": "মাফ করবেন। আমার রুমে সমস্যা আছে।"
+      },
+      {
+        "speaker": "Staff",
+        "en": "I'm sorry to hear that. What's wrong?",
+        "bn": "দুঃখিত। কী সমস্যা?"
+      },
+      {
+        "speaker": "You",
+        "en": "The air conditioner is not working.",
+        "bn": "এয়ার কন্ডিশনার কাজ করছে না।"
+      },
+      {
+        "speaker": "Staff",
+        "en": "We'll send someone immediately.",
+        "bn": "আমরা এখনই কাউকে পাঠাব।"
+      },
+      {
+        "speaker": "You",
+        "en": "Thank you for your help.",
+        "bn": "সাহায্যের জন্য ধন্যবাদ।"
+      }
+    ]
+  },
+  {
+    "id": "sp21",
+    "title": "Small talk at work",
+    "title_bn": "অফিসে ছোট কথা",
+    "cefr": "B1",
+    "scenario": "Colleague chat",
+    "lines": [
+      {
+        "speaker": "Colleague",
+        "en": "How was your weekend?",
+        "bn": "উইকেন্ড কেমন কাটল?"
+      },
+      {
+        "speaker": "You",
+        "en": "It was good. I visited my family. What about you?",
+        "bn": "ভালো ছিল। পরিবারের সাথে দেখা করেছি। আপনি?"
+      },
+      {
+        "speaker": "Colleague",
+        "en": "I stayed home and rested.",
+        "bn": "বাড়িতে থেকে বিশ্রাম নিয়েছি।"
+      },
+      {
+        "speaker": "You",
+        "en": "Sounds nice. Ready for the meeting?",
+        "bn": "ভালো শুনতে। মিটিংয়ের জন্য প্রস্তুত?"
+      }
+    ]
+  },
+  {
+    "id": "sp22",
+    "title": "Paying a bill",
+    "title_bn": "বিল পরিশোধ",
+    "cefr": "A2",
+    "scenario": "Checkout",
+    "lines": [
+      {
+        "speaker": "Cashier",
+        "en": "Your total is eight hundred taka.",
+        "bn": "মোট আটশো টাকা।"
+      },
+      {
+        "speaker": "You",
+        "en": "Can I pay by card?",
+        "bn": "কার্ডে দিতে পারি?"
+      },
+      {
+        "speaker": "Cashier",
+        "en": "Yes, of course. Please tap your card.",
+        "bn": "হ্যাঁ অবশ্যই। কার্ড ট্যাপ করুন।"
+      },
+      {
+        "speaker": "You",
+        "en": "Done. Could I have a receipt?",
+        "bn": "হয়ে গেছে। রসিদ দেবেন?"
+      },
+      {
+        "speaker": "Cashier",
+        "en": "Here you are. Have a nice day!",
+        "bn": "নিন। ভালো দিন কাটুক!"
+      }
+    ]
   }
 ]

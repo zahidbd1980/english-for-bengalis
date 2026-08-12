@@ -1,7 +1,7 @@
 # English Learning Platform for Bengali Speakers
 ## Complete Product, Content, SEO, AdSense & Development Master Plan
 
-**Document version:** 1.3.3 (Teacher review + USP enrichment)  
+**Document version:** 1.3.4 (Volume push + Sentence Builder)  
 **Date:** 12 August 2026  
 **Last enriched:** 12 August 2026  
 **Primary platform:** Blogger.com (V1 content + SEO layer)  
@@ -49,6 +49,12 @@
 - Translation Lab data-driven (`data/translation-lab.json`, 40 items)
 - Expanded common mistakes, phrasals, spoken, quizzes toward §68
 - Balanced Level Test + USP-first onboarding path
+
+### Changelog (v1.3.4) — volume + Sentence Builder
+
+- Vocabulary **300**, mistakes **50**, phrasals **52**, spoken **101 lines**
+- Sentence Builder page + grammar per-topic quiz deep-links
+- Added **§144** progress note; updated §142 dashboard
 
 ---
 
@@ -4600,8 +4606,8 @@ When shipping **data-only** content (new words/lists/quizzes):
 
 # 142. Build Progress Dashboard (living — update when shipping)
 
-**Last progress update:** 12 August 2026 (v1.3.3 teacher enrichment)  
-**Current product stage:** Soft-launch skeleton · **Phase 2 content accelerating** · Phase 3 engine mostly done · Phase 4 in progress · **USP Translation Lab data-driven**
+**Last progress update:** 12 August 2026 (v1.3.4 volume + Sentence Builder)  
+**Current product stage:** Soft-launch skeleton · **Phase 2 near §68 MVP volumes** · Phase 3 engine mostly done · Phase 4 in progress · **USP Translation Lab data-driven**
 
 ## 142.1 Phase status
 
@@ -4609,8 +4615,8 @@ When shipping **data-only** content (new words/lists/quizzes):
 |---|---|---|---|
 | 0 | Research & Architecture | **Done** | IA, schemas, Blogger-first model |
 | 1 | Blogger Foundation | **Done** | Pages + GitHub Pages CDN (`docs/BLOGGER_FIRST_BN.md`) |
-| 2 | Content MVP | **In progress** | Volumes below §68 targets (see 142.2) |
-| 3 | Interactive Engine | **Mostly done** | Quiz, flashcards, spelling practice, vocab hub, daily challenge, streak, export/import |
+| 2 | Content MVP | **Near target** | Vocab/mistakes/phrasals/spoken met §68 counts (spelling tips bank still thin) |
+| 3 | Interactive Engine | **Mostly done** | Quiz, flashcards, spelling practice, vocab hub, daily challenge, streak, export/import, **Sentence Builder** |
 | 4 | Learning Intelligence | **Started** | Review due + Mistake Bank sessions live; weak-area panel v1; recommendations / full SRS polish next |
 | 5 | IELTS | Landing only | Hub + disclaimer; not full suite |
 | 6–7 | Cloud / Advanced | Not started | Accounts, AI tutor, etc. |
@@ -4619,13 +4625,13 @@ When shipping **data-only** content (new words/lists/quizzes):
 
 | Content | MVP target | Live (approx.) | Gap |
 |---|---:|---:|---|
-| Vocabulary | 300 | 143 | Expand bank + lists |
-| Phrasal verbs | 50 | **32** | Expand |
+| Vocabulary | 300 | **300** | Met — keep growing |
+| Phrasal verbs | 50 | **52** | Met |
 | Spelling tips bank | 100 | 8 (`spelling.json`) | Practice lists already larger |
-| Grammar topics | 10 | 10 | Met (depth can grow) |
-| Spoken dialogues | 100 sentences | **9 dialogues** | Expand lines |
-| Common mistakes | 50 | **40** | Near MVP |
-| Quizzes | rich pools | **70** | Improved translate/mistakes/phrasal |
+| Grammar topics | 10 | 10 | Met (per-topic quiz deep-links live; more items next) |
+| Spoken dialogues | 100 sentences | **22 dialogues / 101 lines** | Met line count |
+| Common mistakes | 50 | **50** | Met |
+| Quizzes | rich pools | **70** | Grow grammar coverage per topic |
 
 ## 142.3 Feature checklist (product, not Content Manager)
 
@@ -4643,19 +4649,21 @@ When shipping **data-only** content (new words/lists/quizzes):
 | **Mistake Bank → practice session** | **Done (v1.3.1)** — `quizzes.html?mode=mistakes` |
 | Weak-area panel | **Done v1** on My Progress |
 | First-run onboarding (S21) | **Done v1.3.3 USP path** |
-| Sentence Builder page | Not started |
+| Sentence Builder page | **Done (v1.3.4)** — tap-to-build + CEFR filter |
+| Grammar per-topic quiz links | **Done (v1.3.4)** — `?skill=grammar&item_id=` |
 | Site-wide search | Not started |
 | Desktop Content Manager (§141) | Planned — deferred |
 | Teacher review plan | **§143** |
 
 ## 142.4 Next implementation queue (priority order)
 
-1. **Content volume push** toward §68 (vocab, mistakes, phrasals, quiz pools) — editorial  
+1. ~~Content volume push toward §68~~ **Done for vocab/mistakes/phrasals/spoken (v1.3.4)**  
 2. ~~First-run onboarding~~ **Done (v1.3.2)**  
-3. Translation Lab → `data/`-driven items (USP pillar)  
-4. Stronger Level Test (skill mix, not only random 8)  
-5. Sentence Builder (P1)  
-6. Desktop Content Manager when editing friction becomes the bottleneck  
+3. ~~Translation Lab data-driven~~ **Done (v1.3.3)**  
+4. ~~Sentence Builder~~ **Done (v1.3.4)**  
+5. More grammar quiz items per topic (coverage)  
+6. Learning Path + Tips/Blog index (P1)  
+7. Desktop Content Manager when editing friction becomes the bottleneck  
 
 ## 142.5 How to update this section
 
@@ -4683,13 +4691,13 @@ When a milestone ships: change Status cells, bump **Last progress update**, add 
 
 | Pri | Gap | Action |
 |---|---|---|
-| P0 | Content below §68 (vocab/mistakes/phrasals/spoken) | Volume campaigns |
+| P0 | Content below §68 (vocab/mistakes/phrasals/spoken) | **Mostly closed in v1.3.4** |
 | P0 | Translation Lab was demo-only | **`data/translation-lab.json` + topic filters** |
 | P0 | Common Mistakes thin USP | Expand bank + quizzes |
 | P0 | Level Test random/not balanced | Skill-mix picker + pathway CTA |
 | P1 | Spoken read-only | Dialogues + later drill mode |
-| P1 | Grammar shallow / no per-topic quiz | Depth + deep links |
-| P1 | Sentence Builder missing | Build after USP volume |
+| P1 | Grammar shallow / no per-topic quiz | **Deep links done; more quiz items next** |
+| P1 | Sentence Builder missing | **Done (v1.3.4)** |
 | P1 | Blog/tips stream missing | SEO lesson posts |
 | P2 | Site search, workplace page, full IELTS | Later |
 
@@ -4698,18 +4706,18 @@ When a milestone ships: change Status cells, bump **Last progress update**, add 
 | Section | Status | Teacher note |
 |---|---|---|
 | Home (root + Featured Welcome) | Keep | Pin Welcome; full body theme |
-| Vocabulary + lists | Expand to 300 | Core bank |
-| Common Mistakes | Expand to 50+ | USP clinic |
+| Vocabulary + lists | **300 met** | Keep growing |
+| Common Mistakes | **50 met** | USP clinic |
 | Translation Lab | Expand | USP productive practice |
-| Grammar | Deepen | Mini-quiz per topic |
-| Phrasal Verbs | Expand to 50 | |
+| Grammar | Deepen | Mini-quiz deep-links live |
+| Phrasal Verbs | **52 met** | |
 | Spelling + Spelling Practice | Tips bank grow | Practice already strong |
-| Spoken English | Expand dialogues | Add drill later |
+| Spoken English | **101 lines met** | Add drill later |
 | Quizzes / Daily / Review / Mistakes modes | Grow pools | |
 | Level Test | Improved mix | Pathway CTA |
 | My Progress / Settings | Keep | Spelling denom fix later |
 | IELTS hub | Landing only | Honest framing |
-| Sentence Builder | **Add (P1)** | |
+| Sentence Builder | **Done (v1.3.4)** | |
 | Learning Path (A1 week plan) | **Add (P1)** | Cohort-friendly |
 | Tips/Blog index | **Add (P1)** | Homework between sessions |
 
@@ -4725,7 +4733,7 @@ When a milestone ships: change Status cells, bump **Last progress update**, add 
 | Level Test | Balanced skill mix + goal-based next CTA |
 | Onboarding | USP path: Level Test → Mistakes → Translation Lab → Vocab → Progress |
 
-## 143.5 Still next (after this batch)
+## 143.5 Still next (after v1.3.3)
 
 1. Vocabulary toward 300 + more IELTS/daily balance  
 2. Mistakes → 50; Phrasals → 50; Spoken lines → 100  
@@ -4734,3 +4742,19 @@ When a milestone ships: change Status cells, bump **Last progress update**, add 
 5. Desktop Content Manager when editing friction dominates  
 
 Deferred: cloud accounts, AI tutor, full IELTS suite, PWA.
+
+---
+
+# 144. Volume Push & Sentence Builder (v1.3.4 — 12 Aug 2026)
+
+| Item | Result |
+|---|---|
+| Vocabulary | **→ 300** |
+| Common mistakes | **→ 50** |
+| Phrasal verbs | **→ 52** |
+| Spoken | **22 dialogues / 101 lines** |
+| Sentence Builder | `pages/sentence-builder.html` + `data/sentence-builder.json` (20) |
+| Grammar deep-links | Each topic → `quizzes.html?skill=grammar&item_id=…` |
+| Wiring | Practice hub + nav + `blogger_config.json` |
+
+**Still next:** denser per-topic grammar quizzes, Learning Path, Tips/Blog index, Content Manager.

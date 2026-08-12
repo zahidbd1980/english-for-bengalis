@@ -27,11 +27,34 @@
   <script>
     const params = new URLSearchParams(location.search);
     let skill = params.get("skill") || "all";
+    const itemId = params.get("item_id");
     const mode = params.get("mode"); // review | mistakes
 
     function startSkill(all) {
-      const filtered = skill === "all" ? all : all.filter((q) => q.skill === skill);
-      EFBQuiz.mount(document.getElementById("quiz-root"), { questions: filtered, limit: 10 });
+      let filtered = skill === "all" ? all : all.filter((q) => q.skill === skill);
+      if (itemId) {
+        filtered = filtered.filter((q) => q.item_id === itemId);
+        document.getElementById("page-title").textContent = "Topic Quiz · টপিক কুইজ";
+        document.getElementById("page-intro").textContent =
+          filtered.length
+            ? "এই টপিকের প্রশ্ন — ভুল হলে Mistake Bank-এ জমা হবে।"
+            : "এই টপিকের জন্য এখনো আলাদা প্রশ্ন নেই — সব Grammar Quiz দিয়ে শুরু করুন।";
+      }
+      if (itemId && !filtered.length) {
+        document.getElementById("quiz-root").innerHTML = `
+          <div class="empty-state bn">
+            এই টপিকের নিবেদিত কুইজ এখনো নেই।
+            <div class="stack-actions" style="margin-top:1rem;justify-content:center">
+              <a class="btn btn-primary" href="quizzes.html?skill=grammar">Grammar Quizzes</a>
+              <a class="btn btn-secondary" href="grammar.html">← Grammar</a>
+            </div>
+          </div>`;
+        return;
+      }
+      EFBQuiz.mount(document.getElementById("quiz-root"), {
+        questions: filtered,
+        limit: itemId ? Math.min(10, Math.max(filtered.length, 1)) : 10,
+      });
     }
 
     function startMode(all, banks) {
@@ -89,6 +112,7 @@
         skills
           .map((s) => `<button type="button" class="btn ${s === skill ? "btn-primary" : "btn-secondary"}" data-s="${s}">${s}</button>`)
           .join("") +
+        (itemId ? `<a class="btn btn-ghost" href="grammar.html#${encodeURIComponent(itemId)}">← Grammar topic</a>` : "") +
         `<a class="btn btn-ghost" href="quizzes.html?mode=review">Review due</a>` +
         `<a class="btn btn-ghost" href="quizzes.html?mode=mistakes">Mistake Bank</a>`;
       document.getElementById("filters").addEventListener("click", (e) => {

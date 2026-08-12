@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f6b5c" />
+  <title>Sentence Builder — English for Bengalis</title>
+  <meta name="description" content="Tap words to build correct English sentences from Bangla meaning. Grammar order practice for Bengali speakers." />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+  <style>
+    .sb-bn { font-size: 1.25rem; margin: 0 0 0.75rem; }
+    .sb-bank, .sb-built {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; min-height: 3rem;
+      padding: 0.85rem; border-radius: 12px; border: 1px dashed var(--color-border, #c5d4cf);
+      background: rgba(15, 107, 92, 0.04); margin-bottom: 1rem;
+    }
+    .sb-built { border-style: solid; background: #fff; min-height: 3.5rem; }
+    .sb-chip {
+      appearance: none; border: 1px solid #b7c9c3; background: #fff;
+      border-radius: 999px; padding: 0.45rem 0.85rem; cursor: pointer;
+      font: inherit; color: inherit;
+    }
+    .sb-chip:hover, .sb-chip:focus-visible { border-color: var(--color-brand, #0f6b5c); outline: none; }
+    .sb-chip.is-used { opacity: 0.35; pointer-events: none; }
+    .sb-feedback { min-height: 1.5rem; margin: 0.5rem 0 1rem; }
+    .sb-feedback.ok { color: #0b6b3a; }
+    .sb-feedback.bad { color: #9b1c1c; }
+  </style>
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Sentence Builder</span></nav>
+    <h1 class="page-title">Sentence Builder · বাক্য গঠন</h1>
+    <p class="page-intro bn">বাংলা অর্থ দেখে শব্দ ট্যাপ করে সঠিক ইংরেজি বাক্য বানান — word order অনুশীলন।</p>
+    <div class="stack-actions" style="margin-bottom:1rem" id="level-filters"></div>
+    <div id="root" class="panel"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    (function () {
+      let all = [];
+      let level = "all";
+      let queue = [];
+      let idx = 0;
+      let built = [];
+      let bankOrder = [];
+
+      function shuffle(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+      }
+
+      function normalize(s) {
+        return String(s || "")
+          .toLowerCase()
+          .replace(/[?.!,]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function filtered() {
+        return level === "all" ? all.slice() : all.filter((x) => x.cefr === level);
+      }
+
+      function startQueue() {
+        queue = shuffle(filtered());
+        idx = 0;
+        if (!queue.length) {
+          document.getElementById("root").innerHTML = '<p class="empty-state bn">এই লেভেলে আইটেম নেই।</p>';
+          return;
+        }
+        loadItem();
+      }
+
+      function loadItem() {
+        const item = queue[idx];
+        built = [];
+        bankOrder = shuffle(item.words.map((w, i) => ({ w, i })));
+        render();
+      }
+
+      function render() {
+        const item = queue[idx];
+        const used = new Set(built.map((b) => b.i));
+        document.getElementById("root").innerHTML = `
+          <div class="quiz-meta">
+            <span class="chip">${item.cefr}</span>
+            <span class="chip">${idx + 1} / ${queue.length}</span>
+          </div>
+          <p class="sb-bn bn"><strong>বাংলা:</strong> ${item.bn}</p>
+          ${item.hint ? `<p class="muted">Hint: ${item.hint}</p>` : ""}
+          <p class="muted" style="margin:0 0 0.35rem">Your sentence</p>
+          <div class="sb-built" id="sb-built" aria-live="polite">
+            ${built.map((b, bi) => `<button type="button" class="sb-chip" data-built="${bi}">${b.w}</button>`).join("") || '<span class="muted">Tap words below…</span>'}
+          </div>
+          <p class="muted" style="margin:0 0 0.35rem">Word bank</p>
+          <div class="sb-bank" id="sb-bank">
+            ${bankOrder.map((b) => `<button type="button" class="sb-chip ${used.has(b.i) ? "is-used" : ""}" data-bank="${b.i}" ${used.has(b.i) ? "disabled" : ""}>${b.w}</button>`).join("")}
+          </div>
+          <div class="sb-feedback" id="sb-fb"></div>
+          <div class="stack-actions">
+            <button type="button" class="btn btn-secondary" id="sb-clear">Clear</button>
+            <button type="button" class="btn btn-primary" id="sb-check">Check</button>
+            <button type="button" class="btn btn-ghost" id="sb-skip">Skip</button>
+          </div>
+        `;
+
+        document.getElementById("sb-bank").addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-bank]");
+          if (!btn || btn.disabled) return;
+          const i = Number(btn.getAttribute("data-bank"));
+          const entry = bankOrder.find((x) => x.i === i);
+          if (!entry) return;
+          built.push(entry);
+          render();
+        });
+        document.getElementById("sb-built").addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-built]");
+          if (!btn) return;
+          built.splice(Number(btn.getAttribute("data-built")), 1);
+          render();
+        });
+        document.getElementById("sb-clear").onclick = () => { built = []; render(); };
+        document.getElementById("sb-skip").onclick = () => next();
+        document.getElementById("sb-check").onclick = () => {
+          const fb = document.getElementById("sb-fb");
+          const got = built.map((b) => b.w).join(" ");
+          const ok = normalize(got) === normalize(item.answer);
+          if (ok) {
+            fb.className = "sb-feedback ok bn";
+            fb.textContent = "সঠিক! " + item.answer;
+            EFBProgress.markSeen(item.id);
+            EFBProgress.recordResult(item.id, true, "type");
+            setTimeout(next, 700);
+          } else {
+            fb.className = "sb-feedback bad bn";
+            fb.textContent = "আবার চেষ্টা করুন। উত্তর: " + item.answer;
+            EFBProgress.recordResult(item.id, false, "type");
+          }
+        };
+      }
+
+      function next() {
+        idx += 1;
+        if (idx >= queue.length) {
+          document.getElementById("root").innerHTML = `
+            <div class="empty-state bn">
+              এই রাউন্ড শেষ!
+              <div class="stack-actions" style="margin-top:1rem;justify-content:center">
+                <button type="button" class="btn btn-primary" id="sb-again">আবার</button>
+                <a class="btn btn-secondary" href="practice.html">Practice hub</a>
+              </div>
+            </div>`;
+          document.getElementById("sb-again").onclick = startQueue;
+          return;
+        }
+        loadItem();
+      }
+
+      EFBApp.loadJSON("sentence-builder.json").then((items) => {
+        all = items || [];
+        const levels = ["all", "A1", "A2", "B1"];
+        document.getElementById("level-filters").innerHTML = levels
+          .map((l) => `<button type="button" class="btn ${l === level ? "btn-primary" : "btn-secondary"}" data-l="${l}">${l}</button>`)
+          .join("");
+        document.getElementById("level-filters").addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-l]");
+          if (!btn) return;
+          level = btn.getAttribute("data-l");
+          [...document.querySelectorAll("#level-filters button")].forEach((b) => {
+            b.className = "btn " + (b.getAttribute("data-l") === level ? "btn-primary" : "btn-secondary");
+          });
+          startQueue();
+        });
+        EFBProgress.setLastLesson("sentence", "sentence-builder");
+        startQueue();
+      });
+    })();
+  </script>
+</body>
+</html>
