@@ -180,18 +180,48 @@
     if (!el || !window.EFBStorage) return;
     const state = EFBStorage.load();
     const streak = state.streak.current || 0;
-    const level = state.profile.estimated_level || "—";
+    const level = state.profile.estimated_level || null;
     const tracked = Object.keys(state.items).length;
+    const lastSkill = state.profile.last_skill;
+    const pages = rootPrefix() === "." ? "pages/" : "";
+
+    const continueLink = document.getElementById("home-continue-link");
+    if (continueLink) {
+      if (tracked > 0 || lastSkill) {
+        const dest = lastSkill ? pages + lastSkill + ".html" : pages + "my-progress.html";
+        continueLink.href = dest;
+        continueLink.textContent = tracked > 0 ? "Continue where you left off →" : "View your progress →";
+        continueLink.parentElement.style.display = "";
+      } else {
+        continueLink.parentElement.style.display = "none";
+      }
+    }
+
     el.innerHTML = `
-      <div class="panel highlight">
-        <p class="chip">Your journey</p>
-        <h2 style="font-family:var(--font-display);margin:0.4rem 0 0.75rem">প্রোগ্রেস এক নজরে</h2>
-        <p class="muted bn">Streak: <strong>${streak}</strong> day(s) · Estimated level: <strong>${level}</strong> · Items tracked: <strong>${tracked}</strong></p>
-        <div class="stack-actions">
-          <a class="btn btn-primary" href="${rootPrefix() === "." ? "pages/" : ""}my-progress.html">পুরো প্রোগ্রেস</a>
-          <a class="btn btn-secondary" href="${rootPrefix() === "." ? "pages/" : ""}daily-challenge.html">ডেইলি চ্যালেঞ্জ</a>
+      <article class="home-progress panel highlight">
+        <div class="home-progress-head">
+          <span class="chip">Your journey</span>
+          <h2 class="home-h2 bn" style="margin:0.45rem 0 0">প্রোগ্রেস এক নজরে</h2>
         </div>
-      </div>
+        <div class="home-stats">
+          <div class="home-stat">
+            <strong class="home-stat-num">${streak}</strong>
+            <span class="bn">দিন streak</span>
+          </div>
+          <div class="home-stat">
+            <strong class="home-stat-num">${level || "—"}</strong>
+            <span class="bn">লেভেল</span>
+          </div>
+          <div class="home-stat">
+            <strong class="home-stat-num">${tracked}</strong>
+            <span class="bn">আইটেম</span>
+          </div>
+        </div>
+        <div class="stack-actions">
+          <a class="btn btn-primary" href="${pages}my-progress.html">পুরো প্রোগ্রেস</a>
+          <a class="btn btn-secondary" href="${pages}daily-challenge.html">ডেইলি চ্যালেঞ্জ</a>
+        </div>
+      </article>
     `;
   }
 
