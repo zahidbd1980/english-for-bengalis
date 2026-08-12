@@ -1,7 +1,7 @@
 # English Learning Platform for Bengali Speakers
 ## Complete Product, Content, SEO, AdSense & Development Master Plan
 
-**Document version:** 1.3.1 (Phase 4 start + progress dashboard)  
+**Document version:** 1.3.2 (S21 onboarding + Phase 4 progress)  
 **Date:** 12 August 2026  
 **Last enriched:** 12 August 2026  
 **Primary platform:** Blogger.com (V1 content + SEO layer)  
