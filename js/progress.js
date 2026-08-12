@@ -69,7 +69,10 @@
         const gain = productive ? 12 : 8;
         if (productive) item.productive_correct += 1;
         item.mastery_score = clamp(item.mastery_score + gain, 0, 100);
-        if (item.status < STATUS.PRACTICED) item.status = STATUS.PRACTICED;
+        // Clear review flag on success; then recomputeStatus may raise to FAMILIAR/MASTERED
+        if (item.status === STATUS.NEEDS_REVIEW || item.status < STATUS.PRACTICED) {
+          item.status = STATUS.PRACTICED;
+        }
         applySrsSuccess(item, "good");
         // Cleared mistakes drop out of Mistake Bank practice queue
         state.mistakes = (state.mistakes || []).filter((id) => id !== itemId);

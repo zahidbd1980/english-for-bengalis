@@ -49,8 +49,17 @@
       const due = EFBProgress.dueItems();
       const weak = EFBReview.weakAreas(5);
       const countMastered = (list) => list.filter((x) => statusOf(state, x.id) === 5).length;
-      const countStarted = (list) => list.filter((x) => statusOf(state, x.id) > 0).length;
-      const countPracticed = (list) => list.filter((x) => statusOf(state, x.id) >= 3).length;
+      const countStarted = (list) =>
+        list.filter((x) => {
+          const it = state.items[x.id];
+          return it && ((it.status || 0) > 0 || (it.attempts || 0) > 0);
+        }).length;
+      // "Practiced" = actually answered (not only scrolled/seen). status bands can drop below 3 after recompute.
+      const countPracticed = (list) =>
+        list.filter((x) => {
+          const it = state.items[x.id];
+          return it && (it.attempts || 0) > 0;
+        }).length;
 
       const vocabTarget = Number(state.settings.vocab_target) || 2000;
       const vocabStarted = countStarted(vocab);
@@ -93,7 +102,7 @@
         </div>
         <div class="panel">
           <h2 style="margin-top:0;font-family:var(--font-display)">Skill progress</h2>
-          <p class="muted bn" style="margin-top:0">Started = দেখেছেন · Practiced = কুইজ/কার্ড করেছেন · Mastered = ভালোভাবে আয়ত্ত</p>
+          <p class="muted bn" style="margin-top:0">Started = দেখেছেন · Practiced = কুইজ/কার্ডে উত্তর দিয়েছেন · Mastered = ভালোভাবে আয়ত্ত</p>
           <div class="stat-row">
             ${rows.map((r) => `
               <div class="stat">
