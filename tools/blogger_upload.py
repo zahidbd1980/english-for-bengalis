@@ -376,7 +376,7 @@ def cmd_upload_welcome(draft: bool):
     # keep it in sync with index.html so menu links to /p/home.html are not stale.
     # Canonical home remains blog root URL + Featured Welcome post.
     asset = (cfg.get("asset_base_url") or "").strip()
-    home_page = find_page(service, blog["id"], "Home")
+    home_page = find_existing_page(service, blog["id"], "Home")
     if home_page:
         print(
             "NOTE: Found leftover Page titled 'Home' (/p/home.html).\n"
