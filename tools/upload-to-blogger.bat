@@ -48,7 +48,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [3/4] Uploading welcome post...
+echo [3/4] Uploading welcome post (Blogger homepage featured)...
 python tools\blogger_upload.py --upload-welcome
 if errorlevel 1 (
   echo [ERROR] Welcome post failed
@@ -57,7 +57,7 @@ if errorlevel 1 (
 )
 
 echo.
-echo [4/4] Uploading / updating Pages...
+echo [4/4] Uploading / updating Pages (includes Home landing)...
 python tools\blogger_upload.py --upload-pages
 if errorlevel 1 (
   echo [ERROR] Pages upload failed
@@ -67,13 +67,16 @@ if errorlevel 1 (
 
 echo.
 echo ============================================
-echo  DONE
-echo  Open: https://englishforbengalis.blogspot.com/
+echo  DONE - Blogger site updated
+echo  Live: https://englishforbengalis.blogspot.com/
+echo  Home page: https://englishforbengalis.blogspot.com/p/home.html
 echo.
-echo  Next:
-echo   - Blogger - Pages - add pages to menu
-echo   - For quizzes: set asset_base_url then re-run
-echo     (or run deploy-github-pages.bat first)
+echo  Workflow reminder:
+echo   1. Edit code in this project
+echo   2. git push  (updates GitHub Pages assets)
+echo   3. Run this bat again  (updates Blogger pages)
+echo.
+echo  GitHub Pages is ONLY for css/js/data CDN.
 echo ============================================
 pause
 endlocal

@@ -1,8 +1,13 @@
 {
   "blog_url": "https://englishforbengalis.blogspot.com/",
   "asset_base_url": "https://zahidbd1980.github.io/english-for-bengalis",
-  "comment": "asset_base_url = GitHub Pages URL where css/js/data live, e.g. https://USERNAME.github.io/english-for-bengalis  (no trailing slash). Leave empty to upload text pages only.",
+  "comment": "BLOGGER = your real site. GitHub Pages (asset_base_url) = CDN for css/js/data only. After any change: git push THEN upload-to-blogger.bat",
   "pages": [
+    {
+      "title": "Home",
+      "file": "index.html",
+      "kind": "page"
+    },
     {
       "title": "About",
       "file": "pages/about.html",
@@ -121,6 +126,6 @@
       "lesson",
       "spoken"
     ],
-    "file": null
+    "file": "index.html"
   }
 }
