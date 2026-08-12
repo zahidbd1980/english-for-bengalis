@@ -26,7 +26,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/learning.css" />
 
   <script type="application/ld+json">
@@ -39,23 +39,14 @@
         "url": "https://englishforbengalis.blogspot.com/",
         "name": "English for Bengalis",
         "description": "Practical English learning platform for Bengali speakers with vocabulary, grammar, quizzes and progress tracking.",
-        "inLanguage": ["bn", "en"],
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://englishforbengalis.blogspot.com/p/learn.html?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
+        "inLanguage": ["bn", "en"]
       },
       {
         "@type": "EducationalOrganization",
         "@id": "https://englishforbengalis.blogspot.com/#org",
         "name": "English for Bengalis",
         "url": "https://englishforbengalis.blogspot.com/",
-        "description": "Free English learning resources tailored for Bengali speakers in Bangladesh and West Bengal.",
-        "audience": {
-          "@type": "Audience",
-          "audienceType": "Bengali speakers learning English"
-        }
+        "description": "Free English learning resources tailored for Bengali speakers in Bangladesh and West Bengal."
       },
       {
         "@type": "FAQPage",
@@ -96,20 +87,24 @@
   <div class="nav-drawer" id="nav-drawer"></div>
 
   <main id="main" class="wrap wrap-home">
-    <!-- Hero: first viewport, brand + headline + CTA only -->
-    <section class="home-hero" aria-labelledby="home-title">
+    <div id="efb-v2-home" class="efb-v2-home">
+    <!-- Gamification: Daily Streak -->
+    <div id="efb-v2-streak" class="efb-v2-streak" aria-live="polite"></div>
+
+    <!-- Hero -->
+    <section class="home-hero efb-v2-hero" aria-labelledby="home-title">
       <div class="home-hero-bg" aria-hidden="true"></div>
       <div class="home-hero-inner">
         <p class="home-eyebrow">
           <span class="home-pill">Free · বিনামূল্যে</span>
-          <span class="home-pill home-pill-soft">Mobile-first</span>
+          <span class="home-pill home-pill-soft">App-style · Mobile</span>
         </p>
         <h1 id="home-title" class="home-title">
           <span class="bn">বাংলা থেকে ইংরেজি</span>
           <span class="home-title-en">Learn. Practice. Master.</span>
         </h1>
         <p class="home-lede bn">
-          শুধু পড়া নয় — <strong>কতটা মাস্টার করেছেন</strong> তা দেখুন। Vocabulary বাংলা অর্থসহ, Grammar, Spelling, Quiz — সব এক অ্যাপের মতো।
+          শুধু পড়া নয় — <strong>কতটা মাস্টার করেছেন</strong> তা দেখুন। Vocabulary, Grammar, Spelling, Quiz — সব এক অ্যাপের মতো।
         </p>
         <div class="home-cta">
           <a class="btn btn-primary btn-lg" href="pages/learn.html">শিখতে শুরু করুন</a>
@@ -126,34 +121,113 @@
       </div>
     </section>
 
-    <!-- Quick start — app-style horizontal chips -->
+    <!-- Word of the Day + Quick Quiz (2-col on desktop) -->
+    <section class="efb-v2-engage home-section" aria-label="Daily engagement">
+      <div id="efb-v2-wotd" class="efb-v2-wotd"></div>
+      <div class="efb-v2-quiz-wrap">
+        <p class="efb-v2-kicker">Quick Quiz · দ্রুত কুইজ</p>
+        <h2 class="home-h2" style="margin:0.25rem 0 0.75rem">৩টি প্রশ্ন · Instant feedback</h2>
+        <div id="efb-v2-quiz" class="efb-v2-quiz"></div>
+      </div>
+    </section>
+
+    <!-- Daily Challenge with countdown -->
+    <section class="home-section" aria-labelledby="daily-title">
+      <article class="efb-v2-challenge">
+        <div class="efb-v2-challenge-body">
+          <span class="chip chip-accent">আজকের চ্যালেঞ্জ</span>
+          <h2 id="daily-title" class="home-h2" style="margin:0.5rem 0 0.35rem">Daily Challenge · ১০ মিনিট</h2>
+          <p class="bn muted" style="margin:0 0 0.75rem">Vocabulary, grammar, spelling, mistakes — মিশ্রিত সেশন। Streak বাড়ান।</p>
+          <p class="efb-v2-timer-label bn">পরের চ্যালেঞ্জ রিসেট · Next Challenge in</p>
+          <p class="efb-v2-timer" id="efb-v2-countdown" aria-live="polite">--:--:--</p>
+          <a class="btn btn-accent btn-lg" href="pages/daily-challenge.html">চ্যালেঞ্জ শুরু করুন</a>
+        </div>
+        <div class="efb-v2-challenge-visual" aria-hidden="true">
+          <div class="home-ring"><span>10</span><small>min</small></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- Trending Topics -->
+    <section class="home-section" aria-labelledby="trend-title">
+      <div class="home-section-head">
+        <h2 id="trend-title" class="home-h2">পপুলার লেসন · Trending</h2>
+        <p class="home-sub bn">সবচেয়ে চাহিদাসম্পন্ন টপিক</p>
+      </div>
+      <div class="efb-v2-trend-row" role="list">
+        <a class="efb-v2-trend" href="pages/spoken-english.html" role="listitem">
+          <span class="efb-v2-trend-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M8 8h8M7 12h10M9 16h6"/></svg>
+          </span>
+          <strong>Spoken English Tips</strong>
+          <span class="bn">কথোপকথন</span>
+        </a>
+        <a class="efb-v2-trend" href="pages/grammar.html" role="listitem">
+          <span class="efb-v2-trend-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6"/></svg>
+          </span>
+          <strong>Tense Masterclass</strong>
+          <span class="bn">Present / Past</span>
+        </a>
+        <a class="efb-v2-trend" href="pages/spoken-english.html" role="listitem">
+          <span class="efb-v2-trend-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM4 20a8 8 0 0116 0"/></svg>
+          </span>
+          <strong>Job Interview English</strong>
+          <span class="bn">ইন্টারভিউ</span>
+        </a>
+        <a class="efb-v2-trend" href="pages/common-mistakes.html" role="listitem">
+          <span class="efb-v2-trend-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+          </span>
+          <strong>Bangla Mistakes Fix</strong>
+          <span class="bn">সাধারণ ভুল</span>
+        </a>
+        <a class="efb-v2-trend" href="pages/phrasal-verbs.html" role="listitem">
+          <span class="efb-v2-trend-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h16M12 4v16"/></svg>
+          </span>
+          <strong>Phrasal Verbs</strong>
+          <span class="bn">give up, look after</span>
+        </a>
+        <a class="efb-v2-trend" href="pages/ielts.html" role="listitem">
+          <span class="efb-v2-trend-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19h16M7 16V8m5 8V5m5 11v-6"/></svg>
+          </span>
+          <strong>IELTS Basics</strong>
+          <span class="bn">Unofficial hub</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Quick Start with SVG icons -->
     <section class="home-section" aria-labelledby="quick-title">
       <div class="home-section-head">
         <h2 id="quick-title" class="home-h2">দ্রুত শুরু · Quick Start</h2>
       </div>
-      <div class="home-scroll-row" role="list">
-        <a class="home-quick-card" href="pages/vocabulary.html" role="listitem">
-          <span class="home-icon" aria-hidden="true">📚</span>
+      <div class="efb-v2-quick-row" role="list">
+        <a class="efb-v2-quick" href="pages/vocabulary.html" role="listitem">
+          <span class="efb-v2-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></span>
           <strong>Vocabulary</strong>
           <span class="bn">শব্দ + উচ্চারণ</span>
         </a>
-        <a class="home-quick-card" href="pages/daily-challenge.html" role="listitem">
-          <span class="home-icon" aria-hidden="true">⚡</span>
+        <a class="efb-v2-quick" href="pages/daily-challenge.html" role="listitem">
+          <span class="efb-v2-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
           <strong>Daily Challenge</strong>
           <span class="bn">আজকের ১০ মিনিট</span>
         </a>
-        <a class="home-quick-card" href="pages/spelling-practice.html" role="listitem">
-          <span class="home-icon" aria-hidden="true">🎧</span>
+        <a class="efb-v2-quick" href="pages/spelling-practice.html" role="listitem">
+          <span class="efb-v2-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg></span>
           <strong>Spelling</strong>
           <span class="bn">শুনে লেখো</span>
         </a>
-        <a class="home-quick-card" href="pages/common-mistakes.html" role="listitem">
-          <span class="home-icon" aria-hidden="true">✓</span>
+        <a class="efb-v2-quick" href="pages/common-mistakes.html" role="listitem">
+          <span class="efb-v2-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
           <strong>Mistakes</strong>
           <span class="bn">বাংলা ভুল ঠিক</span>
         </a>
-        <a class="home-quick-card" href="pages/flashcards.html" role="listitem">
-          <span class="home-icon" aria-hidden="true">🃏</span>
+        <a class="efb-v2-quick" href="pages/flashcards.html" role="listitem">
+          <span class="efb-v2-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M8 5V3a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2h-2"/></svg></span>
           <strong>Flashcards</strong>
           <span class="bn">দ্রুত রিভিউ</span>
         </a>
@@ -166,91 +240,31 @@
         <p class="home-sub bn">Beginner-friendly step-by-step plan</p>
       </div>
       <ol class="home-path">
-        <li>
-          <span class="home-step">1</span>
-          <div>
-            <strong>Foundation words</strong>
-            <p class="bn">Vocabulary থেকে daily + important verbs শিখুন।</p>
-          </div>
-        </li>
-        <li>
-          <span class="home-step">2</span>
-          <div>
-            <strong>Grammar clarity</strong>
-            <p class="bn">A1-A2 grammar + Common Mistakes ঠিক করুন।</p>
-          </div>
-        </li>
-        <li>
-          <span class="home-step">3</span>
-          <div>
-            <strong>Daily practice loop</strong>
-            <p class="bn">Quiz + Spelling + Flashcards দিয়ে প্রতিদিন 10 মিনিট।</p>
-          </div>
-        </li>
-        <li>
-          <span class="home-step">4</span>
-          <div>
-            <strong>Track mastery</strong>
-            <p class="bn">My Progress-এ কোন স্কিল weak, কোনটা mastered দেখুন।</p>
-          </div>
-        </li>
+        <li><span class="home-step">1</span><div><strong>Foundation words</strong><p class="bn">Vocabulary থেকে daily + important verbs শিখুন।</p></div></li>
+        <li><span class="home-step">2</span><div><strong>Grammar clarity</strong><p class="bn">A1-A2 grammar + Common Mistakes ঠিক করুন।</p></div></li>
+        <li><span class="home-step">3</span><div><strong>Daily practice loop</strong><p class="bn">Quiz + Spelling + Flashcards দিয়ে প্রতিদিন 10 মিনিট।</p></div></li>
+        <li><span class="home-step">4</span><div><strong>Track mastery</strong><p class="bn">My Progress-এ কোন স্কিল weak, কোনটা mastered দেখুন।</p></div></li>
       </ol>
     </section>
 
-    <!-- Featured: Daily Challenge -->
-    <section class="home-section" aria-labelledby="daily-title">
-      <article class="home-feature panel highlight">
-        <div class="home-feature-body">
-          <span class="chip chip-accent">Recommended today</span>
-          <h2 id="daily-title" class="home-h2" style="margin:0.5rem 0 0.35rem">ডেইলি চ্যালেঞ্জ · ১০ মিনিট</h2>
-          <p class="bn muted" style="margin:0 0 1rem">Vocabulary, grammar, spelling, common mistakes — মিশ্রিত ছোট সেশন। Streak বাড়ান।</p>
-          <a class="btn btn-accent btn-lg" href="pages/daily-challenge.html">আজকের চ্যালেঞ্জ শুরু</a>
-        </div>
-        <div class="home-feature-visual" aria-hidden="true">
-          <div class="home-ring"><span>10</span><small>min</small></div>
-        </div>
-      </article>
-    </section>
-
-    <!-- Skills -->
     <section class="home-section" aria-labelledby="skills-title">
       <div class="home-section-head">
         <h2 id="skills-title" class="home-h2">শিখুন · Learn</h2>
         <p class="home-sub bn">A1 থেকে B1 foundation — বাংলা ব্যাখ্যাসহ</p>
       </div>
       <div class="home-skill-grid">
-        <a class="home-skill-card" href="pages/vocabulary.html">
-          <span class="home-skill-icon">A</span>
-          <div><strong>Vocabulary</strong><span class="bn">টার্গেট লিস্ট, synonym, opposite</span></div>
-        </a>
-        <a class="home-skill-card" href="pages/grammar.html">
-          <span class="home-skill-icon">G</span>
-          <div><strong>Grammar</strong><span class="bn">Tense, article, modal</span></div>
-        </a>
-        <a class="home-skill-card" href="pages/phrasal-verbs.html">
-          <span class="home-skill-icon">P</span>
-          <div><strong>Phrasal Verbs</strong><span class="bn">give up, look after…</span></div>
-        </a>
-        <a class="home-skill-card" href="pages/spelling.html">
-          <span class="home-skill-icon">S</span>
-          <div><strong>Spelling</strong><span class="bn">কঠিন বানান টিপ</span></div>
-        </a>
-        <a class="home-skill-card" href="pages/spoken-english.html">
-          <span class="home-skill-icon">🗣</span>
-          <div><strong>Spoken English</strong><span class="bn">Dialogue + বাংলা</span></div>
-        </a>
-        <a class="home-skill-card" href="pages/common-mistakes.html">
-          <span class="home-skill-icon">!</span>
-          <div><strong>Common Mistakes</strong><span class="bn">I am agree → I agree</span></div>
-        </a>
+        <a class="home-skill-card" href="pages/vocabulary.html"><span class="home-skill-icon">A</span><div><strong>Vocabulary</strong><span class="bn">টার্গেট লিস্ট, synonym, opposite</span></div></a>
+        <a class="home-skill-card" href="pages/grammar.html"><span class="home-skill-icon">G</span><div><strong>Grammar</strong><span class="bn">Tense, article, modal</span></div></a>
+        <a class="home-skill-card" href="pages/phrasal-verbs.html"><span class="home-skill-icon">P</span><div><strong>Phrasal Verbs</strong><span class="bn">give up, look after…</span></div></a>
+        <a class="home-skill-card" href="pages/spelling.html"><span class="home-skill-icon">S</span><div><strong>Spelling</strong><span class="bn">কঠিন বানান টিপ</span></div></a>
+        <a class="home-skill-card" href="pages/spoken-english.html"><span class="home-skill-icon">🗣</span><div><strong>Spoken English</strong><span class="bn">Dialogue + বাংলা</span></div></a>
+        <a class="home-skill-card" href="pages/common-mistakes.html"><span class="home-skill-icon">!</span><div><strong>Common Mistakes</strong><span class="bn">I am agree → I agree</span></div></a>
       </div>
       <p class="home-more"><a href="pages/learn.html">সব Learn topics →</a></p>
     </section>
 
-    <!-- Progress (filled by JS) -->
     <section class="home-section" id="home-progress" aria-label="Your progress"></section>
 
-    <!-- Practice tools -->
     <section class="home-section" aria-labelledby="tools-title">
       <div class="home-section-head">
         <h2 id="tools-title" class="home-h2">অনুশীলন · Practice</h2>
@@ -266,15 +280,14 @@
       </div>
     </section>
 
-    <!-- SEO content: Why this platform -->
     <section class="home-section home-why" aria-labelledby="why-title">
       <div class="panel">
         <h2 id="why-title" class="home-h2">কেন English for Bengalis?</h2>
         <ul class="home-why-list bn">
-          <li><strong>বাংলা + ইংরেজি</strong> — অর্থ, টিপ, উদাহরণ দুই ভাষায়; শুধু ইংরেজি ডিকশনারি নয়।</li>
-          <li><strong>বাংলাভাষীদের ভুল</strong> — *open the light*, *I am agree*, *discuss about* — আলাদা সেকশনে ঠিক করা।</li>
-          <li><strong>মোবাইল ফার্স্ট</strong> — ফোনে অ্যাপের মতো; Previous/Next vocabulary, swipe, বড় বাটন।</li>
-          <li><strong>প্রোগ্রেস ট্র্যাক</strong> — কোন শব্দ/টপিক মাস্টার — ব্রাউজারে সেভ (Export/Import)।</li>
+          <li><strong>বাংলা + ইংরেজি</strong> — অর্থ, টিপ, উদাহরণ দুই ভাষায়।</li>
+          <li><strong>বাংলাভাষীদের ভুল</strong> — *open the light*, *I am agree* — আলাদা সেকশনে ঠিক।</li>
+          <li><strong>মোবাইল ফার্স্ট</strong> — অ্যাপের মতো UX, বড় বাটন, swipe।</li>
+          <li><strong>প্রোগ্রেস ট্র্যাক</strong> — mastery + streak ব্রাউজারে সেভ।</li>
         </ul>
       </div>
     </section>
@@ -285,45 +298,34 @@
         <p class="home-sub bn">শুধু পড়া নয় — measurable outcome</p>
       </div>
       <div class="home-proof-grid">
-        <article class="home-proof-card">
-          <h3>Speak naturally</h3>
-          <p class="bn">বাংলা translation-ভুল কমিয়ে natural spoken pattern তৈরি করুন।</p>
-        </article>
-        <article class="home-proof-card">
-          <h3>Write correctly</h3>
-          <p class="bn">Grammar + spelling accuracy বাড়িয়ে পরীক্ষায় ভুল কমান।</p>
-        </article>
-        <article class="home-proof-card">
-          <h3>Retain longer</h3>
-          <p class="bn">Daily repetition loop দিয়ে শব্দ মনে থাকে বেশি দিন।</p>
-        </article>
+        <article class="home-proof-card"><h3>Speak naturally</h3><p class="bn">বাংলা translation-ভুল কমিয়ে natural spoken pattern।</p></article>
+        <article class="home-proof-card"><h3>Write correctly</h3><p class="bn">Grammar + spelling accuracy বাড়িয়ে পরীক্ষায় ভুল কমান।</p></article>
+        <article class="home-proof-card"><h3>Retain longer</h3><p class="bn">Daily repetition loop দিয়ে শব্দ মনে থাকে বেশি দিন।</p></article>
       </div>
     </section>
 
-    <!-- IELTS -->
     <section class="home-section">
       <article class="home-ielts panel">
         <h2 class="home-h2" style="margin-top:0">IELTS-style Practice</h2>
-        <p class="muted bn">অনঅফিসিয়াল প্রস্তুতি — ৪ skills overview, spelling, academic words। Official IELTS-এর সাথে সম্পর্ক নেই।</p>
+        <p class="muted bn">অনঅফিসিয়াল প্রস্তুতি — Official IELTS-এর সাথে সম্পর্ক নেই।</p>
         <a class="btn btn-secondary" href="pages/ielts.html">IELTS Hub →</a>
       </article>
     </section>
 
-    <!-- FAQ for SEO + trust -->
     <section class="home-section home-faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="home-h2">প্রশ্নোত্তর · FAQ</h2>
       <div class="home-faq-list">
         <details class="home-faq-item">
           <summary class="bn">বাংলাভাষীরা কীভাবে ইংরেজি শিখবে?</summary>
-          <p class="bn">প্রতিদিন ছোট লেসন (Vocabulary, Grammar), বাংলা অর্থ দেখুন, Quiz করুন। Common Mistakes দিয়ে বাংলা থেকে সরাসরি অনুবাদের ভুল কাটুন।</p>
+          <p class="bn">প্রতিদিন ছোট লেসন, বাংলা অর্থ দেখুন, Quiz করুন। Common Mistakes দিয়ে ভুল কাটুন।</p>
         </details>
         <details class="home-faq-item">
           <summary>Is this site free?</summary>
-          <p>Yes — vocabulary, grammar, quizzes, flashcards and spelling practice are free for Bengali speakers on mobile and desktop.</p>
+          <p>Yes — vocabulary, grammar, quizzes, flashcards and spelling practice are free.</p>
         </details>
         <details class="home-faq-item">
           <summary class="bn">Spoken English ও IELTS-এ সাহায্য করে?</summary>
-          <p class="bn">Spoken dialogues, mistake clinic, ও unofficial IELTS hub আছে। Official band score guarantee নেই।</p>
+          <p class="bn">Spoken dialogues, mistake clinic, ও unofficial IELTS hub আছে। Band guarantee নেই।</p>
         </details>
       </div>
     </section>
@@ -331,20 +333,21 @@
     <section class="home-section" aria-labelledby="cluster-title">
       <div class="panel home-cluster">
         <h2 id="cluster-title" class="home-h2">Explore by topic</h2>
-        <p class="bn muted">SEO cluster style-এ শেখার shortcut: Grammar → Practice → Progress</p>
+        <p class="bn muted">Grammar → Practice → Progress</p>
         <div class="home-cluster-links">
           <a href="pages/grammar.html">Grammar topics</a>
           <a href="pages/common-mistakes.html">Bangla mistakes fix</a>
-          <a href="pages/vocabulary.html">Daily vocabulary list</a>
+          <a href="pages/vocabulary.html">Daily vocabulary</a>
           <a href="pages/quizzes.html">Practice quizzes</a>
           <a href="pages/spelling-practice.html">Spelling practice</a>
           <a href="pages/my-progress.html">Track mastery</a>
         </div>
       </div>
     </section>
+    </div>
   </main>
 
-  <nav class="home-sticky-cta" aria-label="Quick action">
+  <nav class="home-sticky-cta efb-v2-sticky" aria-label="Quick action">
     <a class="btn btn-primary" href="pages/learn.html">শিখতে শুরু</a>
     <a class="btn btn-secondary" href="pages/daily-challenge.html">Daily</a>
   </nav>
@@ -356,5 +359,6 @@
   <script src="js/quiz-engine.js"></script>
   <script src="js/daily-challenge.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/home-v2.js"></script>
 </body>
 </html>

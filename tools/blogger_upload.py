@@ -147,7 +147,8 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
         # inject stylesheet + fonts if main-only content
         head_inject = (
             f'<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700'
-            f'&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>'
+            f'&family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700'
+            f'&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>'
             f'<link rel="stylesheet" href="{base}/css/learning.css"/>'
         )
         scripts = (
@@ -158,6 +159,7 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
             f'<script src="{base}/js/spelling-practice.js"></script>'
             f'<script src="{base}/js/vocabulary.js"></script>'
             f'<script src="{base}/js/app.js"></script>'
+            f'<script src="{base}/js/home-v2.js"></script>'
         )
         # Fix fetch root: MUST run before page scripts that call loadJSON
         wrapper_open = f'<div class="efb-blogger" data-efb-asset="{base}">'
