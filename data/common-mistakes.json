@@ -134,5 +134,189 @@
     "bangla_tip": "স্থানে ঢোকার অর্থে enter-এর পরে into সাধারণত লাগে না।",
     "category": "prepositions",
     "explanation": "For places, use enter + place. enter into is used for agreements/discussions."
+  },
+  {
+    "id": "mistake:listen-music",
+    "incorrect": "I listen music every day.",
+    "correct": "I listen to music every day.",
+    "bangla_tip": "listen-এর পরে to লাগে (listen to music)।",
+    "category": "prepositions",
+    "explanation": "listen to + noun"
+  },
+  {
+    "id": "mistake:marry-with",
+    "incorrect": "She married with a doctor.",
+    "correct": "She married a doctor.",
+    "bangla_tip": "marry-এর পরে with লাগে না।",
+    "category": "prepositions",
+    "explanation": "marry someone (no with)"
+  },
+  {
+    "id": "mistake:ask-to-him",
+    "incorrect": "I asked to him a question.",
+    "correct": "I asked him a question.",
+    "bangla_tip": "ask someone — মাঝে to লাগে না।",
+    "category": "grammar",
+    "explanation": "ask someone something"
+  },
+  {
+    "id": "mistake:go-to-home",
+    "incorrect": "I go to home after class.",
+    "correct": "I go home after class.",
+    "bangla_tip": "home-এর আগে to সাধারণত লাগে না (go home)।",
+    "category": "prepositions",
+    "explanation": "go home / arrive home (no to)"
+  },
+  {
+    "id": "mistake:despite-of",
+    "incorrect": "Despite of the rain, we went out.",
+    "correct": "Despite the rain, we went out.",
+    "bangla_tip": "despite-এর পরে of লাগে না।",
+    "category": "grammar",
+    "explanation": "despite + noun (no of)"
+  },
+  {
+    "id": "mistake:although-but",
+    "incorrect": "Although it was late, but he came.",
+    "correct": "Although it was late, he came.",
+    "bangla_tip": "although ও but একসাথে ব্যবহার করবেন না।",
+    "category": "grammar",
+    "explanation": "Although … , … (no but)"
+  },
+  {
+    "id": "mistake:very-much-like",
+    "incorrect": "I very much like tea.",
+    "correct": "I like tea very much.",
+    "bangla_tip": "very much সাধারণত বাক্যের শেষে বসে।",
+    "category": "word-choice",
+    "explanation": "like … very much"
+  },
+  {
+    "id": "mistake:people-is",
+    "incorrect": "People is waiting outside.",
+    "correct": "People are waiting outside.",
+    "bangla_tip": "people = plural → are।",
+    "category": "grammar",
+    "explanation": "people takes plural verb"
+  },
+  {
+    "id": "mistake:informations",
+    "incorrect": "I need some informations.",
+    "correct": "I need some information.",
+    "bangla_tip": "information অগণনীয় — s লাগে না।",
+    "category": "word-choice",
+    "explanation": "information is uncountable"
+  },
+  {
+    "id": "mistake:advices",
+    "incorrect": "He gave me many advices.",
+    "correct": "He gave me a lot of advice.",
+    "bangla_tip": "advice অগণনীয়; এক পরামর্শ = a piece of advice।",
+    "category": "word-choice",
+    "explanation": "advice is uncountable"
+  },
+  {
+    "id": "mistake:borrow-me",
+    "incorrect": "Can you borrow me your pen?",
+    "correct": "Can you lend me your pen?",
+    "bangla_tip": "কাউকে ধার দেওয়া = lend; নিজে নেওয়া = borrow।",
+    "category": "word-choice",
+    "explanation": "lend to someone; borrow from someone"
+  },
+  {
+    "id": "mistake:close-the-light",
+    "incorrect": "Please close the light.",
+    "correct": "Please turn off the light.",
+    "bangla_tip": "লাইট বন্ধ = turn off; close নয়।",
+    "category": "direct-translation",
+    "explanation": "turn off the light"
+  },
+  {
+    "id": "mistake:take-a-bath-hair",
+    "incorrect": "I wash my hair in the bath every day. (when meaning showering head)",
+    "correct": "I wash my hair every day.",
+    "bangla_tip": "চুল ধোয়া = wash my hair; take a bath = গোসল।",
+    "category": "word-choice",
+    "explanation": "wash hair vs take a bath"
+  },
+  {
+    "id": "mistake:wait-for",
+    "incorrect": "I waited you for an hour.",
+    "correct": "I waited for you for an hour.",
+    "bangla_tip": "wait-এর পরে for লাগে।",
+    "category": "prepositions",
+    "explanation": "wait for someone"
+  },
+  {
+    "id": "mistake:reply-back",
+    "incorrect": "Please reply back soon.",
+    "correct": "Please reply soon.",
+    "bangla_tip": "reply-এর মানেই জবাব — back বাড়তি।",
+    "category": "word-choice",
+    "explanation": "reply (no back)"
+  },
+  {
+    "id": "mistake:cope-up",
+    "incorrect": "I cannot cope up with stress.",
+    "correct": "I cannot cope with stress.",
+    "bangla_tip": "cope with — up লাগে না।",
+    "category": "word-choice",
+    "explanation": "cope with"
+  },
+  {
+    "id": "mistake:comprise-of",
+    "incorrect": "The team comprises of 10 members.",
+    "correct": "The team comprises 10 members.",
+    "bangla_tip": "comprise-এর পরে of লাগে না (formal)।",
+    "category": "grammar",
+    "explanation": "comprise + object (or be comprised of)"
+  },
+  {
+    "id": "mistake:request-for",
+    "incorrect": "I request for your help.",
+    "correct": "I request your help.",
+    "bangla_tip": "request + object; for সাধারণত লাগে না।",
+    "category": "prepositions",
+    "explanation": "request something"
+  },
+  {
+    "id": "mistake:same-like",
+    "incorrect": "Your bag is same like mine.",
+    "correct": "Your bag is the same as mine.",
+    "bangla_tip": "the same as ব্যবহার করুন।",
+    "category": "word-choice",
+    "explanation": "the same as"
+  },
+  {
+    "id": "mistake:discuss-with-about",
+    "incorrect": "We discussed with him about money.",
+    "correct": "We discussed money with him.",
+    "bangla_tip": "discuss something with someone।",
+    "category": "grammar",
+    "explanation": "discuss X with Y"
+  },
+  {
+    "id": "mistake:go-to-abroad",
+    "incorrect": "She went to abroad last year.",
+    "correct": "She went abroad last year.",
+    "bangla_tip": "abroad-এর আগে to লাগে না।",
+    "category": "prepositions",
+    "explanation": "go abroad"
+  },
+  {
+    "id": "mistake:take-care-for",
+    "incorrect": "Please take care for yourself.",
+    "correct": "Please take care of yourself.",
+    "bangla_tip": "take care of।",
+    "category": "prepositions",
+    "explanation": "take care of"
+  },
+  {
+    "id": "mistake:married-since",
+    "incorrect": "They are married since 2018.",
+    "correct": "They have been married since 2018.",
+    "bangla_tip": "since-এর সাথে often present perfect।",
+    "category": "grammar",
+    "explanation": "have been + since"
   }
 ]

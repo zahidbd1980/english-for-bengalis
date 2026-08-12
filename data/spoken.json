@@ -4,10 +4,22 @@
     "title": "Greeting a new person",
     "level": "A1",
     "lines": [
-      { "en": "Hi! My name is Imran.", "bn": "হাই! আমার নাম ইমরান।" },
-      { "en": "Nice to meet you.", "bn": "আপনার সাথে দেখা হয়ে ভালো লাগল।" },
-      { "en": "Where are you from?", "bn": "আপনি কোন দেশ/শহরের মানুষ?" },
-      { "en": "I am from Dhaka.", "bn": "আমি ঢাকার।" }
+      {
+        "en": "Hi! My name is Imran.",
+        "bn": "হাই! আমার নাম ইমরান।"
+      },
+      {
+        "en": "Nice to meet you.",
+        "bn": "আপনার সাথে দেখা হয়ে ভালো লাগল।"
+      },
+      {
+        "en": "Where are you from?",
+        "bn": "আপনি কোন দেশ/শহরের মানুষ?"
+      },
+      {
+        "en": "I am from Dhaka.",
+        "bn": "আমি ঢাকার।"
+      }
     ]
   },
   {
@@ -15,10 +27,22 @@
     "title": "At a shop",
     "level": "A2",
     "lines": [
-      { "en": "Excuse me, how much is this?", "bn": "মাফ করবেন, এটার দাম কত?" },
-      { "en": "It's 500 taka.", "bn": "৫০০ টাকা।" },
-      { "en": "Do you have a smaller size?", "bn": "ছোট সাইজ আছে?" },
-      { "en": "I will take this one, please.", "bn": "আমি এটা নেব, প্লিজ।" }
+      {
+        "en": "Excuse me, how much is this?",
+        "bn": "মাফ করবেন, এটার দাম কত?"
+      },
+      {
+        "en": "It's 500 taka.",
+        "bn": "৫০০ টাকা।"
+      },
+      {
+        "en": "Do you have a smaller size?",
+        "bn": "ছোট সাইজ আছে?"
+      },
+      {
+        "en": "I will take this one, please.",
+        "bn": "আমি এটা নেব, প্লিজ।"
+      }
     ]
   },
   {
@@ -26,10 +50,22 @@
     "title": "Asking for directions",
     "level": "A2",
     "lines": [
-      { "en": "Excuse me, how do I get to the station?", "bn": "মাফ করবেন, স্টেশনে কীভাবে যাব?" },
-      { "en": "Go straight and turn left at the traffic lights.", "bn": "সোজা যান, তারপর ট্রাফিক লাইটে বামে ঘুরুন।" },
-      { "en": "Is it far from here?", "bn": "এখান থেকে কি দূরে?" },
-      { "en": "No, it's about five minutes on foot.", "bn": "না, হেঁটে প্রায় পাঁচ মিনিট।" }
+      {
+        "en": "Excuse me, how do I get to the station?",
+        "bn": "মাফ করবেন, স্টেশনে কীভাবে যাব?"
+      },
+      {
+        "en": "Go straight and turn left at the traffic lights.",
+        "bn": "সোজা যান, তারপর ট্রাফিক লাইটে বামে ঘুরুন।"
+      },
+      {
+        "en": "Is it far from here?",
+        "bn": "এখান থেকে কি দূরে?"
+      },
+      {
+        "en": "No, it's about five minutes on foot.",
+        "bn": "না, হেঁটে প্রায় পাঁচ মিনিট।"
+      }
     ]
   },
   {
@@ -37,10 +73,22 @@
     "title": "A short phone call",
     "level": "A2",
     "lines": [
-      { "en": "Hello, this is Rina speaking.", "bn": "হ্যালো, আমি রিনা বলছি।" },
-      { "en": "Could I speak to Karim, please?", "bn": "আমি কি করিমের সাথে কথা বলতে পারি?" },
-      { "en": "Sorry, he is busy right now.", "bn": "দুঃখিত, তিনি এখন ব্যস্ত।" },
-      { "en": "Please ask him to call me back.", "bn": "তাকে বলবেন আমাকে ফোন করতে।" }
+      {
+        "en": "Hello, this is Rina speaking.",
+        "bn": "হ্যালো, আমি রিনা বলছি।"
+      },
+      {
+        "en": "Could I speak to Karim, please?",
+        "bn": "আমি কি করিমের সাথে কথা বলতে পারি?"
+      },
+      {
+        "en": "Sorry, he is busy right now.",
+        "bn": "দুঃখিত, তিনি এখন ব্যস্ত।"
+      },
+      {
+        "en": "Please ask him to call me back.",
+        "bn": "তাকে বলবেন আমাকে ফোন করতে।"
+      }
     ]
   },
   {
@@ -48,10 +96,114 @@
     "title": "Job interview basics",
     "level": "B1",
     "lines": [
-      { "en": "Tell me about yourself.", "bn": "নিজের সম্পর্কে বলুন।" },
-      { "en": "I have two years of experience in sales.", "bn": "সেলসে আমার দুই বছরের অভিজ্ঞতা আছে।" },
-      { "en": "Why do you want this job?", "bn": "কেন এই চাকরি করতে চান?" },
-      { "en": "I want to grow my skills and help the team.", "bn": "আমি স্কিল বাড়াতে এবং টিমকে সাহায্য করতে চাই।" }
+      {
+        "en": "Tell me about yourself.",
+        "bn": "নিজের সম্পর্কে বলুন।"
+      },
+      {
+        "en": "I have two years of experience in sales.",
+        "bn": "সেলসে আমার দুই বছরের অভিজ্ঞতা আছে।"
+      },
+      {
+        "en": "Why do you want this job?",
+        "bn": "কেন এই চাকরি করতে চান?"
+      },
+      {
+        "en": "I want to grow my skills and help the team.",
+        "bn": "আমি স্কিল বাড়াতে এবং টিমকে সাহায্য করতে চাই।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:doctor-1",
+    "title": "At the doctor's",
+    "level": "A2",
+    "lines": [
+      {
+        "en": "I have a headache and a fever.",
+        "bn": "আমার মাথাব্যথা ও জ্বর আছে।"
+      },
+      {
+        "en": "How long have you felt like this?",
+        "bn": "কতদিন ধরে এমন লাগছে?"
+      },
+      {
+        "en": "Since yesterday evening.",
+        "bn": "গতকাল সন্ধ্যা থেকে।"
+      },
+      {
+        "en": "Take this medicine twice a day.",
+        "bn": "এই ওষুধ দিনে দুবার খান।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:restaurant-1",
+    "title": "Ordering food",
+    "level": "A2",
+    "lines": [
+      {
+        "en": "Could I see the menu, please?",
+        "bn": "মেনুটা দেখতে পারি?"
+      },
+      {
+        "en": "I'd like chicken biryani, please.",
+        "bn": "এক প্লেট চিকেন বিরিয়ানি দেবেন।"
+      },
+      {
+        "en": "Is it spicy?",
+        "bn": "এটা কি ঝাল?"
+      },
+      {
+        "en": "The bill, please.",
+        "bn": "বিলটা দেন।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:classroom-1",
+    "title": "In the classroom",
+    "level": "A1",
+    "lines": [
+      {
+        "en": "May I come in?",
+        "bn": "আমি কি ভিতরে আসতে পারি?"
+      },
+      {
+        "en": "Sorry I'm late.",
+        "bn": "দুঃখিত, আমি দেরি করেছি।"
+      },
+      {
+        "en": "Can you repeat that, please?",
+        "bn": "আবার বলবেন কি?"
+      },
+      {
+        "en": "I don't understand this word.",
+        "bn": "এই শব্দটা বুঝতে পারছি না।"
+      }
+    ]
+  },
+  {
+    "id": "spoken:bank-1",
+    "title": "At the bank",
+    "level": "B1",
+    "lines": [
+      {
+        "en": "I'd like to open a savings account.",
+        "bn": "আমি একটি সেভিংস অ্যাকাউন্ট খুলতে চাই।"
+      },
+      {
+        "en": "Do you have your NID with you?",
+        "bn": "আপনার কাছে NID আছে?"
+      },
+      {
+        "en": "Yes, here it is.",
+        "bn": "হ্যাঁ, এই যে।"
+      },
+      {
+        "en": "Please fill in this form.",
+        "bn": "এই ফর্মটা পূরণ করুন।"
+      }
     ]
   }
 ]

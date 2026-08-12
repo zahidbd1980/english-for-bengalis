@@ -14,8 +14,8 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>Level Test</span></nav>
     <h1 class="page-title">English Level Test</h1>
-    <p class="page-intro bn">সংক্ষিপ্ত অনুমানমূলক টেস্ট — এটি অফিসিয়াল CEFR সার্টিফিকেট নয়।</p>
-    <div class="disclaimer bn">Estimated learning level only. Not an official CEFR certification. Questions are mostly A1–A2, so a high score means a strong foundation — not a full B2 claim.</div>
+    <p class="page-intro bn">সংক্ষিপ্ত অনুমানমূলক টেস্ট — এটি অফিসিয়াল CEFR সার্টিফিকেট নয়। প্রতি স্কিল থেকে প্রশ্ন নেওয়া হয়।</p>
+    <div class="disclaimer bn">Estimated learning level only. Not an official CEFR certification.</div>
     <div id="goal" class="panel" style="margin-bottom:1rem">
       <label class="field bn">আপনার গোল বেছে নিন
         <select class="field-input" id="goal-select">
@@ -42,8 +42,47 @@
       alert("Goal saved");
     });
 
+    function take(arr, n) {
+      return EFBQuiz.shuffle(arr || []).slice(0, n);
+    }
+
+    function balancedPick(all) {
+      const by = {
+        vocabulary: all.filter((q) => q.skill === "vocabulary"),
+        grammar: all.filter((q) => q.skill === "grammar"),
+        mistakes: all.filter((q) => q.skill === "mistakes"),
+        phrasal: all.filter((q) => q.skill === "phrasal"),
+        spelling: all.filter((q) => q.skill === "spelling"),
+        translate: all.filter((q) => q.skill === "translate"),
+      };
+      let pick = []
+        .concat(take(by.vocabulary, 2))
+        .concat(take(by.grammar, 2))
+        .concat(take(by.mistakes, 2))
+        .concat(take(by.translate, 2))
+        .concat(take(by.phrasal, 1))
+        .concat(take(by.spelling, 1));
+      if (pick.length < 8) {
+        const used = new Set(pick.map((q) => q.id));
+        const rest = all.filter((q) => !used.has(q.id));
+        pick = pick.concat(take(rest, 8 - pick.length));
+      }
+      return EFBQuiz.shuffle(pick).slice(0, 8);
+    }
+
+    function recommend(goal, level) {
+      const g = goal || "spoken_english";
+      if (g === "grammar" || level.indexOf("Pre") !== -1)
+        return { href: "common-mistakes.html", label: "Common Mistakes" };
+      if (g === "vocabulary" || g === "ielts")
+        return { href: "vocabulary.html", label: "Vocabulary" };
+      if (g === "workplace")
+        return { href: "translation-lab.html", label: "Translation Lab" };
+      return { href: "spoken-english.html", label: "Spoken English" };
+    }
+
     EFBApp.loadJSON("quizzes.json").then((all) => {
-      const pick = EFBQuiz.shuffle(all).slice(0, 8);
+      const pick = balancedPick(all);
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions: pick,
         limit: 8,
@@ -55,11 +94,15 @@
           else if (pct >= 0.5) level = "A1";
           else if (pct >= 0.3) level = "Pre-A1";
           EFBProgress.setLevel(level);
+          const goal = document.getElementById("goal-select").value;
+          EFBProgress.setGoal(goal);
+          const rec = recommend(goal, level);
           const box = document.getElementById("result");
           box.classList.remove("hidden");
           box.innerHTML = `<div class="panel highlight" style="margin-top:1rem">
             <h2 style="font-family:var(--font-display);margin-top:0">Estimated Level: ${level}</h2>
-            <p class="bn">স্কোর ${score}/${total}. এটি আনুমানিক। Recommended: <a href="learn.html">Learn hub</a> থেকে শুরু করুন, প্রতিদিন <a href="daily-challenge.html">Daily Challenge</a> করুন।</p>
+            <p class="bn">স্কোর ${score}/${total}. এটি আনুমানিক।</p>
+            <p class="bn">Recommended next: <a href="${rec.href}">${rec.label}</a> · তারপর <a href="translation-lab.html">Translation Lab</a> · প্রতিদিন <a href="daily-challenge.html">Daily Challenge</a>.</p>
           </div>`;
         },
       });

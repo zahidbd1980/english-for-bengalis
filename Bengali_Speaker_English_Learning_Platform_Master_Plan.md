@@ -1,7 +1,7 @@
 # English Learning Platform for Bengali Speakers
 ## Complete Product, Content, SEO, AdSense & Development Master Plan
 
-**Document version:** 1.3.2 (S21 onboarding + Phase 4 progress)  
+**Document version:** 1.3.3 (Teacher review + USP enrichment)  
 **Date:** 12 August 2026  
 **Last enriched:** 12 August 2026  
 **Primary platform:** Blogger.com (V1 content + SEO layer)  
@@ -43,11 +43,12 @@
 - Weak-areas panel on My Progress; correct answers clear Mistake Bank queue
 - Desktop Content Manager remains **planned, not started** (deferred by product choice)
 
-### Changelog (v1.3.2)
+### Changelog (v1.3.3) — teacher review + USP enrichment
 
-- **S21 first-run onboarding** on Home (inline 5-step path, dismissible)
-- Smart **Continue** link (due review → daily challenge → last skill → progress)
-- Progress docs updated (`docs/BUILD_PROGRESS.md`, §142)
+- Added **§143 Teacher Site Review & Enrichment Plan**
+- Translation Lab data-driven (`data/translation-lab.json`, 40 items)
+- Expanded common mistakes, phrasals, spoken, quizzes toward §68
+- Balanced Level Test + USP-first onboarding path
 
 ---
 
@@ -4599,8 +4600,8 @@ When shipping **data-only** content (new words/lists/quizzes):
 
 # 142. Build Progress Dashboard (living — update when shipping)
 
-**Last progress update:** 12 August 2026 (v1.3.2 onboarding)  
-**Current product stage:** Soft-launch capable skeleton · **mid Phase 2 (content volume)** · **Phase 3 engine mostly done** · **Phase 4 in progress** (review loops + first-run path)
+**Last progress update:** 12 August 2026 (v1.3.3 teacher enrichment)  
+**Current product stage:** Soft-launch skeleton · **Phase 2 content accelerating** · Phase 3 engine mostly done · Phase 4 in progress · **USP Translation Lab data-driven**
 
 ## 142.1 Phase status
 
@@ -4619,12 +4620,12 @@ When shipping **data-only** content (new words/lists/quizzes):
 | Content | MVP target | Live (approx.) | Gap |
 |---|---:|---:|---|
 | Vocabulary | 300 | 143 | Expand bank + lists |
-| Phrasal verbs | 50 | 12 | Expand |
+| Phrasal verbs | 50 | **32** | Expand |
 | Spelling tips bank | 100 | 8 (`spelling.json`) | Practice lists already larger |
 | Grammar topics | 10 | 10 | Met (depth can grow) |
-| Spoken dialogues | 100 sentences | 5 dialogues | Expand |
-| Common mistakes | 50 | 17 | Expand (USP) |
-| Quizzes | rich pools | 33 | Thin spelling/phrasal pools |
+| Spoken dialogues | 100 sentences | **9 dialogues** | Expand lines |
+| Common mistakes | 50 | **40** | Near MVP |
+| Quizzes | rich pools | **70** | Improved translate/mistakes/phrasal |
 
 ## 142.3 Feature checklist (product, not Content Manager)
 
@@ -4636,15 +4637,16 @@ When shipping **data-only** content (new words/lists/quizzes):
 | Quiz engine MCQ + type | Done |
 | Daily Challenge | Done |
 | Progress + export/import | Done |
-| Soft Level Test | Thin but live |
-| Translation Lab | v0 (few inline items) — needs data-driven scale |
+| Soft Level Test | **Improved** — skill-balanced mix + pathway CTA |
+| Translation Lab | **Data-driven** — `translation-lab.json` (40) + topics |
 | **Review due → practice session** | **Done (v1.3.1)** — `quizzes.html?mode=review` |
 | **Mistake Bank → practice session** | **Done (v1.3.1)** — `quizzes.html?mode=mistakes` |
 | Weak-area panel | **Done v1** on My Progress |
-| First-run onboarding (S21) | **Done v1** — Home inline path + dismiss |
+| First-run onboarding (S21) | **Done v1.3.3 USP path** |
 | Sentence Builder page | Not started |
 | Site-wide search | Not started |
-| Desktop Content Manager (§141) | Planned — deferred until content/engine P0s stabilize |
+| Desktop Content Manager (§141) | Planned — deferred |
+| Teacher review plan | **§143** |
 
 ## 142.4 Next implementation queue (priority order)
 
@@ -4658,3 +4660,77 @@ When shipping **data-only** content (new words/lists/quizzes):
 ## 142.5 How to update this section
 
 When a milestone ships: change Status cells, bump **Last progress update**, add one line under Changelog (v1.3.x). Do not rewrite older sections — append facts here.
+
+---
+
+# 143. Teacher Site Review & Enrichment Plan (12 Aug 2026)
+
+**Lens:** classroom + serious self-study for Bengali speakers.  
+**Verdict:** Engine is soft-launch ready; **content + USP depth** still mid–Phase 2.
+
+## 143.1 What’s strong
+
+1. Teacher-grade vocab cards (BN meaning, examples, word_family)  
+2. Mastery + SRS + Mistake Bank practice loops  
+3. Spelling Practice listen→type (large practice lists)  
+4. Daily Challenge / streak habit design  
+5. Bilingual UX first  
+6. Progress + export/import  
+7. Clear Learn / Practice IA + S21 onboarding  
+8. Honest IELTS disclaimer hub  
+
+## 143.2 Critical gaps (priority)
+
+| Pri | Gap | Action |
+|---|---|---|
+| P0 | Content below §68 (vocab/mistakes/phrasals/spoken) | Volume campaigns |
+| P0 | Translation Lab was demo-only | **`data/translation-lab.json` + topic filters** |
+| P0 | Common Mistakes thin USP | Expand bank + quizzes |
+| P0 | Level Test random/not balanced | Skill-mix picker + pathway CTA |
+| P1 | Spoken read-only | Dialogues + later drill mode |
+| P1 | Grammar shallow / no per-topic quiz | Depth + deep links |
+| P1 | Sentence Builder missing | Build after USP volume |
+| P1 | Blog/tips stream missing | SEO lesson posts |
+| P2 | Site search, workplace page, full IELTS | Later |
+
+## 143.3 Required sections (keep / expand / add)
+
+| Section | Status | Teacher note |
+|---|---|---|
+| Home (root + Featured Welcome) | Keep | Pin Welcome; full body theme |
+| Vocabulary + lists | Expand to 300 | Core bank |
+| Common Mistakes | Expand to 50+ | USP clinic |
+| Translation Lab | Expand | USP productive practice |
+| Grammar | Deepen | Mini-quiz per topic |
+| Phrasal Verbs | Expand to 50 | |
+| Spelling + Spelling Practice | Tips bank grow | Practice already strong |
+| Spoken English | Expand dialogues | Add drill later |
+| Quizzes / Daily / Review / Mistakes modes | Grow pools | |
+| Level Test | Improved mix | Pathway CTA |
+| My Progress / Settings | Keep | Spelling denom fix later |
+| IELTS hub | Landing only | Honest framing |
+| Sentence Builder | **Add (P1)** | |
+| Learning Path (A1 week plan) | **Add (P1)** | Cohort-friendly |
+| Tips/Blog index | **Add (P1)** | Homework between sessions |
+
+## 143.4 Enrichment shipped with this review (v1.3.3)
+
+| Item | Result |
+|---|---|
+| `data/translation-lab.json` | **40** BN→EN type items + topic filters on page |
+| Common mistakes | **17 → 40** |
+| Phrasal verbs | **12 → 32** |
+| Spoken dialogues | **5 → 9** |
+| Quizzes | **33 → 70** (more mistakes/phrasal/translate) |
+| Level Test | Balanced skill mix + goal-based next CTA |
+| Onboarding | USP path: Level Test → Mistakes → Translation Lab → Vocab → Progress |
+
+## 143.5 Still next (after this batch)
+
+1. Vocabulary toward 300 + more IELTS/daily balance  
+2. Mistakes → 50; Phrasals → 50; Spoken lines → 100  
+3. Sentence Builder page  
+4. Per-topic grammar quiz links  
+5. Desktop Content Manager when editing friction dominates  
+
+Deferred: cloud accounts, AI tutor, full IELTS suite, PWA.

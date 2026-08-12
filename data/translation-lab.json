@@ -1,0 +1,512 @@
+[
+  {
+    "id": "tl:improve",
+    "item_id": "vocab:improve",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি আমার ইংরেজি উন্নত করতে চাই।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I want to improve my English.",
+    "answers": [
+      "I want to improve my English"
+    ],
+    "explanation": "want to + verb",
+    "topic": "goals"
+  },
+  {
+    "id": "tl:learning",
+    "item_id": "grammar:present-continuous",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি ইংরেজি শিখছি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I am learning English.",
+    "explanation": "am + -ing",
+    "topic": "tense"
+  },
+  {
+    "id": "tl:agree",
+    "item_id": "mistake:i-am-agree",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি একমত।",
+    "question_bn": "ইংরেজিতে লিখুন (I am agree নয়):",
+    "answer": "I agree.",
+    "explanation": "no am before agree",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:give-up",
+    "item_id": "pv:give-up",
+    "skill": "translate",
+    "type": "type",
+    "question": "চেষ্টা ছেড়ে দিও না।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Don't give up.",
+    "answers": [
+      "Do not give up.",
+      "Don't give up"
+    ],
+    "explanation": "give up",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:light",
+    "item_id": "mistake:open-light",
+    "skill": "translate",
+    "type": "type",
+    "question": "লাইটটা জ্বালাও।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Turn on the light.",
+    "answers": [
+      "Please turn on the light.",
+      "Turn the light on.",
+      "Please turn the light on."
+    ],
+    "explanation": "Not open the light",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:available",
+    "item_id": "vocab:available",
+    "skill": "translate",
+    "type": "type",
+    "question": "আপনি কি কাল খালি আছেন?",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Are you available tomorrow?",
+    "explanation": "available = free",
+    "topic": "daily"
+  },
+  {
+    "id": "tl:student",
+    "item_id": "mistake:i-am-student",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি একজন শিক্ষার্থী।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I am a student.",
+    "explanation": "a + singular noun",
+    "topic": "articles"
+  },
+  {
+    "id": "tl:homework",
+    "item_id": "mistake:make-homework",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি হোমওয়ার্ক করি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I do my homework.",
+    "explanation": "do homework",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:good-at",
+    "item_id": "mistake:good-in-english",
+    "skill": "translate",
+    "type": "type",
+    "question": "সে ইংরেজিতে ভালো।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "She is good at English.",
+    "answers": [
+      "He is good at English.",
+      "She is good at English"
+    ],
+    "explanation": "good at",
+    "topic": "prepositions"
+  },
+  {
+    "id": "tl:interested",
+    "item_id": "mistake:interested-on",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি সঙ্গীতে আগ্রহী।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I am interested in music.",
+    "explanation": "interested in",
+    "topic": "prepositions"
+  },
+  {
+    "id": "tl:depend",
+    "item_id": "mistake:depend-of",
+    "skill": "translate",
+    "type": "type",
+    "question": "এটা আবহাওয়ার উপর নির্ভর করে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "It depends on the weather.",
+    "explanation": "depend on",
+    "topic": "prepositions"
+  },
+  {
+    "id": "tl:reach",
+    "item_id": "mistake:reach-to",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমরা দুপুরে ঢাকা পৌঁছেছি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "We reached Dhaka at noon.",
+    "explanation": "reach + place (no to)",
+    "topic": "prepositions"
+  },
+  {
+    "id": "tl:look-after",
+    "item_id": "pv:look-after",
+    "skill": "translate",
+    "type": "type",
+    "question": "সে তার ভাইয়ের দেখাশোনা করে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "She looks after her brother.",
+    "answers": [
+      "She looks after her little brother."
+    ],
+    "explanation": "look after",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:find-out",
+    "item_id": "pv:find-out",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমাকে সময়টা জেনে নিতে হবে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I need to find out the time.",
+    "answers": [
+      "I need to find out the train time."
+    ],
+    "explanation": "find out",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:get-up",
+    "item_id": "pv:get-up",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি সকাল ছয়টায় উঠি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I get up at six.",
+    "answers": [
+      "I get up at 6.",
+      "I get up at 6 every morning.",
+      "I get up at six every morning."
+    ],
+    "explanation": "get up",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:nice-meet",
+    "item_id": "spoken:greeting-1",
+    "skill": "translate",
+    "type": "type",
+    "question": "আপনার সাথে দেখা হয়ে ভালো লাগল।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Nice to meet you.",
+    "explanation": "greeting",
+    "topic": "spoken"
+  },
+  {
+    "id": "tl:how-much",
+    "item_id": "spoken:shopping-1",
+    "skill": "translate",
+    "type": "type",
+    "question": "এটার দাম কত?",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "How much is this?",
+    "answers": [
+      "Excuse me, how much is this?"
+    ],
+    "explanation": "shopping",
+    "topic": "spoken"
+  },
+  {
+    "id": "tl:tell-me",
+    "item_id": "mistake:tell-to-me",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমাকে সত্যটা বলুন।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Please tell me the truth.",
+    "answers": [
+      "Tell me the truth."
+    ],
+    "explanation": "tell me (no to)",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:discuss",
+    "item_id": "mistake:discuss-about",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমরা পরিকল্পনা নিয়ে আলোচনা করেছি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "We discussed the plan.",
+    "explanation": "discuss (no about)",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:return",
+    "item_id": "mistake:return-back",
+    "skill": "translate",
+    "type": "type",
+    "question": "ফর্মটা ফেরত দিন।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Please return the form.",
+    "explanation": "return (no back)",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:for-years",
+    "item_id": "mistake:since-for",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি এখানে পাঁচ বছর ধরে থাকি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I have lived here for five years.",
+    "answers": [
+      "I have lived here for 5 years."
+    ],
+    "explanation": "for + duration",
+    "topic": "tense"
+  },
+  {
+    "id": "tl:prefer",
+    "item_id": "vocab:prefer",
+    "skill": "translate",
+    "type": "type",
+    "question": "কফির চেয়ে চা বেশি পছন্দ করি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I prefer tea to coffee.",
+    "explanation": "prefer A to B",
+    "topic": "daily"
+  },
+  {
+    "id": "tl:deadline",
+    "item_id": "vocab:deadline",
+    "skill": "translate",
+    "type": "type",
+    "question": "প্রজেক্টের ডেডলাইন শুক্রবার।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "The project deadline is Friday.",
+    "explanation": "deadline",
+    "topic": "work"
+  },
+  {
+    "id": "tl:recommend",
+    "item_id": "vocab:recommend",
+    "skill": "translate",
+    "type": "type",
+    "question": "একটি ভালো বই সুপারিশ করতে পারেন?",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Can you recommend a good book?",
+    "answers": [
+      "Can you recommend a good book to me?"
+    ],
+    "explanation": "recommend",
+    "topic": "daily"
+  },
+  {
+    "id": "tl:enter",
+    "item_id": "mistake:enter-into",
+    "skill": "translate",
+    "type": "type",
+    "question": "রুমটাতে ঢুকুন।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Please enter the room.",
+    "answers": [
+      "Enter the room."
+    ],
+    "explanation": "enter + place",
+    "topic": "prepositions"
+  },
+  {
+    "id": "tl:belong",
+    "item_id": "mistake:belong-to",
+    "skill": "translate",
+    "type": "type",
+    "question": "এই বইটা আমার।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "This book belongs to me.",
+    "explanation": "belongs to",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:one-of",
+    "item_id": "mistake:one-of-the-student",
+    "skill": "translate",
+    "type": "type",
+    "question": "সে সেরা শিক্ষার্থীদের একজন।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "He is one of the best students.",
+    "answers": [
+      "She is one of the best students."
+    ],
+    "explanation": "one of the + plural",
+    "topic": "grammar"
+  },
+  {
+    "id": "tl:said-told",
+    "item_id": "mistake:said-me",
+    "skill": "translate",
+    "type": "type",
+    "question": "সে আমাকে খবরটা বলল।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "He told me the news.",
+    "answers": [
+      "She told me the news."
+    ],
+    "explanation": "tell someone",
+    "topic": "mistakes"
+  },
+  {
+    "id": "tl:put-off",
+    "item_id": "pv:put-off",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমরা মিটিং স্থগিত করেছি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "We put off the meeting.",
+    "answers": [
+      "We put off the meeting until Monday."
+    ],
+    "explanation": "put off = postpone",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:run-out",
+    "item_id": "pv:run-out-of",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমাদের দুধ শেষ হয়ে গেছে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "We have run out of milk.",
+    "answers": [
+      "We've run out of milk."
+    ],
+    "explanation": "run out of",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:take-off",
+    "item_id": "pv:take-off",
+    "skill": "translate",
+    "type": "type",
+    "question": "জুতো খুলুন।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Please take off your shoes.",
+    "answers": [
+      "Take off your shoes."
+    ],
+    "explanation": "take off",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:look-for",
+    "item_id": "pv:look-for",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমি আমার চাবি খুঁজছি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I am looking for my keys.",
+    "answers": [
+      "I'm looking for my keys."
+    ],
+    "explanation": "look for",
+    "topic": "phrasal"
+  },
+  {
+    "id": "tl:station",
+    "item_id": "spoken:directions-1",
+    "skill": "translate",
+    "type": "type",
+    "question": "স্টেশনে কীভাবে যাব?",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "How do I get to the station?",
+    "answers": [
+      "Excuse me, how do I get to the station?"
+    ],
+    "explanation": "directions",
+    "topic": "spoken"
+  },
+  {
+    "id": "tl:call-back",
+    "item_id": "spoken:phone-1",
+    "skill": "translate",
+    "type": "type",
+    "question": "তাকে বলবেন আমাকে ফোন করতে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Please ask him to call me back.",
+    "explanation": "phone English",
+    "topic": "spoken"
+  },
+  {
+    "id": "tl:experience",
+    "item_id": "spoken:interview-1",
+    "skill": "translate",
+    "type": "type",
+    "question": "সেলসে আমার দুই বছরের অভিজ্ঞতা আছে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I have two years of experience in sales.",
+    "explanation": "interview",
+    "topic": "spoken"
+  },
+  {
+    "id": "tl:polite",
+    "item_id": "vocab:polite",
+    "skill": "translate",
+    "type": "type",
+    "question": "কাস্টমারদের সাথে ভদ্র থাকুন।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Please be polite to customers.",
+    "explanation": "polite",
+    "topic": "work"
+  },
+  {
+    "id": "tl:necessary",
+    "item_id": "vocab:necessary",
+    "skill": "translate",
+    "type": "type",
+    "question": "এটা প্রয়োজনীয়।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "It is necessary.",
+    "answers": [
+      "This is necessary.",
+      "It's necessary."
+    ],
+    "explanation": "necessary",
+    "topic": "daily"
+  },
+  {
+    "id": "tl:explain",
+    "item_id": "vocab:explain",
+    "skill": "translate",
+    "type": "type",
+    "question": "দয়া করে এটা ব্যাখ্যা করুন।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Please explain this.",
+    "answers": [
+      "Can you explain this, please?"
+    ],
+    "explanation": "explain",
+    "topic": "daily"
+  },
+  {
+    "id": "tl:celebrate",
+    "item_id": "vocab:celebrate",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমরা প্রতিবছর পহেলা বৈশাখ উদযাপন করি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "We celebrate Pohela Boishakh every year.",
+    "explanation": "celebrate",
+    "topic": "culture"
+  },
+  {
+    "id": "tl:environment",
+    "item_id": "vocab:environment",
+    "skill": "translate",
+    "type": "type",
+    "question": "আমাদের পরিবেশ রক্ষা করতে হবে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "We must protect the environment.",
+    "explanation": "environment",
+    "topic": "ielts"
+  }
+]

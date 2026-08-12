@@ -106,5 +106,185 @@
     "example": "Please take off your shoes.",
     "example_bn": "অনুগ্রহ করে জুতো খুলুন।",
     "cefr_level": "A2"
+  },
+  {
+    "id": "pv:bring-up",
+    "phrase": "bring up",
+    "meaning_en": "mention a topic; raise a child",
+    "meaning_bn": "প্রসঙ্গ তোলা; সন্তান লালন-পালন",
+    "example": "Don't bring up politics at dinner.",
+    "example_bn": "ডিনারে রাজনীতির প্রসঙ্গ তুলবেন না।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:call-off",
+    "phrase": "call off",
+    "meaning_en": "cancel",
+    "meaning_bn": "বাতিল করা",
+    "example": "They called off the match.",
+    "example_bn": "তারা ম্যাচ বাতিল করেছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:carry-on",
+    "phrase": "carry on",
+    "meaning_en": "continue",
+    "meaning_bn": "চালিয়ে যাওয়া",
+    "example": "Please carry on with your work.",
+    "example_bn": "আপনার কাজ চালিয়ে যান।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:check-in",
+    "phrase": "check in",
+    "meaning_en": "register at a hotel/airport",
+    "meaning_bn": "চেক-ইন করা",
+    "example": "We checked in at 2 pm.",
+    "example_bn": "আমরা দুপুর ২টায় চেক-ইন করেছি।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:check-out",
+    "phrase": "check out",
+    "meaning_en": "leave a hotel; look at",
+    "meaning_bn": "চেক-আউট; দেখে নেওয়া",
+    "example": "Check out this new app.",
+    "example_bn": "এই নতুন অ্যাপটা দেখে নিন।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:come-up-with",
+    "phrase": "come up with",
+    "meaning_en": "think of an idea",
+    "meaning_bn": "আইডিয়া বের করা",
+    "example": "She came up with a good plan.",
+    "example_bn": "সে একটা ভালো পরিকল্পনা বের করেছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:drop-off",
+    "phrase": "drop off",
+    "meaning_en": "leave someone somewhere by car",
+    "meaning_bn": "গাড়ি থেকে নামিয়ে দেওয়া",
+    "example": "Can you drop me off at school?",
+    "example_bn": "আমাকে স্কুলে নামিয়ে দিতে পারবেন?",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:fill-in",
+    "phrase": "fill in",
+    "meaning_en": "complete a form",
+    "meaning_bn": "ফর্ম পূরণ করা",
+    "example": "Please fill in this form.",
+    "example_bn": "এই ফর্মটা পূরণ করুন।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:get-along",
+    "phrase": "get along",
+    "meaning_en": "have a good relationship",
+    "meaning_bn": "মিলমিশ থাকা",
+    "example": "I get along with my colleagues.",
+    "example_bn": "সহকর্মীদের সাথে আমার মিলমিশ আছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:give-in",
+    "phrase": "give in",
+    "meaning_en": "stop resisting; agree after pressure",
+    "meaning_bn": "নতি স্বীকার করা",
+    "example": "He finally gave in.",
+    "example_bn": "অবশেষে সে নতি স্বীকার করেছে।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:go-on",
+    "phrase": "go on",
+    "meaning_en": "continue; happen",
+    "meaning_bn": "চলতে থাকা",
+    "example": "Please go on.",
+    "example_bn": "অনুগ্রহ করে চালিয়ে যান।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:hang-out",
+    "phrase": "hang out",
+    "meaning_en": "spend time relaxing",
+    "meaning_bn": "সময় কাটানো / ঘোরাঘুরি",
+    "example": "We hang out on Fridays.",
+    "example_bn": "শুক্রবারে আমরা একসাথে সময় কাটাই।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:keep-up",
+    "phrase": "keep up",
+    "meaning_en": "continue at the same level",
+    "meaning_bn": "তাল মিলিয়ে চলা",
+    "example": "Keep up the good work.",
+    "example_bn": "ভালো কাজ চালিয়ে যান।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:look-forward-to",
+    "phrase": "look forward to",
+    "meaning_en": "feel happy about a future event",
+    "meaning_bn": "অপেক্ষায় থাকা / আগ্রহে থাকা",
+    "example": "I look forward to meeting you.",
+    "example_bn": "আপনার সাথে দেখার অপেক্ষায় আছি।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:make-up",
+    "phrase": "make up",
+    "meaning_en": "invent; become friends again",
+    "meaning_bn": "বানিয়ে বলা; মিটমাট করা",
+    "example": "Don't make up stories.",
+    "example_bn": "গল্প বানিয়ে বলবেন না।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:pass-away",
+    "phrase": "pass away",
+    "meaning_en": "die (polite)",
+    "meaning_bn": "মারা যাওয়া (ভদ্র)",
+    "example": "His grandfather passed away.",
+    "example_bn": "তার দাদা মারা গেছেন।",
+    "cefr_level": "B1"
+  },
+  {
+    "id": "pv:set-up",
+    "phrase": "set up",
+    "meaning_en": "arrange; start a business",
+    "meaning_bn": "সেটআপ করা / প্রতিষ্ঠা করা",
+    "example": "They set up a new shop.",
+    "example_bn": "তারা নতুন দোকান প্রতিষ্ঠা করেছে।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:show-up",
+    "phrase": "show up",
+    "meaning_en": "arrive",
+    "meaning_bn": "হাজির হওয়া",
+    "example": "He didn't show up.",
+    "example_bn": "সে হাজির হয়নি।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:take-care-of",
+    "phrase": "take care of",
+    "meaning_en": "look after",
+    "meaning_bn": "যত্ন নেওয়া",
+    "example": "Take care of your health.",
+    "example_bn": "নিজের স্বাস্থ্যের যত্ন নিন।",
+    "cefr_level": "A2"
+  },
+  {
+    "id": "pv:work-out",
+    "phrase": "work out",
+    "meaning_en": "exercise; find a solution",
+    "meaning_bn": "ব্যায়াম করা; সমাধান খোঁজা",
+    "example": "I work out three times a week.",
+    "example_bn": "আমি সপ্তাহে তিনবার ব্যায়াম করি।",
+    "cefr_level": "A2"
   }
 ]

@@ -507,5 +507,558 @@
     ],
     "answer": "the latest time to finish",
     "explanation": "deadline = শেষ সময়সীমা।"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:listen-music",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "I listen to music every day.",
+      "I listen music every day.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "I listen to music every day.",
+    "explanation": "listen-এর পরে to লাগে (listen to music)।",
+    "id": "q100"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:marry-with",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "She married a doctor.",
+      "She married with a doctor.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "She married a doctor.",
+    "explanation": "marry-এর পরে with লাগে না।",
+    "id": "q101"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:ask-to-him",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "I asked him a question.",
+      "I asked to him a question.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "I asked him a question.",
+    "explanation": "ask someone — মাঝে to লাগে না।",
+    "id": "q102"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:go-to-home",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "I go home after class.",
+      "I go to home after class.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "I go home after class.",
+    "explanation": "home-এর আগে to সাধারণত লাগে না (go home)।",
+    "id": "q103"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:despite-of",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "Despite the rain, we went out.",
+      "Despite of the rain, we went out.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "Despite the rain, we went out.",
+    "explanation": "despite-এর পরে of লাগে না।",
+    "id": "q104"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:although-but",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "Although it was late, he came.",
+      "Although it was late, but he came.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "Although it was late, he came.",
+    "explanation": "although ও but একসাথে ব্যবহার করবেন না।",
+    "id": "q105"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:very-much-like",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "I like tea very much.",
+      "I very much like tea.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "I like tea very much.",
+    "explanation": "very much সাধারণত বাক্যের শেষে বসে।",
+    "id": "q106"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:people-is",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "People are waiting outside.",
+      "People is waiting outside.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "People are waiting outside.",
+    "explanation": "people = plural → are।",
+    "id": "q107"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:informations",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "I need some information.",
+      "I need some informations.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "I need some information.",
+    "explanation": "information অগণনীয় — s লাগে না।",
+    "id": "q108"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:advices",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "He gave me a lot of advice.",
+      "He gave me many advices.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "He gave me a lot of advice.",
+    "explanation": "advice অগণনীয়; এক পরামর্শ = a piece of advice।",
+    "id": "q109"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:borrow-me",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "Can you lend me your pen?",
+      "Can you borrow me your pen?",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "Can you lend me your pen?",
+    "explanation": "কাউকে ধার দেওয়া = lend; নিজে নেওয়া = borrow।",
+    "id": "q110"
+  },
+  {
+    "type": "mcq",
+    "skill": "mistakes",
+    "item_id": "mistake:close-the-light",
+    "question": "Choose the correct sentence:",
+    "question_bn": "সঠিক বাক্য বেছে নিন:",
+    "options": [
+      "Please turn off the light.",
+      "Please close the light.",
+      "Both are fine.",
+      "Neither is correct."
+    ],
+    "answer": "Please turn off the light.",
+    "explanation": "লাইট বন্ধ = turn off; close নয়।",
+    "id": "q111"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:bring-up",
+    "question": "\"bring up\" means:",
+    "question_bn": "\"bring up\" মানে?",
+    "options": [
+      "mention a topic; raise a child",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "mention a topic; raise a child",
+    "explanation": "প্রসঙ্গ তোলা; সন্তান লালন-পালন",
+    "id": "q112"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:call-off",
+    "question": "\"call off\" means:",
+    "question_bn": "\"call off\" মানে?",
+    "options": [
+      "cancel",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "cancel",
+    "explanation": "বাতিল করা",
+    "id": "q113"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:carry-on",
+    "question": "\"carry on\" means:",
+    "question_bn": "\"carry on\" মানে?",
+    "options": [
+      "continue",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "continue",
+    "explanation": "চালিয়ে যাওয়া",
+    "id": "q114"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:check-in",
+    "question": "\"check in\" means:",
+    "question_bn": "\"check in\" মানে?",
+    "options": [
+      "register at a hotel/airport",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "register at a hotel/airport",
+    "explanation": "চেক-ইন করা",
+    "id": "q115"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:check-out",
+    "question": "\"check out\" means:",
+    "question_bn": "\"check out\" মানে?",
+    "options": [
+      "leave a hotel; look at",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "leave a hotel; look at",
+    "explanation": "চেক-আউট; দেখে নেওয়া",
+    "id": "q116"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:come-up-with",
+    "question": "\"come up with\" means:",
+    "question_bn": "\"come up with\" মানে?",
+    "options": [
+      "think of an idea",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "think of an idea",
+    "explanation": "আইডিয়া বের করা",
+    "id": "q117"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:drop-off",
+    "question": "\"drop off\" means:",
+    "question_bn": "\"drop off\" মানে?",
+    "options": [
+      "leave someone somewhere by car",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "leave someone somewhere by car",
+    "explanation": "গাড়ি থেকে নামিয়ে দেওয়া",
+    "id": "q118"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:fill-in",
+    "question": "\"fill in\" means:",
+    "question_bn": "\"fill in\" মানে?",
+    "options": [
+      "complete a form",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "complete a form",
+    "explanation": "ফর্ম পূরণ করা",
+    "id": "q119"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:get-along",
+    "question": "\"get along\" means:",
+    "question_bn": "\"get along\" মানে?",
+    "options": [
+      "have a good relationship",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "have a good relationship",
+    "explanation": "মিলমিশ থাকা",
+    "id": "q120"
+  },
+  {
+    "type": "mcq",
+    "skill": "phrasal",
+    "item_id": "pv:give-in",
+    "question": "\"give in\" means:",
+    "question_bn": "\"give in\" মানে?",
+    "options": [
+      "stop resisting; agree after pressure",
+      "stop forever",
+      "forget quickly",
+      "sleep early"
+    ],
+    "answer": "stop resisting; agree after pressure",
+    "explanation": "নতি স্বীকার করা",
+    "id": "q121"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "vocab:improve",
+    "question": "আমি আমার ইংরেজি উন্নত করতে চাই।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I want to improve my English.",
+    "answers": [
+      "I want to improve my English"
+    ],
+    "explanation": "want to + verb",
+    "id": "q122"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "grammar:present-continuous",
+    "question": "আমি ইংরেজি শিখছি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I am learning English.",
+    "answers": [
+      "I am learning English."
+    ],
+    "explanation": "am + -ing",
+    "id": "q123"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:i-am-agree",
+    "question": "আমি একমত।",
+    "question_bn": "ইংরেজিতে লিখুন (I am agree নয়):",
+    "answer": "I agree.",
+    "answers": [
+      "I agree."
+    ],
+    "explanation": "no am before agree",
+    "id": "q124"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "pv:give-up",
+    "question": "চেষ্টা ছেড়ে দিও না।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Don't give up.",
+    "answers": [
+      "Do not give up.",
+      "Don't give up"
+    ],
+    "explanation": "give up",
+    "id": "q125"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:open-light",
+    "question": "লাইটটা জ্বালাও।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Turn on the light.",
+    "answers": [
+      "Please turn on the light.",
+      "Turn the light on.",
+      "Please turn the light on."
+    ],
+    "explanation": "Not open the light",
+    "id": "q126"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "vocab:available",
+    "question": "আপনি কি কাল খালি আছেন?",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "Are you available tomorrow?",
+    "answers": [
+      "Are you available tomorrow?"
+    ],
+    "explanation": "available = free",
+    "id": "q127"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:i-am-student",
+    "question": "আমি একজন শিক্ষার্থী।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I am a student.",
+    "answers": [
+      "I am a student."
+    ],
+    "explanation": "a + singular noun",
+    "id": "q128"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:make-homework",
+    "question": "আমি হোমওয়ার্ক করি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I do my homework.",
+    "answers": [
+      "I do my homework."
+    ],
+    "explanation": "do homework",
+    "id": "q129"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:good-in-english",
+    "question": "সে ইংরেজিতে ভালো।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "She is good at English.",
+    "answers": [
+      "He is good at English.",
+      "She is good at English"
+    ],
+    "explanation": "good at",
+    "id": "q130"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:interested-on",
+    "question": "আমি সঙ্গীতে আগ্রহী।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I am interested in music.",
+    "answers": [
+      "I am interested in music."
+    ],
+    "explanation": "interested in",
+    "id": "q131"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:depend-of",
+    "question": "এটা আবহাওয়ার উপর নির্ভর করে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "It depends on the weather.",
+    "answers": [
+      "It depends on the weather."
+    ],
+    "explanation": "depend on",
+    "id": "q132"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "mistake:reach-to",
+    "question": "আমরা দুপুরে ঢাকা পৌঁছেছি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "We reached Dhaka at noon.",
+    "answers": [
+      "We reached Dhaka at noon."
+    ],
+    "explanation": "reach + place (no to)",
+    "id": "q133"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "pv:look-after",
+    "question": "সে তার ভাইয়ের দেখাশোনা করে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "She looks after her brother.",
+    "answers": [
+      "She looks after her little brother."
+    ],
+    "explanation": "look after",
+    "id": "q134"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "pv:find-out",
+    "question": "আমাকে সময়টা জেনে নিতে হবে।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I need to find out the time.",
+    "answers": [
+      "I need to find out the train time."
+    ],
+    "explanation": "find out",
+    "id": "q135"
+  },
+  {
+    "type": "type",
+    "skill": "translate",
+    "item_id": "pv:get-up",
+    "question": "আমি সকাল ছয়টায় উঠি।",
+    "question_bn": "ইংরেজিতে লিখুন:",
+    "answer": "I get up at six.",
+    "answers": [
+      "I get up at 6.",
+      "I get up at 6 every morning.",
+      "I get up at six every morning."
+    ],
+    "explanation": "get up",
+    "id": "q136"
   }
 ]

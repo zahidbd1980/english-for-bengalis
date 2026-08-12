@@ -340,16 +340,16 @@
       'level-test.html"><strong>1. Level Test</strong><span class="bn">লেভেল অনুমান</span></a></li>' +
       '<li><a href="' +
       p +
-      'vocabulary.html"><strong>2. ৫টা শব্দ</strong><span class="bn">Vocabulary খুলুন</span></a></li>' +
+      'common-mistakes.html"><strong>2. Common Mistakes</strong><span class="bn">বাংলা ভুল ঠিক</span></a></li>' +
       '<li><a href="' +
       p +
-      'quizzes.html"><strong>3. ছোট কুইজ</strong><span class="bn">মাস্টারি চেক</span></a></li>' +
+      'translation-lab.html"><strong>3. Translation Lab</strong><span class="bn">বাংলা → ইংরেজি</span></a></li>' +
       '<li><a href="' +
       p +
-      'my-progress.html"><strong>4. Progress</strong><span class="bn">দেখুন কতদূর এসেছেন</span></a></li>' +
+      'vocabulary.html"><strong>4. Vocabulary</strong><span class="bn">৫টা শব্দ শিখুন</span></a></li>' +
       '<li><a href="' +
       p +
-      'settings.html"><strong>5. Export tip</strong><span class="bn">ডেটা ব্যাকআপ রাখুন</span></a></li>' +
+      'my-progress.html"><strong>5. Progress</strong><span class="bn">মাস্টারি দেখুন</span></a></li>' +
       "</ol>" +
       '<a class="btn btn-primary" href="' +
       p +
