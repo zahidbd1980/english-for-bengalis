@@ -30,7 +30,7 @@
     const itemId = params.get("item_id");
     const mode = params.get("mode"); // review | mistakes
 
-    function startSkill(all) {
+    function startSkill(all, fresh) {
       let filtered = skill === "all" ? all : all.filter((q) => q.skill === skill);
       if (itemId) {
         filtered = filtered.filter((q) => q.item_id === itemId);
@@ -51,10 +51,22 @@
           </div>`;
         return;
       }
+      const skillKey = skill === "all" ? "quizzes" : skill;
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions: filtered,
-        skill: skill === "all" ? "quizzes" : skill,
+        skill: skillKey,
+        itemId: itemId || null,
+        mode: null,
+        resumeSkill: "quiz",
+        sessionTag: ["skill", skillKey, itemId || ""].join("|"),
+        label: itemId ? "Topic quiz" : "Quiz · " + skillKey,
+        resumeHref:
+          "quizzes.html?resume=1" +
+          (skill === "all" ? "" : "&skill=" + encodeURIComponent(skill)) +
+          (itemId ? "&item_id=" + encodeURIComponent(itemId) : ""),
+        profileSkill: skillKey,
         limit: itemId ? Math.min(10, Math.max(filtered.length, 1)) : 10,
+        fresh: !!fresh,
       });
     }
 
@@ -86,9 +98,16 @@
           </div>`;
         return;
       }
+      const resumeSkill = mode === "mistakes" ? "mistakes" : "review";
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions: session.questions,
-        skill: mode === "mistakes" ? "mistakes" : "review",
+        skill: resumeSkill,
+        mode: mode,
+        resumeSkill: resumeSkill,
+        sessionTag: ["mode", mode].join("|"),
+        label: mode === "mistakes" ? "Mistake Bank" : "Review due",
+        resumeHref: "quizzes.html?mode=" + mode + "&resume=1",
+        profileSkill: resumeSkill,
         limit: 10,
         onComplete: function () {
           /* progress already recorded per item */
@@ -122,12 +141,13 @@
         if (!btn) return;
         skill = btn.getAttribute("data-s");
         history.replaceState(null, "", skill === "all" ? "quizzes.html" : "quizzes.html?skill=" + skill);
-        startSkill(all);
+        if (window.EFBProgress) EFBProgress.clearResume("quiz");
+        startSkill(all, true);
         [...document.querySelectorAll("#filters button")].forEach((b) => {
           b.className = "btn " + (b.getAttribute("data-s") === skill ? "btn-primary" : "btn-secondary");
         });
       });
-      startSkill(all);
+      startSkill(all, false);
     });
   </script>
 </body>

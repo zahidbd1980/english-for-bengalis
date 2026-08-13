@@ -977,6 +977,21 @@ input.field-input {
   align-items: center;
   gap: 0.5rem;
 }
+.vocab-resume-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius, 10px);
+  background: color-mix(in srgb, var(--color-accent, #0f6b5c) 12%, transparent);
+  font-size: 0.92rem;
+  line-height: 1.35;
+}
+.vocab-resume-banner .btn {
+  flex-shrink: 0;
+}
 .vocab-card-stage {
   min-height: 220px;
   touch-action: pan-y;

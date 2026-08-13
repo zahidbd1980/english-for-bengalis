@@ -19,7 +19,7 @@
       <a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Spelling Practice</span>
     </nav>
     <h1 class="page-title">Spelling Practice · শুনে লেখো</h1>
-    <p class="page-intro bn">প্রিসেট মিশিয়ে বা কাস্টম আপলোড করে লিস্ট বানান। শুনে লিখুন — ভুল কিউ শেষ না হওয়া পর্যন্ত চলবে। কীবোর্ডেও চলে।</p>
+    <p class="page-intro bn">প্রিসেট মিশিয়ে বা কাস্টম আপলোড করে লিস্ট বানান। শুনে লিখুন — মাঝপথে বন্ধ করলেও একই কিউ থেকে চলবে। কীবোর্ডেও চলে।</p>
     <div id="app" class="sp-shell"></div>
   </main>
 
@@ -92,11 +92,77 @@
         return EFBSpelling.shuffle(words).slice(0, n);
       }
 
+      function persistResume() {
+        if (!window.EFBProgress || !session || session.phase === "done") return;
+        EFBProgress.saveResume("spelling", {
+          preset_ids: Array.from(selectedPresetIds),
+          active_saved_id: activeSavedId,
+          session_limit: sessionLimit,
+          lang: lang,
+          mainQueue: session.mainQueue.slice(),
+          wrongQueue: session.wrongQueue.slice(),
+          correct: session.correct.slice(),
+          current: session.current,
+          phase: session.phase,
+          attempts: session.attempts,
+          totalTarget: session.totalTarget,
+          startedAt: session.startedAt,
+          total: session.totalTarget,
+          index: session.correct.length,
+          label: "Spelling practice",
+          href: "spelling-practice.html?resume=1",
+          profile_skill: "spelling",
+          lesson_id: "spelling-practice",
+          active: true,
+        });
+      }
+
+      function tryRestoreSession() {
+        const params = new URLSearchParams(location.search || "");
+        if (params.get("restart") === "1") {
+          if (window.EFBProgress) EFBProgress.clearResume("spelling");
+          return false;
+        }
+        const r = window.EFBProgress && EFBProgress.getResume("spelling");
+        if (!r || !EFBProgress.isResumeActive(r)) return false;
+        if (Array.isArray(r.preset_ids)) selectedPresetIds = new Set(r.preset_ids);
+        if (r.active_saved_id) activeSavedId = r.active_saved_id;
+        if (r.session_limit != null) sessionLimit = Number(r.session_limit) || 0;
+        if (r.lang) lang = r.lang;
+        session = {
+          mainQueue: (r.mainQueue || []).slice(),
+          wrongQueue: (r.wrongQueue || []).slice(),
+          correct: (r.correct || []).slice(),
+          current: r.current || null,
+          phase: r.phase || "main",
+          attempts: Number(r.attempts) || 0,
+          startedAt: r.startedAt || Date.now(),
+          lastResult: null,
+          revealed: null,
+          totalTarget: Number(r.totalTarget) || 0,
+        };
+        if (!session.current) EFBSpelling.nextWord(session);
+        if (!session.current) return false;
+        awaitingNext = false;
+        renderPractice(true, true);
+        return true;
+      }
+
       function renderSetup() {
         session = null;
         awaitingNext = false;
         const pool = buildWordPool();
+        const paused = window.EFBProgress && EFBProgress.getResume("spelling");
+        const resumeBar =
+          paused && EFBProgress.isResumeActive(paused)
+            ? `<div class="vocab-resume-banner bn" role="status" style="margin-bottom:1rem">
+                আগের সেশন আছে · ${paused.correct ? paused.correct.length : 0}/${paused.totalTarget || "?"} সঠিক
+                <button type="button" class="btn btn-primary" id="btn-resume-sp">চালিয়ে যান</button>
+                <button type="button" class="btn btn-ghost" id="btn-discard-sp">নতুন শুরু</button>
+              </div>`
+            : "";
         root.innerHTML = `
+          ${resumeBar}
           <div class="panel">
             <h2 style="margin-top:0;font-family:var(--font-display)">১) প্রিসেট সিলেক্ট (একাধিক OK)</h2>
             <p class="muted bn">একাধিক লিস্ট টিক দিয়ে মিশিয়ে নতুন প্র্যাকটিস সেট বানান। ডুপ্লিকেট অটো কাটা যাবে।</p>
@@ -255,7 +321,19 @@
           sessionLimit = Number(e.target.value) || 0;
         };
 
-        document.getElementById("start-btn").onclick = startSession;
+        document.getElementById("start-btn").onclick = () => {
+          if (window.EFBProgress) EFBProgress.clearResume("spelling");
+          startSession();
+        };
+        const resumeBtn = document.getElementById("btn-resume-sp");
+        if (resumeBtn) resumeBtn.onclick = () => tryRestoreSession();
+        const discardBtn = document.getElementById("btn-discard-sp");
+        if (discardBtn) {
+          discardBtn.onclick = () => {
+            if (window.EFBProgress) EFBProgress.clearResume("spelling");
+            renderSetup();
+          };
+        }
       }
 
       function startSession() {
@@ -268,11 +346,13 @@
         }
         session = EFBSpelling.createSession(words);
         EFBSpelling.nextWord(session);
-        renderPractice(true);
+        persistResume();
+        renderPractice(true, false);
       }
 
-      function renderPractice(autoSpeak) {
+      function renderPractice(autoSpeak, fromResume) {
         if (!session || session.phase === "done" || !session.current) return renderDone();
+        persistResume();
         const st = EFBSpelling.stats(session);
         const phaseLabel = session.phase === "wrong" ? "Wrong-list retry" : "Main list";
         root.innerHTML = `
@@ -281,6 +361,11 @@
             <div class="sp-stat"><strong>${st.mainLeft}</strong><span>Main left</span></div>
             <div class="sp-stat"><strong>${st.wrongQueued}</strong><span>Wrong queue</span></div>
           </div>
+          ${
+            fromResume
+              ? `<div class="vocab-resume-banner bn" role="status">যেখানে থেমেছিলেন সেখান থেকে চলছে</div>`
+              : ""
+          }
           <div class="sp-stage">
             <span class="chip sp-phase">${esc(phaseLabel)}${slow ? " · slow" : ""}</span>
             <p class="bn muted" style="margin-top:0">স্পেলিং লুকানো — শুনে লিখুন।</p>
@@ -313,7 +398,10 @@
         document.getElementById("btn-hint").onclick = () => { showHint = !showHint; renderPractice(false); };
         document.getElementById("btn-check").onclick = submitAnswer;
         document.getElementById("btn-next").onclick = goNext;
-        document.getElementById("btn-quit").onclick = () => { session.phase = "done"; renderDone(); };
+        document.getElementById("btn-quit").onclick = () => {
+          persistResume();
+          renderSetup();
+        };
         input.addEventListener("keydown", (e) => {
           if (e.key === "Enter") {
             e.preventDefault();
@@ -349,6 +437,7 @@
         document.querySelectorAll(".sp-stat strong")[0].textContent = `${session.correct.length}/${session.totalTarget}`;
         document.querySelectorAll(".sp-stat strong")[1].textContent = String(session.mainQueue.length);
         document.querySelectorAll(".sp-stat strong")[2].textContent = String(session.wrongQueue.length);
+        persistResume();
       }
 
       function goNext() {
@@ -356,10 +445,11 @@
         awaitingNext = false;
         EFBSpelling.nextWord(session);
         if (!session.current) renderDone();
-        else renderPractice(true);
+        else renderPractice(true, false);
       }
 
       function renderDone() {
+        if (window.EFBProgress) EFBProgress.clearResume("spelling");
         const mins = session ? Math.max(1, Math.round((Date.now() - session.startedAt) / 60000)) : 0;
         const left = session ? session.wrongQueue.length : 0;
         root.innerHTML = `
@@ -421,6 +511,17 @@
       EFBApp.loadJSON("spelling-lists.json")
         .then((data) => {
           listsData = data.lists || [];
+          const params = new URLSearchParams(location.search || "");
+          if (params.get("resume") === "1" && tryRestoreSession()) return;
+          const paused = window.EFBProgress && EFBProgress.getResume("spelling");
+          if (paused && EFBProgress.isResumeActive(paused) && params.get("resume") !== "0") {
+            if (Array.isArray(paused.preset_ids) && paused.preset_ids.length) {
+              selectedPresetIds = new Set(paused.preset_ids);
+            } else if (listsData[0]) selectedPresetIds.add(listsData[0].id);
+            if (paused.active_saved_id) activeSavedId = paused.active_saved_id;
+            renderSetup();
+            return;
+          }
           if (listsData[0]) selectedPresetIds.add(listsData[0].id);
           renderSetup();
         })

@@ -38,6 +38,8 @@
         score: 0,
         total: 0,
       },
+      // Mid-session resume slots (vocabulary, quiz, daily, flashcards, spelling, sentence, translate…)
+      resume: {},
     };
   }
 
@@ -47,12 +49,14 @@
       if (!raw) return defaultState();
       const data = JSON.parse(raw);
       if (!data.progress_version) data.progress_version = VERSION;
-      return Object.assign(defaultState(), data, {
-        settings: Object.assign(defaultState().settings, data.settings || {}),
-        profile: Object.assign(defaultState().profile, data.profile || {}),
-        streak: Object.assign(defaultState().streak, data.streak || {}),
-        challenge: Object.assign(defaultState().challenge, data.challenge || {}),
+      const base = defaultState();
+      return Object.assign(base, data, {
+        settings: Object.assign(base.settings, data.settings || {}),
+        profile: Object.assign(base.profile, data.profile || {}),
+        streak: Object.assign(base.streak, data.streak || {}),
+        challenge: Object.assign(base.challenge, data.challenge || {}),
         items: data.items || {},
+        resume: Object.assign({}, base.resume, data.resume || {}),
       });
     } catch (e) {
       console.warn("EFB storage load failed", e);
@@ -115,6 +119,7 @@
       items: Object.assign({}, incoming.items || {}),
       mistakes: incoming.mistakes || [],
       challenge: Object.assign(base.challenge, incoming.challenge || {}),
+      resume: Object.assign({}, base.resume, incoming.resume || {}),
     });
     save(merged);
     return merged;

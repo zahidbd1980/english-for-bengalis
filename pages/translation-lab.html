@@ -15,7 +15,7 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Translation Lab</span></nav>
     <h1 class="page-title">Translation Lab · অনুবাদ ল্যাব</h1>
-    <p class="page-intro bn">বাংলা দেখে ইংরেজি লিখুন। সরাসরি অনুবাদের ভুল ভাঙতে সাহায্য করে — আমাদের মূল USP।</p>
+    <p class="page-intro bn">বাংলা দেখে ইংরেজি লিখুন। সরাসরি অনুবাদের ভুল ভাঙতে সাহায্য করে — মাঝপথে বন্ধ করলেও চালিয়ে যেতে পারবেন।</p>
     <div class="stack-actions" style="margin-bottom:1rem" id="topic-filters"></div>
     <div id="quiz-root"></div>
   </main>
@@ -28,7 +28,7 @@
     let allItems = [];
     let topic = "all";
 
-    function start() {
+    function start(fresh) {
       const filtered = topic === "all" ? allItems : allItems.filter((x) => x.topic === topic);
       const questions = filtered.map((x) => ({
         id: x.id,
@@ -44,7 +44,15 @@
       EFBQuiz.mount(document.getElementById("quiz-root"), {
         questions: questions,
         skill: "translate",
+        topic: topic,
+        resumeSkill: "translate",
+        sessionTag: "translate|" + topic,
+        label: "Translation · " + topic,
+        resumeHref: "translation-lab.html?resume=1",
+        profileSkill: "translate",
+        lessonId: "translation-lab",
         limit: Math.min(10, Math.max(questions.length, 1)),
+        fresh: !!fresh,
       });
     }
 
@@ -54,6 +62,8 @@
       const topics = ["all"].concat(
         Array.from(new Set(allItems.map((x) => x.topic).filter(Boolean))).sort()
       );
+      const saved = EFBProgress.getResume("translate");
+      if (saved && saved.topic && topics.indexOf(saved.topic) >= 0) topic = saved.topic;
       document.getElementById("topic-filters").innerHTML = topics
         .map(
           (t) =>
@@ -64,12 +74,13 @@
         const btn = e.target.closest("[data-topic]");
         if (!btn) return;
         topic = btn.getAttribute("data-topic");
+        if (window.EFBProgress) EFBProgress.clearResume("translate");
         [...document.querySelectorAll("#topic-filters .btn")].forEach((b) => {
           b.className = "btn " + (b.getAttribute("data-topic") === topic ? "btn-primary" : "btn-secondary");
         });
-        start();
+        start(true);
       });
-      start();
+      start(false);
     }).catch((err) => {
       document.getElementById("quiz-root").innerHTML =
         `<div class="empty-state bn">Translation Lab লোড হয়নি। পরে আবার চেষ্টা করুন।</div>`;

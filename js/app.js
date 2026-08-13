@@ -242,19 +242,44 @@
     const today = window.EFBProgress ? EFBProgress.todayStr() : "";
     const challengeDone =
       state.challenge && state.challenge.date === today && state.challenge.completed;
+    const dailyResume =
+      window.EFBProgress && state.resume && EFBProgress.isResumeActive(state.resume.daily)
+        ? state.resume.daily
+        : null;
 
     if (due.length) {
-      return { href: p + "quizzes.html?mode=review", label: "Review due (" + due.length + ") · আজকের রিভিউ →" };
+      return {
+        href: p + "quizzes.html?mode=review&resume=1",
+        label: "Review due (" + due.length + ") · আজকের রিভিউ →",
+      };
     }
     if (!challengeDone) {
-      return { href: p + "daily-challenge.html", label: "Daily Challenge শুরু করুন →" };
+      return {
+        href: p + "daily-challenge.html?resume=1",
+        label: dailyResume
+          ? "Daily Challenge চালিয়ে যান · " +
+            ((Number(dailyResume.index) || 0) + 1) +
+            "/" +
+            (dailyResume.total || "?") +
+            " →"
+          : "Daily Challenge শুরু করুন →",
+      };
     }
+
+    if (window.EFBProgress) {
+      const best = EFBProgress.getBestResume();
+      if (best) {
+        const cont = EFBProgress.resumeContinue(best, p);
+        if (cont) return cont;
+      }
+    }
+
     if (state.profile && state.profile.last_skill) {
       const skill = state.profile.last_skill;
       return { href: skillHref(skill), label: "Continue · " + skill + " →" };
     }
     if (state.mistakes && state.mistakes.length) {
-      return { href: p + "quizzes.html?mode=mistakes", label: "Mistake Bank practice →" };
+      return { href: p + "quizzes.html?mode=mistakes&resume=1", label: "Mistake Bank practice →" };
     }
     return { href: p + "my-progress.html", label: "Continue where you left off →" };
   }

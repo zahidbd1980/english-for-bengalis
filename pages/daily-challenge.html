@@ -14,7 +14,7 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Daily Challenge</span></nav>
     <h1 class="page-title">ডেইলি চ্যালেঞ্জ</h1>
-    <p class="page-intro bn">আজকের মিশ্র অনুশীলন — প্রায় ১০ মিনিট।</p>
+    <p class="page-intro bn">আজকের মিশ্র অনুশীলন — প্রায় ১০ মিনিট। মাঝপথে বন্ধ করলেও একই জায়গা থেকে চলবে।</p>
     <div id="status" class="panel" style="margin-bottom:1rem"></div>
     <div id="quiz-root"></div>
   </main>
@@ -42,14 +42,26 @@
            <p class="muted">চাইলে আবারও অনুশীলন করতে পারেন।</p>`
         : `<p class="bn">আজকের আইটেম: <strong>${challenge.total || challenge.questions.length}</strong> · Streak: <strong>${state.streak.current}</strong></p>`;
 
-      const questions = (challenge.questions || []).map((q) => {
-        if (q.question) return q;
-        return q;
-      });
+      const questions = (challenge.questions || []).filter((q) => q && q.question);
+      if (!questions.length && !challenge.completed) {
+        document.getElementById("quiz-root").innerHTML =
+          '<div class="empty-state bn">আজকের প্রশ্ন লোড হয়নি — পেজ রিফ্রেশ করুন।</div>';
+        return;
+      }
+
+      if (challenge.completed && challenge.date === EFBProgress.todayStr()) {
+        /* status already shown; still allow practice */
+      }
 
       EFBQuiz.mount(document.getElementById("quiz-root"), {
-        questions,
+        questions: questions,
         skill: "daily",
+        resumeSkill: "daily",
+        sessionTag: "daily|" + (challenge.date || ""),
+        label: "Daily Challenge",
+        resumeHref: "daily-challenge.html?resume=1",
+        profileSkill: "daily",
+        lessonId: "daily-challenge",
         limit: questions.length || 10,
         onComplete: ({ score, total }) => EFBChallenge.markChallengeComplete(score, total),
       });

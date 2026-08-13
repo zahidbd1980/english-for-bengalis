@@ -18,7 +18,7 @@
       <a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Vocabulary</span>
     </nav>
     <h1 class="page-title">Vocabulary · শব্দভাণ্ডার</h1>
-    <p class="page-intro bn">একটা শব্দ করে শিখুন — Previous / Next দিয়ে এগোবেন। সেটআপ চাইলে নিচে খুলুন।</p>
+    <p class="page-intro bn">একটা শব্দ করে শিখুন — Previous / Next দিয়ে এগোবেন। ব্রাউজার বন্ধ করলেও পরের দিন একই জায়গা থেকে চলবে। সেটআপ চাইলে নিচে খুলুন।</p>
 
     <div class="stack-actions stack-actions-scroll" style="margin-bottom:0.85rem">
       <a class="btn btn-primary" href="quizzes.html?skill=vocabulary">Quiz</a>
@@ -54,6 +54,8 @@
       let pageIndex = 0;
       let setupOpen = false;
       let filterKey = "";
+      let pendingRestore = null; // { page_index, word_id } applied once on next syncPage
+      let showResumeHint = false;
 
       if (window.speechSynthesis) {
         speechSynthesis.getVoices();
@@ -93,11 +95,72 @@
         return words;
       }
 
+      function resumeKey() {
+        if (activeSavedId) return "saved:" + activeSavedId;
+        if (activeListId) return "list:" + activeListId;
+        return "filter:" + [category, pos, level, (q || "").trim().toLowerCase()].join("|");
+      }
+
+      function indexFromSlot(words, slot) {
+        if (!slot || !words.length) return 0;
+        if (slot.word_id) {
+          const i = words.findIndex((w) => w.id === slot.word_id);
+          if (i >= 0) return i;
+        }
+        const idx = Number(slot.page_index) || 0;
+        return Math.max(0, Math.min(words.length - 1, idx));
+      }
+
+      function slotForKey(key) {
+        if (!window.EFBProgress) return null;
+        const r = EFBProgress.getResume("vocabulary");
+        if (!r) return null;
+        if (r.by_key && r.by_key[key]) return r.by_key[key];
+        if (r.last_key === key) return r;
+        return null;
+      }
+
+      function persistResume(words) {
+        if (!window.EFBProgress || !words || !words.length) return;
+        const w = words[pageIndex];
+        EFBProgress.saveResume("vocabulary", {
+          key: resumeKey(),
+          page_index: pageIndex,
+          word_id: (w && w.id) || null,
+          label: activeLabel(),
+          total: words.length,
+          active_list_id: activeListId,
+          active_saved_id: activeSavedId,
+          category: category,
+          pos: pos,
+          level: level,
+          q: q,
+          lesson_id: activeListId
+            ? "list:" + activeListId
+            : activeSavedId
+              ? "saved:" + activeSavedId
+              : "vocab-hub",
+        });
+      }
+
       function syncPage(words) {
         const key = [activeListId || "", activeSavedId || "", category, pos, level, q, useCustom, customWords.join(",")].join("|");
         if (key !== filterKey) {
           filterKey = key;
-          pageIndex = 0;
+          if (pendingRestore) {
+            pageIndex = indexFromSlot(words, pendingRestore);
+            showResumeHint = pageIndex > 0;
+            pendingRestore = null;
+          } else {
+            const slot = slotForKey(resumeKey());
+            if (slot) {
+              pageIndex = indexFromSlot(words, slot);
+              showResumeHint = pageIndex > 0;
+            } else {
+              pageIndex = 0;
+              showResumeHint = false;
+            }
+          }
         }
         if (!words.length) pageIndex = 0;
         else if (pageIndex >= words.length) pageIndex = words.length - 1;
@@ -106,18 +169,17 @@
 
       function persistStudySet(words) {
         try {
-          sessionStorage.setItem(
-            "efb_vocab_study_set",
-            JSON.stringify(
-              words.map((w) => ({
-                item_id: w.id,
-                front: w.word,
-                back: w.meaning_en,
-                back_bn: w.meaning_bn,
-                example: w.example || "",
-              }))
-            )
+          const payload = JSON.stringify(
+            words.map((w) => ({
+              item_id: w.id,
+              front: w.word,
+              back: w.meaning_en,
+              back_bn: w.meaning_bn,
+              example: w.example || "",
+            }))
           );
+          sessionStorage.setItem("efb_vocab_study_set", payload);
+          localStorage.setItem("efb_vocab_study_set_v1", payload);
         } catch (e) {}
       }
 
@@ -178,6 +240,13 @@
         const cardBlock = w
           ? EFBVocab.cardHTML(w)
           : `<div class="empty-state bn">কোনো শব্দ মেলেনি — সেটআপ থেকে ফিল্টার বদলান।</div>`;
+        const resumeBanner =
+          showResumeHint && pageIndex > 0
+            ? `<div class="vocab-resume-banner bn" role="status">
+                যেখানে থেমেছিলেন সেখান থেকে চলছে · <strong>${pageIndex + 1}</strong> / ${words.length}
+                <button type="button" class="btn btn-ghost" id="btn-restart-list">১ নম্বর থেকে শুরু</button>
+              </div>`
+            : "";
 
         root.innerHTML = `
           <section class="vocab-study panel highlight">
@@ -185,13 +254,14 @@
               <span class="chip">${EFBVocab.esc(activeLabel())}</span>
               <span class="chip">${words.length ? pageIndex + 1 : 0} / ${words.length}</span>
             </div>
+            ${resumeBanner}
             <div class="bar" data-pct="${pct}" aria-hidden="true"><i style="width:${pct}%"></i></div>
             <div id="vocab-card-stage" class="vocab-card-stage">${cardBlock}</div>
             <div class="vocab-pager" role="group" aria-label="Word navigation">
               <button type="button" class="btn btn-secondary" id="btn-prev" ${pageIndex <= 0 ? "disabled" : ""}>‹ Previous</button>
               <button type="button" class="btn btn-primary" id="btn-next" ${!words.length || pageIndex >= words.length - 1 ? "disabled" : ""}>Next ›</button>
             </div>
-            <p class="muted bn vocab-pager-hint">সোয়াইপ বা ← → কীবোর্ডও চলে</p>
+            <p class="muted bn vocab-pager-hint">সোয়াইপ বা ← → কীবোর্ডও চলে · প্রোগ্রেস অটো সেভ</p>
           </section>
 
           <details class="panel vocab-setup" id="setup-panel" ${setupOpen ? "open" : ""}>
@@ -267,12 +337,14 @@
         root.querySelector("#level").value = level;
         root.querySelector("#lang").value = lang;
         bind(words);
+        persistResume(words);
       }
 
       function go(delta, words) {
         const list = words || currentWords();
         if (!list.length) return;
         pageIndex = Math.max(0, Math.min(list.length - 1, pageIndex + delta));
+        showResumeHint = false;
         render();
         const stage = document.getElementById("vocab-card-stage");
         if (stage) stage.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -288,6 +360,18 @@
 
         root.querySelector("#btn-prev").addEventListener("click", () => go(-1, words));
         root.querySelector("#btn-next").addEventListener("click", () => go(1, words));
+
+        const restartBtn = root.querySelector("#btn-restart-list");
+        if (restartBtn) {
+          restartBtn.addEventListener("click", () => {
+            if (window.EFBProgress) EFBProgress.clearResume("vocabulary", resumeKey());
+            pageIndex = 0;
+            showResumeHint = false;
+            filterKey = "";
+            render();
+            persistResume(currentWords());
+          });
+        }
 
         root.querySelectorAll('input[name="target-list"]').forEach((el) => {
           el.addEventListener("change", () => {
@@ -470,11 +554,42 @@
         location.href = "flashcards.html?skill=vocabulary&from=filter";
       });
 
+      function applySavedSession() {
+        if (!window.EFBProgress) return;
+        const params = new URLSearchParams(location.search || "");
+        if (params.get("restart") === "1") {
+          EFBProgress.clearResume("vocabulary");
+          return;
+        }
+        const r = EFBProgress.getResume("vocabulary");
+        if (!r) return;
+
+        if (r.active_saved_id && savedLists.some((s) => s.id === r.active_saved_id)) {
+          activeSavedId = r.active_saved_id;
+          activeListId = null;
+        } else if (r.active_list_id && (listsMeta.lists || []).some((L) => L.id === r.active_list_id)) {
+          activeListId = r.active_list_id;
+          activeSavedId = null;
+          category = "all";
+        } else if (!r.active_list_id && !r.active_saved_id) {
+          category = r.category || "all";
+          pos = r.pos || "all";
+          level = r.level || "all";
+          q = r.q || "";
+        }
+
+        const key = resumeKey();
+        pendingRestore = (r.by_key && r.by_key[key]) || {
+          page_index: r.page_index,
+          word_id: r.word_id,
+        };
+      }
+
       Promise.all([EFBApp.loadJSON("vocabulary.json"), EFBApp.loadJSON("vocabulary-lists.json")])
         .then(([words, meta]) => {
           bank = EFBVocab.asWords(words);
           listsMeta = meta || { categories: [], lists: [] };
-          EFBProgress.setLastLesson("vocabulary", "vocab-hub");
+          applySavedSession();
           render();
         })
         .catch((e) => {

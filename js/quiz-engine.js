@@ -1,5 +1,5 @@
 /**
- * Quiz engine — MCQ + type answer
+ * Quiz engine — MCQ + type answer + mid-session resume
  */
 (function (global) {
   function shuffle(arr) {
@@ -29,23 +29,105 @@
     return accepted.some((a) => normalize(a) === user);
   }
 
+  function qId(q) {
+    return q.item_id || q.id || "q:" + normalize(q.question || "").slice(0, 80);
+  }
+
+  function wantsFresh() {
+    try {
+      const p = new URLSearchParams(location.search || "");
+      return p.get("restart") === "1";
+    } catch (e) {
+      return false;
+    }
+  }
+
   function mount(root, config) {
-    const questions = shuffle(config.questions || []).slice(0, config.limit || 10);
+    config = config || {};
+    const resumeSkill = config.resumeSkill || config.skill || "quiz";
+    const sessionTag =
+      config.sessionTag ||
+      [config.mode || "", config.skill || "", config.itemId || "", config.topic || ""].join("|");
+    const pool = (config.questions || []).slice();
+    const limit = config.limit || 10;
+
+    let questions = [];
+    let index = 0;
+    let score = 0;
+    let answered = false;
+    let showResumeHint = false;
+    let restored = false;
+
+    const saved =
+      !config.fresh &&
+      !wantsFresh() &&
+      window.EFBProgress &&
+      EFBProgress.getResume(resumeSkill);
+
+    if (
+      saved &&
+      Array.isArray(saved.q_ids) &&
+      saved.q_ids.length &&
+      saved.session_tag === sessionTag &&
+      EFBProgress.isResumeActive(saved)
+    ) {
+      const byKey = {};
+      pool.forEach((q) => {
+        byKey[qId(q)] = q;
+      });
+      const ordered = saved.q_ids.map((id) => byKey[id]).filter(Boolean);
+      if (ordered.length >= Math.max(1, Math.floor(saved.q_ids.length * 0.5))) {
+        questions = ordered;
+        index = Math.max(0, Math.min(questions.length - 1, Number(saved.index) || 0));
+        score = Number(saved.score) || 0;
+        showResumeHint = index > 0 || score > 0;
+        restored = true;
+      }
+    }
+
+    if (!questions.length) {
+      questions = shuffle(pool).slice(0, limit);
+      index = 0;
+      score = 0;
+    }
+
     if (!questions.length) {
       root.innerHTML =
         '<div class="empty-state bn">এই টপিকে এখনো কুইজ নেই। <a href="../pages/learn.html">শিখুন</a> থেকে অন্য লেসন দেখুন।</div>';
       return;
     }
 
-    let index = 0;
-    let score = 0;
-    let answered = false;
+    function persist() {
+      if (!window.EFBProgress || index >= questions.length) return;
+      EFBProgress.saveResume(resumeSkill, {
+        q_ids: questions.map(qId),
+        index: index,
+        score: score,
+        total: questions.length,
+        session_tag: sessionTag,
+        mode: config.mode || null,
+        skill: config.skill || null,
+        item_id: config.itemId || null,
+        topic: config.topic || null,
+        label: config.label || config.skill || resumeSkill,
+        href: config.resumeHref || null,
+        profile_skill: config.profileSkill || config.skill || resumeSkill,
+        lesson_id: config.lessonId || "quiz-session",
+        active: true,
+      });
+    }
+
+    function restartFresh() {
+      if (window.EFBProgress) EFBProgress.clearResume(resumeSkill);
+      mount(root, Object.assign({}, config, { fresh: true }));
+    }
 
     function render() {
       if (index >= questions.length) {
         renderResult();
         return;
       }
+      persist();
       const q = questions[index];
       answered = false;
       const options =
@@ -58,12 +140,21 @@
               )
               .join("");
 
+      const resumeBanner =
+        showResumeHint && restored
+          ? `<div class="vocab-resume-banner bn" role="status">
+              যেখানে থেমেছিলেন সেখান থেকে · <strong>${index + 1}</strong> / ${questions.length}
+              <button type="button" class="btn btn-ghost" id="btn-quiz-restart">১ নম্বর থেকে শুরু</button>
+            </div>`
+          : "";
+
       root.innerHTML = `
         <div class="quiz-shell panel">
           <div class="quiz-meta">
             <span class="chip">${index + 1} / ${questions.length}</span>
             <span class="muted">Score: ${score}</span>
           </div>
+          ${resumeBanner}
           <p class="quiz-question">${escapeHtml(q.question)}</p>
           ${q.question_bn ? `<p class="quiz-hint bn">${escapeHtml(q.question_bn)}</p>` : ""}
           ${
@@ -77,6 +168,15 @@
           <div class="feedback" id="feedback"></div>
         </div>
       `;
+
+      const restartBtn = root.querySelector("#btn-quiz-restart");
+      if (restartBtn) {
+        restartBtn.addEventListener("click", () => {
+          showResumeHint = false;
+          restored = false;
+          restartFresh();
+        });
+      }
 
       const checkBtn = root.querySelector("#check-btn");
       const optionBtns = [...root.querySelectorAll(".option")];
@@ -93,6 +193,7 @@
 
       checkBtn.addEventListener("click", () => {
         if (answered) {
+          showResumeHint = false;
           index += 1;
           render();
           return;
@@ -131,6 +232,7 @@
           : `<strong>ভুল।</strong> সঠিক উত্তর: <em>${escapeHtml(q.answer)}</em><br>${escapeHtml(q.explanation || "")}`;
 
         checkBtn.textContent = index + 1 >= questions.length ? "ফলাফল দেখুন · Results" : "পরবর্তী · Next";
+        persist();
       });
     }
 
@@ -138,6 +240,7 @@
       const pct = Math.round((score / questions.length) * 100);
       const skill = config.skill || (questions[0] && questions[0].skill) || "quizzes";
       if (window.EFBProgress) {
+        EFBProgress.clearResume(resumeSkill);
         EFBProgress.setLastLesson(skill, "quiz-session");
       }
       const actions =
@@ -158,9 +261,7 @@
       const retry = root.querySelector('[data-next="retry"]');
       if (retry) {
         retry.addEventListener("click", () => {
-          index = 0;
-          score = 0;
-          mount(root, config);
+          mount(root, Object.assign({}, config, { fresh: true }));
         });
       }
       if (typeof config.onComplete === "function") config.onComplete({ score, total: questions.length });
@@ -181,5 +282,5 @@
     return escapeHtml(str).replace(/'/g, "&#39;");
   }
 
-  global.EFBQuiz = { mount, shuffle, normalize, isCorrect };
+  global.EFBQuiz = { mount, shuffle, normalize, isCorrect, qId };
 })(window);

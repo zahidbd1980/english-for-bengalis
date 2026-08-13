@@ -14,7 +14,7 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Flashcards</span></nav>
     <h1 class="page-title">Flashcards</h1>
-    <p class="page-intro bn">কার্ড ট্যাপ করে উল্টান। “জানি” বা “কঠিন” দিয়ে প্রোগ্রেস আপডেট হয়।</p>
+    <p class="page-intro bn">কার্ড ট্যাপ করে উল্টান। “জানি” বা “কঠিন” দিয়ে প্রোগ্রেস আপডেট হয়। ব্রাউজার বন্ধ করলেও একই কার্ড থেকে চলবে।</p>
     <div id="root"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -24,8 +24,10 @@
   <script src="../js/daily-challenge.js"></script>
   <script src="../js/app.js"></script>
   <script>
-    const skill = new URLSearchParams(location.search).get("skill") || "vocabulary";
-    const fromFilter = new URLSearchParams(location.search).get("from") === "filter";
+    const params = new URLSearchParams(location.search);
+    const skill = params.get("skill") || "vocabulary";
+    const fromFilter = params.get("from") === "filter";
+    const fresh = params.get("restart") === "1";
     Promise.all([
       EFBApp.loadJSON("vocabulary.json"),
       EFBApp.loadJSON("phrasal-verbs.json"),
@@ -34,9 +36,15 @@
       let cards = [];
       if (fromFilter && skill === "vocabulary") {
         try {
-          const raw = sessionStorage.getItem("efb_vocab_study_set");
+          const raw =
+            sessionStorage.getItem("efb_vocab_study_set") ||
+            localStorage.getItem("efb_vocab_study_set_v1");
           if (raw) cards = JSON.parse(raw) || [];
         } catch (e) {}
+        if (!cards.length) {
+          const r = EFBProgress.getResume("flashcards");
+          if (r && r.cards_lite && r.cards_lite.length) cards = r.cards_lite;
+        }
       }
       if (!cards.length && skill === "phrasal") {
         cards = pv.map((p) => ({
@@ -55,7 +63,12 @@
           example: w.example,
         }));
       }
-      EFBFlashcards.mount(document.getElementById("root"), cards);
+      EFBFlashcards.mount(document.getElementById("root"), cards, {
+        skill: skill,
+        fromFilter: fromFilter,
+        fresh: fresh,
+        label: fromFilter ? "Flashcards · filtered" : "Flashcards · " + skill,
+      });
     });
   </script>
 </body>

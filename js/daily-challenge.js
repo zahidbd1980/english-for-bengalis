@@ -1,12 +1,35 @@
 /**
- * Daily challenge + flashcards helpers
+ * Daily challenge + flashcards helpers (with mid-session resume)
  */
 (function (global) {
+  function flattenPools(pools) {
+    const out = [];
+    Object.keys(pools || {}).forEach((k) => {
+      (pools[k] || []).forEach((q) => out.push(q));
+    });
+    return out;
+  }
+
   function buildChallenge(pools) {
     const state = EFBStorage.load();
     const today = EFBProgress.todayStr();
-    if (state.challenge.date === today && state.challenge.item_ids.length) {
-      return state.challenge;
+    const all = flattenPools(pools);
+    const byId = {};
+    all.forEach((q) => {
+      const id = q.item_id || q.id;
+      if (id) byId[id] = q;
+    });
+
+    if (state.challenge.date === today && state.challenge.item_ids && state.challenge.item_ids.length) {
+      const questions = state.challenge.item_ids.map((id) => byId[id]).filter(Boolean);
+      return {
+        date: state.challenge.date,
+        completed: !!state.challenge.completed,
+        item_ids: state.challenge.item_ids.slice(),
+        questions: questions,
+        score: state.challenge.score || 0,
+        total: state.challenge.total || questions.length,
+      };
     }
 
     const picked = [];
@@ -46,28 +69,114 @@
       s.challenge.score = score;
       s.challenge.total = total;
     });
-    if (window.EFBProgress) EFBProgress.setLastLesson("daily", "daily-challenge");
+    if (window.EFBProgress) {
+      EFBProgress.clearResume("daily");
+      EFBProgress.setLastLesson("daily", "daily-challenge");
+    }
   }
 
-  function mountFlashcards(root, cards) {
+  function wantsFresh() {
+    try {
+      return new URLSearchParams(location.search || "").get("restart") === "1";
+    } catch (e) {
+      return false;
+    }
+  }
+
+  function mountFlashcards(root, cards, opts) {
+    opts = opts || {};
+    cards = (cards || []).slice();
     if (!cards.length) {
       root.innerHTML = '<div class="empty-state bn">কোনো কার্ড নেই।</div>';
       return;
     }
+
+    const skill = opts.skill || "vocabulary";
     let i = 0;
     let showBack = false;
     let knows = 0;
     let hards = 0;
+    let showResumeHint = false;
+    let deck = cards;
+
+    const saved =
+      !opts.fresh &&
+      !wantsFresh() &&
+      window.EFBProgress &&
+      EFBProgress.getResume("flashcards");
+
+    if (
+      saved &&
+      saved.skill === skill &&
+      Array.isArray(saved.item_ids) &&
+      saved.item_ids.length &&
+      EFBProgress.isResumeActive(saved)
+    ) {
+      const byId = {};
+      cards.forEach((c) => {
+        if (c.item_id) byId[c.item_id] = c;
+      });
+      let ordered = saved.item_ids.map((id) => byId[id]).filter(Boolean);
+      if (saved.cards_lite && saved.cards_lite.length && ordered.length < saved.item_ids.length) {
+        const liteById = {};
+        saved.cards_lite.forEach((c) => {
+          if (c.item_id) liteById[c.item_id] = c;
+        });
+        ordered = saved.item_ids.map((id) => byId[id] || liteById[id]).filter(Boolean);
+      }
+      if (ordered.length) {
+        const seen = new Set(ordered.map((c) => c.item_id));
+        cards.forEach((c) => {
+          if (c.item_id && !seen.has(c.item_id)) ordered.push(c);
+        });
+        deck = ordered;
+        i = Math.max(0, Math.min(deck.length - 1, Number(saved.index) || 0));
+        knows = Number(saved.knows) || 0;
+        hards = Number(saved.hards) || 0;
+        showResumeHint = i > 0;
+      }
+    }
+
     if (window.EFBProgress) EFBProgress.setLastLesson("flashcards", "flash-session");
 
+    function persist() {
+      if (!window.EFBProgress || i >= deck.length) return;
+      const itemIds = deck.map((c) => c.item_id).filter(Boolean);
+      const payload = {
+        skill: skill,
+        from_filter: !!opts.fromFilter,
+        item_ids: itemIds,
+        index: i,
+        knows: knows,
+        hards: hards,
+        total: deck.length,
+        label: opts.label || "Flashcards · " + skill,
+        href: "flashcards.html?resume=1&skill=" + encodeURIComponent(skill) + (opts.fromFilter ? "&from=filter" : ""),
+        profile_skill: "flashcards",
+        lesson_id: "flash-session",
+        active: true,
+      };
+      if (opts.fromFilter) {
+        payload.cards_lite = deck.map((c) => ({
+          item_id: c.item_id,
+          front: c.front,
+          back: c.back,
+          back_bn: c.back_bn,
+          example: c.example,
+        }));
+      }
+      EFBProgress.saveResume("flashcards", payload);
+    }
+
     function paint() {
-      if (i >= cards.length) {
-        const skillGuess = (cards[0] && String(cards[0].item_id || "").split(":")[0]) || "vocabulary";
-        const skill =
+      if (i >= deck.length) {
+        if (window.EFBProgress) EFBProgress.clearResume("flashcards");
+        const skillGuess = (deck[0] && String(deck[0].item_id || "").split(":")[0]) || skill;
+        const skillOut =
           skillGuess === "pv" ? "phrasal" : skillGuess === "vocab" ? "vocabulary" : skillGuess;
         const actions =
           window.EFBApp && EFBApp.nextRoundActions
-            ? EFBApp.nextRoundActions({ skill: skill })
+            ? EFBApp.nextRoundActions({ skill: skillOut })
             : '<div class="stack-actions"><button type="button" class="btn btn-primary" data-next="retry">আবার</button></div>';
         root.innerHTML = `
           <div class="panel highlight">
@@ -79,23 +188,31 @@
         const retry = root.querySelector('[data-next="retry"]');
         if (retry) {
           retry.addEventListener("click", () => {
-            i = 0;
-            knows = 0;
-            hards = 0;
-            showBack = false;
-            paint();
+            mountFlashcards(root, cards, Object.assign({}, opts, { fresh: true }));
           });
         }
         return;
       }
-      const c = cards[i];
-      if (c.item_id) EFBProgress.markSeen(c.item_id);
+
+      persist();
+      const c = deck[i];
+      if (c.item_id && window.EFBProgress) EFBProgress.markSeen(c.item_id);
+
+      const resumeBanner =
+        showResumeHint
+          ? `<div class="vocab-resume-banner bn" role="status">
+              যেখানে থেমেছিলেন · <strong>${i + 1}</strong> / ${deck.length}
+              <button type="button" class="btn btn-ghost" id="btn-flash-restart">১ নম্বর থেকে শুরু</button>
+            </div>`
+          : "";
+
       root.innerHTML = `
         <div class="panel">
           <div class="quiz-meta">
-            <span class="chip">${i + 1}/${cards.length}</span>
+            <span class="chip">${i + 1}/${deck.length}</span>
             <span class="muted bn">ট্যাপ করে উল্টান</span>
           </div>
+          ${resumeBanner}
           <div class="flash-card" id="card" role="button" tabindex="0">
             ${
               showBack
@@ -117,6 +234,14 @@
         </div>
       `;
 
+      const restartBtn = root.querySelector("#btn-flash-restart");
+      if (restartBtn) {
+        restartBtn.addEventListener("click", () => {
+          if (window.EFBProgress) EFBProgress.clearResume("flashcards");
+          mountFlashcards(root, cards, Object.assign({}, opts, { fresh: true }));
+        });
+      }
+
       const flip = () => {
         showBack = !showBack;
         paint();
@@ -126,11 +251,13 @@
       root.querySelector("#prev").addEventListener("click", () => {
         i = Math.max(0, i - 1);
         showBack = false;
+        showResumeHint = false;
         paint();
       });
       root.querySelector("#next").addEventListener("click", () => {
         i = i + 1;
         showBack = false;
+        showResumeHint = false;
         paint();
       });
       root.querySelector("#know").addEventListener("click", () => {
@@ -138,12 +265,14 @@
         knows += 1;
         i = i + 1;
         showBack = false;
+        showResumeHint = false;
         paint();
       });
       root.querySelector("#hard").addEventListener("click", () => {
         if (c.item_id) EFBProgress.recordResult(c.item_id, false, "mcq");
         hards += 1;
         showBack = true;
+        showResumeHint = false;
         paint();
       });
     }

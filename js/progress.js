@@ -176,6 +176,144 @@
     });
   }
 
+  /**
+   * Save where the learner stopped (vocab card, quiz Q#, flash index, etc.).
+   * Survives browser close via localStorage / export-import.
+   */
+  function saveResume(skill, payload) {
+    if (!skill || !payload) return;
+    return EFBStorage.update((state) => {
+      if (!state.resume) state.resume = {};
+      const prev =
+        state.resume[skill] && typeof state.resume[skill] === "object" ? state.resume[skill] : {};
+      const byKey = Object.assign({}, prev.by_key || {});
+      const now = new Date().toISOString();
+      if (payload.key) {
+        byKey[payload.key] = Object.assign({}, byKey[payload.key] || {}, {
+          page_index: Number(payload.page_index) || 0,
+          word_id: payload.word_id || null,
+          label: payload.label || "",
+          total: Number(payload.total) || 0,
+          updated_at: now,
+        });
+      }
+      const merged = Object.assign({}, prev, payload, {
+        by_key: payload.by_key ? Object.assign(byKey, payload.by_key) : byKey,
+        last_key: payload.key != null ? payload.key : prev.last_key || null,
+        updated_at: now,
+        active: payload.active !== false,
+      });
+      state.resume[skill] = merged;
+      if (payload.touch_profile !== false) {
+        state.profile.last_skill = payload.profile_skill || payload.skill || skill;
+        if (payload.lesson_id) state.profile.last_lesson_id = payload.lesson_id;
+      }
+    });
+  }
+
+  function getResume(skill) {
+    const state = EFBStorage.load();
+    const r = state.resume && state.resume[skill];
+    return r || null;
+  }
+
+  function clearResume(skill, key) {
+    return EFBStorage.update((state) => {
+      if (!state.resume || !state.resume[skill]) return;
+      if (key && state.resume[skill].by_key) {
+        delete state.resume[skill].by_key[key];
+        if (state.resume[skill].last_key === key) {
+          state.resume[skill].page_index = 0;
+          state.resume[skill].word_id = null;
+        }
+      } else {
+        state.resume[skill] = null;
+      }
+    });
+  }
+
+  function isResumeActive(r) {
+    if (!r || r.active === false) return false;
+    if (Array.isArray(r.q_ids) && r.q_ids.length) {
+      return (Number(r.index) || 0) < r.q_ids.length;
+    }
+    if (Array.isArray(r.item_ids) && r.item_ids.length) {
+      return (Number(r.index) || 0) < r.item_ids.length;
+    }
+    if (Array.isArray(r.queue_ids) && r.queue_ids.length) {
+      return (Number(r.idx) || 0) < r.queue_ids.length;
+    }
+    if (r.phase && r.phase !== "done") {
+      return !!(r.current || (r.mainQueue && r.mainQueue.length) || (r.wrongQueue && r.wrongQueue.length));
+    }
+    if (r.page_index != null && Number(r.total) > 0) {
+      return (Number(r.page_index) || 0) < Number(r.total);
+    }
+    return false;
+  }
+
+  /** Newest active mid-session resume across skills. */
+  function getBestResume() {
+    const state = EFBStorage.load();
+    const resume = state.resume || {};
+    let best = null;
+    Object.keys(resume).forEach((key) => {
+      const r = resume[key];
+      if (!isResumeActive(r)) return;
+      if (!best || String(r.updated_at || "") > String(best.updated_at || "")) {
+        best = Object.assign({ resume_skill: key }, r);
+      }
+    });
+    return best;
+  }
+
+  function quizResumeHref(r) {
+    if (r.mode === "review") return "quizzes.html?mode=review&resume=1";
+    if (r.mode === "mistakes") return "quizzes.html?mode=mistakes&resume=1";
+    let h = "quizzes.html?resume=1";
+    if (r.skill && r.skill !== "quizzes" && r.skill !== "all") {
+      h += "&skill=" + encodeURIComponent(r.skill);
+    }
+    if (r.item_id) h += "&item_id=" + encodeURIComponent(r.item_id);
+    return h;
+  }
+
+  function resumeContinue(r, pagesPrefix) {
+    if (!r) return null;
+    const p = pagesPrefix || "";
+    const n =
+      (Number(
+        r.index != null ? r.index : r.page_index != null ? r.page_index : r.idx != null ? r.idx : 0
+      ) || 0) + 1;
+    const t =
+      Number(r.total) ||
+      (r.q_ids && r.q_ids.length) ||
+      (r.item_ids && r.item_ids.length) ||
+      (r.queue_ids && r.queue_ids.length) ||
+      (r.totalTarget ? Number(r.totalTarget) : 0) ||
+      0;
+    const label =
+      "Continue · " + (r.label || r.resume_skill || "study") + (t ? " · " + n + "/" + t : "") + " →";
+    if (r.href) {
+      const path = String(r.href).replace(/^\//, "");
+      return { href: p + path, label: label };
+    }
+    const key = r.resume_skill;
+    const map = {
+      vocabulary: "vocabulary.html",
+      flashcards:
+        "flashcards.html?resume=1" + (r.skill ? "&skill=" + encodeURIComponent(r.skill) : ""),
+      spelling: "spelling-practice.html?resume=1",
+      sentence: "sentence-builder.html?resume=1",
+      daily: "daily-challenge.html?resume=1",
+      translate: "translation-lab.html?resume=1",
+      quiz: quizResumeHref(r),
+      review: "quizzes.html?mode=review&resume=1",
+      mistakes: "quizzes.html?mode=mistakes&resume=1",
+    };
+    return { href: p + (map[key] || "my-progress.html"), label: label };
+  }
+
   function setLevel(level) {
     EFBStorage.update((state) => {
       state.profile.estimated_level = level;
@@ -196,6 +334,12 @@
     dueItems,
     summarize,
     setLastLesson,
+    saveResume,
+    getResume,
+    clearResume,
+    isResumeActive,
+    getBestResume,
+    resumeContinue,
     setLevel,
     setGoal,
     todayStr,

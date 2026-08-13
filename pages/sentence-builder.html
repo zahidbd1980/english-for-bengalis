@@ -34,7 +34,7 @@
   <main class="wrap">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Sentence Builder</span></nav>
     <h1 class="page-title">Sentence Builder · বাক্য গঠন</h1>
-    <p class="page-intro bn">বাংলা অর্থ দেখে শব্দ ট্যাপ করে সঠিক ইংরেজি বাক্য বানান — word order অনুশীলন।</p>
+    <p class="page-intro bn">বাংলা অর্থ দেখে শব্দ ট্যাপ করে সঠিক ইংরেজি বাক্য বানান — মাঝপথে বন্ধ করলেও একই জায়গা থেকে চলবে।</p>
     <div class="stack-actions" style="margin-bottom:1rem" id="level-filters"></div>
     <div id="root" class="panel"></div>
   </main>
@@ -50,6 +50,7 @@
       let idx = 0;
       let built = [];
       let bankOrder = [];
+      let showResumeHint = false;
 
       function shuffle(arr) {
         const a = arr.slice();
@@ -72,9 +73,47 @@
         return level === "all" ? all.slice() : all.filter((x) => x.cefr === level);
       }
 
-      function startQueue() {
-        queue = shuffle(filtered());
-        idx = 0;
+      function persistResume() {
+        if (!window.EFBProgress || !queue.length || idx >= queue.length) return;
+        EFBProgress.saveResume("sentence", {
+          level: level,
+          queue_ids: queue.map((x) => x.id),
+          idx: idx,
+          total: queue.length,
+          label: "Sentence · " + level,
+          href: "sentence-builder.html?resume=1",
+          profile_skill: "sentence",
+          lesson_id: "sentence-builder",
+          active: true,
+        });
+      }
+
+      function startQueue(fresh) {
+        const params = new URLSearchParams(location.search || "");
+        const restart = fresh || params.get("restart") === "1";
+        const saved = !restart && window.EFBProgress && EFBProgress.getResume("sentence");
+        const pool = filtered();
+        const byId = {};
+        pool.forEach((x) => {
+          byId[x.id] = x;
+        });
+
+        if (
+          saved &&
+          saved.level === level &&
+          Array.isArray(saved.queue_ids) &&
+          saved.queue_ids.length &&
+          EFBProgress.isResumeActive(saved)
+        ) {
+          queue = saved.queue_ids.map((id) => byId[id]).filter(Boolean);
+          idx = Math.max(0, Math.min(queue.length - 1, Number(saved.idx) || 0));
+          showResumeHint = idx > 0;
+        } else {
+          queue = shuffle(pool);
+          idx = 0;
+          showResumeHint = false;
+        }
+
         if (!queue.length) {
           document.getElementById("root").innerHTML = '<p class="empty-state bn">এই লেভেলে আইটেম নেই।</p>';
           return;
@@ -86,6 +125,7 @@
         const item = queue[idx];
         built = [];
         bankOrder = shuffle(item.words.map((w, i) => ({ w, i })));
+        persistResume();
         render();
       }
 
@@ -97,6 +137,14 @@
             <span class="chip">${item.cefr}</span>
             <span class="chip">${idx + 1} / ${queue.length}</span>
           </div>
+          ${
+            showResumeHint
+              ? `<div class="vocab-resume-banner bn" role="status">
+                  যেখানে থেমেছিলেন · <strong>${idx + 1}</strong> / ${queue.length}
+                  <button type="button" class="btn btn-ghost" id="btn-sb-restart">১ নম্বর থেকে শুরু</button>
+                </div>`
+              : ""
+          }
           <p class="sb-bn bn"><strong>বাংলা:</strong> ${item.bn}</p>
           ${item.hint ? `<p class="muted">Hint: ${item.hint}</p>` : ""}
           <p class="muted" style="margin:0 0 0.35rem">Your sentence</p>
@@ -130,6 +178,13 @@
           built.splice(Number(btn.getAttribute("data-built")), 1);
           render();
         });
+        const restartBtn = document.getElementById("btn-sb-restart");
+        if (restartBtn) {
+          restartBtn.onclick = () => {
+            if (window.EFBProgress) EFBProgress.clearResume("sentence");
+            startQueue(true);
+          };
+        }
         document.getElementById("sb-clear").onclick = () => { built = []; render(); };
         document.getElementById("sb-skip").onclick = () => next();
         document.getElementById("sb-check").onclick = () => {
@@ -151,8 +206,10 @@
       }
 
       function next() {
+        showResumeHint = false;
         idx += 1;
         if (idx >= queue.length) {
+          if (window.EFBProgress) EFBProgress.clearResume("sentence");
           const actions =
             window.EFBApp && EFBApp.nextRoundActions
               ? EFBApp.nextRoundActions({ skill: "sentence" })
@@ -166,7 +223,7 @@
               ${actions}
             </div>`;
           const again = document.querySelector('[data-next="retry"]');
-          if (again) again.onclick = startQueue;
+          if (again) again.onclick = () => startQueue(true);
           return;
         }
         loadItem();
@@ -174,6 +231,8 @@
 
       EFBApp.loadJSON("sentence-builder.json").then((items) => {
         all = items || [];
+        const saved = EFBProgress.getResume("sentence");
+        if (saved && saved.level) level = saved.level;
         const levels = ["all", "A1", "A2", "B1"];
         document.getElementById("level-filters").innerHTML = levels
           .map((l) => `<button type="button" class="btn ${l === level ? "btn-primary" : "btn-secondary"}" data-l="${l}">${l}</button>`)
@@ -182,13 +241,14 @@
           const btn = e.target.closest("[data-l]");
           if (!btn) return;
           level = btn.getAttribute("data-l");
+          if (window.EFBProgress) EFBProgress.clearResume("sentence");
           [...document.querySelectorAll("#level-filters button")].forEach((b) => {
             b.className = "btn " + (b.getAttribute("data-l") === level ? "btn-primary" : "btn-secondary");
           });
-          startQueue();
+          startQueue(true);
         });
         EFBProgress.setLastLesson("sentence", "sentence-builder");
-        startQueue();
+        startQueue(false);
       });
     })();
   </script>
