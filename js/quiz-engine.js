@@ -159,13 +159,18 @@
           ${q.question_bn ? `<p class="quiz-hint bn">${escapeHtml(q.question_bn)}</p>` : ""}
           ${
             q.type === "type"
-              ? `<input class="type-input" id="type-answer" autocomplete="off" placeholder="Type your answer" />`
+              ? `<input class="type-input" id="type-answer" autocomplete="off" enterkeyhint="done" placeholder="Type your answer" />`
               : `<div class="options">${options}</div>`
           }
-          <div class="stack-actions">
-            <button type="button" class="btn btn-primary" id="check-btn">যাচাই করুন · Check</button>
+          <div class="quiz-actions-sticky">
+            <button type="button" class="btn btn-primary" id="check-btn">যাচাই করুন · Check · Enter</button>
           </div>
           <div class="feedback" id="feedback"></div>
+          <p class="session-kbd-hint bn">${
+            q.type === "type"
+              ? "<kbd>Enter</kbd> check/next · <kbd>Esc</kbd> clear"
+              : "<kbd>1</kbd>–<kbd>4</kbd> select · <kbd>Enter</kbd> check/next"
+          }</p>
         </div>
       `;
 
@@ -181,17 +186,20 @@
       const checkBtn = root.querySelector("#check-btn");
       const optionBtns = [...root.querySelectorAll(".option")];
       let selected = null;
+      const typeInput = root.querySelector("#type-answer");
+
+      function selectOption(btn) {
+        if (answered || !btn) return;
+        optionBtns.forEach((b) => b.classList.remove("selected"));
+        btn.classList.add("selected");
+        selected = btn.getAttribute("data-opt");
+      }
 
       optionBtns.forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (answered) return;
-          optionBtns.forEach((b) => b.classList.remove("selected"));
-          btn.classList.add("selected");
-          selected = btn.getAttribute("data-opt");
-        });
+        btn.addEventListener("click", () => selectOption(btn));
       });
 
-      checkBtn.addEventListener("click", () => {
+      function advanceOrCheck() {
         if (answered) {
           showResumeHint = false;
           index += 1;
@@ -200,7 +208,7 @@
         }
         let userAnswer = selected;
         if (q.type === "type") {
-          userAnswer = root.querySelector("#type-answer").value;
+          userAnswer = typeInput ? typeInput.value : "";
         }
         if (userAnswer == null || String(userAnswer).trim() === "") {
           const fb = root.querySelector("#feedback");
@@ -231,12 +239,56 @@
           ? `<strong>সঠিক!</strong> ${escapeHtml(q.explanation || "")}`
           : `<strong>ভুল।</strong> সঠিক উত্তর: <em>${escapeHtml(q.answer)}</em><br>${escapeHtml(q.explanation || "")}`;
 
-        checkBtn.textContent = index + 1 >= questions.length ? "ফলাফল দেখুন · Results" : "পরবর্তী · Next";
+        checkBtn.textContent =
+          index + 1 >= questions.length ? "ফলাফল দেখুন · Results · Enter" : "পরবর্তী · Next · Enter";
         persist();
-      });
+      }
+
+      checkBtn.addEventListener("click", advanceOrCheck);
+      if (typeInput) {
+        typeInput.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            advanceOrCheck();
+          } else if (e.key === "Escape") {
+            e.preventDefault();
+            typeInput.value = "";
+          }
+        });
+        typeInput.focus();
+      }
+
+      if (root._efbQuizKey) document.removeEventListener("keydown", root._efbQuizKey);
+      root._efbQuizKey = function (e) {
+        if (!document.body.contains(root)) {
+          document.removeEventListener("keydown", root._efbQuizKey);
+          return;
+        }
+        const tag = (e.target && e.target.tagName) || "";
+        const typing = tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT";
+        if (e.key === "Enter" && !typing) {
+          if (tag === "BUTTON" || tag === "A") return;
+          e.preventDefault();
+          advanceOrCheck();
+          return;
+        }
+        if (typing || tag === "BUTTON" || tag === "A") return;
+        if (q.type !== "type" && !answered && /^[1-4]$/.test(e.key)) {
+          const n = Number(e.key) - 1;
+          if (optionBtns[n]) {
+            e.preventDefault();
+            selectOption(optionBtns[n]);
+          }
+        }
+      };
+      document.addEventListener("keydown", root._efbQuizKey);
     }
 
     function renderResult() {
+      if (root._efbQuizKey) {
+        document.removeEventListener("keydown", root._efbQuizKey);
+        root._efbQuizKey = null;
+      }
       const pct = Math.round((score / questions.length) * 100);
       const skill = config.skill || (questions[0] && questions[0].skill) || "quizzes";
       if (window.EFBProgress) {

@@ -18,14 +18,31 @@
     .sb-built { border-style: solid; background: #fff; min-height: 3.5rem; }
     .sb-chip {
       appearance: none; border: 1px solid #b7c9c3; background: #fff;
-      border-radius: 999px; padding: 0.45rem 0.85rem; cursor: pointer;
+      border-radius: 999px; padding: 0.55rem 0.95rem; cursor: pointer;
       font: inherit; color: inherit;
+      min-height: var(--touch, 48px);
+      touch-action: manipulation;
     }
-    .sb-chip:hover, .sb-chip:focus-visible { border-color: var(--color-brand, #0f6b5c); outline: none; }
+    .sb-chip:hover, .sb-chip:focus-visible {
+      border-color: var(--color-brand, #0f6b5c);
+      outline: 3px solid rgba(15, 107, 92, 0.35);
+      outline-offset: 2px;
+    }
     .sb-chip.is-used { opacity: 0.35; pointer-events: none; }
     .sb-feedback { min-height: 1.5rem; margin: 0.5rem 0 1rem; }
     .sb-feedback.ok { color: #0b6b3a; }
     .sb-feedback.bad { color: #9b1c1c; }
+    .sb-actions-sticky {
+      position: sticky;
+      bottom: calc(0.35rem + env(safe-area-inset-bottom, 0px));
+      z-index: 20;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      padding: 0.45rem 0 0.1rem;
+      background: linear-gradient(180deg, transparent, var(--color-bg, #f7f4ef) 30%);
+    }
+    .sb-actions-sticky .btn { flex: 1 1 auto; min-width: 5.5rem; box-shadow: var(--shadow); }
   </style>
 </head>
 <body data-root="..">
@@ -35,7 +52,7 @@
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Sentence Builder</span></nav>
     <h1 class="page-title">Sentence Builder · বাক্য গঠন</h1>
     <p class="page-intro bn">বাংলা অর্থ দেখে শব্দ ট্যাপ করে সঠিক ইংরেজি বাক্য বানান — মাঝপথে বন্ধ করলেও একই জায়গা থেকে চলবে।</p>
-    <div class="stack-actions" style="margin-bottom:1rem" id="level-filters"></div>
+    <div class="chip-row" style="margin-bottom:1rem" id="level-filters"></div>
     <div id="root" class="panel"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -156,12 +173,31 @@
             ${bankOrder.map((b) => `<button type="button" class="sb-chip ${used.has(b.i) ? "is-used" : ""}" data-bank="${b.i}" ${used.has(b.i) ? "disabled" : ""}>${b.w}</button>`).join("")}
           </div>
           <div class="sb-feedback" id="sb-fb"></div>
-          <div class="stack-actions">
-            <button type="button" class="btn btn-secondary" id="sb-clear">Clear</button>
-            <button type="button" class="btn btn-primary" id="sb-check">Check</button>
-            <button type="button" class="btn btn-ghost" id="sb-skip">Skip</button>
+          <div class="sb-actions-sticky">
+            <button type="button" class="btn btn-secondary" id="sb-clear">Clear · Esc</button>
+            <button type="button" class="btn btn-primary" id="sb-check">Check · Enter</button>
+            <button type="button" class="btn btn-secondary" id="sb-skip">Skip</button>
           </div>
+          <p class="session-kbd-hint bn"><kbd>Enter</kbd> check · <kbd>Esc</kbd> clear · <kbd>Backspace</kbd> undo chip</p>
         `;
+
+        function doCheck() {
+          const fb = document.getElementById("sb-fb");
+          if (!fb) return;
+          const got = built.map((b) => b.w).join(" ");
+          const ok = normalize(got) === normalize(item.answer);
+          if (ok) {
+            fb.className = "sb-feedback ok bn";
+            fb.textContent = "সঠিক! " + item.answer;
+            EFBProgress.markSeen(item.id);
+            EFBProgress.recordResult(item.id, true, "type");
+            setTimeout(next, 700);
+          } else {
+            fb.className = "sb-feedback bad bn";
+            fb.textContent = "আবার চেষ্টা করুন। উত্তর: " + item.answer;
+            EFBProgress.recordResult(item.id, false, "type");
+          }
+        }
 
         document.getElementById("sb-bank").addEventListener("click", (e) => {
           const btn = e.target.closest("[data-bank]");
@@ -187,22 +223,28 @@
         }
         document.getElementById("sb-clear").onclick = () => { built = []; render(); };
         document.getElementById("sb-skip").onclick = () => next();
-        document.getElementById("sb-check").onclick = () => {
-          const fb = document.getElementById("sb-fb");
-          const got = built.map((b) => b.w).join(" ");
-          const ok = normalize(got) === normalize(item.answer);
-          if (ok) {
-            fb.className = "sb-feedback ok bn";
-            fb.textContent = "সঠিক! " + item.answer;
-            EFBProgress.markSeen(item.id);
-            EFBProgress.recordResult(item.id, true, "type");
-            setTimeout(next, 700);
-          } else {
-            fb.className = "sb-feedback bad bn";
-            fb.textContent = "আবার চেষ্টা করুন। উত্তর: " + item.answer;
-            EFBProgress.recordResult(item.id, false, "type");
+        document.getElementById("sb-check").onclick = doCheck;
+
+        if (window._efbSbKey) document.removeEventListener("keydown", window._efbSbKey);
+        window._efbSbKey = function (e) {
+          const tag = (e.target && e.target.tagName) || "";
+          if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+          if (tag === "BUTTON" || tag === "A") return;
+          if (!document.getElementById("sb-check")) return;
+          if (e.key === "Enter") {
+            e.preventDefault();
+            doCheck();
+          } else if (e.key === "Escape") {
+            e.preventDefault();
+            built = [];
+            render();
+          } else if (e.key === "Backspace" && built.length) {
+            e.preventDefault();
+            built.pop();
+            render();
           }
         };
+        document.addEventListener("keydown", window._efbSbKey);
       }
 
       function next() {
@@ -235,7 +277,10 @@
         if (saved && saved.level) level = saved.level;
         const levels = ["all", "A1", "A2", "B1"];
         document.getElementById("level-filters").innerHTML = levels
-          .map((l) => `<button type="button" class="btn ${l === level ? "btn-primary" : "btn-secondary"}" data-l="${l}">${l}</button>`)
+          .map(
+            (l) =>
+              `<button type="button" class="chip-btn ${l === level ? "is-active" : ""}" data-l="${l}">${l}</button>`
+          )
           .join("");
         document.getElementById("level-filters").addEventListener("click", (e) => {
           const btn = e.target.closest("[data-l]");
@@ -243,7 +288,7 @@
           level = btn.getAttribute("data-l");
           if (window.EFBProgress) EFBProgress.clearResume("sentence");
           [...document.querySelectorAll("#level-filters button")].forEach((b) => {
-            b.className = "btn " + (b.getAttribute("data-l") === level ? "btn-primary" : "btn-secondary");
+            b.className = "chip-btn" + (b.getAttribute("data-l") === level ? " is-active" : "");
           });
           startQueue(true);
         });

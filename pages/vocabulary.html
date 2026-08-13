@@ -54,8 +54,9 @@
       let pageIndex = 0;
       let setupOpen = false;
       let filterKey = "";
-      let pendingRestore = null; // { page_index, word_id } applied once on next syncPage
+      let pendingRestore = null; // { page_index, word_id, order_ids } applied once on next syncPage
       let showResumeHint = false;
+      let orderIds = null; // shuffled word id order for current filter (null = bank order)
 
       if (window.speechSynthesis) {
         speechSynthesis.getVoices();
@@ -64,7 +65,18 @@
         };
       }
 
-      function currentWords() {
+      function shuffleArr(arr) {
+        const a = arr.slice();
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const t = a[i];
+          a[i] = a[j];
+          a[j] = t;
+        }
+        return a;
+      }
+
+      function baseWords() {
         if (activeSavedId) {
           const s = savedLists.find((x) => x.id === activeSavedId);
           return EFBVocab.resolveCustomWords((s && s.words) || [], bank);
@@ -93,6 +105,48 @@
           });
         }
         return words;
+      }
+
+      function currentWords() {
+        const words = baseWords();
+        if (!orderIds || !orderIds.length || !words.length) return words;
+        const byId = {};
+        words.forEach((w) => {
+          if (w && w.id) byId[w.id] = w;
+        });
+        const ordered = orderIds.map((id) => byId[id]).filter(Boolean);
+        const seen = new Set(ordered.map((w) => w.id));
+        words.forEach((w) => {
+          if (w && w.id && !seen.has(w.id)) ordered.push(w);
+        });
+        return ordered.length ? ordered : words;
+      }
+
+      function applyShuffle(resetIndex) {
+        const words = baseWords();
+        orderIds = shuffleArr(words.map((w) => w.id).filter(Boolean));
+        if (resetIndex !== false) pageIndex = 0;
+        showResumeHint = false;
+      }
+
+      function pickRandomList() {
+        const lists = listsMeta.lists || [];
+        if (!lists.length) {
+          alert("এখনো কোনো target list নেই।");
+          return;
+        }
+        const pool = activeListId ? lists.filter((L) => L.id !== activeListId) : lists;
+        const pick = (pool.length ? pool : lists)[Math.floor(Math.random() * (pool.length || lists.length))];
+        activeSavedId = null;
+        activeListId = pick.id;
+        category = "all";
+        orderIds = null;
+        pageIndex = 0;
+        showResumeHint = false;
+        filterKey = "";
+        setupOpen = false;
+        applyShuffle(true);
+        render();
       }
 
       function resumeKey() {
@@ -140,6 +194,8 @@
             : activeSavedId
               ? "saved:" + activeSavedId
               : "vocab-hub",
+          order_ids: orderIds && orderIds.length ? orderIds.slice() : null,
+          shuffled: !!(orderIds && orderIds.length),
         });
       }
 
@@ -167,10 +223,26 @@
         if (pageIndex < 0) pageIndex = 0;
       }
 
+      function prepareOrderForFilter() {
+        const key = [activeListId || "", activeSavedId || "", category, pos, level, q, useCustom, customWords.join(",")].join("|");
+        if (key === filterKey) return;
+        if (pendingRestore) {
+          orderIds =
+            Array.isArray(pendingRestore.order_ids) && pendingRestore.order_ids.length
+              ? pendingRestore.order_ids.slice()
+              : null;
+          return;
+        }
+        const slot = slotForKey(resumeKey());
+        orderIds =
+          slot && Array.isArray(slot.order_ids) && slot.order_ids.length ? slot.order_ids.slice() : null;
+      }
+
       function persistStudySet(words) {
         try {
+          const ordered = orderIds && orderIds.length ? words : shuffleArr(words);
           const payload = JSON.stringify(
-            words.map((w) => ({
+            ordered.map((w) => ({
               item_id: w.id,
               front: w.word,
               back: w.meaning_en,
@@ -197,6 +269,7 @@
       }
 
       function render() {
+        prepareOrderForFilter();
         const words = currentWords();
         syncPage(words);
         const w = words[pageIndex];
@@ -248,11 +321,21 @@
               </div>`
             : "";
 
+        const shuffled = !!(orderIds && orderIds.length);
         root.innerHTML = `
           <section class="vocab-study panel highlight">
             <div class="vocab-study-top">
-              <span class="chip">${EFBVocab.esc(activeLabel())}</span>
+              <span class="chip">${EFBVocab.esc(activeLabel())}${shuffled ? " · random" : ""}</span>
               <span class="chip">${words.length ? pageIndex + 1 : 0} / ${words.length}</span>
+            </div>
+            <div class="stack-actions stack-actions-scroll" style="margin:0">
+              <button type="button" class="btn btn-secondary" id="btn-shuffle-words">Shuffle · এলোমেলো</button>
+              <button type="button" class="btn btn-secondary" id="btn-random-list">Random list</button>
+              ${
+                shuffled
+                  ? `<button type="button" class="btn btn-ghost" id="btn-order-reset">লিস্ট অর্ডার</button>`
+                  : ""
+              }
             </div>
             ${resumeBanner}
             <div class="bar" data-pct="${pct}" aria-hidden="true"><i style="width:${pct}%"></i></div>
@@ -271,6 +354,9 @@
             </summary>
             <div class="vocab-setup-body">
               <h2 class="section-title">Target lists</h2>
+              <div class="stack-actions" style="margin:0 0 0.75rem">
+                <button type="button" class="btn btn-accent" id="btn-random-list-setup">Random list · সারপ্রাইজ</button>
+              </div>
               <div class="vocab-list-grid">${listCards}
                 <label class="vocab-list-card ${!activeListId && !activeSavedId ? "is-active" : ""}">
                   <input type="radio" name="target-list" value="" ${!activeListId && !activeSavedId ? "checked" : ""} />
@@ -373,11 +459,35 @@
           });
         }
 
+        const shuffleBtn = root.querySelector("#btn-shuffle-words");
+        if (shuffleBtn) {
+          shuffleBtn.addEventListener("click", () => {
+            applyShuffle(true);
+            filterKey = [activeListId || "", activeSavedId || "", category, pos, level, q, useCustom, customWords.join(",")].join("|");
+            render();
+          });
+        }
+        const orderReset = root.querySelector("#btn-order-reset");
+        if (orderReset) {
+          orderReset.addEventListener("click", () => {
+            orderIds = null;
+            pageIndex = 0;
+            showResumeHint = false;
+            filterKey = [activeListId || "", activeSavedId || "", category, pos, level, q, useCustom, customWords.join(",")].join("|");
+            render();
+          });
+        }
+        const randList = root.querySelector("#btn-random-list");
+        if (randList) randList.addEventListener("click", pickRandomList);
+        const randListSetup = root.querySelector("#btn-random-list-setup");
+        if (randListSetup) randListSetup.addEventListener("click", pickRandomList);
+
         root.querySelectorAll('input[name="target-list"]').forEach((el) => {
           el.addEventListener("change", () => {
             activeSavedId = null;
             activeListId = el.value || null;
             if (activeListId) category = "all";
+            orderIds = null;
             setupOpen = false;
             render();
           });
@@ -389,6 +499,7 @@
           activeListId = null;
           activeSavedId = null;
           category = btn.getAttribute("data-cat");
+          orderIds = null;
           setupOpen = false;
           render();
         });
@@ -540,8 +651,27 @@
 
       document.addEventListener("keydown", (e) => {
         if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
-        if (e.key === "ArrowRight") go(1);
-        if (e.key === "ArrowLeft") go(-1);
+        if (e.target && /BUTTON|A/.test(e.target.tagName) && (e.key === "Enter" || e.key === " ")) return;
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          go(1);
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          go(-1);
+        } else if (e.key === " " || e.key === "s" || e.key === "S") {
+          const speakBtn = root.querySelector(".btn-speak, .btn-speak-inline, [data-speak]");
+          if (speakBtn) {
+            e.preventDefault();
+            speakBtn.click();
+          }
+        } else if (e.key === "Escape") {
+          const setup = root.querySelector("#setup-panel");
+          if (setup && setup.open) {
+            e.preventDefault();
+            setup.open = false;
+            setupOpen = false;
+          }
+        }
       });
 
       document.getElementById("btn-study-filtered").addEventListener("click", () => {
@@ -579,10 +709,18 @@
         }
 
         const key = resumeKey();
-        pendingRestore = (r.by_key && r.by_key[key]) || {
-          page_index: r.page_index,
-          word_id: r.word_id,
-        };
+        const slot = (r.by_key && r.by_key[key]) || null;
+        pendingRestore = slot
+          ? {
+              page_index: slot.page_index,
+              word_id: slot.word_id,
+              order_ids: slot.order_ids || r.order_ids || null,
+            }
+          : {
+              page_index: r.page_index,
+              word_id: r.word_id,
+              order_ids: r.order_ids || null,
+            };
       }
 
       Promise.all([EFBApp.loadJSON("vocabulary.json"), EFBApp.loadJSON("vocabulary-lists.json")])

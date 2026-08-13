@@ -40,6 +40,14 @@
       },
       // Mid-session resume slots (vocabulary, quiz, daily, flashcards, spelling, sentence, translate…)
       resume: {},
+      // 14-day Learning Path progress
+      path: {
+        plan_id: null,
+        day: 1,
+        started_on: null,
+        tasks_done: {},
+        last_active_on: null,
+      },
     };
   }
 
@@ -57,6 +65,7 @@
         challenge: Object.assign(base.challenge, data.challenge || {}),
         items: data.items || {},
         resume: Object.assign({}, base.resume, data.resume || {}),
+        path: Object.assign({}, base.path, data.path || {}),
       });
     } catch (e) {
       console.warn("EFB storage load failed", e);
@@ -120,6 +129,7 @@
       mistakes: incoming.mistakes || [],
       challenge: Object.assign(base.challenge, incoming.challenge || {}),
       resume: Object.assign({}, base.resume, incoming.resume || {}),
+      path: Object.assign({}, base.path, incoming.path || {}),
     });
     save(merged);
     return merged;

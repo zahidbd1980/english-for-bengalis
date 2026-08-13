@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f6b5c" />
+  <title>Spoken Drill — English for Bengalis</title>
+  <meta name="description" content="Practice spoken English dialogues: see Bangla, listen, and type the English line. Drill mode for Bengali learners." />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <a class="skip-link" href="#main">Skip</a>
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main id="main" class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <a href="spoken-english.html">Spoken</a> › <span>Drill</span>
+    </nav>
+    <h1 class="page-title">Spoken Drill · কথ্য অনুশীলন</h1>
+    <p class="page-intro bn">বাংলা দেখে ইংরেজি লাইন লিখুন। খালি বক্সে Enter = শুনুন · লেখা থাকলে Enter = Check.</p>
+    <div id="root"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/spoken-drill.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    (function () {
+      const root = document.getElementById("root");
+      const params = new URLSearchParams(location.search);
+      let dialogues = [];
+      let activeId = params.get("id") || null;
+      let lines = [];
+      let idx = 0;
+      let score = 0;
+      let lang = "en-GB";
+      let revealed = false;
+      let awaitingNext = false;
+
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function activeDialogue() {
+        return dialogues.find((d) => d.id === activeId) || dialogues[0] || null;
+      }
+
+      function startDrill(id) {
+        activeId = id || (activeDialogue() && activeDialogue().id);
+        const d = activeDialogue();
+        if (!d) return;
+        lines = EFBSpokenDrill.flattenLines(d);
+        idx = 0;
+        score = 0;
+        revealed = false;
+        awaitingNext = false;
+        if (window.EFBProgress) {
+          EFBProgress.markSeen(d.id);
+          EFBProgress.setLastLesson("spoken", d.id);
+          EFBProgress.saveResume("spoken", {
+            dialogue_id: d.id,
+            index: 0,
+            score: 0,
+            total: lines.length,
+            label: "Spoken · " + (d.title || ""),
+            href: "spoken-drill.html?id=" + encodeURIComponent(d.id) + "&resume=1",
+            profile_skill: "spoken",
+            lesson_id: d.id,
+            q_ids: lines.map((l) => l.item_id),
+            active: true,
+          });
+        }
+        renderPractice();
+      }
+
+      function persist() {
+        if (!window.EFBProgress || !lines.length || idx >= lines.length) return;
+        const d = activeDialogue();
+        EFBProgress.saveResume("spoken", {
+          dialogue_id: d && d.id,
+          index: idx,
+          score: score,
+          total: lines.length,
+          label: "Spoken · " + ((d && d.title) || ""),
+          href: "spoken-drill.html?id=" + encodeURIComponent((d && d.id) || "") + "&resume=1",
+          profile_skill: "spoken",
+          lesson_id: d && d.id,
+          q_ids: lines.map((l) => l.item_id),
+          active: true,
+        });
+      }
+
+      function renderPicker() {
+        const chips = dialogues
+          .map((d) => {
+            const on = d.id === activeId;
+            return `<button type="button" class="chip-btn ${on ? "is-active" : ""}" data-id="${esc(d.id)}">${esc(d.title)} · ${esc(d.level || "")}</button>`;
+          })
+          .join("");
+        root.innerHTML = `
+          <section class="panel">
+            <h2 style="margin-top:0;font-family:var(--font-display);font-size:1.25rem">ডায়লগ বেছে নিন</h2>
+            <div class="chip-row">${chips}</div>
+            <label class="field" style="margin-top:1rem">TTS
+              <select id="lang" class="field-input">
+                <option value="en-GB">British</option>
+                <option value="en-US">American</option>
+              </select>
+            </label>
+            <div class="stack-actions">
+              <button type="button" class="btn btn-primary" id="btn-start">Drill শুরু · Start</button>
+              <a class="btn btn-secondary" href="spoken-english.html">সব ডায়লগ পড়ুন</a>
+            </div>
+            <p class="session-kbd-hint bn"><kbd>Enter</kbd> empty=listen · typed=check</p>
+          </section>`;
+        document.getElementById("lang").value = lang;
+        document.getElementById("lang").onchange = (e) => (lang = e.target.value);
+        root.querySelector(".chip-row").addEventListener("click", (e) => {
+          const btn = e.target.closest("[data-id]");
+          if (!btn) return;
+          activeId = btn.getAttribute("data-id");
+          renderPicker();
+        });
+        document.getElementById("btn-start").onclick = () => startDrill(activeId);
+      }
+
+      function renderPractice() {
+        if (idx >= lines.length) return renderDone();
+        persist();
+        const line = lines[idx];
+        const d = activeDialogue();
+        root.innerHTML = `
+          <section class="panel highlight">
+            <div class="quiz-meta">
+              <span class="chip">${esc(d.title)}</span>
+              <span class="chip">${idx + 1} / ${lines.length}</span>
+              <span class="muted">Score ${score}</span>
+            </div>
+            <p class="bn" style="font-size:1.2rem;margin:0.75rem 0 0.35rem"><strong>বাংলা:</strong> ${esc(line.bn || "—")}</p>
+            ${line.speaker ? `<p class="muted">Speaker: ${esc(line.speaker)}</p>` : ""}
+            <p class="muted bn">ইংরেজি লাইন লুকানো — শুনে বা মনে করে লিখুন।</p>
+            <div class="sp-listen">
+              <button type="button" class="btn btn-accent" id="btn-listen">Listen</button>
+              <button type="button" class="btn btn-secondary" id="btn-slow">Slow</button>
+              <button type="button" class="btn btn-ghost" id="btn-reveal">Hint</button>
+            </div>
+            <p class="muted ${revealed ? "" : "hidden"}" id="hint-line">Starts with: <strong>${esc((line.en || "")[0] || "")}</strong> · ${line.en.split(/\s+/).length} words</p>
+            <input id="answer" class="sp-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the English line…" />
+            <div class="quiz-actions-sticky">
+              <button type="button" class="btn btn-primary" id="btn-check">Check · Enter</button>
+              <button type="button" class="btn btn-secondary hidden" id="btn-next">Next · Enter</button>
+            </div>
+            <div id="feedback" class="feedback" role="status"></div>
+            <p class="session-kbd-hint bn"><kbd>Enter</kbd> empty=listen · typed=check · <kbd>Esc</kbd> clear</p>
+          </section>`;
+        const input = document.getElementById("answer");
+        input.focus();
+        const listen = (slow) => EFBSpokenDrill.speak(line.en, lang).then(() => {});
+        // force slow via utterance — reuse speak with lower rate inline
+        document.getElementById("btn-listen").onclick = () => {
+          if (!window.speechSynthesis) return;
+          speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(line.en);
+          u.lang = lang;
+          u.rate = 0.95;
+          speechSynthesis.speak(u);
+        };
+        document.getElementById("btn-slow").onclick = () => {
+          if (!window.speechSynthesis) return;
+          speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(line.en);
+          u.lang = lang;
+          u.rate = 0.7;
+          speechSynthesis.speak(u);
+        };
+        document.getElementById("btn-reveal").onclick = () => {
+          revealed = !revealed;
+          document.getElementById("hint-line").classList.toggle("hidden", !revealed);
+        };
+        document.getElementById("btn-check").onclick = submit;
+        document.getElementById("btn-next").onclick = goNext;
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            e.preventDefault();
+            input.value = "";
+            return;
+          }
+          if (e.key !== "Enter") return;
+          e.preventDefault();
+          if (awaitingNext) goNext();
+          else if (!String(input.value || "").trim()) document.getElementById("btn-listen").click();
+          else submit();
+        });
+      }
+
+      function submit() {
+        if (awaitingNext) return;
+        const input = document.getElementById("answer");
+        const line = lines[idx];
+        const val = input.value;
+        if (!String(val).trim()) {
+          const fb = document.getElementById("feedback");
+          fb.className = "feedback show bad bn";
+          fb.textContent = "আগে ইংরেজি লাইন লিখুন — বা Enter দিয়ে শুনুন।";
+          return;
+        }
+        const ok = EFBSpokenDrill.lineOk(val, line.en);
+        awaitingNext = true;
+        if (ok) score += 1;
+        if (window.EFBProgress) EFBProgress.recordResult(line.item_id, ok, "type");
+        const fb = document.getElementById("feedback");
+        fb.className = "feedback show " + (ok ? "ok" : "bad");
+        fb.innerHTML = ok
+          ? `<strong>সঠিক!</strong> ${esc(line.en)}`
+          : `<strong>আবার চেষ্টা।</strong> সঠিক: <em>${esc(line.en)}</em>`;
+        document.getElementById("btn-check").classList.add("hidden");
+        document.getElementById("btn-next").classList.remove("hidden");
+        document.getElementById("btn-next").focus();
+        persist();
+      }
+
+      function goNext() {
+        awaitingNext = false;
+        revealed = false;
+        idx += 1;
+        renderPractice();
+      }
+
+      function renderDone() {
+        if (window.EFBProgress) EFBProgress.clearResume("spoken");
+        const d = activeDialogue();
+        const actions =
+          window.EFBApp && EFBApp.nextRoundActions
+            ? EFBApp.nextRoundActions({ skill: "spoken" })
+            : "";
+        root.innerHTML = `
+          <section class="panel highlight">
+            <p class="chip">Drill complete</p>
+            <h2 class="page-title" style="font-size:1.6rem">স্কোর: ${score}/${lines.length}</h2>
+            <p class="bn muted">${esc(d && d.title)} — প্রোগ্রেস সেভ হয়েছে।</p>
+            <div class="stack-actions">
+              <button type="button" class="btn btn-primary" id="again">আবার এই ডায়লগ</button>
+              <button type="button" class="btn btn-secondary" id="pick">অন্য ডায়লগ</button>
+            </div>
+            ${actions}
+          </section>`;
+        document.getElementById("again").onclick = () => startDrill(activeId);
+        document.getElementById("pick").onclick = renderPicker;
+      }
+
+      EFBApp.loadJSON("spoken.json").then((items) => {
+        dialogues = items || [];
+        if (!activeId && dialogues[0]) activeId = dialogues[0].id;
+        const resume = params.get("resume") === "1" && window.EFBProgress && EFBProgress.getResume("spoken");
+        if (resume && resume.dialogue_id && EFBProgress.isResumeActive(resume)) {
+          activeId = resume.dialogue_id;
+          const d = activeDialogue();
+          if (d) {
+            lines = EFBSpokenDrill.flattenLines(d);
+            idx = Math.max(0, Math.min(lines.length - 1, Number(resume.index) || 0));
+            score = Number(resume.score) || 0;
+            renderPractice();
+            return;
+          }
+        }
+        if (params.get("id") && activeDialogue()) startDrill(activeId);
+        else renderPicker();
+      });
+    })();
+  </script>
+</body>
+</html>

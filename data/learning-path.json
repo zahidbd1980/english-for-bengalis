@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "default_plan_id": "foundation-14",
+  "plans": [
+    {
+      "id": "foundation-14",
+      "title": "14-day Foundation",
+      "title_bn": "১৪ দিনের ফাউন্ডেশন পথ",
+      "blurb": "Each day: ~15–20 minutes. Finish today's tasks, then unlock the next day.",
+      "blurb_bn": "প্রতিদিন প্রায় ১৫–২০ মিনিট। আজকের কাজ শেষ হলে পরের দিন আনলক হবে।",
+      "days": [
+        {
+          "day": 1,
+          "title": "First words",
+          "title_bn": "প্রথম শব্দ",
+          "tasks": [
+            { "id": "vocab", "label": "Vocabulary · ৫–১০ শব্দ", "href": "vocabulary.html", "skill": "vocabulary" },
+            { "id": "mistakes", "label": "Common Mistakes · পড়ুন", "href": "common-mistakes.html", "skill": "mistakes" },
+            { "id": "daily", "label": "Daily Challenge", "href": "daily-challenge.html", "skill": "daily" }
+          ]
+        },
+        {
+          "day": 2,
+          "title": "Spell what you hear",
+          "title_bn": "শুনে লেখো",
+          "tasks": [
+            { "id": "spell", "label": "Spelling Practice · শুরু", "href": "spelling-practice.html", "skill": "spelling" },
+            { "id": "vocab", "label": "Vocabulary · Shuffle", "href": "vocabulary.html", "skill": "vocabulary" },
+            { "id": "quiz", "label": "Vocabulary Quiz", "href": "quizzes.html?skill=vocabulary", "skill": "quizzes" }
+          ]
+        },
+        {
+          "day": 3,
+          "title": "Bangla → English",
+          "title_bn": "বাংলা → ইংরেজি",
+          "tasks": [
+            { "id": "translate", "label": "Translation Lab · ৫টা", "href": "translation-lab.html", "skill": "translate" },
+            { "id": "flash", "label": "Flashcards", "href": "flashcards.html?skill=vocabulary", "skill": "flashcards" },
+            { "id": "daily", "label": "Daily Challenge", "href": "daily-challenge.html", "skill": "daily" }
+          ]
+        },
+        {
+          "day": 4,
+          "title": "Grammar base",
+          "title_bn": "ব্যাকরণ ভিত্তি",
+          "tasks": [
+            { "id": "grammar", "label": "Grammar · একটি টপিক", "href": "grammar.html", "skill": "grammar" },
+            { "id": "gquiz", "label": "Grammar Quiz", "href": "quizzes.html?skill=grammar", "skill": "quizzes" },
+            { "id": "vocab", "label": "Vocabulary", "href": "vocabulary.html", "skill": "vocabulary" }
+          ]
+        },
+        {
+          "day": 5,
+          "title": "Build a sentence",
+          "title_bn": "বাক্য গঠন",
+          "tasks": [
+            { "id": "sb", "label": "Sentence Builder", "href": "sentence-builder.html", "skill": "sentence" },
+            { "id": "mistakes", "label": "Mistake Bank practice", "href": "quizzes.html?mode=mistakes", "skill": "mistakes" },
+            { "id": "daily", "label": "Daily Challenge", "href": "daily-challenge.html", "skill": "daily" }
+          ]
+        },
+        {
+          "day": 6,
+          "title": "Phrasals in real life",
+          "title_bn": "দৈনন্দিন phrasal",
+          "tasks": [
+            { "id": "pv", "label": "Phrasal Verbs · পড়ুন", "href": "phrasal-verbs.html", "skill": "phrasal" },
+            { "id": "pvquiz", "label": "Phrasal Quiz", "href": "quizzes.html?skill=phrasal", "skill": "quizzes" },
+            { "id": "spell", "label": "Spelling Practice", "href": "spelling-practice.html", "skill": "spelling" }
+          ]
+        },
+        {
+          "day": 7,
+          "title": "Week 1 check",
+          "title_bn": "প্রথম সপ্তাহ চেক",
+          "tasks": [
+            { "id": "review", "label": "Review due", "href": "quizzes.html?mode=review", "skill": "review" },
+            { "id": "daily", "label": "Daily Challenge", "href": "daily-challenge.html", "skill": "daily" },
+            { "id": "progress", "label": "My Progress দেখুন", "href": "my-progress.html", "skill": "progress" }
+          ]
+        },
+        {
+          "day": 8,
+          "title": "Spoken start",
+          "title_bn": "কথ্য ইংরেজি শুরু",
+          "tasks": [
+            { "id": "spoken", "label": "Spoken Drill · ১টা ডায়লগ", "href": "spoken-drill.html", "skill": "spoken" },
+            { "id": "vocab", "label": "Vocabulary", "href": "vocabulary.html", "skill": "vocabulary" },
+            { "id": "translate", "label": "Translation Lab", "href": "translation-lab.html", "skill": "translate" }
+          ]
+        },
+        {
+          "day": 9,
+          "title": "Articles & agreement",
+          "title_bn": "Article ও agreement",
+          "tasks": [
+            { "id": "grammar", "label": "Grammar", "href": "grammar.html", "skill": "grammar" },
+            { "id": "mistakes", "label": "Common Mistakes", "href": "common-mistakes.html", "skill": "mistakes" },
+            { "id": "sb", "label": "Sentence Builder", "href": "sentence-builder.html", "skill": "sentence" }
+          ]
+        },
+        {
+          "day": 10,
+          "title": "Listening words",
+          "title_bn": "শোনার শব্দ",
+          "tasks": [
+            { "id": "spell", "label": "Spelling · Random list", "href": "spelling-practice.html", "skill": "spelling" },
+            { "id": "flash", "label": "Flashcards", "href": "flashcards.html?skill=vocabulary", "skill": "flashcards" },
+            { "id": "daily", "label": "Daily Challenge", "href": "daily-challenge.html", "skill": "daily" }
+          ]
+        },
+        {
+          "day": 11,
+          "title": "Mix practice",
+          "title_bn": "মিশ্র অনুশীলন",
+          "tasks": [
+            { "id": "quiz", "label": "Mixed Quizzes", "href": "quizzes.html", "skill": "quizzes" },
+            { "id": "pv", "label": "Phrasal Verbs", "href": "phrasal-verbs.html", "skill": "phrasal" },
+            { "id": "vocab", "label": "Vocabulary", "href": "vocabulary.html", "skill": "vocabulary" }
+          ]
+        },
+        {
+          "day": 12,
+          "title": "Speak + write",
+          "title_bn": "বলো + লেখো",
+          "tasks": [
+            { "id": "spoken", "label": "Spoken Drill", "href": "spoken-drill.html", "skill": "spoken" },
+            { "id": "translate", "label": "Translation Lab", "href": "translation-lab.html", "skill": "translate" },
+            { "id": "sb", "label": "Sentence Builder", "href": "sentence-builder.html", "skill": "sentence" }
+          ]
+        },
+        {
+          "day": 13,
+          "title": "IELTS map (optional)",
+          "title_bn": "IELTS ম্যাপ (ঐচ্ছিক)",
+          "tasks": [
+            { "id": "ielts", "label": "IELTS basics পড়ুন", "href": "ielts.html", "skill": "ielts" },
+            { "id": "vocab", "label": "Vocabulary · IELTS list", "href": "vocabulary.html", "skill": "vocabulary" },
+            { "id": "daily", "label": "Daily Challenge", "href": "daily-challenge.html", "skill": "daily" }
+          ]
+        },
+        {
+          "day": 14,
+          "title": "Graduation day",
+          "title_bn": "সমাপনী দিন",
+          "tasks": [
+            { "id": "review", "label": "Review due", "href": "quizzes.html?mode=review", "skill": "review" },
+            { "id": "daily", "label": "Daily Challenge", "href": "daily-challenge.html", "skill": "daily" },
+            { "id": "progress", "label": "Progress + Export backup", "href": "my-progress.html", "skill": "progress" }
+          ]
+        }
+      ]
+    }
+  ]
+}

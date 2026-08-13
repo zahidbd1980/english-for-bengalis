@@ -83,7 +83,7 @@
     }
   }
 
-  function mountFlashcards(root, cards, opts) {
+    function mountFlashcards(root, cards, opts) {
     opts = opts || {};
     cards = (cards || []).slice();
     if (!cards.length) {
@@ -99,12 +99,24 @@
     let showResumeHint = false;
     let deck = cards;
 
+    function shuffleDeck(arr) {
+      const a = arr.slice();
+      for (let x = a.length - 1; x > 0; x--) {
+        const j = Math.floor(Math.random() * (x + 1));
+        const t = a[x];
+        a[x] = a[j];
+        a[j] = t;
+      }
+      return a;
+    }
+
     const saved =
       !opts.fresh &&
       !wantsFresh() &&
       window.EFBProgress &&
       EFBProgress.getResume("flashcards");
 
+    let restored = false;
     if (
       saved &&
       saved.skill === skill &&
@@ -134,7 +146,13 @@
         knows = Number(saved.knows) || 0;
         hards = Number(saved.hards) || 0;
         showResumeHint = i > 0;
+        restored = true;
       }
+    }
+
+    // Fresh session (no resume): randomize card order for better practice
+    if (!restored && opts.shuffle !== false) {
+      deck = shuffleDeck(deck);
     }
 
     if (window.EFBProgress) EFBProgress.setLastLesson("flashcards", "flash-session");
@@ -170,6 +188,10 @@
 
     function paint() {
       if (i >= deck.length) {
+        if (root._efbFlashKey) {
+          document.removeEventListener("keydown", root._efbFlashKey);
+          root._efbFlashKey = null;
+        }
         if (window.EFBProgress) EFBProgress.clearResume("flashcards");
         const skillGuess = (deck[0] && String(deck[0].item_id || "").split(":")[0]) || skill;
         const skillOut =
@@ -207,13 +229,13 @@
           : "";
 
       root.innerHTML = `
-        <div class="panel">
+        <div class="panel flash-shell">
           <div class="quiz-meta">
             <span class="chip">${i + 1}/${deck.length}</span>
-            <span class="muted bn">ট্যাপ করে উল্টান</span>
+            <span class="muted bn">ট্যাপ / Space দিয়ে উল্টান</span>
           </div>
           ${resumeBanner}
-          <div class="flash-card" id="card" role="button" tabindex="0">
+          <div class="flash-card" id="card" role="button" tabindex="0" aria-label="Flip card">
             ${
               showBack
                 ? `<div><div class="back-mean">${escape(c.back)}</div>
@@ -222,15 +244,19 @@
                 : `<div class="front-word">${escape(c.front)}</div>`
             }
           </div>
-          <div class="stack-actions">
-            <button type="button" class="btn btn-secondary" id="prev">আগে</button>
-            <button type="button" class="btn btn-primary" id="flip">উল্টান</button>
-            <button type="button" class="btn btn-secondary" id="next">পরে</button>
+          <div class="flash-actions-sticky">
+            <div class="stack-actions">
+              <button type="button" class="btn btn-secondary" id="prev">‹ আগে</button>
+              <button type="button" class="btn btn-primary" id="flip">উল্টান</button>
+              <button type="button" class="btn btn-secondary" id="next">পরে ›</button>
+            </div>
+            <div class="stack-actions">
+              <button type="button" class="btn btn-accent" id="know">জানি · K</button>
+              <button type="button" class="btn btn-secondary" id="hard">কঠিন · H</button>
+              <button type="button" class="btn btn-ghost" id="btn-flash-shuffle">Shuffle</button>
+            </div>
           </div>
-          <div class="stack-actions">
-            <button type="button" class="btn btn-accent" id="know">জানি · Got it</button>
-            <button type="button" class="btn btn-secondary" id="hard">কঠিন · Again</button>
-          </div>
+          <p class="session-kbd-hint bn"><kbd>Space</kbd>/<kbd>Enter</kbd> flip · <kbd>←</kbd><kbd>→</kbd> · <kbd>K</kbd> know · <kbd>H</kbd> hard</p>
         </div>
       `;
 
@@ -241,40 +267,81 @@
           mountFlashcards(root, cards, Object.assign({}, opts, { fresh: true }));
         });
       }
+      const shuffleBtn = root.querySelector("#btn-flash-shuffle");
+      if (shuffleBtn) {
+        shuffleBtn.addEventListener("click", () => {
+          if (window.EFBProgress) EFBProgress.clearResume("flashcards");
+          mountFlashcards(root, shuffleDeck(deck), Object.assign({}, opts, { fresh: true, shuffle: false }));
+        });
+      }
 
       const flip = () => {
         showBack = !showBack;
         paint();
       };
-      root.querySelector("#card").addEventListener("click", flip);
-      root.querySelector("#flip").addEventListener("click", flip);
-      root.querySelector("#prev").addEventListener("click", () => {
+      const goPrev = () => {
         i = Math.max(0, i - 1);
         showBack = false;
         showResumeHint = false;
         paint();
-      });
-      root.querySelector("#next").addEventListener("click", () => {
+      };
+      const goNext = () => {
         i = i + 1;
         showBack = false;
         showResumeHint = false;
         paint();
-      });
-      root.querySelector("#know").addEventListener("click", () => {
+      };
+      const markKnow = () => {
         if (c.item_id) EFBProgress.recordResult(c.item_id, true, "mcq");
         knows += 1;
         i = i + 1;
         showBack = false;
         showResumeHint = false;
         paint();
-      });
-      root.querySelector("#hard").addEventListener("click", () => {
+      };
+      const markHard = () => {
         if (c.item_id) EFBProgress.recordResult(c.item_id, false, "mcq");
         hards += 1;
         showBack = true;
         showResumeHint = false;
         paint();
-      });
+      };
+
+      const cardEl = root.querySelector("#card");
+      cardEl.addEventListener("click", flip);
+      root.querySelector("#flip").addEventListener("click", flip);
+      root.querySelector("#prev").addEventListener("click", goPrev);
+      root.querySelector("#next").addEventListener("click", goNext);
+      root.querySelector("#know").addEventListener("click", markKnow);
+      root.querySelector("#hard").addEventListener("click", markHard);
+
+      if (root._efbFlashKey) document.removeEventListener("keydown", root._efbFlashKey);
+      root._efbFlashKey = function (e) {
+        if (!document.body.contains(root)) {
+          document.removeEventListener("keydown", root._efbFlashKey);
+          return;
+        }
+        const tag = (e.target && e.target.tagName) || "";
+        if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+        if (tag === "BUTTON" || tag === "A") return;
+        if (e.key === " " || e.key === "Enter") {
+          e.preventDefault();
+          flip();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          goPrev();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          goNext();
+        } else if (e.key === "k" || e.key === "K") {
+          e.preventDefault();
+          markKnow();
+        } else if (e.key === "h" || e.key === "H") {
+          e.preventDefault();
+          markHard();
+        }
+      };
+      document.addEventListener("keydown", root._efbFlashKey);
     }
 
     function escape(s) {

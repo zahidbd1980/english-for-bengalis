@@ -279,7 +279,8 @@ a:hover {
 .wrap {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 1rem 1rem calc(2.5rem + var(--safe-bottom));
+  padding: 1rem max(1rem, env(safe-area-inset-left, 0px)) calc(2.5rem + var(--safe-bottom))
+    max(1rem, env(safe-area-inset-right, 0px));
 }
 
 .wrap-app {
@@ -289,7 +290,8 @@ a:hover {
 .header-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0.55rem 1rem;
+  padding: 0.55rem max(1rem, env(safe-area-inset-right, 0px)) 0.55rem
+    max(1rem, env(safe-area-inset-left, 0px));
   padding-top: calc(0.55rem + var(--safe-top));
   display: flex;
   align-items: center;
@@ -408,8 +410,8 @@ summary:focus-visible {
   color: var(--color-brand-dark);
   text-decoration: underline;
   text-underline-offset: 3px;
-  min-height: auto;
-  padding: 0.4rem 0.2rem;
+  min-height: var(--touch);
+  padding: 0.55rem 0.85rem;
   font-weight: 600;
 }
 
@@ -623,7 +625,8 @@ summary:focus-visible {
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-  min-height: 48px;
+  min-height: var(--touch);
+  touch-action: manipulation;
 }
 
 .option:hover:not(:disabled) {
@@ -681,13 +684,71 @@ summary:focus-visible {
 }
 
 .flash-card {
-  min-height: 200px;
+  min-height: min(50dvh, 280px);
   display: grid;
   place-items: center;
   text-align: center;
   padding: 2rem 1.25rem;
   cursor: pointer;
   user-select: none;
+  touch-action: manipulation;
+  border-radius: var(--radius);
+  background: color-mix(in srgb, var(--color-wash) 70%, #fff);
+}
+.flash-actions-sticky {
+  display: grid;
+  gap: 0.55rem;
+  position: sticky;
+  bottom: calc(0.35rem + var(--safe-bottom));
+  z-index: 20;
+  padding: 0.45rem 0 0.15rem;
+  background: linear-gradient(180deg, transparent, var(--color-bg) 28%);
+}
+.flash-actions-sticky .stack-actions {
+  margin: 0;
+}
+.flash-actions-sticky .btn {
+  flex: 1 1 auto;
+  min-width: 0;
+  box-shadow: var(--shadow);
+}
+.quiz-actions-sticky {
+  position: sticky;
+  bottom: calc(0.35rem + var(--safe-bottom));
+  z-index: 20;
+  padding: 0.45rem 0 0.1rem;
+  background: linear-gradient(180deg, transparent, var(--color-bg) 30%);
+}
+.quiz-actions-sticky .btn {
+  width: 100%;
+  box-shadow: var(--shadow);
+}
+.path-task {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+.path-task.is-done {
+  border-color: color-mix(in srgb, var(--color-success) 45%, var(--color-border));
+  background: color-mix(in srgb, #e7f6ee 70%, #fff);
+}
+.path-day.is-done:not(.is-active) {
+  background: color-mix(in srgb, var(--color-success) 18%, #fff);
+}
+.path-day:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.path-hero .page-title { letter-spacing: -0.02em; }
+.session-kbd-hint kbd {
+  font: inherit;
+  font-size: 0.78em;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  background: #fff;
 }
 
 .flash-card .front-word {
@@ -897,6 +958,22 @@ input.field-input {
   box-shadow: var(--shadow);
 }
 .sp-listen { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 1rem; }
+.sp-actions-sticky {
+  position: sticky;
+  bottom: calc(0.35rem + var(--safe-bottom));
+  z-index: 20;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0.45rem 0 0.1rem;
+  margin-top: 0.75rem;
+  background: linear-gradient(180deg, transparent, var(--color-surface) 35%);
+}
+.sp-actions-sticky .btn {
+  flex: 1 1 auto;
+  min-width: 6.5rem;
+  box-shadow: var(--shadow);
+}
 .sp-input {
   width: 100%;
   min-height: 56px;
@@ -1102,13 +1179,20 @@ input.field-input {
   color: var(--color-ink);
   white-space: nowrap;
   flex: 0 0 auto;
-  min-height: 40px;
+  min-height: var(--touch);
   touch-action: manipulation;
 }
+.chip-btn.chip-btn-primary,
 .chip-btn.is-active {
   background: var(--color-brand);
   border-color: var(--color-brand);
   color: #fff;
+}
+a.chip-btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .vocab-filters {
   display: grid;
@@ -1169,14 +1253,15 @@ input.field-input {
 .btn-speak-inline {
   border: 0;
   background: transparent;
-  padding: 0.1rem 0.25rem;
+  padding: 0.35rem;
   cursor: pointer;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1;
-  min-height: 32px;
-  min-width: 32px;
+  min-height: 44px;
+  min-width: 44px;
   touch-action: manipulation;
   opacity: 0.85;
+  border-radius: 999px;
 }
 .btn-speak-inline:hover,
 .btn-speak-inline:focus-visible {

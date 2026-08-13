@@ -172,6 +172,8 @@
     if (opts.mode === "mistakes") {
       const state = global.EFBStorage ? EFBStorage.load() : { mistakes: [] };
       ids = (state.mistakes || []).slice();
+    } else if (opts.mode === "weak") {
+      ids = weakAreas(opts.limit || 10).map((w) => w.id);
     } else {
       const due = global.EFBProgress ? EFBProgress.dueItems() : [];
       ids = due.map((d) => d.id);
@@ -197,7 +199,7 @@
     });
 
     // Fallback: if review empty, offer mixed weak/low-mastery items
-    if (!questions.length && opts.mode === "review" && global.EFBStorage) {
+    if (!questions.length && (opts.mode === "review" || opts.mode === "weak") && global.EFBStorage) {
       const state = EFBStorage.load();
       const weak = Object.entries(state.items || {})
         .filter(([, it]) => it.attempts > 0 && it.mastery_score < 60)
@@ -210,11 +212,18 @@
       });
     }
 
+    const titles = {
+      mistakes: { title: "Mistake Bank practice", title_bn: "Mistake Bank অনুশীলন" },
+      weak: { title: "Weak areas practice", title_bn: "দুর্বল অংশ অনুশীলন" },
+      review: { title: "Review due", title_bn: "রিভিউ সেশন" },
+    };
+    const t = titles[opts.mode] || titles.review;
+
     return {
       ids: ids,
       questions: questions.slice(0, opts.limit || 10),
-      title: opts.mode === "mistakes" ? "Mistake Bank practice" : "Review due",
-      title_bn: opts.mode === "mistakes" ? "Mistake Bank অনুশীলন" : "রিভিউ সেশন",
+      title: t.title,
+      title_bn: t.title_bn,
     };
   }
 

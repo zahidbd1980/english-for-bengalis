@@ -340,20 +340,20 @@
       'level-test.html"><strong>1. Level Test</strong><span class="bn">লেভেল অনুমান</span></a></li>' +
       '<li><a href="' +
       p +
-      'common-mistakes.html"><strong>2. Common Mistakes</strong><span class="bn">বাংলা ভুল ঠিক</span></a></li>' +
+      'learning-path.html"><strong>2. Learning Path</strong><span class="bn">আজ কী করব</span></a></li>' +
       '<li><a href="' +
       p +
-      'translation-lab.html"><strong>3. Translation Lab</strong><span class="bn">বাংলা → ইংরেজি</span></a></li>' +
+      'vocabulary.html"><strong>3. Vocabulary</strong><span class="bn">৫টা শব্দ</span></a></li>' +
       '<li><a href="' +
       p +
-      'vocabulary.html"><strong>4. Vocabulary</strong><span class="bn">৫টা শব্দ শিখুন</span></a></li>' +
+      'translation-lab.html"><strong>4. Translation Lab</strong><span class="bn">বাংলা → ইংরেজি</span></a></li>' +
       '<li><a href="' +
       p +
-      'my-progress.html"><strong>5. Progress</strong><span class="bn">মাস্টারি দেখুন</span></a></li>' +
+      'daily-challenge.html"><strong>5. Daily Challenge</strong><span class="bn">১০ মিনিট</span></a></li>' +
       "</ol>" +
       '<a class="btn btn-primary" href="' +
       p +
-      'level-test.html">এখনই শুরু · Start</a>' +
+      'learning-path.html">পথ শুরু করুন · Start path</a>' +
       "</div>";
     var skip = document.getElementById("efb-onboard-skip");
     if (skip) skip.addEventListener("click", dismissOnboard);
@@ -442,6 +442,15 @@
     setInterval(tickCountdown, 1000);
     if (global.speechSynthesis) {
       speechSynthesis.getVoices();
+    }
+    if (global.EFBApp && global.EFBPath) {
+      EFBApp.loadJSON("learning-path.json")
+        .then(function (json) {
+          global.__EFB_PATH_DATA__ = json;
+          updateContinueLink();
+          if (global.EFBApp && EFBApp.renderHomeProgress) EFBApp.renderHomeProgress();
+        })
+        .catch(function () {});
     }
   }
 

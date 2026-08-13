@@ -40,11 +40,13 @@
           <summary>শিখুন · Learn</summary>
           <div class="nav-panel">
             <a href="${p}learn.html">Learn hub</a>
+            <a href="${p}learning-path.html">Learning Path · আজ কী করব</a>
             <a href="${p}vocabulary.html">Vocabulary</a>
             <a href="${p}grammar.html">Grammar</a>
             <a href="${p}phrasal-verbs.html">Phrasal Verbs</a>
             <a href="${p}spelling.html">Spelling</a>
             <a href="${p}spoken-english.html">Spoken English</a>
+            <a href="${p}spoken-drill.html">Spoken Drill</a>
             <a href="${p}common-mistakes.html">Common Mistakes</a>
           </div>
         </details>
@@ -91,11 +93,13 @@
       </div>
       <a href="${home}">Home · হোম</a>
       <a href="${p}learn.html">শিখুন · Learn</a>
+      <a class="sub" href="${p}learning-path.html">Learning Path</a>
       <a class="sub" href="${p}vocabulary.html">Vocabulary</a>
       <a class="sub" href="${p}grammar.html">Grammar</a>
       <a class="sub" href="${p}phrasal-verbs.html">Phrasal Verbs</a>
       <a class="sub" href="${p}spelling.html">Spelling</a>
       <a class="sub" href="${p}spoken-english.html">Spoken</a>
+      <a class="sub" href="${p}spoken-drill.html">Spoken Drill</a>
       <a class="sub" href="${p}common-mistakes.html">Common Mistakes</a>
       <a href="${p}practice.html">অনুশীলন · Practice</a>
       <a class="sub" href="${p}daily-challenge.html">Daily Challenge</a>
@@ -124,6 +128,7 @@
         </div>
         <div>
           <h3>শিখুন</h3>
+          <a href="${p}learning-path.html">Learning Path</a>
           <a href="${p}vocabulary.html">Vocabulary</a>
           <a href="${p}grammar.html">Grammar</a>
           <a href="${p}phrasal-verbs.html">Phrasal Verbs</a>
@@ -164,9 +169,19 @@
 
     const toggle = document.getElementById("nav-toggle");
     if (toggle && drawer) {
-      toggle.addEventListener("click", () => {
-        const open = drawer.classList.toggle("open");
+      const setDrawer = (open) => {
+        drawer.classList.toggle("open", open);
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        if (!open) toggle.focus();
+      };
+      toggle.addEventListener("click", () => {
+        setDrawer(!drawer.classList.contains("open"));
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && drawer.classList.contains("open")) {
+          e.preventDefault();
+          setDrawer(false);
+        }
       });
     }
 
@@ -190,11 +205,12 @@
     mistakes: "common-mistakes.html",
     sentence: "sentence-builder.html",
     translate: "translation-lab.html",
-    spoken: "spoken-english.html",
+    spoken: "spoken-drill.html",
     quizzes: "quizzes.html",
     flashcards: "flashcards.html",
     daily: "daily-challenge.html",
     review: "quizzes.html?mode=review",
+    path: "learning-path.html",
   };
 
   function pagesPrefix() {
@@ -253,6 +269,23 @@
         label: "Review due (" + due.length + ") · আজকের রিভিউ →",
       };
     }
+
+    // Learning Path when started and today's tasks still open
+    if (window.EFBPath && state.path && state.path.plan_id) {
+      try {
+        const cached = window.__EFB_PATH_DATA__;
+        if (cached) {
+          const hint = EFBPath.continueHint(cached, p);
+          if (hint && hint.pending) return hint;
+        } else {
+          return {
+            href: p + "learning-path.html",
+            label: "আজকের প্ল্যান · Day " + (state.path.day || 1) + " →",
+          };
+        }
+      } catch (e) {}
+    }
+
     if (!challengeDone) {
       return {
         href: p + "daily-challenge.html?resume=1",
@@ -280,6 +313,9 @@
     }
     if (state.mistakes && state.mistakes.length) {
       return { href: p + "quizzes.html?mode=mistakes&resume=1", label: "Mistake Bank practice →" };
+    }
+    if (!state.path || !state.path.plan_id) {
+      return { href: p + "learning-path.html", label: "Learning Path শুরু করুন →" };
     }
     return { href: p + "my-progress.html", label: "Continue where you left off →" };
   }

@@ -214,6 +214,7 @@
 
             <div class="stack-actions">
               <button type="button" class="btn btn-primary" id="start-btn">Start practice · শুরু</button>
+              <button type="button" class="btn btn-accent" id="btn-random-preset">Random list</button>
               <a class="btn btn-ghost" href="spelling.html">Study tips</a>
             </div>
             ${showHelp ? `<div class="sp-help"><kbd>Enter</kbd> start/check/next · <kbd>Ctrl+L</kbd> listen · <kbd>H</kbd> hint · <kbd>?</kbd> help</div>` : ""}
@@ -325,6 +326,19 @@
           if (window.EFBProgress) EFBProgress.clearResume("spelling");
           startSession();
         };
+        const randPreset = document.getElementById("btn-random-preset");
+        if (randPreset) {
+          randPreset.onclick = () => {
+            if (!listsData.length) return;
+            const pick = listsData[Math.floor(Math.random() * listsData.length)];
+            selectedPresetIds = new Set([pick.id]);
+            activeSavedId = null;
+            useCustom = false;
+            if (window.EFBProgress) EFBProgress.clearResume("spelling");
+            renderSetup();
+            startSession();
+          };
+        }
         const resumeBtn = document.getElementById("btn-resume-sp");
         if (resumeBtn) resumeBtn.onclick = () => tryRestoreSession();
         const discardBtn = document.getElementById("btn-discard-sp");
@@ -376,14 +390,14 @@
             </div>
             <p class="muted ${showHint ? "" : "hidden"}">Letters: <strong>${session.current.length}</strong> · starts with <strong>${esc(session.current[0].toUpperCase())}</strong></p>
             <label class="sr-only" for="answer">Type spelling</label>
-            <input id="answer" class="sp-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the word…" />
-            <div class="stack-actions">
+            <input id="answer" class="sp-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the word… (empty Enter = listen)" />
+            <div class="sp-actions-sticky">
               <button type="button" class="btn btn-primary" id="btn-check">Check · Enter</button>
-              <button type="button" class="btn btn-secondary hidden" id="btn-next">Next</button>
-              <button type="button" class="btn btn-ghost" id="btn-quit">End</button>
+              <button type="button" class="btn btn-secondary hidden" id="btn-next">Next · Enter</button>
+              <button type="button" class="btn btn-secondary" id="btn-quit">End</button>
             </div>
             <div id="feedback" class="feedback" role="status" aria-live="assertive"></div>
-            ${showHelp ? `<div class="sp-help"><kbd>Ctrl+L</kbd> listen · <kbd>Enter</kbd> check/next · <kbd>Esc</kbd> clear</div>` : ""}
+            ${showHelp ? `<div class="sp-help"><kbd>Enter</kbd> empty=listen · typed=check · <kbd>Ctrl+L</kbd> listen · <kbd>Esc</kbd> clear</div>` : ""}
           </div>
           <div class="sp-columns">
             <div class="sp-col ok"><h3>Correct (${session.correct.length})</h3><ul>${session.correct.slice(-12).map((w) => `<li>${esc(w)}</li>`).join("") || "<li class='muted'>—</li>"}</ul></div>
@@ -403,11 +417,18 @@
           renderSetup();
         };
         input.addEventListener("keydown", (e) => {
-          if (e.key === "Enter") {
-            e.preventDefault();
-            if (awaitingNext) goNext();
-            else submitAnswer();
+          if (e.key !== "Enter") return;
+          e.preventDefault();
+          if (awaitingNext) {
+            goNext();
+            return;
           }
+          // Empty box + Enter = listen again (no need to click Listen)
+          if (!String(input.value || "").trim()) {
+            listen(false);
+            return;
+          }
+          submitAnswer();
         });
         if (autoSpeak) listen(false);
       }

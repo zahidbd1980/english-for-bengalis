@@ -194,6 +194,8 @@
           word_id: payload.word_id || null,
           label: payload.label || "",
           total: Number(payload.total) || 0,
+          order_ids: payload.order_ids || null,
+          shuffled: !!payload.shuffled,
           updated_at: now,
         });
       }

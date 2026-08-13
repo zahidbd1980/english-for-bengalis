@@ -86,12 +86,13 @@
           <p class="muted bn">ব্যক্তিগত টার্গেট: <strong>${vocabStarted}</strong> / ${vocabTarget} (${pct(vocabStarted, vocabTarget)}%)</p>
           <div class="bar" data-pct="${pct(vocabStarted, vocabTarget)}"><i></i></div>
           <p class="muted" style="margin-top:0.75rem">ব্যাংকে এখন ${vocab.length}টি শব্দ · বাকি টার্গেট Settings থেকে বদলাতে পারবেন</p>
-          <div class="stack-actions">
-            <a class="btn btn-primary" href="vocabulary.html">Vocabulary চালিয়ে যান</a>
+          <div class="stack-actions stack-actions-scroll">
+            <a class="btn btn-primary" href="learning-path.html">Learning Path</a>
+            <a class="btn btn-secondary" href="vocabulary.html">Vocabulary চালিয়ে যান</a>
             ${cont ? `<a class="btn btn-accent" href="${cont.href}">${cont.label}</a>` : ""}
             <a class="btn btn-secondary" href="settings.html">টার্গেট / Export</a>
-            <a class="btn btn-ghost" href="daily-challenge.html">Daily Challenge</a>
-            ${!state.profile.estimated_level ? `<a class="btn btn-ghost" href="level-test.html">Level Test</a>` : ""}
+            <a class="btn btn-secondary" href="daily-challenge.html">Daily Challenge</a>
+            ${!state.profile.estimated_level ? `<a class="btn btn-secondary" href="level-test.html">Level Test</a>` : ""}
           </div>
         </div>
         <div class="panel">
@@ -137,7 +138,8 @@
               <li><code>${shortLabel(w.id)}</code>
                 <span class="muted"> — wrong ${w.wrong_count} · mastery ${w.mastery_score}</span>
               </li>`).join("")}</ul>
-            <a class="btn btn-ghost" href="quizzes.html?mode=review">দুর্বল অংশ রিভিউ</a>
+            <a class="btn btn-primary" href="quizzes.html?mode=weak">দুর্বল ১০টা অনুশীলন · Start</a>
+            <a class="btn btn-secondary" href="quizzes.html?mode=review">রিভিউ due</a>
           ` : `<p class="muted bn">এখনো যথেষ্ট ডেটা নেই — কয়েকটা কুইজ দিয়ে শুরু করুন।</p>`}
         </div>
       `;

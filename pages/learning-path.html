@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0f6b5c" />
+  <title>Learning Path · আজ কী করব — English for Bengalis</title>
+  <meta name="description" content="14-day English learning path for Bengali speakers: daily vocab, grammar, spelling, translation and challenge tasks." />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+</head>
+<body data-root="..">
+  <a class="skip-link" href="#main">Skip</a>
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main id="main" class="wrap">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Learning Path</span>
+    </nav>
+    <h1 class="page-title">Learning Path · আজ কী করব</h1>
+    <p class="page-intro bn">প্রতিদিন ২–৩টা ছোট কাজ। শেষ করলে টিক দিন — পুরো দিন শেষ হলে পরের দিন আনলক।</p>
+    <div id="root"></div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/learning-path.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+    (function () {
+      const root = document.getElementById("root");
+      let data = null;
+
+      function esc(s) {
+        return String(s || "")
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      function render() {
+        const snap = EFBPath.snapshot(data);
+        if (!snap.plan) {
+          root.innerHTML = '<div class="empty-state bn">প্ল্যান লোড হয়নি।</div>';
+          return;
+        }
+
+        if (!snap.started) {
+          root.innerHTML = `
+            <section class="panel highlight path-hero">
+              <p class="chip">14 days</p>
+              <h2 class="page-title" style="font-size:1.55rem;margin:0.35rem 0">${esc(snap.plan.title)}</h2>
+              <p class="bn">${esc(snap.plan.title_bn)}</p>
+              <p class="muted">${esc(snap.plan.blurb_bn || snap.plan.blurb)}</p>
+              <div class="stack-actions">
+                <button type="button" class="btn btn-primary" id="btn-start-path">পথ শুরু করুন · Start</button>
+                <a class="btn btn-secondary" href="level-test.html">আগে Level Test</a>
+              </div>
+            </section>`;
+          document.getElementById("btn-start-path").onclick = () => {
+            EFBPath.ensurePath(snap.plan.id);
+            render();
+          };
+          return;
+        }
+
+        const pct = snap.total ? Math.round((snap.doneCount / snap.total) * 100) : 0;
+        const taskHtml = snap.tasks
+          .map(
+            (t) => `
+            <article class="path-task ${t.done ? "is-done" : ""}">
+              <div class="path-task-main">
+                <strong>${esc(t.label)}</strong>
+                <div class="stack-actions" style="margin-top:0.55rem">
+                  <a class="btn btn-primary" href="${esc(t.href)}">খুলুন</a>
+                  <button type="button" class="btn btn-secondary btn-path-toggle" data-tid="${esc(t.id)}">
+                    ${t.done ? "✓ সম্পন্ন" : "সম্পন্ন করুন"}
+                  </button>
+                </div>
+              </div>
+            </article>`
+          )
+          .join("");
+
+        const daysStrip = (snap.plan.days || [])
+          .map((d) => {
+            const n = Number(d.day);
+            const on = n === snap.day;
+            const done = EFBPath.dayComplete(snap.state, snap.plan, n);
+            const locked = n > snap.day;
+            return `<button type="button" class="chip-btn path-day ${on ? "is-active" : ""} ${done ? "is-done" : ""}" data-day="${n}" ${locked ? "disabled" : ""} title="${esc(d.title_bn || d.title)}">${n}</button>`;
+          })
+          .join("");
+
+        root.innerHTML = `
+          <section class="panel highlight">
+            <div class="quiz-meta">
+              <span class="chip">Day ${snap.day} / ${snap.maxDay}</span>
+              <span class="muted">${snap.doneCount}/${snap.total} tasks</span>
+            </div>
+            <h2 style="font-family:var(--font-display);margin:0.35rem 0 0.25rem;font-size:1.45rem">${esc((snap.spec && snap.spec.title) || "")}</h2>
+            <p class="bn" style="margin:0 0 0.75rem">${esc((snap.spec && snap.spec.title_bn) || "")}</p>
+            <div class="bar" data-pct="${pct}" aria-hidden="true"><i style="width:${pct}%"></i></div>
+            <div class="chip-row path-days" style="margin-top:0.85rem">${daysStrip}</div>
+          </section>
+
+          <section class="stack path-tasks" style="margin-top:1rem;display:grid;gap:0.75rem">
+            ${taskHtml}
+          </section>
+
+          <section class="panel" style="margin-top:1rem">
+            ${
+              snap.complete && !snap.finishedPlan
+                ? `<p class="bn">আজকের সব কাজ শেষ ✔</p>
+                   <button type="button" class="btn btn-accent" id="btn-next-day">পরের দিন আনলক · Day ${snap.day + 1}</button>`
+                : snap.finishedPlan
+                  ? `<p class="bn">১৪ দিনের পথ শেষ — দারুণ! চাইলে আবার শুরু করতে পারেন।</p>
+                     <button type="button" class="btn btn-primary" id="btn-restart-path">আবার শুরু</button>`
+                  : `<p class="muted bn">প্রতিটা কাজ খুলে অনুশীলন করুন, তারপর “সম্পন্ন করুন” চাপুন।</p>`
+            }
+            <div class="stack-actions" style="margin-top:0.85rem">
+              <a class="btn btn-secondary" href="my-progress.html">My Progress</a>
+              <a class="btn btn-ghost" href="practice.html">Practice hub</a>
+              <button type="button" class="btn btn-ghost" id="btn-reset-path">পথ রিসেট</button>
+            </div>
+          </section>
+        `;
+
+        root.querySelectorAll(".btn-path-toggle").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-tid");
+            const task = snap.tasks.find((t) => t.id === id);
+            EFBPath.markTask(snap.day, id, !(task && task.done));
+            render();
+          });
+        });
+
+        root.querySelectorAll(".path-day").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const n = Number(btn.getAttribute("data-day"));
+            if (!n || n > snap.day) return;
+            EFBStorage.update((s) => {
+              if (!s.path) return;
+              s.path.day = n;
+            });
+            render();
+          });
+        });
+
+        const next = document.getElementById("btn-next-day");
+        if (next) {
+          next.onclick = () => {
+            EFBPath.advanceDay(snap.plan);
+            render();
+          };
+        }
+        const restart = document.getElementById("btn-restart-path");
+        if (restart) {
+          restart.onclick = () => {
+            if (!confirm("পথ আবার Day 1 থেকে শুরু হবে। নিশ্চিত?")) return;
+            EFBPath.resetPath(snap.plan.id);
+            render();
+          };
+        }
+        const reset = document.getElementById("btn-reset-path");
+        if (reset) {
+          reset.onclick = () => {
+            if (!confirm("Learning Path রিসেট করবেন?")) return;
+            EFBPath.resetPath(snap.plan.id);
+            render();
+          };
+        }
+      }
+
+      EFBApp.loadJSON("learning-path.json")
+        .then((json) => {
+          data = json;
+          render();
+        })
+        .catch((e) => {
+          root.innerHTML = `<div class="empty-state">Could not load path: ${esc(e.message)}</div>`;
+        });
+    })();
+  </script>
+</body>
+</html>

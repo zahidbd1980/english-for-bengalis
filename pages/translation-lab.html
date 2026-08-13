@@ -16,7 +16,7 @@
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Translation Lab</span></nav>
     <h1 class="page-title">Translation Lab · অনুবাদ ল্যাব</h1>
     <p class="page-intro bn">বাংলা দেখে ইংরেজি লিখুন। সরাসরি অনুবাদের ভুল ভাঙতে সাহায্য করে — মাঝপথে বন্ধ করলেও চালিয়ে যেতে পারবেন।</p>
-    <div class="stack-actions" style="margin-bottom:1rem" id="topic-filters"></div>
+    <div class="chip-row" style="margin-bottom:1rem" id="topic-filters"></div>
     <div id="quiz-root"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -67,7 +67,7 @@
       document.getElementById("topic-filters").innerHTML = topics
         .map(
           (t) =>
-            `<button type="button" class="btn ${t === topic ? "btn-primary" : "btn-secondary"}" data-topic="${t}">${t}</button>`
+            `<button type="button" class="chip-btn ${t === topic ? "is-active" : ""}" data-topic="${t}">${t}</button>`
         )
         .join("");
       document.getElementById("topic-filters").addEventListener("click", (e) => {
@@ -75,8 +75,8 @@
         if (!btn) return;
         topic = btn.getAttribute("data-topic");
         if (window.EFBProgress) EFBProgress.clearResume("translate");
-        [...document.querySelectorAll("#topic-filters .btn")].forEach((b) => {
-          b.className = "btn " + (b.getAttribute("data-topic") === topic ? "btn-primary" : "btn-secondary");
+        [...document.querySelectorAll("#topic-filters .chip-btn")].forEach((b) => {
+          b.className = "chip-btn" + (b.getAttribute("data-topic") === topic ? " is-active" : "");
         });
         start(true);
       });
