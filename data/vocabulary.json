@@ -2389,36 +2389,21 @@
   {
     "id": "vocab:significant",
     "word": "significant",
-    "meaning_en": "important or large enough to notice",
-    "meaning_bn": "উল্লেখযোগ্য / গুরুত্বপূর্ণ",
+    "meaning_en": "large or important enough to notice",
+    "meaning_bn": "উল্লেখযোগ্য",
     "part_of_speech": "adjective",
-    "cefr_level": "B1",
+    "cefr_level": "B2",
     "category": "ielts",
-    "example": "There was a significant increase in online learning.",
-    "example_bn": "অনলাইন লার্নিংয়ে উল্লেখযোগ্য বৃদ্ধি হয়েছিল।",
-    "synonyms": [
-      "important",
-      "notable"
-    ],
-    "antonyms": [
-      "minor"
-    ],
-    "word_family": [
-      {
-        "word": "significance",
-        "pos": "noun",
-        "meaning_bn": "গুরুত্ব / তাৎপর্য"
-      },
-      {
-        "word": "significantly",
-        "pos": "adverb",
-        "meaning_bn": "উল্লেখযোগ্যভাবে"
-      },
-      {
-        "word": "insignificant",
-        "pos": "adjective",
-        "meaning_bn": "তুচ্ছ / অগুরুত্বপূর্ণ"
-      }
+    "example": "A significant proportion preferred trains.",
+    "example_bn": "উল্লেখযোগ্য অংশ ট্রেন পছন্দ করেছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "task1",
+      "writing"
     ]
   },
   {
@@ -2621,29 +2606,21 @@
   {
     "id": "vocab:proportion",
     "word": "proportion",
-    "meaning_en": "a part of a whole; relative amount",
+    "meaning_en": "a part of a whole",
     "meaning_bn": "অনুপাত / অংশ",
     "part_of_speech": "noun",
     "cefr_level": "B1",
-    "category": "ielts",
-    "example": "A large proportion of students study online.",
-    "example_bn": "বড় অনুপাতের শিক্ষার্থী অনলাইনে পড়ে।",
-    "synonyms": [
-      "percentage",
-      "share"
-    ],
+    "category": "education",
+    "example": "The proportion of remote workers grew.",
+    "example_bn": "রিমোট কর্মীর অনুপাত বেড়েছে।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "proportional",
-        "pos": "adjective",
-        "meaning_bn": "আনুপাতিক"
-      },
-      {
-        "word": "proportionately",
-        "pos": "adverb",
-        "meaning_bn": "আনুপাতিকভাবে"
-      }
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "task1",
+      "writing"
     ]
   },
   {
@@ -2702,18 +2679,20 @@
     "id": "vocab:overall",
     "word": "overall",
     "meaning_en": "in general; considering everything",
-    "meaning_bn": "মোটের ওপর / সামগ্রিকভাবে",
-    "part_of_speech": "adverb/adjective",
+    "meaning_bn": "মোটের উপর / সামগ্রিকভাবে",
+    "part_of_speech": "adverb",
     "cefr_level": "B1",
     "category": "ielts",
-    "example": "Overall, the benefits outweigh the drawbacks.",
-    "example_bn": "মোটের ওপর, উপকার অসুবিধার চেয়ে বেশি।",
-    "synonyms": [
-      "generally",
-      "mainly"
-    ],
+    "example": "Overall, the advantages outweigh the drawbacks.",
+    "example_bn": "মোটের উপর, সুবিধা অসুবিধার চেয়ে বেশি।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "writing"
+    ]
   },
   {
     "id": "vocab:therefore",
@@ -2723,48 +2702,54 @@
     "part_of_speech": "adverb",
     "cefr_level": "B1",
     "category": "ielts",
-    "example": "The roads were flooded; therefore, schools closed.",
-    "example_bn": "রাস্তা ডুবেছিল; অতএব স্কুল বন্ধ ছিল।",
-    "synonyms": [
-      "so",
-      "thus"
-    ],
+    "example": "Traffic increased; therefore commute times rose.",
+    "example_bn": "ট্রাফিক বেড়েছে; অতএব যাতায়াতের সময় বেড়েছে।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "writing"
+    ]
   },
   {
     "id": "vocab:however",
     "word": "however",
-    "meaning_en": "but; used to introduce a contrasting idea",
+    "meaning_en": "but; used to introduce contrast",
     "meaning_bn": "তবে / যাই হোক",
     "part_of_speech": "adverb",
     "cefr_level": "B1",
     "category": "ielts",
-    "example": "The idea is good; however, it is expensive.",
-    "example_bn": "আইডিয়া ভালো; তবে এটি ব্যয়বহুল।",
-    "synonyms": [
-      "but",
-      "nevertheless"
-    ],
+    "example": "The plan looks good; however, funding is limited.",
+    "example_bn": "পরিকল্পনা ভালো দেখায়; তবে অর্থায়ন সীমিত।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "writing"
+    ]
   },
   {
     "id": "vocab:furthermore",
     "word": "furthermore",
     "meaning_en": "in addition; also",
-    "meaning_bn": "অধিকন্তু / তাছাড়া",
+    "meaning_bn": "অধিকন্তু / আরও বলা যায়",
     "part_of_speech": "adverb",
     "cefr_level": "B2",
     "category": "ielts",
-    "example": "Furthermore, free courses help poor students.",
-    "example_bn": "অধিকন্তু, ফ্রি কোর্স দরিদ্র শিক্ষার্থীদের সাহায্য করে।",
-    "synonyms": [
-      "moreover",
-      "also"
-    ],
+    "example": "Furthermore, public transport reduces pollution.",
+    "example_bn": "অধিকন্তু, গণপরিবহন দূষণ কমায়।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "writing"
+    ]
   },
   {
     "id": "vocab:although",
@@ -2774,48 +2759,57 @@
     "part_of_speech": "conjunction",
     "cefr_level": "B1",
     "category": "ielts",
-    "example": "Although it was raining, they went out.",
-    "example_bn": "যদিও বৃষ্টি হচ্ছিল, তারা বাইরে গিয়েছিল।",
-    "synonyms": [
-      "though",
-      "even though"
-    ],
+    "example": "Although online learning is flexible, it needs discipline.",
+    "example_bn": "যদিও অনলাইন লার্নিং নমনীয়, এতে শৃঙ্খলা লাগে।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "writing"
+    ]
   },
   {
     "id": "vocab:whereas",
     "word": "whereas",
-    "meaning_en": "used to show contrast between two facts",
+    "meaning_en": "used to contrast two facts",
     "meaning_bn": "যেখানে / অন্যদিকে",
     "part_of_speech": "conjunction",
     "cefr_level": "B2",
     "category": "ielts",
-    "example": "City life is busy, whereas village life is calm.",
-    "example_bn": "শহরের জীবন ব্যস্ত, অন্যদিকে গ্রামের জীবন শান্ত।",
-    "synonyms": [
-      "while",
-      "but"
-    ],
+    "example": "Some prefer cities, whereas others like villages.",
+    "example_bn": "কেউ শহর পছন্দ করেন, অন্যদিকে কেউ গ্রাম পছন্দ করেন।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "writing"
+    ]
   },
   {
     "id": "vocab:consequently",
     "word": "consequently",
     "meaning_en": "as a result",
-    "meaning_bn": "ফলস্বরূপ",
+    "meaning_bn": "ফলস্বরূপ / এর ফলে",
     "part_of_speech": "adverb",
     "cefr_level": "B2",
     "category": "ielts",
-    "example": "He did not revise; consequently, he failed.",
-    "example_bn": "সে রিভিশন করেনি; ফলস্বরূপ সে ফেল করেছে।",
+    "example": "Factories closed; consequently, unemployment rose.",
+    "example_bn": "কারখানা বন্ধ হয়েছিল; ফলস্বরূপ বেকারত্ব বেড়েছিল।",
     "synonyms": [
       "therefore",
-      "as a result"
+      "thus"
     ],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "writing"
+    ]
   },
   {
     "id": "vocab:argue",
@@ -5464,45 +5458,49 @@
   {
     "id": "vocab:increase",
     "word": "increase",
-    "phonetic": "/ɪnˈkriːs/",
-    "meaning_en": "to become larger",
-    "meaning_bn": "বৃদ্ধি পাওয়া / বৃদ্ধি",
-    "example": "Prices increased.",
-    "example_bn": "দাম বেড়েছে।",
+    "phonetic": "",
+    "meaning_en": "to become larger in number or amount",
+    "meaning_bn": "বৃদ্ধি পাওয়া / বাড়ানো",
+    "example": "Sales increased from 20 to 45 units.",
+    "example_bn": "বিক্রি ২০ থেকে ৪৫ ইউনিটে বৃদ্ধি পেয়েছে।",
     "tags": [
-      "academic"
+      "academic",
+      "ielts",
+      "task1",
+      "writing"
     ],
     "synonyms": [
-      "rise"
+      "rise",
+      "grow"
     ],
-    "antonyms": [
-      "decrease"
-    ],
+    "antonyms": [],
     "cefr_level": "A2",
-    "part_of_speech": "verb/noun",
-    "category": "ielts",
+    "part_of_speech": "verb",
+    "category": "education",
     "word_family": []
   },
   {
     "id": "vocab:decrease",
     "word": "decrease",
-    "phonetic": "/dɪˈkriːs/",
+    "phonetic": "",
     "meaning_en": "to become smaller",
     "meaning_bn": "কমে যাওয়া / হ্রাস",
-    "example": "The number decreased.",
-    "example_bn": "সংখ্যা কমেছে।",
+    "example": "Unemployment decreased slightly in 2019.",
+    "example_bn": "২০১৯-এ বেকারত্ব সামান্য কমেছে।",
     "tags": [
-      "academic"
+      "academic",
+      "ielts",
+      "task1",
+      "writing"
     ],
     "synonyms": [
-      "reduce"
+      "fall",
+      "decline"
     ],
-    "antonyms": [
-      "increase"
-    ],
-    "cefr_level": "B1",
-    "part_of_speech": "verb/noun",
-    "category": "ielts",
+    "antonyms": [],
+    "cefr_level": "A2",
+    "part_of_speech": "verb",
+    "category": "education",
     "word_family": []
   },
   {
@@ -7954,20 +7952,23 @@
   {
     "id": "vocab:peak",
     "word": "peak",
-    "meaning_en": "the highest point of something",
-    "meaning_bn": "চূড়া / সর্বোচ্চ বিন্দু",
-    "part_of_speech": "noun",
+    "meaning_en": "to reach the highest point",
+    "meaning_bn": "সর্বোচ্চ বিন্দুতে পৌঁছানো",
+    "part_of_speech": "verb/noun",
     "cefr_level": "B1",
     "category": "ielts",
-    "example": "I learned the word 'peak' for IELTS listening.",
-    "example_bn": "IELTS লিসেনিংয়ের জন্য আমি 'peak' শব্দটি শিখেছি।",
+    "example": "Demand peaked in December.",
+    "example_bn": "ডিসেম্বরে চাহিদা সর্বোচ্চ হয়েছিল।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "task1",
+      "writing"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:highway",
@@ -8062,20 +8063,23 @@
   {
     "id": "vocab:fluctuate",
     "word": "fluctuate",
-    "meaning_en": "to change up and down frequently",
-    "meaning_bn": "ওঠানামা করা",
+    "meaning_en": "to rise and fall irregularly",
+    "meaning_bn": "উঠানামা করা",
     "part_of_speech": "verb",
     "cefr_level": "B2",
-    "category": "verbs",
-    "example": "You should fluctuate carefully during the test.",
-    "example_bn": "পরীক্ষায় আপনার সাবধানে fluctuate করা উচিত।",
+    "category": "ielts",
+    "example": "Temperatures fluctuated throughout the year.",
+    "example_bn": "সারা বছর তাপমাত্রা উঠানামা করেছে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "task1",
+      "writing"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:musician",
@@ -36255,6 +36259,1355 @@
       "ielts",
       "listening",
       "pdf-1700"
+    ]
+  },
+  {
+    "id": "vocab:moreover",
+    "word": "moreover",
+    "phonetic": "",
+    "meaning_en": "in addition; used to add a stronger point",
+    "meaning_bn": "অধিকন্তু / তাছাড়াও",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Moreover, online classes save travel time.",
+    "example_bn": "অধিকন্তু, অনলাইন ক্লাস যাতায়াতের সময় বাঁচায়।",
+    "synonyms": [
+      "furthermore",
+      "additionally"
+    ],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:additionally",
+    "word": "additionally",
+    "phonetic": "",
+    "meaning_en": "as an extra point",
+    "meaning_bn": "অতিরিক্তভাবে / সেই সঙ্গে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Additionally, libraries offer free internet access.",
+    "example_bn": "অতিরিক্তভাবে, লাইব্রেরিতে ফ্রি ইন্টারনেট থাকে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:nevertheless",
+    "word": "nevertheless",
+    "phonetic": "",
+    "meaning_en": "in spite of that; however",
+    "meaning_bn": "তবুও / তারপরও",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "The course is difficult; nevertheless, many finish it.",
+    "example_bn": "কোর্সটি কঠিন; তবুও অনেকে শেষ করেন।",
+    "synonyms": [
+      "nonetheless",
+      "however"
+    ],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:nonetheless",
+    "word": "nonetheless",
+    "phonetic": "",
+    "meaning_en": "in spite of what has just been said",
+    "meaning_bn": "তা সত্ত্বেও / তবুও",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "It rains often; nonetheless, tourism is strong.",
+    "example_bn": "প্রায়ই বৃষ্টি হয়; তা সত্ত্বেও পর্যটন শক্তিশালী।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:meanwhile",
+    "word": "meanwhile",
+    "phonetic": "",
+    "meaning_en": "at the same time",
+    "meaning_bn": "এই সময়ে / ইতোমধ্যে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Parents work; meanwhile, children attend school.",
+    "example_bn": "বাবা-মা কাজ করেন; এই সময়ে সন্তানেরা স্কুলে যায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:hence",
+    "word": "hence",
+    "phonetic": "",
+    "meaning_en": "for this reason",
+    "meaning_bn": "এজন্য / অতএব",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Demand fell; hence prices dropped.",
+    "example_bn": "চাহিদা কমেছে; এজন্য দাম কমেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:thus",
+    "word": "thus",
+    "phonetic": "",
+    "meaning_en": "in this way; therefore",
+    "meaning_bn": "এভাবে / অতএব",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "She practised daily; thus her band score improved.",
+    "example_bn": "সে প্রতিদিন অনুশীলন করেছিল; এভাবে ব্যান্ড স্কোর বেড়েছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:accordingly",
+    "word": "accordingly",
+    "phonetic": "",
+    "meaning_en": "in a way that is suitable; therefore",
+    "meaning_bn": "সেই অনুযায়ী / তদনুসারে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Rules changed; schools acted accordingly.",
+    "example_bn": "নিয়ম বদলেছে; স্কুলগুলো সেই অনুযায়ী কাজ করেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:conversely",
+    "word": "conversely",
+    "phonetic": "",
+    "meaning_en": "in the opposite way",
+    "meaning_bn": "উল্টোদিকে / বিপরীতে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "City life is busy; conversely, villages are quieter.",
+    "example_bn": "শহরের জীবন ব্যস্ত; উল্টোদিকে গ্রাম শান্ত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:similarly",
+    "word": "similarly",
+    "phonetic": "",
+    "meaning_en": "in a similar way",
+    "meaning_bn": "একইভাবে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Similarly, recycled paper can protect forests.",
+    "example_bn": "একইভাবে, রিসাইকেল কাগজ বন রক্ষা করতে পারে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:likewise",
+    "word": "likewise",
+    "phonetic": "",
+    "meaning_en": "in the same way; also",
+    "meaning_bn": "তেমনি / একইভাবে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Teachers need training; likewise, parents need guidance.",
+    "example_bn": "শিক্ষকদের প্রশিক্ষণ লাগে; তেমনি অভিভাবকদের গাইডলাইন লাগে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:specifically",
+    "word": "specifically",
+    "phonetic": "",
+    "meaning_en": "in a detailed or exact way",
+    "meaning_bn": "বিশেষভাবে / স্পষ্ট করে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Specifically, Task 2 needs a clear opinion.",
+    "example_bn": "বিশেষভাবে, Task 2-এ স্পষ্ট মতামত লাগে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:particularly",
+    "word": "particularly",
+    "phonetic": "",
+    "meaning_en": "especially",
+    "meaning_bn": "বিশেষ করে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Air pollution is particularly severe in winter.",
+    "example_bn": "শীতকালে বায়ুদূষণ বিশেষ করে তীব্র।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:notably",
+    "word": "notably",
+    "phonetic": "",
+    "meaning_en": "especially; in a way worth mentioning",
+    "meaning_bn": "উল্লেখযোগ্যভাবে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Notably, women joined the workforce in large numbers.",
+    "example_bn": "উল্লেখযোগ্যভাবে, নারীরা বড় সংখ্যায় কর্মক্ষেত্রে যোগ দিয়েছেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:finally",
+    "word": "finally",
+    "phonetic": "",
+    "meaning_en": "used to introduce the last point",
+    "meaning_bn": "সবশেষে",
+    "part_of_speech": "adverb",
+    "cefr_level": "A2",
+    "category": "ielts",
+    "example": "Finally, governments should invest in education.",
+    "example_bn": "সবশেষে, সরকারের শিক্ষায় বিনিয়োগ করা উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:firstly",
+    "word": "firstly",
+    "phonetic": "",
+    "meaning_en": "used to introduce the first point",
+    "meaning_bn": "প্রথমত",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Firstly, public transport must be affordable.",
+    "example_bn": "প্রথমত, গণপরিবহন সাশ্রয়ী হতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:secondly",
+    "word": "secondly",
+    "phonetic": "",
+    "meaning_en": "used to introduce the second point",
+    "meaning_bn": "দ্বিতীয়ত",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Secondly, roads need better maintenance.",
+    "example_bn": "দ্বিতীয়ত, রাস্তার রক্ষণাবেক্ষণ ভালো করতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:thirdly",
+    "word": "thirdly",
+    "phonetic": "",
+    "meaning_en": "used to introduce the third point",
+    "meaning_bn": "তৃতীয়ত",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Thirdly, citizens should follow traffic rules.",
+    "example_bn": "তৃতীয়ত, নাগরিকদের ট্রাফিক নিয়ম মানতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:despite",
+    "word": "despite",
+    "phonetic": "",
+    "meaning_en": "without being affected by",
+    "meaning_bn": "সত্ত্বেও",
+    "part_of_speech": "preposition",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Despite the cost, many people study abroad.",
+    "example_bn": "খরচ সত্ত্বেও অনেকে বিদেশে পড়েন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:instead",
+    "word": "instead",
+    "phonetic": "",
+    "meaning_en": "as an alternative",
+    "meaning_bn": "পরিবর্তে",
+    "part_of_speech": "adverb",
+    "cefr_level": "A2",
+    "category": "ielts",
+    "example": "Instead of memorising, practise with examples.",
+    "example_bn": "মুখস্থ করার পরিবর্তে উদাহরণ দিয়ে অনুশীলন করুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:otherwise",
+    "word": "otherwise",
+    "phonetic": "",
+    "meaning_en": "if not; or else",
+    "meaning_bn": "না হলে / অন্যথায়",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Submit on time; otherwise you may lose marks.",
+    "example_bn": "সময়মতো জমা দিন; না হলে নম্বর কাটা যেতে পারে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:in-addition",
+    "word": "in addition",
+    "phonetic": "",
+    "meaning_en": "as well as what was said",
+    "meaning_bn": "এছাড়াও",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "In addition, free clinics help poor families.",
+    "example_bn": "এছাড়াও, ফ্রি ক্লিনিক দরিদ্র পরিবারকে সাহায্য করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:for-example",
+    "word": "for example",
+    "phonetic": "",
+    "meaning_en": "used to introduce an example",
+    "meaning_bn": "উদাহরণস্বরূপ",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "ielts",
+    "example": "For example, cycling reduces carbon emissions.",
+    "example_bn": "উদাহরণস্বরূপ, সাইকেল চালানো কার্বন নির্গমন কমায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:for-instance",
+    "word": "for instance",
+    "phonetic": "",
+    "meaning_en": "as an example",
+    "meaning_bn": "যেমন / উদাহরণ হিসেবে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "For instance, Singapore taxes cars heavily.",
+    "example_bn": "যেমন, সিঙ্গাপুর গাড়ির ওপর ভারী ট্যাক্স নেয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:in-contrast",
+    "word": "in contrast",
+    "phonetic": "",
+    "meaning_en": "used to show a clear difference",
+    "meaning_bn": "বিপরীতে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "In contrast, rural schools often lack labs.",
+    "example_bn": "বিপরীতে, গ্রামীণ স্কুলে প্রায়ই ল্যাব থাকে না।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:on-the-other-hand",
+    "word": "on the other hand",
+    "phonetic": "",
+    "meaning_en": "used to present the opposite view",
+    "meaning_bn": "অন্যদিকে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "On the other hand, private schools may be expensive.",
+    "example_bn": "অন্যদিকে, প্রাইভেট স্কুল ব্যয়বহুল হতে পারে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:as-a-result",
+    "word": "as a result",
+    "phonetic": "",
+    "meaning_en": "because of something",
+    "meaning_bn": "এর ফলে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "As a result, more students chose online courses.",
+    "example_bn": "এর ফলে আরও শিক্ষার্থী অনলাইন কোর্স বেছে নিয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:in-conclusion",
+    "word": "in conclusion",
+    "phonetic": "",
+    "meaning_en": "used to end an essay",
+    "meaning_bn": "পরিশেষে / উপসংহারে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "In conclusion, balanced policies are needed.",
+    "example_bn": "পরিশেষে, ভারসাম্যপূর্ণ নীতি দরকার।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:to-summarise",
+    "word": "to summarise",
+    "phonetic": "",
+    "meaning_en": "to give the main points briefly (UK)",
+    "meaning_bn": "সংক্ষেপে বলতে গেলে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "To summarise, education and health should come first.",
+    "example_bn": "সংক্ষেপে বলতে গেলে, শিক্ষা ও স্বাস্থ্য আগে আসা উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:to-summarize",
+    "word": "to summarize",
+    "phonetic": "",
+    "meaning_en": "to give the main points briefly (US)",
+    "meaning_bn": "সংক্ষেপে বলতে গেলে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "To summarize, both sides have valid points.",
+    "example_bn": "সংক্ষেপে বলতে গেলে, দুই পক্ষেরই যুক্তি আছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:in-summary",
+    "word": "in summary",
+    "phonetic": "",
+    "meaning_en": "briefly stating the main points",
+    "meaning_bn": "সারকথায়",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "In summary, investment in skills creates jobs.",
+    "example_bn": "সারকথায়, দক্ষতায় বিনিয়োগ কর্মসংস্থান তৈরি করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:that-said",
+    "word": "that said",
+    "phonetic": "",
+    "meaning_en": "despite what has just been said",
+    "meaning_bn": "তা বলেও / তবে এ কথাও ঠিক",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Online learning is useful; that said, labs still matter.",
+    "example_bn": "অনলাইন লার্নিং উপকারী; তা বলেও ল্যাব এখনও গুরুত্বপূর্ণ।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:by-contrast",
+    "word": "by contrast",
+    "phonetic": "",
+    "meaning_en": "used when comparing opposite things",
+    "meaning_bn": "তুলনায় / বিপরীতে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "By contrast, older adults prefer face-to-face care.",
+    "example_bn": "তুলনায়, বয়স্করা সরাসরি সেবা পছন্দ করেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:rise",
+    "word": "rise",
+    "phonetic": "",
+    "meaning_en": "to go up",
+    "meaning_bn": "ওঠা / বৃদ্ধি",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A2",
+    "category": "education",
+    "example": "There was a sharp rise in fuel prices.",
+    "example_bn": "জ্বালানির দামে তীব্র বৃদ্ধি হয়েছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:fall",
+    "word": "fall",
+    "phonetic": "",
+    "meaning_en": "to go down",
+    "meaning_bn": "পতন / কমে যাওয়া",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A2",
+    "category": "education",
+    "example": "Visitor numbers fell after the pandemic.",
+    "example_bn": "মহামারীর পর পর্যটকের সংখ্যা কমেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:plunge",
+    "word": "plunge",
+    "phonetic": "",
+    "meaning_en": "to fall suddenly and steeply",
+    "meaning_bn": "হঠাৎ তীব্রভাবে পড়ে যাওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Share prices plunged after the announcement.",
+    "example_bn": "ঘোষণার পর শেয়ারের দাম হঠাৎ তীব্রভাবে পড়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:soar",
+    "word": "soar",
+    "phonetic": "",
+    "meaning_en": "to rise very quickly",
+    "meaning_bn": "দ্রুত বেড়ে যাওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Online enrolment soared during lockdown.",
+    "example_bn": "লকডাউনে অনলাইন ভর্তি দ্রুত বেড়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:stabilize",
+    "word": "stabilize",
+    "phonetic": "",
+    "meaning_en": "to become steady (US spelling)",
+    "meaning_bn": "স্থিতিশীল হওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Inflation stabilized after new policies.",
+    "example_bn": "নতুন নীতির পর মুদ্রাস্ফীতি স্থিতিশীল হয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:stabilise",
+    "word": "stabilise",
+    "phonetic": "",
+    "meaning_en": "to become steady (UK spelling)",
+    "meaning_bn": "স্থিতিশীল হওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "The figure stabilised at around 30%.",
+    "example_bn": "সংখ্যা প্রায় ৩০%-এ স্থিতিশীল হয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:gradual",
+    "word": "gradual",
+    "phonetic": "",
+    "meaning_en": "happening slowly over time",
+    "meaning_bn": "ধীরে ধীরে / ক্রমশ",
+    "part_of_speech": "adjective",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "There was a gradual decline in coal use.",
+    "example_bn": "কয়লা ব্যবহারে ধীরে ধীরে হ্রাস হয়েছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:sharp",
+    "word": "sharp",
+    "phonetic": "",
+    "meaning_en": "sudden and strong (of a change)",
+    "meaning_bn": "তীব্র / হঠাৎ বড়",
+    "part_of_speech": "adjective",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "The chart shows a sharp increase in 2015.",
+    "example_bn": "চার্টে ২০১৫-এ তীব্র বৃদ্ধি দেখা যায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:steady",
+    "word": "steady",
+    "phonetic": "",
+    "meaning_en": "regular and continuous",
+    "meaning_bn": "স্থির / নিয়মিত",
+    "part_of_speech": "adjective",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Exports showed a steady rise for five years.",
+    "example_bn": "পাঁচ বছর ধরে রপ্তানিতে স্থির বৃদ্ধি ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:approximately",
+    "word": "approximately",
+    "phonetic": "",
+    "meaning_en": "about; not exact",
+    "meaning_bn": "প্রায়",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Approximately 40% chose public transport.",
+    "example_bn": "প্রায় ৪০% গণপরিবহন বেছে নিয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:respectively",
+    "word": "respectively",
+    "phonetic": "",
+    "meaning_en": "in the order already mentioned",
+    "meaning_bn": "যথাক্রমে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Men and women scored 6.5 and 7.0 respectively.",
+    "example_bn": "পুরুষ ও নারী যথাক্রমে ৬.৫ ও ৭.০ পেয়েছেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:outnumber",
+    "word": "outnumber",
+    "phonetic": "",
+    "meaning_en": "to be more in number than",
+    "meaning_bn": "সংখ্যায় বেশি হওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Cyclists outnumbered drivers in the city centre.",
+    "example_bn": "সিটি সেন্টারে সাইকেল আরোহী গাড়িচালকের চেয়ে বেশি ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:account-for",
+    "word": "account for",
+    "phonetic": "",
+    "meaning_en": "to be the reason for a part of something",
+    "meaning_bn": "অংশ হিসেবে থাকা / ব্যাখ্যা করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Renewables accounted for 25% of electricity.",
+    "example_bn": "নবায়নযোগ্য জ্বালানি বিদ্যুতের ২৫% ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:remain-stable",
+    "word": "remain stable",
+    "phonetic": "",
+    "meaning_en": "to stay at a similar level",
+    "meaning_bn": "স্থিতিশীল থাকা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Oil production remained stable after 2018.",
+    "example_bn": "২০১৮-এর পর তেল উৎপাদন স্থিতিশীল ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:reach-a-peak",
+    "word": "reach a peak",
+    "phonetic": "",
+    "meaning_en": "to arrive at the highest point",
+    "meaning_bn": "সর্বোচ্চ পর্যায়ে পৌঁছানো",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Tourism reached a peak in 2017.",
+    "example_bn": "২০১৭-এ পর্যটন সর্বোচ্চ পর্যায়ে পৌঁছেছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:hit-a-low",
+    "word": "hit a low",
+    "phonetic": "",
+    "meaning_en": "to reach the lowest point",
+    "meaning_bn": "সর্বনিম্ন পর্যায়ে নামা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Attendance hit a low in January.",
+    "example_bn": "জানুয়ারিতে উপস্থিতি সর্বনিম্ন পর্যায়ে নেমেছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:make-progress",
+    "word": "make progress",
+    "phonetic": "",
+    "meaning_en": "to improve or advance",
+    "meaning_bn": "অগ্রগতি করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Regular feedback helps students make progress.",
+    "example_bn": "নিয়মিত ফিডব্যাক শিক্ষার্থীদের অগ্রগতি করতে সাহায্য করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:make-a-decision",
+    "word": "make a decision",
+    "phonetic": "",
+    "meaning_en": "to choose what to do",
+    "meaning_bn": "সিদ্ধান্ত নেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "Governments must make a decision about funding.",
+    "example_bn": "অর্থায়ন নিয়ে সরকারকে সিদ্ধান্ত নিতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:make-an-effort",
+    "word": "make an effort",
+    "phonetic": "",
+    "meaning_en": "to try hard",
+    "meaning_bn": "চেষ্টা করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Learners should make an effort to speak daily.",
+    "example_bn": "শেখার জন্য প্রতিদিন কথা বলার চেষ্টা করা উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:do-research",
+    "word": "do research",
+    "phonetic": "",
+    "meaning_en": "to study a subject carefully",
+    "meaning_bn": "গবেষণা করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Scientists do research on climate change.",
+    "example_bn": "বিজ্ঞানীরা জলবায়ু পরিবর্তন নিয়ে গবেষণা করেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "toefl",
+      "pte"
+    ]
+  },
+  {
+    "id": "vocab:take-into-account",
+    "word": "take into account",
+    "phonetic": "",
+    "meaning_en": "to consider something",
+    "meaning_bn": "বিবেচনায় নেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Planners must take into account local needs.",
+    "example_bn": "পরিকল্পনাকারীদের স্থানীয় চাহিদা বিবেচনায় নিতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:take-part-in",
+    "word": "take part in",
+    "phonetic": "",
+    "meaning_en": "to join an activity",
+    "meaning_bn": "অংশ নেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "Many adults take part in evening classes.",
+    "example_bn": "অনেক প্রাপ্তবয়স্ক সন্ধ্যার ক্লাসে অংশ নেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:pay-attention",
+    "word": "pay attention",
+    "phonetic": "",
+    "meaning_en": "to listen or watch carefully",
+    "meaning_bn": "মনোযোগ দেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "education",
+    "example": "Pay attention to keywords in Listening.",
+    "example_bn": "Listening-এ কীওয়ার্ডে মনোযোগ দিন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:play-a-role",
+    "word": "play a role",
+    "phonetic": "",
+    "meaning_en": "to have an effect or function",
+    "meaning_bn": "ভূমিকা রাখা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Teachers play a role in student motivation.",
+    "example_bn": "শিক্ষার্থীর মোটিভেশনে শিক্ষকদের ভূমিকা আছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:have-an-impact-on",
+    "word": "have an impact on",
+    "phonetic": "",
+    "meaning_en": "to affect something",
+    "meaning_bn": "প্রভাব ফেলা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Social media has an impact on teenagers.",
+    "example_bn": "সোশ্যাল মিডিয়া কিশোরদের ওপর প্রভাব ফেলে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:raise-awareness",
+    "word": "raise awareness",
+    "phonetic": "",
+    "meaning_en": "to make people know about an issue",
+    "meaning_bn": "সচেতনতা বাড়ানো",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Campaigns raise awareness about recycling.",
+    "example_bn": "ক্যাম্পেইন রিসাইক্লিং নিয়ে সচেতনতা বাড়ায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:meet-the-needs",
+    "word": "meet the needs",
+    "phonetic": "",
+    "meaning_en": "to provide what is required",
+    "meaning_bn": "চাহিদা পূরণ করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "office",
+    "example": "Public hospitals must meet the needs of all citizens.",
+    "example_bn": "সরকারি হাসপাতালকে সব নাগরিকের চাহিদা পূরণ করতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:provide-access-to",
+    "word": "provide access to",
+    "phonetic": "",
+    "meaning_en": "to make something available",
+    "meaning_bn": "প্রবেশাধিকার দেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Libraries provide access to reliable information.",
+    "example_bn": "লাইব্রেরি নির্ভরযোগ্য তথ্যের প্রবেশাধিকার দেয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "toefl"
+    ]
+  },
+  {
+    "id": "vocab:pose-a-threat",
+    "word": "pose a threat",
+    "phonetic": "",
+    "meaning_en": "to create a danger",
+    "meaning_bn": "হুমকি সৃষ্টি করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Plastic waste poses a threat to oceans.",
+    "example_bn": "প্লাস্টিক বর্জ্য সমুদ্রের জন্য হুমকি সৃষ্টি করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:draw-a-conclusion",
+    "word": "draw a conclusion",
+    "phonetic": "",
+    "meaning_en": "to decide something after thinking",
+    "meaning_bn": "সিদ্ধান্তে আসা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Readers should draw a conclusion from the evidence.",
+    "example_bn": "প্রমাণ দেখে পাঠকদের সিদ্ধান্তে আসা উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "toefl",
+      "pte"
+    ]
+  },
+  {
+    "id": "vocab:reach-a-consensus",
+    "word": "reach a consensus",
+    "phonetic": "",
+    "meaning_en": "to agree as a group",
+    "meaning_bn": "ঐকমত্যে পৌঁছানো",
+    "part_of_speech": "phrase",
+    "cefr_level": "C1",
+    "category": "office",
+    "example": "Experts rarely reach a consensus quickly.",
+    "example_bn": "বিশেষজ্ঞরা দ্রুত ঐকমত্যে পৌঁছান না।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:address-the-issue",
+    "word": "address the issue",
+    "phonetic": "",
+    "meaning_en": "to deal with a problem",
+    "meaning_bn": "সমস্যা মোকাবিলা করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Policies must address the issue of housing.",
+    "example_bn": "নীতির আবাসন সমস্যা মোকাবিলা করা উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:highly-likely",
+    "word": "highly likely",
+    "phonetic": "",
+    "meaning_en": "very probable",
+    "meaning_bn": "অত্যন্ত সম্ভাব্য",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "It is highly likely that demand will grow.",
+    "example_bn": "চাহিদা বাড়বে—এটি অত্যন্ত সম্ভাব্য।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "pte"
+    ]
+  },
+  {
+    "id": "vocab:widely-believed",
+    "word": "widely believed",
+    "phonetic": "",
+    "meaning_en": "accepted by many people",
+    "meaning_bn": "ব্যাপকভাবে বিশ্বাস করা হয়",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "It is widely believed that exercise improves mood.",
+    "example_bn": "ব্যাপকভাবে বিশ্বাস করা হয় যে ব্যায়াম মুড ভালো করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:key-factor",
+    "word": "key factor",
+    "phonetic": "",
+    "meaning_en": "an important cause or element",
+    "meaning_bn": "মূল কারণ / গুরুত্বপূর্ণ উপাদান",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Cost is a key factor in choosing a university.",
+    "example_bn": "বিশ্ববিদ্যালয় বেছে নেওয়ার মূল কারণ খরচ।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:growing-concern",
+    "word": "growing concern",
+    "phonetic": "",
+    "meaning_en": "an increasing worry",
+    "meaning_bn": "বাড়তে থাকা উদ্বেগ",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "There is growing concern about screen time.",
+    "example_bn": "স্ক্রিন টাইম নিয়ে বাড়তে থাকা উদ্বেগ আছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
     ]
   }
 ]
