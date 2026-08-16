@@ -1,24 +1,19 @@
-# Blogger Theme apply — Ocean Clarity
+# Theme apply — Study Sage (student eye-friendly)
 
 File: **`themeCode.txt`**
 
-## Color system (new)
-- **Brand blue** `#1d6fb8` — clear, academic
-- **Deep blue** `#0b4f87` — titles / header
-- **Teal accent** `#0e8c7a` — CTAs / highlights
-- **Cool page** `#eef2f7` — not cream/beige
-- High-contrast dark text on light sticky header
+## Why these colors (research)
+- Soft **light-green page** (`#eef6f1`) — associated with lower visual fatigue on screens
+- **Charcoal text** (`#1e2b26`) on soft surface — not harsh pure black on pure white
+- Calm **teal brand** (`#217a66`) + soft **blue accent** (`#2b6cb0`) for links/CTAs
+- Comfortable contrast for long reading / Bangla + English study
 
-## Mobile / posts
-- Post cards: smaller padding on phone
-- Images / iframes: `max-width: 100%`
-- Tables: horizontal scroll instead of overflow
-- Readable type scale for Bangla + English
+## Fixes in this build
+1. Mouse-wheel scroll unlock (Indie `overflow` traps removed)
+2. Posts: table horizontal scroll wrappers, no float images breaking width
+3. CDN CSS on all pages via theme `<head>`
 
-## How to paste
-1. Blogger → Theme → **Backup**
-2. Theme → **Edit HTML** → select all → delete
-3. Paste all of `themeCode.txt` → **Save**
-4. Hard refresh homepage
-
-CDN `learning.css` also carries the same palette + post fixes (cache `?v=20260816c`).
+## Paste steps
+1. Blogger → Theme → Backup
+2. Edit HTML → paste `themeCode.txt` → Save
+3. Hard refresh site

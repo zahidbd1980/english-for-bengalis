@@ -149,7 +149,7 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
             f'<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700'
             f'&family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700'
             f'&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>'
-            f'<link rel="stylesheet" href="{base}/css/learning.css?v=20260816c"/>'
+            f'<link rel="stylesheet" href="{base}/css/learning.css?v=20260816d"/>'
         )
         scripts = (
             f'<script src="{base}/js/storage.js"></script>'
@@ -323,6 +323,51 @@ def upsert_welcome(service, blog_id: str, cfg: dict, draft: bool) -> dict:
     return service.posts().insert(blogId=blog_id, body=body, isDraft=draft).execute()
 
 
+def find_post_by_title_substr(service, blog_id: str, needle: str):
+    needle_l = needle.strip().lower()
+    token = None
+    while True:
+        kwargs = {"blogId": blog_id, "maxResults": 50, "status": "live"}
+        if token:
+            kwargs["pageToken"] = token
+        resp = service.posts().list(**kwargs).execute()
+        for item in resp.get("items", []) or []:
+            title = (item.get("title") or "").strip().lower()
+            if needle_l in title:
+                return item
+        token = resp.get("nextPageToken")
+        if not token:
+            break
+    return None
+
+
+def cmd_upload_seo_post(draft: bool = False):
+    """Update the IELTS Listening SEO article from content/posts/."""
+    cfg = load_config()
+    service = build_service()
+    blog = get_blog(service, cfg["blog_url"])
+    path = ROOT / "content" / "posts" / "ielts-listening-1600-words-bn.html"
+    html = path.read_text(encoding="utf-8")
+    title = "IELTS Listening Vocabulary 1600 Words — বাংলায় শিখুন (Spelling + Meaning)"
+    existing = find_post_by_title_substr(service, blog["id"], "IELTS Listening Vocabulary 1600")
+    body = {
+        "title": title,
+        "content": html,
+        "labels": ["IELTS", "Vocabulary", "Listening", "Spelling"],
+    }
+    if existing:
+        print(f"  Updating post: {existing.get('title')}")
+        result = (
+            service.posts()
+            .update(blogId=blog["id"], postId=existing["id"], body={**existing, **body})
+            .execute()
+        )
+    else:
+        print("  Creating SEO post" + (" [DRAFT]" if draft else ""))
+        result = service.posts().insert(blogId=blog["id"], body=body, isDraft=draft).execute()
+    print("SEO post ->", result.get("url") or result.get("id"))
+
+
 def cmd_auth():
     get_credentials()
     print("Auth OK. You can run --list or --upload-pages next.")
@@ -425,6 +470,11 @@ def main():
     parser.add_argument("--upload-pages", action="store_true", help="Create/update Pages")
     parser.add_argument("--upload-welcome", action="store_true", help="Create/update welcome Post")
     parser.add_argument(
+        "--upload-seo-post",
+        action="store_true",
+        help="Create/update IELTS Listening 1600 SEO article post",
+    )
+    parser.add_argument(
         "--fix-home",
         action="store_true",
         help="Delete leftover Home Page + refresh Welcome on blog root",
@@ -434,7 +484,15 @@ def main():
     args = parser.parse_args()
 
     if not any(
-        [args.auth, args.list, args.upload_pages, args.upload_welcome, args.fix_home, args.all]
+        [
+            args.auth,
+            args.list,
+            args.upload_pages,
+            args.upload_welcome,
+            args.upload_seo_post,
+            args.fix_home,
+            args.all,
+        ]
     ):
         parser.print_help()
         print("\nQuick start:  upload-to-blogger.bat")
@@ -450,6 +508,8 @@ def main():
         if args.all:
             cmd_auth()
         cmd_upload_welcome(draft=args.draft)
+    if args.upload_seo_post:
+        cmd_upload_seo_post(draft=args.draft)
     if args.upload_pages or args.all:
         cmd_upload_pages(draft=args.draft)
 
