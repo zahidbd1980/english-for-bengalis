@@ -24,7 +24,7 @@
 
 <!-- Variable definitions -->
 
-<Variable name="keycolor" description="Main Color" type="color" default="#0f6b5c"  value="#0f6b5c"/>
+<Variable name="keycolor" description="Main Color" type="color" default="#1d6fb8"  value="#1d6fb8"/>
 <Variable name="startSide" description="Start side in blog language" type="automatic" default="left" hideEditor="true" />
 <Variable name="endSide" description="End side in blog language" type="automatic" default="right" hideEditor="true" />
 
@@ -34,7 +34,7 @@
       default="$(robotoNormal15)"  value="400 16px 'Source Sans 3', Roboto, sans-serif"/>
   <Variable name="body.text.color" description="Color"
       type="color"
-      default="#1c2430"  value="#1c2430"/>
+      default="#0f172a"  value="#0f172a"/>
 </Group>
 
 <Group description="Backgrounds">
@@ -49,7 +49,7 @@
       default="$(color) none no-repeat scroll top center"  value="$(color) none no-repeat scroll top center"/>
   <Variable name="body.background.color" description="Body background color"
       type="color"
-      default="#f3f0ea"  value="#f3f0ea"/>
+      default="#eef2f7"  value="#eef2f7"/>
   <Variable name="posts.background.color" description="Post background color"
       type="color"
       default="#fff"  value="#ffffff"/>
@@ -63,13 +63,13 @@
 <Group description="Links">
   <Variable name="body.link.color" description="Link color"
       type="color"
-      default="#0f6b5c"  value="#0f6b5c"/>
+      default="#1d6fb8"  value="#1d6fb8"/>
   <Variable name="body.link.visited.color" description="Visited link color"
       type="color"
-      default="$(body.link.color)"  value="#0a5246"/>
+      default="$(body.link.color)"  value="#0b4f87"/>
   <Variable name="body.link.hover.color" description="Link Hover Color"
       type="color"
-      default="$(body.link.color)"  value="#c45c26"/>
+      default="$(body.link.color)"  value="#0e8c7a"/>
 </Group>
 
 <Group description="Blog title" selector="div.widget.Header">
@@ -78,11 +78,11 @@
       default="$(robotoBold45)"  value="700 32px Fraunces, Georgia, serif"/>
   <Variable name="blog.title.color" description="Color"
       type="color"
-      default="#0a5246"  value="#0a5246"/>
+      default="#0b4f87"  value="#0b4f87"/>
   <Variable name="header.icons.color"
       description="Background icons color"
       type="color"
-      default="#0a5246"  value="#0a5246"/>
+      default="#0b4f87"  value="#0b4f87"/>
 </Group>
 
 <Group description="Tabs text" selector="div.widget.PageList">
@@ -93,25 +93,25 @@
       default="700 normal $(size) $(family)"  value="700 normal 14px 'Source Sans 3', Roboto, sans-serif"/>
   <Variable name="tabs.color" description="Text color"
       type="color"
-      default="#3d4a5c"  value="#3d4a5c"/>
+      default="#5b6b7c"  value="#5b6b7c"/>
   <Variable name="tabs.selected.color" description="Selected color"
       type="color"
-      default="#0f6b5c"  value="#0f6b5c"/>
+      default="#1d6fb8"  value="#1d6fb8"/>
   <Variable name="tabs.overflow.background.color" description="Popup background color"
       type="color"
       default="$(posts.background.color)"  value="#ffffff"/>
   <Variable name="tabs.overflow.color" description="Popup text color"
       type="color"
-      default="$(posts.text.color)"  value="#1c2430"/>
+      default="$(posts.text.color)"  value="#0f172a"/>
   <Variable name="tabs.overflow.selected.color" description="Popup selected color"
       type="color"
-      default="$(posts.title.color)"  value="#0a5246"/>
+      default="$(posts.title.color)"  value="#0b4f87"/>
 </Group>
 
 <Group description="Posts" selector="div.widget.Blog">
   <Variable name="posts.title.color" description="Post title color"
       type="color"
-      default="#0a5246"  value="#0a5246"/>
+      default="#0b4f87"  value="#0b4f87"/>
   <Variable name="posts.title.font" description="Post title font"
       type="font"
       default="$(robotoBold22)"  value="700 22px Fraunces, Georgia, serif"/>
@@ -123,7 +123,7 @@
       default="$(body.text.font)"  value="400 16px 'Source Sans 3', Roboto, sans-serif"/>
   <Variable name="posts.text.color" description="Post text color"
       type="color"
-      default="$(body.text.color)"  value="#1c2430"/>
+      default="$(body.text.color)"  value="#0f172a"/>
   <Variable name="posts.byline.color" description="Post byline color"
       type="color"
       default="rgba(0, 0, 0, 0.54)"  value="rgba(28, 36, 48, 0.55)"/>
@@ -132,23 +132,23 @@
       default="$(robotoLightItalic15)"  value="italic 400 16px 'Source Sans 3', sans-serif"/>
   <Variable name="blockquote.color" description="Blockquote color"
       type="color"
-      default="#444"  value="#3d4a5c"/>
+      default="#444"  value="#5b6b7c"/>
   <Variable name="posts.icons.color"
       description="Post icons color"
       type="color"
-      default="#707070"  value="#5b6573"/>
+      default="#707070"  value="#5b6b7c"/>
 </Group>
 
 <Group description="Search">
   <Variable name="search.input.color" description="Input color"
       type="color"
-      default="$(blog.title.color)"  value="#ffffff"/>
+      default="$(blog.title.color)"  value="#0b4f87"/>
   <Variable name="search.input.font" description="Input font"
       type="font"
-      default="$(robotoNormal16)"  value="16px Roboto, sans-serif"/>
+      default="$(robotoNormal16)"  value="16px 'Source Sans 3', Roboto, sans-serif"/>
   <Variable name="search.placeholder.color" description="Placeholder text color"
       type="color"
-      default="$(blog.title.color)"  value="#ffffff"/>
+      default="$(blog.title.color)"  value="#5b6b7c"/>
 </Group>
 
 <Group description="Sharing">
@@ -2655,15 +2655,15 @@ margin-left:40px
 
 /* ========== EFB Theme Shell — industry education chrome ========== */
 :root {
-  --efb-ink: #1c2430;
-  --efb-muted: #5b6573;
-  --efb-brand: #0f6b5c;
-  --efb-brand-dark: #0a5246;
-  --efb-accent: #c45c26;
-  --efb-wash: #e8f2ef;
-  --efb-bg: #f3f0ea;
+  --efb-ink: #0f172a;
+  --efb-muted: #5b6b7c;
+  --efb-brand: #1d6fb8;
+  --efb-brand-dark: #0b4f87;
+  --efb-accent: #0e8c7a;
+  --efb-wash: #dceaf8;
+  --efb-bg: #eef2f7;
   --efb-surface: #ffffff;
-  --efb-border: #e4ded5;
+  --efb-border: #cfd9e6;
 }
 
 /* Kill Indie tall photo hero — causes white-on-cream disaster */
@@ -2850,6 +2850,52 @@ body.homepage .FeaturedPost .widget-content {
     padding: 0.4rem 0.55rem !important;
     font-size: 0.68rem !important;
   }
+  .post-body,
+  .entry-content {
+    font-size: 0.98rem !important;
+    line-height: 1.65 !important;
+  }
+}
+
+/* Blog posts — responsive */
+.page_body .centered {
+  width: 100% !important;
+  max-width: min(760px, 100%) !important;
+}
+#page_body .FeaturedPost,
+.Blog .blog-posts .post-outer-container {
+  padding: 1rem 0.95rem !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+.post-body,
+.entry-content {
+  color: var(--efb-ink) !important;
+  font-size: 1.02rem !important;
+  line-height: 1.7 !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.post-body img,
+.entry-content img,
+.post-body iframe,
+.entry-content iframe {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.post-body table,
+.entry-content table {
+  display: block;
+  width: 100% !important;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font-size: 0.92rem;
+}
+.post-title,
+.post-title a {
+  font-size: clamp(1.25rem, 5.5vw, 1.85rem) !important;
+  line-height: 1.25 !important;
+  color: var(--efb-brand-dark) !important;
 }
 body.homepage {
   overflow-x: hidden;
@@ -3156,6 +3202,9 @@ body.homepage {
     <b:include data='blog' name='google-analytics'/>
 
     <script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'/>
+    <link href='https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&amp;family=Hind+Siliguri:wght@400;600;700&amp;family=Noto+Sans+Bengali:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap' rel='stylesheet'/>
+    <link href='https://zahidbd1980.github.io/english-for-bengalis/css/learning.css?v=20260816c' rel='stylesheet'/>
+    <meta name='theme-color' content='#1d6fb8'/>
   </head>
 
   <body>

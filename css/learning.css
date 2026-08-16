@@ -2,23 +2,24 @@
    Tokens from Master Plan §130 */
 
 :root {
-  --color-bg: #f3f0ea;
+  /* Ocean Clarity — cool, clear education palette */
+  --color-bg: #eef2f7;
   --color-surface: #ffffff;
-  --color-ink: #1c2430;
-  --color-muted: #5b6573;
-  --color-brand: #0f6b5c;
-  --color-brand-dark: #0a5246;
-  --color-accent: #c45c26;
-  --color-success: #1f7a4c;
-  --color-danger: #b42318;
-  --color-border: #e4ded5;
-  --color-wash: #e8f2ef;
-  --color-wash-warm: #f7ebe3;
+  --color-ink: #0f172a;
+  --color-muted: #5b6b7c;
+  --color-brand: #1d6fb8;
+  --color-brand-dark: #0b4f87;
+  --color-accent: #0e8c7a;
+  --color-success: #0f7a4e;
+  --color-danger: #c62828;
+  --color-border: #cfd9e6;
+  --color-wash: #dceaf8;
+  --color-wash-warm: #d8f3ee;
   --font-display: "Fraunces", "Source Serif 4", Georgia, serif;
   --font-body: "Source Sans 3", "IBM Plex Sans", system-ui, sans-serif;
   --font-bangla: "Noto Sans Bengali", "Source Sans 3", sans-serif;
   --radius: 14px;
-  --shadow: 0 8px 24px rgba(28, 36, 48, 0.08);
+  --shadow: 0 8px 24px rgba(15, 23, 42, 0.07);
   --max: 720px;
   --header-h: 56px;
   --touch: 48px;
@@ -42,8 +43,8 @@ body {
   font-family: var(--font-body), var(--font-bangla);
   color: var(--color-ink);
   background:
-    radial-gradient(900px 420px at 8% -8%, #d8ebe5 0%, transparent 55%),
-    radial-gradient(700px 360px at 100% 0%, #f0e4d8 0%, transparent 50%),
+    radial-gradient(900px 420px at 6% -10%, #cfe4f7 0%, transparent 55%),
+    radial-gradient(720px 380px at 100% 0%, #c8ebe4 0%, transparent 52%),
     var(--color-bg);
   min-height: 100vh;
   min-height: 100dvh;
@@ -78,18 +79,18 @@ body {
 body.homepage,
 body.version-1-3-3 {
   background:
-    radial-gradient(900px 420px at 8% -8%, #d8ebe5 0%, transparent 55%),
-    radial-gradient(700px 360px at 100% 0%, #f0e4d8 0%, transparent 50%),
-    #f3f0ea !important;
-  color: #1c2430 !important;
+    radial-gradient(900px 420px at 6% -10%, #cfe4f7 0%, transparent 55%),
+    radial-gradient(720px 380px at 100% 0%, #c8ebe4 0%, transparent 52%),
+    #eef2f7 !important;
+  color: #0f172a !important;
   overflow-x: hidden;
 }
 .centered-top-container {
-  background: rgba(255, 255, 255, 0.94) !important;
+  background: rgba(255, 255, 255, 0.96) !important;
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid #e4ded5 !important;
-  box-shadow: 0 8px 28px rgba(28, 36, 48, 0.06);
+  border-bottom: 1px solid #cfd9e6 !important;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
   position: sticky !important;
   top: 0;
   z-index: 80 !important;
@@ -102,7 +103,7 @@ body.version-1-3-3 {
 .Header h1 a,
 .Header h1 a:hover,
 .Header h1 a:visited {
-  color: #0a5246 !important;
+  color: #0b4f87 !important;
   font-family: Fraunces, Georgia, serif !important;
   font-size: clamp(1.05rem, 4.5vw, 1.65rem) !important;
   font-weight: 700 !important;
@@ -112,16 +113,16 @@ body.version-1-3-3 {
 }
 .widget.Header p,
 .Header p {
-  color: #5b6573 !important;
+  color: #5b6b7c !important;
   opacity: 1 !important;
 }
 .hamburger-menu .svg-icon-24,
 .centered-top-container .svg-icon-24 {
-  fill: #0a5246 !important;
+  fill: #0b4f87 !important;
 }
 .blog-name .PageList ul.tabs li a,
 .tabs li a {
-  color: #5b6573 !important;
+  color: #5b6b7c !important;
   border-radius: 999px !important;
   padding: 0.4rem 0.65rem !important;
   font-weight: 700 !important;
@@ -133,20 +134,123 @@ body.version-1-3-3 {
 .blog-name .PageList ul.tabs li a:hover,
 .tabs .selected a,
 .sticky .PageList ul.tabs li a {
-  color: #0a5246 !important;
-  background: #e8f2ef !important;
+  color: #0b4f87 !important;
+  background: #dceaf8 !important;
 }
 #page_body .FeaturedPost,
 .Blog .blog-posts .post-outer-container {
   border-radius: 16px !important;
-  border: 1px solid #e4ded5 !important;
-  box-shadow: 0 10px 28px rgba(28, 36, 48, 0.06) !important;
+  border: 1px solid #cfd9e6 !important;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06) !important;
 }
 body.homepage #page_body .FeaturedPost {
   background: transparent !important;
   border: 0 !important;
   box-shadow: none !important;
   padding: 0 !important;
+}
+
+/* ========== Blog posts — mobile-first & responsive ========== */
+.page_body .centered {
+  width: 100% !important;
+  max-width: min(760px, 100%) !important;
+  box-sizing: border-box !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+#page_body .FeaturedPost,
+.Blog .blog-posts .post-outer-container {
+  padding: 1rem 0.9rem !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+body.item-view #page_body .FeaturedPost,
+body.item-view .Blog .blog-posts .post-outer-container {
+  padding: 1.1rem 1rem !important;
+}
+.post-title,
+.post-title a {
+  font-size: clamp(1.25rem, 5.5vw, 1.85rem) !important;
+  line-height: 1.25 !important;
+  word-break: break-word;
+}
+.post-body,
+.entry-content,
+.post-body.entry-content {
+  color: #0f172a !important;
+  font-size: 1.02rem !important;
+  line-height: 1.7 !important;
+  margin: 0.85rem 0 1.25rem !important;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+.post-body img,
+.entry-content img,
+.post-body iframe,
+.entry-content iframe,
+.post-body video,
+.entry-content video {
+  max-width: 100% !important;
+  height: auto !important;
+}
+.post-body table,
+.entry-content table {
+  width: 100% !important;
+  max-width: 100%;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.post-body pre,
+.entry-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.75rem;
+  border-radius: 10px;
+  background: #f1f5f9;
+}
+.post-body a,
+.entry-content a {
+  color: #1d6fb8 !important;
+  text-underline-offset: 2px;
+}
+.post-footer,
+.post-header {
+  flex-wrap: wrap !important;
+  gap: 0.5rem;
+}
+@media screen and (max-width: 640px) {
+  .centered-top-container,
+  .centered-bottom,
+  .centered-top-placeholder {
+    padding-left: max(0.65rem, env(safe-area-inset-left)) !important;
+    padding-right: max(0.65rem, env(safe-area-inset-right)) !important;
+  }
+  #page_body .FeaturedPost,
+  .Blog .blog-posts .post-outer-container {
+    padding: 0.85rem 0.7rem !important;
+    border-radius: 12px !important;
+  }
+  .post-body,
+  .entry-content {
+    font-size: 0.98rem !important;
+    line-height: 1.65 !important;
+  }
+  .post-body h2,
+  .entry-content h2 {
+    font-size: 1.2rem !important;
+  }
+  .post-body h3,
+  .entry-content h3 {
+    font-size: 1.08rem !important;
+  }
 }
 
 img {
@@ -187,7 +291,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(247, 244, 239, 0.94);
+  background: rgba(238, 242, 247, 0.94);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
 }
@@ -591,8 +695,8 @@ summary:focus-visible {
 }
 
 .chip-accent {
-  background: #f8e8df;
-  color: #8a3d14;
+  background: #d8f3ee;
+  color: #0a5c50;
 }
 
 .muted {
@@ -1156,7 +1260,7 @@ input.field-input {
   gap: 0.5rem 0.75rem;
   padding: 0.55rem 0.75rem;
   border-radius: var(--radius, 10px);
-  background: color-mix(in srgb, var(--color-accent, #0f6b5c) 12%, transparent);
+  background: color-mix(in srgb, var(--color-accent, #0e8c7a) 12%, transparent);
   font-size: 0.92rem;
   line-height: 1.35;
 }
@@ -1446,19 +1550,14 @@ select.field-input {
 .home-hero-bg {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 0%, rgba(15, 107, 92, 0.16) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 50% at 95% 10%, rgba(196, 92, 38, 0.1) 0%, transparent 48%),
-    linear-gradient(165deg, #ffffff 0%, #f3faf7 42%, var(--color-wash) 100%);
   border-radius: calc(var(--radius) + 8px);
-  border: 1px solid rgba(15, 107, 92, 0.14);
-  box-shadow: 0 16px 40px rgba(15, 107, 92, 0.07);
-  /* soft notebook lines — study atmosphere without stock photo */
+  border: 1px solid rgba(29, 111, 184, 0.16);
+  box-shadow: 0 16px 40px rgba(11, 79, 135, 0.08);
   background-image:
-    linear-gradient(rgba(15, 107, 92, 0.045) 1px, transparent 1px),
-    radial-gradient(ellipse 80% 60% at 15% 0%, rgba(15, 107, 92, 0.16) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 50% at 95% 10%, rgba(196, 92, 38, 0.1) 0%, transparent 48%),
-    linear-gradient(165deg, #ffffff 0%, #f3faf7 42%, var(--color-wash) 100%);
+    linear-gradient(rgba(29, 111, 184, 0.05) 1px, transparent 1px),
+    radial-gradient(ellipse 80% 60% at 15% 0%, rgba(29, 111, 184, 0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 50% at 95% 10%, rgba(14, 140, 122, 0.12) 0%, transparent 48%),
+    linear-gradient(165deg, #ffffff 0%, #eef6fc 42%, var(--color-wash) 100%);
   background-size: 100% 28px, auto, auto, auto;
   background-position: 0 12px, 0 0, 0 0, 0 0;
 }
@@ -1994,7 +2093,7 @@ select.field-input {
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem;
   padding: 0.65rem max(1rem, env(safe-area-inset-left)) calc(0.65rem + var(--safe-bottom)) max(1rem, env(safe-area-inset-right));
-  background: rgba(247, 244, 239, 0.96);
+  background: rgba(238, 242, 247, 0.96);
   backdrop-filter: blur(12px);
   border-top: 1px solid var(--color-border);
   box-shadow: 0 -8px 24px rgba(28, 36, 48, 0.06);
@@ -2097,9 +2196,9 @@ select.field-input {
   gap: 0.75rem;
   padding: 0.7rem 1rem;
   border-radius: 999px;
-  background: linear-gradient(105deg, #0f6b5c 0%, #148f7a 55%, #c45c26 140%);
+  background: linear-gradient(105deg, #0b4f87 0%, #1d6fb8 45%, #0e8c7a 120%);
   color: #fff;
-  box-shadow: 0 8px 22px rgba(15, 107, 92, 0.28);
+  box-shadow: 0 8px 22px rgba(29, 111, 184, 0.28);
   animation: efb-v2-fade-up 0.45s ease both;
 }
 
@@ -2350,15 +2449,11 @@ select.field-input {
   align-items: center;
   padding: 1.15rem 1.2rem;
   border-radius: 18px;
-  border: 1px solid rgba(196, 92, 38, 0.22);
-  background:
-    linear-gradient(#fff, #fff) padding-box,
-    linear-gradient(120deg, #0f6b5c, #c45c26, #0f6b5c) border-box;
   border: 2px solid transparent;
   background:
-    linear-gradient(135deg, #fffaf6 0%, #fff 45%, #eef7f4 100%) padding-box,
-    linear-gradient(120deg, #0f6b5c, #c45c26) border-box;
-  box-shadow: 0 12px 32px rgba(196, 92, 38, 0.1);
+    linear-gradient(135deg, #f5faff 0%, #fff 45%, #eefaf7 100%) padding-box,
+    linear-gradient(120deg, #1d6fb8, #0e8c7a) border-box;
+  box-shadow: 0 12px 32px rgba(29, 111, 184, 0.1);
 }
 
 .efb-v2-timer-label {
@@ -2428,7 +2523,7 @@ select.field-input {
   inset: 0;
   border-radius: inherit;
   padding: 1.5px;
-  background: linear-gradient(135deg, rgba(15, 107, 92, 0.55), rgba(196, 92, 38, 0.45));
+  background: linear-gradient(135deg, rgba(29, 111, 184, 0.55), rgba(14, 140, 122, 0.45));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -2441,7 +2536,7 @@ select.field-input {
 .efb-v2-trend:hover,
 .efb-v2-quick:hover {
   transform: translateY(-3px);
-  box-shadow: 0 14px 28px rgba(15, 107, 92, 0.14);
+  box-shadow: 0 14px 28px rgba(29, 111, 184, 0.14);
 }
 
 .efb-v2-trend:hover::before,
