@@ -3218,7 +3218,7 @@ body.homepage {
 
     <script async='async' src='https://www.gstatic.com/external_hosted/clipboardjs/clipboard.min.js'/>
     <link href='https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&amp;family=Hind+Siliguri:wght@400;600;700&amp;family=Noto+Sans+Bengali:wght@400;600;700&amp;family=Source+Sans+3:wght@400;600;700&amp;display=swap' rel='stylesheet'/>
-    <link href='https://zahidbd1980.github.io/english-for-bengalis/css/learning.css?v=20260816d' rel='stylesheet'/>
+    <link href='https://zahidbd1980.github.io/english-for-bengalis/css/learning.css?v=20260816e' rel='stylesheet'/>
     <meta name='theme-color' content='#217a66'/>
   </head>
 
