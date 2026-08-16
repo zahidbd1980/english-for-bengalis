@@ -327,7 +327,7 @@ def find_post_by_title_substr(service, blog_id: str, needle: str):
     needle_l = needle.strip().lower()
     token = None
     while True:
-        kwargs = {"blogId": blog_id, "maxResults": 50, "status": "live"}
+        kwargs = {"blogId": blog_id, "maxResults": 50, "status": "LIVE"}
         if token:
             kwargs["pageToken"] = token
         resp = service.posts().list(**kwargs).execute()
@@ -356,7 +356,7 @@ def cmd_upload_seo_post(draft: bool = False):
         "labels": ["IELTS", "Vocabulary", "Listening", "Spelling"],
     }
     if existing:
-        print(f"  Updating post: {existing.get('title')}")
+        print("  Updating SEO post:", existing.get("id"))
         result = (
             service.posts()
             .update(blogId=blog["id"], postId=existing["id"], body={**existing, **body})
