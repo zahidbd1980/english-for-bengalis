@@ -8,6 +8,8 @@ Unofficial practice ideas for English for Bengalis. Prefer bank-backed lists + S
 - Thematic packs now filled from bank (home, office, travel, daily, …)
 - New packs: TOEFL Academic/Campus, PTE Academic/Speaking-Writing, IELTS Reading/Writing Task 2, Exam Collocations
 - Spelling: common misspellings, IELTS-style, everyday-hard, plus TOEFL/PTE/IELTS Writing packs
+- Curated: Writing Linkers, Task 1 Graphs, Collocations Core, Speaking Part 1, Academic Reading Verbs, Listening Spelling Traps, Exam Phrasal Verbs
+- SEO posts live: Linkers, Task 1 graphs, Collocations, Listening traps, Speaking Part 1
 
 ## New vocabulary / spelling lists to build next
 
