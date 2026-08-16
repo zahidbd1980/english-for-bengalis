@@ -96,30 +96,42 @@
 
     <!-- Hero -->
     <section class="home-hero efb-v2-hero" aria-labelledby="home-title">
-      <div class="home-hero-bg" aria-hidden="true"></div>
+      <div class="home-hero-bg" aria-hidden="true">
+        <svg class="home-hero-art" viewBox="0 0 320 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect x="36" y="48" width="120" height="110" rx="8" fill="#fff" stroke="#0f6b5c" stroke-width="2.5"/>
+          <path d="M96 48v110" stroke="#0f6b5c" stroke-width="2" opacity=".35"/>
+          <rect x="48" y="68" width="36" height="6" rx="2" fill="#0f6b5c" opacity=".35"/>
+          <rect x="48" y="82" width="28" height="5" rx="2" fill="#0f6b5c" opacity=".25"/>
+          <rect x="108" y="68" width="36" height="6" rx="2" fill="#c45c26" opacity=".4"/>
+          <rect x="108" y="82" width="28" height="5" rx="2" fill="#c45c26" opacity=".28"/>
+          <text x="58" y="118" fill="#0a5246" font-size="14" font-family="Georgia,serif" font-weight="700">BN</text>
+          <text x="118" y="118" fill="#8a3d14" font-size="14" font-family="Georgia,serif" font-weight="700">EN</text>
+          <rect x="168" y="58" width="100" height="88" rx="10" fill="#e8f2ef" stroke="#0f6b5c" stroke-width="2"/>
+          <path d="M184 88h68M184 104h52M184 120h60" stroke="#0f6b5c" stroke-width="3" stroke-linecap="round" opacity=".45"/>
+          <circle cx="248" cy="48" r="18" fill="#c45c26" opacity=".9"/>
+          <path d="M242 48h12M248 42v12" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="home-hero-inner">
-        <p class="home-eyebrow">
-          <span class="home-pill">Free · বিনামূল্যে</span>
-          <span class="home-pill home-pill-soft">App-style · Mobile</span>
-        </p>
+        <p class="home-brand">English for Bengalis</p>
         <h1 id="home-title" class="home-title">
           <span class="bn">বাংলা থেকে ইংরেজি</span>
           <span class="home-title-en">Learn. Practice. Master.</span>
         </h1>
         <p class="home-lede bn">
-          শুধু পড়া নয় — <strong>কতটা মাস্টার করেছেন</strong> তা দেখুন। Vocabulary, Grammar, Spelling, Quiz — সব এক অ্যাপের মতো।
+          প্রতিদিন ছোট অনুশীলন — Vocabulary, Grammar, Spelling ও Quiz একসাথে। Progress ট্র্যাক করুন।
         </p>
         <div class="home-cta">
-          <a class="btn btn-primary btn-lg" href="pages/learn.html">শিখতে শুরু করুন</a>
+          <a class="btn btn-primary btn-lg" href="pages/learning-path.html">আজকের পাথ</a>
           <a class="btn btn-secondary btn-lg" href="pages/level-test.html">লেভেল টেস্ট</a>
         </div>
         <p class="home-continue">
           <a href="pages/my-progress.html" id="home-continue-link">Continue where you left off →</a>
         </p>
         <ul class="home-trust" aria-label="Platform highlights">
-          <li><strong>140+</strong> <span class="bn">শব্দ</span></li>
-          <li><strong>10</strong> <span class="bn">গ্রামার টপিক</span></li>
-          <li><strong>10</strong> <span class="bn">মিনিট/দিন</span></li>
+          <li><strong>1800+</strong> <span class="bn">শব্দ</span></li>
+          <li><strong>34</strong> <span class="bn">গ্রামার কুইজ</span></li>
+          <li><strong>14</strong> <span class="bn">দিনের পাথ</span></li>
         </ul>
       </div>
     </section>
@@ -234,6 +246,11 @@
           <strong>Mistakes</strong>
           <span class="bn">বাংলা ভুল ঠিক</span>
         </a>
+        <a class="efb-v2-quick" href="pages/spoken-drill.html" role="listitem">
+          <span class="efb-v2-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v10a3 3 0 01-3 3H7"/><path d="M12 13a3 3 0 003 3h2"/><path d="M5 21h14"/></svg></span>
+          <strong>Spoken Drill</strong>
+          <span class="bn">BN → EN টাইপ</span>
+        </a>
         <a class="efb-v2-quick" href="pages/flashcards.html" role="listitem">
           <span class="efb-v2-quick-ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="14" height="14" rx="2"/><path d="M8 5V3a2 2 0 012-2h10a2 2 0 012 2v14a2 2 0 01-2 2h-2"/></svg></span>
           <strong>Flashcards</strong>
@@ -245,13 +262,16 @@
     <section class="home-section" aria-labelledby="path-title">
       <div class="home-section-head">
         <h2 id="path-title" class="home-h2">Study Path · কীভাবে এগোবেন</h2>
-        <p class="home-sub bn">Beginner-friendly step-by-step plan</p>
+        <p class="home-sub bn">১৪ দিনের Learning Path — অথবা নিজে ধাপে ধাপে</p>
       </div>
+      <p class="home-path-cta">
+        <a class="btn btn-primary" href="pages/learning-path.html">১৪-দিন Learning Path খুলুন</a>
+      </p>
       <ol class="home-path">
         <li><span class="home-step">1</span><div><strong>Foundation words</strong><p class="bn">Vocabulary থেকে daily + important verbs শিখুন।</p></div></li>
         <li><span class="home-step">2</span><div><strong>Grammar clarity</strong><p class="bn">A1-A2 grammar + Common Mistakes ঠিক করুন।</p></div></li>
-        <li><span class="home-step">3</span><div><strong>Daily practice loop</strong><p class="bn">Quiz + Spelling + Flashcards দিয়ে প্রতিদিন 10 মিনিট।</p></div></li>
-        <li><span class="home-step">4</span><div><strong>Track mastery</strong><p class="bn">My Progress-এ কোন স্কিল weak, কোনটা mastered দেখুন।</p></div></li>
+        <li><span class="home-step">3</span><div><strong>Daily practice loop</strong><p class="bn">Quiz + Spelling + Spoken Drill — প্রতিদিন ~১০ মিনিট।</p></div></li>
+        <li><span class="home-step">4</span><div><strong>Track mastery</strong><p class="bn">My Progress-এ weak skill দেখে এক ট্যাপে রিভিউ।</p></div></li>
       </ol>
     </section>
 
@@ -265,7 +285,8 @@
         <a class="home-skill-card" href="pages/grammar.html"><span class="home-skill-icon">G</span><div><strong>Grammar</strong><span class="bn">Tense, article, modal</span></div></a>
         <a class="home-skill-card" href="pages/phrasal-verbs.html"><span class="home-skill-icon">P</span><div><strong>Phrasal Verbs</strong><span class="bn">give up, look after…</span></div></a>
         <a class="home-skill-card" href="pages/spelling.html"><span class="home-skill-icon">S</span><div><strong>Spelling</strong><span class="bn">কঠিন বানান টিপ</span></div></a>
-        <a class="home-skill-card" href="pages/spoken-english.html"><span class="home-skill-icon">🗣</span><div><strong>Spoken English</strong><span class="bn">Dialogue + বাংলা</span></div></a>
+        <a class="home-skill-card" href="pages/spoken-english.html"><span class="home-skill-icon">Sp</span><div><strong>Spoken English</strong><span class="bn">Dialogue + বাংলা</span></div></a>
+        <a class="home-skill-card" href="pages/spoken-drill.html"><span class="home-skill-icon">Dr</span><div><strong>Spoken Drill</strong><span class="bn">লাইন টাইপ করে অনুশীলন</span></div></a>
         <a class="home-skill-card" href="pages/common-mistakes.html"><span class="home-skill-icon">!</span><div><strong>Common Mistakes</strong><span class="bn">I am agree → I agree</span></div></a>
       </div>
       <p class="home-more"><a href="pages/learn.html">সব Learn topics →</a></p>
@@ -279,11 +300,11 @@
         <p class="home-sub">Quiz, flashcards, translation — mastery measurable</p>
       </div>
       <div class="home-tools-grid">
-        <a class="skill-link" href="pages/quizzes.html"><strong>Quizzes</strong><span>MCQ + type answer</span></a>
+        <a class="skill-link" href="pages/learning-path.html"><strong>Learning Path</strong><span class="bn">১৪ দিনের প্ল্যান</span></a>
+        <a class="skill-link" href="pages/quizzes.html"><strong>Quizzes</strong><span>MCQ + weak-area</span></a>
         <a class="skill-link" href="pages/flashcards.html"><strong>Flashcards</strong><span class="bn">Tap to flip</span></a>
-        <a class="skill-link" href="pages/translation-lab.html"><strong>Translation Lab</strong><span class="bn">বাংলা → ইংরেজি</span></a>
+        <a class="skill-link" href="pages/spoken-drill.html"><strong>Spoken Drill</strong><span class="bn">BN → EN</span></a>
         <a class="skill-link" href="pages/spelling-practice.html"><strong>Spelling Practice</strong><span class="bn">Listen & type</span></a>
-        <a class="skill-link" href="pages/practice.html"><strong>Practice Hub</strong><span>All tools</span></a>
         <a class="skill-link" href="pages/my-progress.html"><strong>My Progress</strong><span class="bn">Streak & mastery</span></a>
       </div>
     </section>
@@ -355,7 +376,7 @@
     </div>
 
   <nav class="home-sticky-cta efb-v2-sticky" aria-label="Quick action">
-    <a class="btn btn-primary" href="pages/learn.html">শিখতে শুরু</a>
+    <a class="btn btn-primary" href="pages/learning-path.html">আজকের পাথ</a>
     <a class="btn btn-secondary" href="pages/daily-challenge.html">Daily</a>
   </nav>
   </main>

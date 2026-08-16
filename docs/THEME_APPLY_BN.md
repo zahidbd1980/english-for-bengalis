@@ -9,7 +9,7 @@ Backup: `backup/theme-indie-original-backup.xml`
 2. **Top menu links** — Home, Learn, Practice, Quizzes, Daily Challenge, Progress, Level Test, About
 3. **Brand colors** — teal `#0f6b5c` instead of blue
 4. **Fonts** — Fraunces + Source Sans 3 + Noto Sans Bengali
-5. **Hero** — removed stock photo; teal header, shorter height
+5. **Hero** — stock lifestyle photo removed; short teal education header (~220px)
 6. **learning.css** loaded from GitHub Pages for quiz/page widgets
 7. **Homepage Featured Post = FULL body** (not truncated snippet) — so root URL shows designed `index.html` landing
 

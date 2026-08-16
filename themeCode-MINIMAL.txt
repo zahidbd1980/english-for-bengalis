@@ -40,16 +40,16 @@
 <Group description="Backgrounds">
   <Variable name="body.background.height" description="Background height"
       type="length"
-      min="420px"
-      max="640px"
-      default="480px"  value="480px"/>
+      min="160px"
+      max="420px"
+      default="220px"  value="220px"/>
   <Variable name="body.background" description="Background"
       color="$(body.background.color)"
       type="background"
-      default="$(color) none repeat scroll top left"  value="$(color) url(https://themes.googleusercontent.com/image?id=L1lcAxxz0CLgsDzixEprHJ2F38TyEjCyE3RSAjynQDks0lT1BDc1OxXKaTEdLc89HPvdB11X9FDw) no-repeat scroll top center /* Credit: Michael Elkan (http://www.offset.com/photos/394244) */;"/>
+      default="$(color) none no-repeat scroll top center"  value="$(color) none no-repeat scroll top center"/>
   <Variable name="body.background.color" description="Body background color"
       type="color"
-      default="#eee"  value="#eeeeee"/>
+      default="#f7f4ef"  value="#0f6b5c"/>
   <Variable name="posts.background.color" description="Post background color"
       type="color"
       default="#fff"  value="#ffffff"/>
