@@ -149,7 +149,7 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
             f'<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700'
             f'&family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700'
             f'&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>'
-            f'<link rel="stylesheet" href="{base}/css/learning.css?v=20260816e"/>'
+            f'<link rel="stylesheet" href="{base}/css/learning.css?v=20260816f"/>'
         )
         scripts = (
             f'<script src="{base}/js/storage.js"></script>'
