@@ -40,16 +40,16 @@
 <Group description="Backgrounds">
   <Variable name="body.background.height" description="Background height"
       type="length"
-      min="160px"
+      min="1px"
       max="420px"
-      default="220px"  value="220px"/>
+      default="1px"  value="1px"/>
   <Variable name="body.background" description="Background"
       color="$(body.background.color)"
       type="background"
       default="$(color) none no-repeat scroll top center"  value="$(color) none no-repeat scroll top center"/>
   <Variable name="body.background.color" description="Body background color"
       type="color"
-      default="#f7f4ef"  value="#0f6b5c"/>
+      default="#f3f0ea"  value="#f3f0ea"/>
   <Variable name="posts.background.color" description="Post background color"
       type="color"
       default="#fff"  value="#ffffff"/>

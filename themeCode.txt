@@ -31,25 +31,25 @@
 <Group description="Page Text">
   <Variable name="body.text.font" description="Font"
       type="font"
-      default="$(robotoNormal15)"  value="15px Roboto, sans-serif"/>
+      default="$(robotoNormal15)"  value="400 16px 'Source Sans 3', Roboto, sans-serif"/>
   <Variable name="body.text.color" description="Color"
       type="color"
-      default="#757575"  value="#757575"/>
+      default="#1c2430"  value="#1c2430"/>
 </Group>
 
 <Group description="Backgrounds">
   <Variable name="body.background.height" description="Background height"
       type="length"
-      min="160px"
+      min="1px"
       max="420px"
-      default="220px"  value="220px"/>
+      default="1px"  value="1px"/>
   <Variable name="body.background" description="Background"
       color="$(body.background.color)"
       type="background"
       default="$(color) none no-repeat scroll top center"  value="$(color) none no-repeat scroll top center"/>
   <Variable name="body.background.color" description="Body background color"
       type="color"
-      default="#f7f4ef"  value="#0f6b5c"/>
+      default="#f3f0ea"  value="#f3f0ea"/>
   <Variable name="posts.background.color" description="Post background color"
       type="color"
       default="#fff"  value="#ffffff"/>
@@ -69,20 +69,20 @@
       default="$(body.link.color)"  value="#0a5246"/>
   <Variable name="body.link.hover.color" description="Link Hover Color"
       type="color"
-      default="$(body.link.color)"  value="#0a5246"/>
+      default="$(body.link.color)"  value="#c45c26"/>
 </Group>
 
 <Group description="Blog title" selector="div.widget.Header">
   <Variable name="blog.title.font" description="Font"
       type="font"
-      default="$(robotoBold45)"  value="bold 45px Roboto, sans-serif"/>
+      default="$(robotoBold45)"  value="700 32px Fraunces, Georgia, serif"/>
   <Variable name="blog.title.color" description="Color"
       type="color"
-      default="#fff"  value="#ffffff"/>
+      default="#0a5246"  value="#0a5246"/>
   <Variable name="header.icons.color"
       description="Background icons color"
       type="color"
-      default="#fff"  value="#ffffff"/>
+      default="#0a5246"  value="#0a5246"/>
 </Group>
 
 <Group description="Tabs text" selector="div.widget.PageList">
@@ -90,53 +90,53 @@
       type="font"
       family="$(robotoNormal15.family)"
       size="$(robotoNormal15.size)"
-      default="700 normal $(size) $(family)"  value="700 normal $(size) $(family)"/>
+      default="700 normal $(size) $(family)"  value="700 normal 14px 'Source Sans 3', Roboto, sans-serif"/>
   <Variable name="tabs.color" description="Text color"
       type="color"
-      default="#ccc"  value="#cccccc"/>
+      default="#3d4a5c"  value="#3d4a5c"/>
   <Variable name="tabs.selected.color" description="Selected color"
       type="color"
-      default="#fff"  value="#ffffff"/>
+      default="#0f6b5c"  value="#0f6b5c"/>
   <Variable name="tabs.overflow.background.color" description="Popup background color"
       type="color"
       default="$(posts.background.color)"  value="#ffffff"/>
   <Variable name="tabs.overflow.color" description="Popup text color"
       type="color"
-      default="$(posts.text.color)"  value="#757575"/>
+      default="$(posts.text.color)"  value="#1c2430"/>
   <Variable name="tabs.overflow.selected.color" description="Popup selected color"
       type="color"
-      default="$(posts.title.color)"  value="#212121"/>
+      default="$(posts.title.color)"  value="#0a5246"/>
 </Group>
 
 <Group description="Posts" selector="div.widget.Blog">
   <Variable name="posts.title.color" description="Post title color"
       type="color"
-      default="#212121"  value="#212121"/>
+      default="#0a5246"  value="#0a5246"/>
   <Variable name="posts.title.font" description="Post title font"
       type="font"
-      default="$(robotoBold22)"  value="bold 22px Roboto, sans-serif"/>
+      default="$(robotoBold22)"  value="700 22px Fraunces, Georgia, serif"/>
   <Variable name="posts.stream.title.font" description="Post title stream font"
       type="font"
-      default="$(robotoBold30)"  value="bold 30px Roboto, sans-serif"/>
+      default="$(robotoBold30)"  value="700 28px Fraunces, Georgia, serif"/>
   <Variable name="posts.text.font" description="Post text font"
       type="font"
-      default="$(body.text.font)"  value="15px Roboto, sans-serif"/>
+      default="$(body.text.font)"  value="400 16px 'Source Sans 3', Roboto, sans-serif"/>
   <Variable name="posts.text.color" description="Post text color"
       type="color"
-      default="$(body.text.color)"  value="#757575"/>
+      default="$(body.text.color)"  value="#1c2430"/>
   <Variable name="posts.byline.color" description="Post byline color"
       type="color"
-      default="rgba(0, 0, 0, 0.54)"  value="rgba(0, 0, 0, 0.54)"/>
+      default="rgba(0, 0, 0, 0.54)"  value="rgba(28, 36, 48, 0.55)"/>
   <Variable name="blockquote.font" description="Blockquote font"
       type="font"
-      default="$(robotoLightItalic15)"  value="italic 300 15px Roboto, sans-serif"/>
+      default="$(robotoLightItalic15)"  value="italic 400 16px 'Source Sans 3', sans-serif"/>
   <Variable name="blockquote.color" description="Blockquote color"
       type="color"
-      default="#444"  value="#444444"/>
+      default="#444"  value="#3d4a5c"/>
   <Variable name="posts.icons.color"
       description="Post icons color"
       type="color"
-      default="#707070"  value="#707070"/>
+      default="#707070"  value="#5b6573"/>
 </Group>
 
 <Group description="Search">
@@ -2653,40 +2653,207 @@ margin-left:40px
 }
 }
 
-/* EFB full nav */
-.blog-name .PageList ul.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:2px}
-.blog-name .PageList ul.tabs li a{padding:8px 11px !important;border-radius:8px;font-weight:700}
-.blog-name .PageList ul.tabs li.selected a,.blog-name .PageList ul.tabs li a:hover{background:rgba(255,255,255,0.16)}
-.sticky .PageList ul.tabs li a{color:#0f6b5c !important}
-
-/* EFB: education header — no stock photo */
-.bg-photo{
-background-color:#0f6b5c !important;
-background-image:
-radial-gradient(ellipse 70% 55% at 18% 35%,rgba(255,255,255,.18),transparent 55%),
-radial-gradient(ellipse 55% 45% at 88% 18%,rgba(196,92,38,.28),transparent 50%),
-linear-gradient(165deg,#0a5246 0%,#0f6b5c 48%,#148f7a 100%) !important;
-background-size:cover !important;
--webkit-filter:none !important;
-filter:none !important
-}
-.bg-photo-overlay{
-background:linear-gradient(180deg,rgba(10,82,70,.12),rgba(10,82,70,.38)) !important
-}
-body{background-color:#f7f4ef !important}
-@media screen and (max-width:720px){
-.bg-photo-container,.bg-photo-overlay{height:180px !important;max-height:180px !important}
-#page_body,.page_body{margin-top:180px !important;min-height:calc(100% - 180px) !important}
+/* ========== EFB Theme Shell — industry education chrome ========== */
+:root {
+  --efb-ink: #1c2430;
+  --efb-muted: #5b6573;
+  --efb-brand: #0f6b5c;
+  --efb-brand-dark: #0a5246;
+  --efb-accent: #c45c26;
+  --efb-wash: #e8f2ef;
+  --efb-bg: #f3f0ea;
+  --efb-surface: #ffffff;
+  --efb-border: #e4ded5;
 }
 
-/* EFB: homepage Featured Post = full landing (not Indie snippet card) */
-.efb-home-featured,.efb-featured-full{max-width:100%;width:100%}
-.FeaturedPost .efb-featured-full{margin:0;padding:0}
-.FeaturedPost .efb-featured-full .wrap-home,.FeaturedPost .efb-featured-full .efb-v2-home{max-width:100%}
-.FeaturedPost h3.post-title,.FeaturedPost .post-title,.FeaturedPost .jump-link,.FeaturedPost .post-bottom{display:none !important}
-body.homepage .FeaturedPost .widget-content{border:0;padding:0}
-body.homepage #page_body .FeaturedPost{margin:0 0 1.5rem}
-body.homepage{overflow-x:hidden}
+/* Kill Indie tall photo hero — causes white-on-cream disaster */
+.bg-photo-container,
+.bg-photo-overlay,
+.bg-photo {
+  height: 0 !important;
+  max-height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  display: none !important;
+}
+#page_body,
+.page_body {
+  margin-top: 0 !important;
+  min-height: 100% !important;
+  z-index: 2 !important;
+}
+body {
+  background:
+    radial-gradient(900px 420px at 8% -8%, #d8ebe5 0%, transparent 55%),
+    radial-gradient(700px 360px at 100% 0%, #f0e4d8 0%, transparent 50%),
+    var(--efb-bg) !important;
+  color: var(--efb-ink) !important;
+  overflow-x: hidden;
+}
+
+/* Compact sticky brand bar */
+.centered-top-container {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--efb-border);
+  box-shadow: 0 8px 28px rgba(28, 36, 48, 0.06);
+  margin: 0 -16px 1rem !important;
+  padding: 0.65rem 16px 0.85rem !important;
+  position: sticky !important;
+  top: 0;
+  z-index: 80 !important;
+}
+.centered-top-container.sticky {
+  background: rgba(255, 255, 255, 0.97) !important;
+  box-shadow: 0 10px 32px rgba(28, 36, 48, 0.1) !important;
+}
+.blog-name {
+  margin: 0.35rem 0 0.25rem !important;
+}
+.widget.Header h1,
+.Header h1 {
+  color: var(--efb-brand-dark) !important;
+  font-family: Fraunces, Georgia, "Times New Roman", serif !important;
+  font-size: clamp(1.2rem, 4.2vw, 1.75rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  margin: 0 auto 0.35rem !important;
+  max-width: 18em;
+  text-align: center !important;
+}
+.widget.Header h1 a,
+.Header h1 a,
+.Header h1 a:hover,
+.Header h1 a:visited {
+  color: var(--efb-brand-dark) !important;
+  text-decoration: none !important;
+}
+.widget.Header p,
+.Header p {
+  color: var(--efb-muted) !important;
+  font-size: 0.85rem !important;
+  opacity: 1 !important;
+  margin: 0 0 0.5rem !important;
+}
+.hamburger-menu .svg-icon-24,
+.centered-top-container .svg-icon-24,
+.search-expand .svg-icon-24 {
+  fill: var(--efb-brand-dark) !important;
+}
+
+/* Nav — high contrast pills */
+.blog-name .PageList {
+  margin-top: 0.35rem !important;
+  padding-top: 0.25rem !important;
+}
+.blog-name .PageList ul.tabs {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 0.2rem !important;
+}
+.blog-name .PageList ul.tabs li a,
+.tabs li a {
+  color: var(--efb-muted) !important;
+  padding: 0.45rem 0.7rem !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.blog-name .PageList ul.tabs li.selected {
+  border-bottom: 0 !important;
+}
+.blog-name .PageList ul.tabs li.selected a,
+.blog-name .PageList ul.tabs li a:hover,
+.tabs .selected a {
+  color: var(--efb-brand-dark) !important;
+  background: var(--efb-wash) !important;
+}
+.sticky .PageList ul.tabs li a {
+  color: var(--efb-muted) !important;
+}
+.sticky .PageList ul.tabs li.selected a,
+.sticky .PageList ul.tabs li a:hover {
+  color: var(--efb-brand-dark) !important;
+  background: var(--efb-wash) !important;
+}
+
+/* Content cards */
+.page_body .centered {
+  max-width: 760px !important;
+  padding: 0.5rem 0 2rem !important;
+}
+#page_body .FeaturedPost,
+.Blog .blog-posts .post-outer-container {
+  background: var(--efb-surface) !important;
+  border: 1px solid var(--efb-border) !important;
+  border-radius: 18px !important;
+  box-shadow: 0 12px 36px rgba(28, 36, 48, 0.06) !important;
+  padding: 1rem 1.1rem !important;
+  overflow: hidden;
+}
+body.homepage #page_body .FeaturedPost {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 0 1.25rem !important;
+}
+body.homepage .FeaturedPost .widget-content {
+  border: 0 !important;
+  padding: 0 !important;
+}
+.FeaturedPost h3.post-title,
+.FeaturedPost .post-title,
+.FeaturedPost .jump-link,
+.FeaturedPost .post-bottom {
+  display: none !important;
+}
+.efb-home-featured,
+.efb-featured-full {
+  max-width: 100%;
+  width: 100%;
+}
+.FeaturedPost .efb-featured-full {
+  margin: 0;
+  padding: 0;
+}
+.Blog .blog-posts .post-outer-container h3 a {
+  color: var(--efb-brand-dark) !important;
+}
+@media screen and (max-width: 720px) {
+  .centered-top-container {
+    margin: 0 -8px 0.75rem !important;
+    padding: 0.5rem 8px 0.65rem !important;
+  }
+  .widget.Header h1,
+  .Header h1 {
+    font-size: clamp(1.05rem, 5vw, 1.35rem) !important;
+    max-width: 100%;
+  }
+  #page_body .FeaturedPost,
+  .Blog .blog-posts .post-outer-container {
+    padding: 0.85rem 0.75rem !important;
+    border-radius: 14px !important;
+  }
+  body.homepage #page_body .FeaturedPost {
+    padding: 0 !important;
+  }
+  .blog-name .PageList ul.tabs li a {
+    padding: 0.4rem 0.55rem !important;
+    font-size: 0.68rem !important;
+  }
+}
+body.homepage {
+  overflow-x: hidden;
+}
 ]]></b:skin>
 
     <b:template-skin>

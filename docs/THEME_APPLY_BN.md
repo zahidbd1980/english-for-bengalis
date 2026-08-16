@@ -1,33 +1,36 @@
-# Edited Blogger Theme — How to Apply
+# Blogger Theme apply (high-contrast education chrome)
 
-File: `themeCode.txt` (already edited)  
-Backup: `backup/theme-indie-original-backup.xml`
+File: **`themeCode.txt`**  
+Backup first: Blogger → Theme → Backup
 
-## What I changed
+## What this theme fixes
 
-1. **Menu ON** — PageList was `visible='false'` (hidden). Now `visible='true'`
-2. **Top menu links** — Home, Learn, Practice, Quizzes, Daily Challenge, Progress, Level Test, About
-3. **Brand colors** — teal `#0f6b5c` instead of blue
-4. **Fonts** — Fraunces + Source Sans 3 + Noto Sans Bengali
-5. **Hero** — stock lifestyle photo removed; short teal education header (~220px)
-6. **learning.css** loaded from GitHub Pages for quiz/page widgets
-7. **Homepage Featured Post = FULL body** (not truncated snippet) — so root URL shows designed `index.html` landing
+Screenshot problem: **white title + white menu on light beige** (unreadable).
 
-## How to paste in Blogger
+New shell:
+1. Indie stock photo / tall dark hero **removed**
+2. **White sticky header** + dark teal brand text (readable)
+3. Nav links: muted gray → teal wash on select/hover
+4. Soft cream page background + soft green/warm light
+5. Content cards with border + light shadow
+6. Homepage Featured Post still renders full `index.html` landing
 
-1. Blogger → **Theme** → **Backup** (save a copy again)
+## How to paste
+
+1. Blogger → **Theme** → **Backup**
 2. **Theme** → **Edit HTML**
 3. Select all → Delete
-4. Open `themeCode.txt` from this project → Copy all
-5. Paste into Blogger → **Save theme**
-6. If error, Restore from backup and tell me the error message
+4. Open project file **`themeCode.txt`** → Copy all
+5. Paste → **Save theme**
+6. Hard refresh: https://englishforbengalis.blogspot.com/
 
-## After save
+If save errors: try `themeCode-SAFE.txt`, or restore backup and send the error.
 
-1. Open https://englishforbengalis.blogspot.com/
-2. Check top menu appears under the title
-3. If menu missing: **Layout** → Page List widget → edit links → Save
+## Optional polish in Blogger
 
-## Optional
+- **Theme → Customize → Blog title**: shorten to `English for Bengalis` (cleaner header)
+- **Layout → PageList**: keep Home, Learn, Practice, Quizzes, Daily Challenge, Progress, etc.
 
-Theme → Customize → Colors/Fonts if you want fine-tuning without code.
+## After CSS-only deploy (no theme paste yet)
+
+CDN `learning.css` also forces dark title/nav + hides `.bg-photo`, so contrast improves even before theme paste. Theme paste still required for fonts/variables and a permanent clean shell.

@@ -2,7 +2,7 @@
    Tokens from Master Plan §130 */
 
 :root {
-  --color-bg: #f7f4ef;
+  --color-bg: #f3f0ea;
   --color-surface: #ffffff;
   --color-ink: #1c2430;
   --color-muted: #5b6573;
@@ -13,6 +13,7 @@
   --color-danger: #b42318;
   --color-border: #e4ded5;
   --color-wash: #e8f2ef;
+  --color-wash-warm: #f7ebe3;
   --font-display: "Fraunces", "Source Serif 4", Georgia, serif;
   --font-body: "Source Sans 3", "IBM Plex Sans", system-ui, sans-serif;
   --font-bangla: "Noto Sans Bengali", "Source Sans 3", sans-serif;
@@ -41,8 +42,8 @@ body {
   font-family: var(--font-body), var(--font-bangla);
   color: var(--color-ink);
   background:
-    radial-gradient(900px 420px at 10% -10%, #dceee8 0%, transparent 55%),
-    radial-gradient(700px 360px at 100% 0%, #f3e6dc 0%, transparent 50%),
+    radial-gradient(900px 420px at 8% -8%, #d8ebe5 0%, transparent 55%),
+    radial-gradient(700px 360px at 100% 0%, #f0e4d8 0%, transparent 50%),
     var(--color-bg);
   min-height: 100vh;
   min-height: 100dvh;
@@ -57,31 +58,95 @@ body {
   overscroll-behavior-y: contain;
 }
 
-/* Blogger Indie shell — education header (replaces stock lifestyle photo) */
+/* Blogger Indie shell — modern education chrome (high contrast) */
+.bg-photo-container,
+.bg-photo-overlay,
 .bg-photo {
-  background-color: #0f6b5c !important;
-  background-image:
-    radial-gradient(ellipse 70% 55% at 18% 35%, rgba(255, 255, 255, 0.18), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 88% 18%, rgba(196, 92, 38, 0.28), transparent 50%),
-    linear-gradient(165deg, #0a5246 0%, #0f6b5c 48%, #148f7a 100%) !important;
-  background-size: cover !important;
-  -webkit-filter: none !important;
-  filter: none !important;
+  height: 0 !important;
+  max-height: 0 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  display: none !important;
 }
-.bg-photo-overlay {
-  background: linear-gradient(180deg, rgba(10, 82, 70, 0.12), rgba(10, 82, 70, 0.38)) !important;
+#page_body,
+.page_body {
+  margin-top: 0 !important;
+  min-height: 100% !important;
 }
-@media screen and (max-width: 720px) {
-  .bg-photo-container,
-  .bg-photo-overlay {
-    height: 180px !important;
-    max-height: 180px !important;
-  }
-  #page_body,
-  .page_body {
-    margin-top: 180px !important;
-    min-height: calc(100% - 180px) !important;
-  }
+body.homepage,
+body.version-1-3-3 {
+  background:
+    radial-gradient(900px 420px at 8% -8%, #d8ebe5 0%, transparent 55%),
+    radial-gradient(700px 360px at 100% 0%, #f0e4d8 0%, transparent 50%),
+    #f3f0ea !important;
+  color: #1c2430 !important;
+  overflow-x: hidden;
+}
+.centered-top-container {
+  background: rgba(255, 255, 255, 0.94) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid #e4ded5 !important;
+  box-shadow: 0 8px 28px rgba(28, 36, 48, 0.06);
+  position: sticky !important;
+  top: 0;
+  z-index: 80 !important;
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.65rem !important;
+}
+.widget.Header h1,
+.Header h1,
+.widget.Header h1 a,
+.Header h1 a,
+.Header h1 a:hover,
+.Header h1 a:visited {
+  color: #0a5246 !important;
+  font-family: Fraunces, Georgia, serif !important;
+  font-size: clamp(1.05rem, 4.5vw, 1.65rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.02em !important;
+  text-decoration: none !important;
+}
+.widget.Header p,
+.Header p {
+  color: #5b6573 !important;
+  opacity: 1 !important;
+}
+.hamburger-menu .svg-icon-24,
+.centered-top-container .svg-icon-24 {
+  fill: #0a5246 !important;
+}
+.blog-name .PageList ul.tabs li a,
+.tabs li a {
+  color: #5b6573 !important;
+  border-radius: 999px !important;
+  padding: 0.4rem 0.65rem !important;
+  font-weight: 700 !important;
+}
+.blog-name .PageList ul.tabs li.selected {
+  border-bottom: 0 !important;
+}
+.blog-name .PageList ul.tabs li.selected a,
+.blog-name .PageList ul.tabs li a:hover,
+.tabs .selected a,
+.sticky .PageList ul.tabs li a {
+  color: #0a5246 !important;
+  background: #e8f2ef !important;
+}
+#page_body .FeaturedPost,
+.Blog .blog-posts .post-outer-container {
+  border-radius: 16px !important;
+  border: 1px solid #e4ded5 !important;
+  box-shadow: 0 10px 28px rgba(28, 36, 48, 0.06) !important;
+}
+body.homepage #page_body .FeaturedPost {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 img {
