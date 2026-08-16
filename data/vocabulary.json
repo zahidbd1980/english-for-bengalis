@@ -108,25 +108,18 @@
     "meaning_bn": "অ্যাপয়েন্টমেন্ট / নির্ধারিত সাক্ষাৎ",
     "part_of_speech": "noun",
     "cefr_level": "A2",
-    "category": "office",
-    "example": "I have a doctor's appointment at 4 pm.",
-    "example_bn": "বিকেল ৪টায় আমার ডাক্তারের অ্যাপয়েন্টমেন্ট আছে।",
-    "synonyms": [
-      "meeting",
-      "booking"
-    ],
+    "category": "health",
+    "example": "I have a dentist appointment at 3 p.m.",
+    "example_bn": "বিকেল ৩টায় ডেন্টিস্ট অ্যাপয়েন্টমেন্ট আছে।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "appoint",
-        "pos": "verb",
-        "meaning_bn": "নিয়োগ করা / নির্ধারণ করা"
-      }
-    ],
+    "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:recommend",
@@ -161,23 +154,23 @@
   {
     "id": "vocab:deadline",
     "word": "deadline",
-    "meaning_en": "the latest time to finish something",
+    "meaning_en": "the time by which work must finish",
     "meaning_bn": "শেষ সময়সীমা",
     "part_of_speech": "noun",
     "cefr_level": "B1",
     "category": "office",
-    "example": "The project deadline is Friday.",
-    "example_bn": "প্রজেক্টের ডেডলাইন শুক্রবার।",
-    "synonyms": [
-      "due date",
-      "time limit"
-    ],
+    "example": "Meeting deadlines is stressful.",
+    "example_bn": "ডেডলাইন মানা চাপের।",
+    "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "speaking",
+      "toefl"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:polite",
@@ -234,42 +227,22 @@
   {
     "id": "vocab:necessary",
     "word": "necessary",
-    "meaning_en": "needed",
+    "meaning_en": "needed; essential",
     "meaning_bn": "প্রয়োজনীয়",
     "part_of_speech": "adjective",
     "cefr_level": "A2",
     "category": "daily",
-    "example": "Is a passport necessary?",
-    "example_bn": "পাসপোর্ট কি প্রয়োজনীয়?",
-    "synonyms": [
-      "essential",
-      "required"
-    ],
-    "antonyms": [
-      "unnecessary",
-      "optional"
-    ],
-    "word_family": [
-      {
-        "word": "necessity",
-        "pos": "noun",
-        "meaning_bn": "প্রয়োজনীয়তা"
-      },
-      {
-        "word": "necessarily",
-        "pos": "adverb",
-        "meaning_bn": "অবশ্যই / প্রয়োজনীয়ভাবে"
-      },
-      {
-        "word": "unnecessary",
-        "pos": "adjective",
-        "meaning_bn": "অপ্রয়োজনীয়"
-      }
-    ],
+    "example": "A passport is necessary for travel.",
+    "example_bn": "ভ্রমণের জন্য পাসপোর্ট প্রয়োজনীয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:opportunity",
@@ -331,32 +304,21 @@
   {
     "id": "vocab:available",
     "word": "available",
-    "meaning_en": "free to use or free to meet",
-    "meaning_bn": "উপলব্ধ; (সময়) ফাঁকা",
+    "meaning_en": "able to be used or obtained",
+    "meaning_bn": "পাওয়া যায় / খালি আছে",
     "part_of_speech": "adjective",
     "cefr_level": "A2",
-    "category": "office",
-    "example": "Are you available tomorrow?",
-    "example_bn": "আপনি কি কাল খালি আছেন?",
-    "synonyms": [
-      "free",
-      "open"
-    ],
-    "antonyms": [
-      "busy",
-      "unavailable"
-    ],
-    "word_family": [
-      {
-        "word": "availability",
-        "pos": "noun",
-        "meaning_bn": "সহজলভ্যতা"
-      },
-      {
-        "word": "unavailable",
-        "pos": "adjective",
-        "meaning_bn": "অপ্রাপ্য"
-      }
+    "category": "daily",
+    "example": "Rooms are available from Monday.",
+    "example_bn": "সোমবার থেকে রুম পাওয়া যাবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
     ]
   },
   {
@@ -969,29 +931,22 @@
   {
     "id": "vocab:schedule",
     "word": "schedule",
-    "meaning_en": "a plan of times for work or events",
+    "meaning_en": "a plan of times for events",
     "meaning_bn": "সময়সূচি",
-    "part_of_speech": "noun/verb",
+    "part_of_speech": "noun",
     "cefr_level": "A2",
-    "category": "office",
-    "example": "Check the schedule for today.",
-    "example_bn": "আজকের সময়সূচি দেখুন।",
-    "synonyms": [
-      "timetable",
-      "agenda"
-    ],
+    "category": "travel",
+    "example": "Check the train schedule online.",
+    "example_bn": "অনলাইনে ট্রেনের সময়সূচি দেখুন।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "scheduled",
-        "pos": "adjective",
-        "meaning_bn": "নির্ধারিত"
-      }
-    ],
+    "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:salary",
@@ -1024,17 +979,18 @@
     "part_of_speech": "noun",
     "cefr_level": "A2",
     "category": "office",
-    "example": "My colleague helped me.",
-    "example_bn": "আমার সহকর্মী আমাকে সাহায্য করেছে।",
-    "synonyms": [
-      "coworker"
-    ],
+    "example": "I often have lunch with my colleagues.",
+    "example_bn": "প্রায়ই সহকর্মীদের সঙ্গে লাঞ্চ করি।",
+    "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "speaking",
+      "toefl"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:report",
@@ -1418,20 +1374,21 @@
   {
     "id": "vocab:spicy",
     "word": "spicy",
-    "meaning_en": "hot in taste from chilli",
+    "meaning_en": "having a strong hot flavour",
     "meaning_bn": "ঝাল / মশলাদার",
     "part_of_speech": "adjective",
     "cefr_level": "A2",
     "category": "food",
-    "example": "Bengali food can be spicy.",
-    "example_bn": "বাঙালি খাবার ঝাল হতে পারে।",
-    "synonyms": [
-      "hot"
-    ],
-    "antonyms": [
-      "mild"
-    ],
-    "word_family": []
+    "example": "I like spicy food, but not every day.",
+    "example_bn": "ঝাল খাবার পছন্দ করি, কিন্তু প্রতিদিন নয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
   },
   {
     "id": "vocab:passport",
@@ -1474,18 +1431,21 @@
     "id": "vocab:luggage",
     "word": "luggage",
     "meaning_en": "bags you take when travelling",
-    "meaning_bn": "মালপত্র / লাগেজ",
+    "meaning_bn": "লাগেজ / মালপত্র",
     "part_of_speech": "noun",
     "cefr_level": "A2",
     "category": "travel",
-    "example": "My luggage is heavy.",
-    "example_bn": "আমার লাগেজ ভারী।",
-    "synonyms": [
-      "baggage",
-      "bags"
-    ],
+    "example": "Heavy luggage must be checked in.",
+    "example_bn": "ভারী লাগেজ চেক-ইন করতে হবে।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
+    ]
   },
   {
     "id": "vocab:direction",
@@ -1854,63 +1814,39 @@
     "meaning_en": "to like one thing more than another",
     "meaning_bn": "বেশি পছন্দ করা",
     "part_of_speech": "verb",
-    "cefr_level": "A2",
-    "category": "verbs",
+    "cefr_level": "A1",
+    "category": "daily",
     "example": "I prefer tea to coffee.",
     "example_bn": "কফির চেয়ে চা বেশি পছন্দ করি।",
-    "synonyms": [
-      "favour"
-    ],
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "preference",
-        "pos": "noun",
-        "meaning_bn": "পছন্দ / অগ্রাধিকার"
-      },
-      {
-        "word": "preferable",
-        "pos": "adjective",
-        "meaning_bn": "অধিক পছন্দনীয়"
-      },
-      {
-        "word": "preferably",
-        "pos": "adverb",
-        "meaning_bn": "অধিকতর ভালো হয় যদি"
-      }
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "speaking"
     ]
   },
   {
     "id": "vocab:suggest",
     "word": "suggest",
-    "meaning_en": "to offer an idea",
-    "meaning_bn": "পরামর্শ দেওয়া / প্রস্তাব করা",
+    "meaning_en": "to put forward an idea",
+    "meaning_bn": "প্রস্তাব করা / ইঙ্গিত করা",
     "part_of_speech": "verb",
     "cefr_level": "A2",
-    "category": "verbs",
-    "example": "I suggest we leave early.",
-    "example_bn": "আমি পরামর্শ দিই আমরা তাড়াতাড়ি যাই।",
-    "synonyms": [
-      "recommend",
-      "propose"
-    ],
+    "category": "daily",
+    "example": "Experts suggest limiting screen time.",
+    "example_bn": "বিশেষজ্ঞরা স্ক্রিন টাইম সীমিত করার প্রস্তাব করেন।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "suggestion",
-        "pos": "noun",
-        "meaning_bn": "পরামর্শ"
-      },
-      {
-        "word": "suggested",
-        "pos": "adjective",
-        "meaning_bn": "প্রস্তাবিত"
-      }
-    ],
+    "word_family": [],
     "tags": [
+      "academic",
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "toefl"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:accept",
@@ -2356,34 +2292,24 @@
   {
     "id": "vocab:analyse",
     "word": "analyse",
-    "meaning_en": "to examine something in detail",
+    "meaning_en": "to examine carefully (UK)",
     "meaning_bn": "বিশ্লেষণ করা",
     "part_of_speech": "verb",
-    "cefr_level": "B1",
-    "category": "ielts",
-    "example": "The report analyses the main causes of traffic.",
-    "example_bn": "রিপোর্টটি যানজটের মূল কারণ বিশ্লেষণ করে।",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Researchers analyse the survey data.",
+    "example_bn": "গবেষকরা জরিপের তথ্য বিশ্লেষণ করেন।",
     "synonyms": [
-      "examine",
-      "study"
+      "examine"
     ],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "analysis",
-        "pos": "noun",
-        "meaning_bn": "বিশ্লেষণ"
-      },
-      {
-        "word": "analyst",
-        "pos": "noun",
-        "meaning_bn": "বিশ্লেষক"
-      },
-      {
-        "word": "analytical",
-        "pos": "adjective",
-        "meaning_bn": "বিশ্লেষণাত্মক"
-      }
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "academic",
+      "ielts",
+      "pte",
+      "toefl"
     ]
   },
   {
@@ -2584,23 +2510,20 @@
     "id": "vocab:trend",
     "word": "trend",
     "meaning_en": "a general direction of change",
-    "meaning_bn": "প্রবণতা / ট্রেন্ড",
+    "meaning_bn": "ধারা / প্রবণতা",
     "part_of_speech": "noun",
     "cefr_level": "B1",
     "category": "ielts",
-    "example": "The chart shows an upward trend in sales.",
-    "example_bn": "চার্টে বিক্রয়ের ঊর্ধ্বমুখী প্রবণতা দেখা যায়।",
-    "synonyms": [
-      "pattern",
-      "tendency"
-    ],
+    "example": "The overall trend is upward.",
+    "example_bn": "সামগ্রিক ধারা ঊর্ধ্বমুখী।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "trendy",
-        "pos": "adjective",
-        "meaning_bn": "ফ্যাশনেবল / চলতি"
-      }
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "task1",
+      "writing"
     ]
   },
   {
@@ -2814,29 +2737,21 @@
   {
     "id": "vocab:argue",
     "word": "argue",
-    "meaning_en": "to give reasons for or against something",
-    "meaning_bn": "যুক্তি দেওয়া / তর্ক করা",
+    "meaning_en": "to give reasons for a view",
+    "meaning_bn": "যুক্তি দেওয়া",
     "part_of_speech": "verb",
     "cefr_level": "B1",
     "category": "ielts",
-    "example": "Some people argue that exams are unfair.",
-    "example_bn": "কিছু লোক যুক্তি দেয় পরীক্ষা অন্যায্য।",
-    "synonyms": [
-      "claim",
-      "reason"
-    ],
+    "example": "Some people argue that cities are safer.",
+    "example_bn": "কেউ কেউ যুক্তি দেন যে শহর নিরাপদ।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "argument",
-        "pos": "noun",
-        "meaning_bn": "যুক্তি / তর্ক"
-      },
-      {
-        "word": "argumentative",
-        "pos": "adjective",
-        "meaning_bn": "তর্কপ্রিয়"
-      }
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "academic",
+      "ielts",
+      "writing"
     ]
   },
   {
@@ -2932,31 +2847,19 @@
     "meaning_en": "the natural world around us",
     "meaning_bn": "পরিবেশ",
     "part_of_speech": "noun",
-    "cefr_level": "A2",
-    "category": "ielts",
-    "example": "We must protect the environment.",
-    "example_bn": "আমাদের পরিবেশ রক্ষা করতে হবে।",
-    "synonyms": [
-      "nature",
-      "surroundings"
-    ],
+    "cefr_level": "B1",
+    "category": "nature",
+    "example": "Protecting the environment matters.",
+    "example_bn": "পরিবেশ রক্ষা গুরুত্বপূর্ণ।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "environmental",
-        "pos": "adjective",
-        "meaning_bn": "পরিবেশগত"
-      },
-      {
-        "word": "environmentally",
-        "pos": "adverb",
-        "meaning_bn": "পরিবেশগতভাবে"
-      }
-    ],
+    "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:sustainable",
@@ -3163,34 +3066,22 @@
   {
     "id": "vocab:government",
     "word": "government",
-    "meaning_en": "the group of people who control a country",
+    "meaning_en": "the group that runs a country",
     "meaning_bn": "সরকার",
     "part_of_speech": "noun",
     "cefr_level": "A2",
     "category": "ielts",
-    "example": "The government should invest in public transport.",
-    "example_bn": "সরকারের পাবলিক ট্রান্সপোর্টে বিনিয়োগ করা উচিত।",
-    "synonyms": [
-      "authorities",
-      "state"
-    ],
+    "example": "The government announced new rules.",
+    "example_bn": "সরকার নতুন নিয়ম ঘোষণা করেছে।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "govern",
-        "pos": "verb",
-        "meaning_bn": "শাসন করা"
-      },
-      {
-        "word": "governmental",
-        "pos": "adjective",
-        "meaning_bn": "সরকারি"
-      }
-    ],
+    "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:academic",
@@ -3509,41 +3400,42 @@
   {
     "id": "vocab:hobby",
     "word": "hobby",
-    "meaning_en": "an activity you do for enjoyment",
-    "meaning_bn": "শখ / হবি",
+    "meaning_en": "an activity done for pleasure",
+    "meaning_bn": "শখ",
     "part_of_speech": "noun",
-    "cefr_level": "A2",
-    "category": "ielts",
-    "example": "My hobby is reading novels.",
-    "example_bn": "আমার হবি উপন্যাস পড়া।",
-    "synonyms": [
-      "pastime",
-      "interest"
-    ],
+    "cefr_level": "A1",
+    "category": "daily",
+    "example": "My hobby is reading short stories.",
+    "example_bn": "আমার শখ ছোটগল্প পড়া।",
+    "synonyms": [],
     "antonyms": [],
-    "word_family": []
+    "word_family": [],
+    "phonetic": "",
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
   },
   {
     "id": "vocab:neighbourhood",
-    "word": "Neighbourhood",
-    "meaning_en": "the area around where you live",
+    "word": "neighbourhood",
+    "meaning_en": "the area around your home (UK)",
     "meaning_bn": "পাড়া / এলাকা",
     "part_of_speech": "noun",
-    "cefr_level": "A2",
-    "category": "ielts",
-    "example": "My neighbourhood is quiet and friendly.",
-    "example_bn": "আমার পাড়া শান্ত ও বন্ধুসুলভ।",
-    "synonyms": [
-      "area",
-      "locality"
-    ],
+    "cefr_level": "B1",
+    "category": "home",
+    "example": "My neighbourhood has many parks.",
+    "example_bn": "আমার পাড়ায় অনেক পার্ক আছে।",
+    "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "speaking"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:celebrate",
@@ -4800,20 +4692,22 @@
   {
     "id": "vocab:library",
     "word": "library",
-    "meaning_en": "place with books to borrow",
+    "meaning_en": "a place with books to borrow",
     "meaning_bn": "লাইব্রেরি",
     "part_of_speech": "noun",
     "cefr_level": "A1",
     "category": "education",
-    "example": "I study in the library.",
-    "example_bn": "আমি লাইব্রেরিতে পড়ি।",
+    "example": "Return books to the library desk.",
+    "example_bn": "বই লাইব্রেরি ডেস্কে জমা দিন।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:university",
@@ -6142,27 +6036,21 @@
   {
     "id": "vocab:recover",
     "word": "recover",
-    "phonetic": "/rɪˈkʌvər/",
-    "meaning_en": "to get better after illness",
-    "meaning_bn": "সুস্থ হয়ে ওঠা",
-    "example": "She recovered quickly.",
-    "example_bn": "সে দ্রুত সুস্থ হয়ে উঠেছে।",
+    "phonetic": "",
+    "meaning_en": "to return to a normal level",
+    "meaning_bn": "ঘুরে দাঁড়ানো / পুনরুদ্ধার",
+    "example": "Exports recovered after the crisis.",
+    "example_bn": "সঙ্কটের পর রপ্তানি ঘুরে দাঁড়িয়েছে।",
     "tags": [
       "health",
       "ielts",
-      "listening"
+      "listening",
+      "task1",
+      "writing"
     ],
-    "synonyms": [
-      "heal"
-    ],
+    "synonyms": [],
     "antonyms": [],
-    "word_family": [
-      {
-        "word": "recovery",
-        "pos": "noun",
-        "meaning_bn": "সুস্থতা ফিরে পাওয়া"
-      }
-    ],
+    "word_family": [],
     "cefr_level": "B1",
     "part_of_speech": "verb",
     "category": "health"
@@ -7073,25 +6961,24 @@
   {
     "id": "vocab:reliable",
     "word": "reliable",
-    "phonetic": "/rɪˈlaɪəbl/",
-    "meaning_en": "can be trusted",
+    "phonetic": "",
+    "meaning_en": "able to be trusted",
     "meaning_bn": "নির্ভরযোগ্য",
-    "example": "He is a reliable friend.",
-    "example_bn": "সে একজন নির্ভরযোগ্য বন্ধু।",
+    "example": "Use reliable academic sources.",
+    "example_bn": "নির্ভরযোগ্য একাডেমিক সূত্র ব্যবহার করুন।",
     "tags": [
+      "academic",
       "daily",
       "ielts",
-      "listening"
+      "listening",
+      "pte",
+      "toefl"
     ],
-    "synonyms": [
-      "trustworthy"
-    ],
-    "antonyms": [
-      "unreliable"
-    ],
+    "synonyms": [],
+    "antonyms": [],
     "cefr_level": "B1",
     "part_of_speech": "adjective",
-    "category": "daily",
+    "category": "education",
     "word_family": []
   },
   {
@@ -7466,20 +7353,22 @@
   {
     "id": "vocab:restaurant",
     "word": "restaurant",
-    "meaning_en": "a place where you buy and eat meals",
-    "meaning_bn": "রেস্টুরেন্ট / রেস্তোরাঁ",
+    "meaning_en": "a place that serves meals",
+    "meaning_bn": "রেস্তোরাঁ",
     "part_of_speech": "noun",
     "cefr_level": "A1",
-    "category": "ielts",
-    "example": "I learned the word 'restaurant' for IELTS listening.",
-    "example_bn": "IELTS লিসেনিংয়ের জন্য আমি 'restaurant' শব্দটি শিখেছি।",
+    "category": "food",
+    "example": "The restaurant opens at noon.",
+    "example_bn": "রেস্তোরাঁ দুপুরে খোলে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:believe",
@@ -7737,19 +7626,21 @@
     "id": "vocab:immediately",
     "word": "immediately",
     "meaning_en": "at once; without delay",
-    "meaning_bn": "অবিলম্বে / সঙ্গে সঙ্গে",
+    "meaning_bn": "অবিলম্বে",
     "part_of_speech": "adverb",
-    "cefr_level": "A2",
-    "category": "ielts",
-    "example": "Please answer immediately.",
-    "example_bn": "অনুগ্রহ করে immediately উত্তর দিন।",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "Please call immediately if you are late.",
+    "example_bn": "দেরি হলে অবিলম্বে ফোন করুন।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:original",
@@ -7808,20 +7699,22 @@
   {
     "id": "vocab:february",
     "word": "February",
-    "meaning_en": "the month of February",
+    "meaning_en": "the second month of the year",
     "meaning_bn": "ফেব্রুয়ারি",
     "part_of_speech": "noun",
     "cefr_level": "A1",
     "category": "daily",
-    "example": "I learned the word 'February' for IELTS listening.",
-    "example_bn": "IELTS লিসেনিংয়ের জন্য আমি 'February' শব্দটি শিখেছি।",
+    "example": "The course begins in February.",
+    "example_bn": "কোর্স ফেব্রুয়ারিতে শুরু।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:tendency",
@@ -8251,15 +8144,17 @@
     "part_of_speech": "noun",
     "cefr_level": "A1",
     "category": "daily",
-    "example": "We travel on Wednesday.",
-    "example_bn": "বুধবার আমরা যাব।",
+    "example": "Classes start on Wednesday.",
+    "example_bn": "ক্লাস বুধবার শুরু।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:because",
@@ -10172,20 +10067,22 @@
   {
     "id": "vocab:convenient",
     "word": "convenient",
-    "meaning_en": "easy and suitable for your needs",
+    "meaning_en": "easy and suitable",
     "meaning_bn": "সুবিধাজনক",
     "part_of_speech": "adjective",
     "cefr_level": "B1",
-    "category": "ielts",
-    "example": "The lecturer used a convenient example.",
-    "example_bn": "লেকচারার একটি convenient উদাহরণ ব্যবহার করেছেন।",
+    "category": "daily",
+    "example": "Online banking is convenient.",
+    "example_bn": "অনলাইন ব্যাংকিং সুবিধাজনক।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "speaking"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:suitable",
@@ -10209,19 +10106,22 @@
     "id": "vocab:affordable",
     "word": "affordable",
     "meaning_en": "not too expensive",
-    "meaning_bn": "সাশ্রয়ী / কেনার মতো দাম",
+    "meaning_bn": "সাশ্রয়ী",
     "part_of_speech": "adjective",
     "cefr_level": "B1",
-    "category": "ielts",
-    "example": "The lecturer used a affordable example.",
-    "example_bn": "লেকচারার একটি affordable উদাহরণ ব্যবহার করেছেন।",
+    "category": "shopping",
+    "example": "Public transport should be affordable.",
+    "example_bn": "গণপরিবহন সাশ্রয়ী হওয়া উচিত।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "speaking",
+      "writing"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:voluntary",
@@ -13269,19 +13169,21 @@
     "id": "vocab:accommodation",
     "word": "accommodation",
     "meaning_en": "a place to live or stay",
-    "meaning_bn": "বাসস্থান / আবাসন",
+    "meaning_bn": "বাসস্থান / থাকার জায়গা",
     "part_of_speech": "noun",
     "cefr_level": "B1",
     "category": "home",
-    "example": "I learned the word 'accommodation' for IELTS listening.",
-    "example_bn": "IELTS লিসেনিংয়ের জন্য আমি 'accommodation' শব্দটি শিখেছি।",
+    "example": "Student accommodation is near campus.",
+    "example_bn": "স্টুডেন্ট অ্যাকোমোডেশন ক্যাম্পাসের কাছে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:overseas-students",
@@ -14132,20 +14034,22 @@
   {
     "id": "vocab:questionnaire",
     "word": "questionnaire",
-    "meaning_en": "a set of written questions for collecting information",
-    "meaning_bn": "প্রশ্নপত্র",
+    "meaning_en": "a set of written questions",
+    "meaning_bn": "প্রশ্নপত্র / প্রশ্নমালা",
     "part_of_speech": "noun",
     "cefr_level": "B1",
-    "category": "office",
-    "example": "I learned the word 'questionnaire' for IELTS listening.",
-    "example_bn": "IELTS লিসেনিংয়ের জন্য আমি 'questionnaire' শব্দটি শিখেছি।",
+    "category": "education",
+    "example": "Please complete the questionnaire.",
+    "example_bn": "প্রশ্নপত্রটি পূরণ করুন।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:survey",
@@ -16728,16 +16632,18 @@
     "meaning_bn": "তাপমাত্রা",
     "part_of_speech": "noun",
     "cefr_level": "A2",
-    "category": "nature",
-    "example": "I learned the word 'temperature' for IELTS listening.",
-    "example_bn": "IELTS লিসেনিংয়ের জন্য আমি 'temperature' শব্দটি শিখেছি।",
+    "category": "health",
+    "example": "Check the temperature twice a day.",
+    "example_bn": "দিনে দুবার তাপমাত্রা চেক করুন।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:power-plants",
@@ -18326,20 +18232,23 @@
   {
     "id": "vocab:neighborhood",
     "word": "neighborhood",
-    "meaning_en": "the area around where you live",
+    "meaning_en": "the area around your home (US)",
     "meaning_bn": "পাড়া / এলাকা",
     "part_of_speech": "noun",
-    "cefr_level": "A2",
+    "cefr_level": "B1",
     "category": "home",
-    "example": "I learned the word 'neighborhood' for IELTS listening.",
-    "example_bn": "IELTS লিসেনিংয়ের জন্য আমি 'neighborhood' শব্দটি শিখেছি।",
+    "example": "This neighborhood is safe at night.",
+    "example_bn": "এই পাড়া রাতে নিরাপদ।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "speaking",
+      "toefl"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:suburb",
@@ -21674,20 +21583,22 @@
   {
     "id": "vocab:memorable",
     "word": "memorable",
-    "meaning_en": "worth remembering; unforgettable",
+    "meaning_en": "worth remembering",
     "meaning_bn": "স্মরণীয়",
     "part_of_speech": "adjective",
     "cefr_level": "B1",
-    "category": "ielts",
-    "example": "The lecturer used a memorable example.",
-    "example_bn": "লেকচারার একটি memorable উদাহরণ ব্যবহার করেছেন।",
+    "category": "daily",
+    "example": "My most memorable trip was to Cox's Bazar.",
+    "example_bn": "সবচেয়ে স্মরণীয় ভ্রমণ ছিল কক্সবাজারে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
-      "listening"
-    ]
+      "listening",
+      "speaking"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:aquarium",
@@ -24844,22 +24755,25 @@
   },
   {
     "id": "vocab:campus",
-    "word": "Campus",
-    "meaning_en": "the land and buildings of a university",
+    "word": "campus",
+    "meaning_en": "university grounds and buildings",
     "meaning_bn": "ক্যাম্পাস",
     "part_of_speech": "noun",
     "cefr_level": "A2",
     "category": "education",
-    "example": "The listening test mentioned Campus.",
-    "example_bn": "লিসেনিং টেস্টে Campus এর কথা এসেছে।",
+    "example": "The campus has a large library.",
+    "example_bn": "ক্যাম্পাসে বড় লাইব্রেরি আছে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "speaking",
+      "toefl"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:international-student",
@@ -26174,22 +26088,24 @@
   },
   {
     "id": "vocab:get-along-with",
-    "word": "Get along with",
-    "meaning_en": "to have a friendly relationship with",
-    "meaning_bn": "মিলমিশ করে থাকা",
-    "part_of_speech": "verb",
-    "cefr_level": "A2",
-    "category": "verbs",
-    "example": "Please get along with carefully.",
-    "example_bn": "অনুগ্রহ করে সাবধানে Get along with করুন।",
+    "word": "get along with",
+    "meaning_en": "to have a friendly relationship",
+    "meaning_bn": "মিলমিশ থাকা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "I get along with my classmates.",
+    "example_bn": "সহপাঠীদের সঙ্গে মিলমিশ আছে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "speaking"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:proposal",
@@ -29841,22 +29757,25 @@
   },
   {
     "id": "vocab:assignment",
-    "word": "Assignment",
-    "meaning_en": "a piece of work given to students",
-    "meaning_bn": "অ্যাসাইনমেন্ট",
+    "word": "assignment",
+    "meaning_en": "a piece of academic work",
+    "meaning_bn": "অ্যাসাইনমেন্ট / নির্ধারিত কাজ",
     "part_of_speech": "noun",
-    "cefr_level": "A2",
+    "cefr_level": "B1",
     "category": "education",
-    "example": "The listening test mentioned Assignment.",
-    "example_bn": "লিসেনিং টেস্টে Assignment এর কথা এসেছে।",
+    "example": "I have two assignments this week.",
+    "example_bn": "এই সপ্তাহে দুইটি অ্যাসাইনমেন্ট আছে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "speaking",
+      "toefl"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:auto-rickshaw",
@@ -31722,22 +31641,24 @@
   },
   {
     "id": "vocab:address",
-    "word": "Address",
+    "word": "address",
     "meaning_en": "details of where someone lives",
     "meaning_bn": "ঠিকানা",
     "part_of_speech": "noun",
     "cefr_level": "A1",
     "category": "daily",
-    "example": "The listening test mentioned Address.",
-    "example_bn": "লিসেনিং টেস্টে Address এর কথা এসেছে।",
+    "example": "Write your full address clearly.",
+    "example_bn": "সম্পূর্ণ ঠিকানা স্পষ্ট করে লিখুন।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:mail",
@@ -34116,22 +34037,24 @@
   },
   {
     "id": "vocab:cancellation",
-    "word": "Cancellation",
-    "meaning_en": "the act of stopping a booking",
+    "word": "cancellation",
+    "meaning_en": "the act of stopping a planned event",
     "meaning_bn": "বাতিলকরণ",
     "part_of_speech": "noun",
     "cefr_level": "B1",
     "category": "travel",
-    "example": "The listening test mentioned Cancellation.",
-    "example_bn": "লিসেনিং টেস্টে Cancellation এর কথা এসেছে।",
+    "example": "There was a flight cancellation.",
+    "example_bn": "ফ্লাইট বাতিল হয়েছিল।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:advance-booking",
@@ -35351,22 +35274,25 @@
   },
   {
     "id": "vocab:registration",
-    "word": "Registration",
-    "meaning_en": "the act of signing up officially",
+    "word": "registration",
+    "meaning_en": "the act of recording details officially",
     "meaning_bn": "নিবন্ধন",
     "part_of_speech": "noun",
-    "cefr_level": "A2",
+    "cefr_level": "B1",
     "category": "education",
-    "example": "The listening test mentioned Registration.",
-    "example_bn": "লিসেনিং টেস্টে Registration এর কথা এসেছে।",
+    "example": "Registration opens at 9 a.m.",
+    "example_bn": "নিবন্ধন সকাল ৯টায় খোলে।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "spelling",
+      "toefl"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:enrolment",
@@ -35598,22 +35524,24 @@
   },
   {
     "id": "vocab:receipt",
-    "word": "Receipt",
-    "meaning_en": "a paper showing what you paid",
+    "word": "receipt",
+    "meaning_en": "a written proof of payment",
     "meaning_bn": "রসিদ",
     "part_of_speech": "noun",
     "cefr_level": "A2",
     "category": "shopping",
-    "example": "The listening test mentioned Receipt.",
-    "example_bn": "লিসেনিং টেস্টে Receipt এর কথা এসেছে।",
+    "example": "Keep the receipt for refunds.",
+    "example_bn": "রিফান্ডের জন্য রসিদ রাখুন।",
     "synonyms": [],
     "antonyms": [],
     "word_family": [],
     "tags": [
       "ielts",
       "listening",
-      "pdf-1700"
-    ]
+      "pdf-1700",
+      "spelling"
+    ],
+    "phonetic": ""
   },
   {
     "id": "vocab:outlet",
@@ -37608,6 +37536,2023 @@
       "ielts",
       "collocation",
       "writing"
+    ]
+  },
+  {
+    "id": "vocab:decline",
+    "word": "decline",
+    "phonetic": "",
+    "meaning_en": "to become smaller or weaker",
+    "meaning_bn": "হ্রাস / কমতি",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "There was a steady decline in coal use.",
+    "example_bn": "কয়লা ব্যবহারে স্থির হ্রাস হয়েছিল।",
+    "synonyms": [
+      "fall",
+      "decrease"
+    ],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:drop",
+    "word": "drop",
+    "phonetic": "",
+    "meaning_en": "to fall to a lower level",
+    "meaning_bn": "কমে যাওয়া / পতন",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "A2",
+    "category": "ielts",
+    "example": "Prices dropped by 10% in May.",
+    "example_bn": "মে মাসে দাম ১০% কমেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:grow",
+    "word": "grow",
+    "phonetic": "",
+    "meaning_en": "to become larger",
+    "meaning_bn": "বাড়া / বৃদ্ধি পাওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "The number of users grew rapidly.",
+    "example_bn": "ইউজারের সংখ্যা দ্রুত বেড়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:climb",
+    "word": "climb",
+    "phonetic": "",
+    "meaning_en": "to go up (numbers/levels)",
+    "meaning_bn": "উপরে ওঠা",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Unemployment climbed to 8%.",
+    "example_bn": "বেকারত্ব ৮%-এ উঠেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:dip",
+    "word": "dip",
+    "phonetic": "",
+    "meaning_en": "a small temporary fall",
+    "meaning_bn": "সামান্য পতন",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Sales dipped slightly in winter.",
+    "example_bn": "শীতকালে বিক্রি সামান্য কমেছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:surge",
+    "word": "surge",
+    "phonetic": "",
+    "meaning_en": "a sudden large increase",
+    "meaning_bn": "হঠাৎ তীব্র বৃদ্ধি",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "There was a surge in online orders.",
+    "example_bn": "অনলাইন অর্ডারে হঠাৎ তীব্র বৃদ্ধি হয়েছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:plummet",
+    "word": "plummet",
+    "phonetic": "",
+    "meaning_en": "to fall very quickly and far",
+    "meaning_bn": "খাড়াভাবে পড়ে যাওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "C1",
+    "category": "ielts",
+    "example": "Tourist arrivals plummeted in 2020.",
+    "example_bn": "২০২০-এ পর্যটক আগমন খাড়াভাবে পড়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:overtake",
+    "word": "overtake",
+    "phonetic": "",
+    "meaning_en": "to become larger than something else",
+    "meaning_bn": "ছাড়িয়ে যাওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Renewables overtook coal in 2018.",
+    "example_bn": "২০১৮-এ নবায়নযোগ্য জ্বালানি কয়লাকে ছাড়িয়ে গেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:constitute",
+    "word": "constitute",
+    "phonetic": "",
+    "meaning_en": "to make up / form a part",
+    "meaning_bn": "গঠন করা / অংশ হওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Women constituted 55% of graduates.",
+    "example_bn": "গ্র্যাজুয়েটদের ৫৫% ছিলেন নারী।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:comprise",
+    "word": "comprise",
+    "phonetic": "",
+    "meaning_en": "to consist of",
+    "meaning_bn": "নিয়ে গঠিত",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "The chart comprises five age groups.",
+    "example_bn": "চার্টটি পাঁচটি বয়সগোষ্ঠী নিয়ে গঠিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:majority",
+    "word": "majority",
+    "phonetic": "",
+    "meaning_en": "more than half",
+    "meaning_bn": "সংখ্যাগরিষ্ঠ অংশ",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "The majority preferred buses.",
+    "example_bn": "সংখ্যাগরিষ্ঠ অংশ বাস পছন্দ করেছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:minority",
+    "word": "minority",
+    "phonetic": "",
+    "meaning_en": "a smaller part of a group",
+    "meaning_bn": "সংখ্যালঘু অংশ",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Only a minority chose taxis.",
+    "example_bn": "শুধু সংখ্যালঘু অংশ ট্যাক্সি বেছে নিয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:category",
+    "word": "category",
+    "phonetic": "",
+    "meaning_en": "a group of things with shared features",
+    "meaning_bn": "বিভাগ / শ্রেণি",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "The largest category was students.",
+    "example_bn": "সবচেয়ে বড় বিভাগ ছিল শিক্ষার্থী।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:figure",
+    "word": "figure",
+    "phonetic": "",
+    "meaning_en": "a number in a chart or table",
+    "meaning_bn": "সংখ্যা / ফিগার",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "The figure for 2016 was higher.",
+    "example_bn": "২০১৬-এর ফিগার বেশি ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:period",
+    "word": "period",
+    "phonetic": "",
+    "meaning_en": "a length of time",
+    "meaning_bn": "সময়কাল",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "During this period, sales doubled.",
+    "example_bn": "এই সময়কালে বিক্রি দ্বিগুণ হয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:roughly",
+    "word": "roughly",
+    "phonetic": "",
+    "meaning_en": "approximately",
+    "meaning_bn": "প্রায় / মোটামুটি",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Roughly one third used bicycles.",
+    "example_bn": "মোটামুটি এক-তৃতীয়াংশ সাইকেল ব্যবহার করেছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:slightly",
+    "word": "slightly",
+    "phonetic": "",
+    "meaning_en": "a little",
+    "meaning_bn": "সামান্য",
+    "part_of_speech": "adverb",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "Numbers rose slightly in July.",
+    "example_bn": "জুলাইয়ে সংখ্যা সামান্য বেড়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:dramatically",
+    "word": "dramatically",
+    "phonetic": "",
+    "meaning_en": "very suddenly and strongly",
+    "meaning_bn": "নাটকীয়ভাবে / তীব্রভাবে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Demand fell dramatically after 2019.",
+    "example_bn": "২০১৯-এর পর চাহিদা তীব্রভাবে কমেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:considerably",
+    "word": "considerably",
+    "phonetic": "",
+    "meaning_en": "by a large amount",
+    "meaning_bn": "উল্লেখযোগ্য পরিমাণে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Costs rose considerably.",
+    "example_bn": "খরচ উল্লেখযোগ্য পরিমাণে বেড়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:moderate",
+    "word": "moderate",
+    "phonetic": "",
+    "meaning_en": "average in amount; not extreme",
+    "meaning_bn": "মাঝারি / পরিমিত",
+    "part_of_speech": "adjective",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "There was a moderate increase.",
+    "example_bn": "মাঝারি বৃদ্ধি হয়েছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:noticeable",
+    "word": "noticeable",
+    "phonetic": "",
+    "meaning_en": "easy to see or notice",
+    "meaning_bn": "লক্ষণীয়",
+    "part_of_speech": "adjective",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "A noticeable gap appeared after 2010.",
+    "example_bn": "২০১০-এর পর লক্ষণীয় ফারাক দেখা যায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:compared-with",
+    "word": "compared with",
+    "phonetic": "",
+    "meaning_en": "used when showing difference",
+    "meaning_bn": "তুলনায়",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Compared with 2000, usage is higher.",
+    "example_bn": "২০০০-এর তুলনায় ব্যবহার বেশি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:in-comparison",
+    "word": "in comparison",
+    "phonetic": "",
+    "meaning_en": "when comparing two things",
+    "meaning_bn": "তুলনা করলে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "In comparison, rural figures were lower.",
+    "example_bn": "তুলনা করলে গ্রামীণ সংখ্যা কম ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:the-same-as",
+    "word": "the same as",
+    "phonetic": "",
+    "meaning_en": "equal to",
+    "meaning_bn": "একই / সমান",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "The 2012 figure was the same as 2011.",
+    "example_bn": "২০১২-এর সংখ্যা ২০১১-এর সমান ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:twice-as-high",
+    "word": "twice as high",
+    "phonetic": "",
+    "meaning_en": "two times larger",
+    "meaning_bn": "দ্বিগুণ উঁচু/বেশি",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Male wages were twice as high.",
+    "example_bn": "পুরুষদের মজুরি দ্বিগুণ বেশি ছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:a-threefold-increase",
+    "word": "a threefold increase",
+    "phonetic": "",
+    "meaning_en": "becoming three times larger",
+    "meaning_bn": "তিন গুণ বৃদ্ধি",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "There was a threefold increase in users.",
+    "example_bn": "ইউজারে তিন গুণ বৃদ্ধি হয়েছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:do-homework",
+    "word": "do homework",
+    "phonetic": "",
+    "meaning_en": "to complete school tasks at home",
+    "meaning_bn": "বাড়ির কাজ করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "A1",
+    "category": "education",
+    "example": "Children should do homework every day.",
+    "example_bn": "বাচ্চাদের প্রতিদিন বাড়ির কাজ করা উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:do-business",
+    "word": "do business",
+    "phonetic": "",
+    "meaning_en": "to buy/sell or trade",
+    "meaning_bn": "ব্যবসা করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "office",
+    "example": "Many firms do business online.",
+    "example_bn": "অনেক প্রতিষ্ঠান অনলাইনে ব্যবসা করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:make-a-mistake",
+    "word": "make a mistake",
+    "phonetic": "",
+    "meaning_en": "to do something wrong",
+    "meaning_bn": "ভুল করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "It is normal to make a mistake while learning.",
+    "example_bn": "শেখার সময় ভুল করা স্বাভাবিক।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:make-sense",
+    "word": "make sense",
+    "phonetic": "",
+    "meaning_en": "to be logical or understandable",
+    "meaning_bn": "যুক্তিসংগত হওয়া / বোঝা যায়",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "Your argument makes sense.",
+    "example_bn": "তোমার যুক্তি বোঝা যায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:take-responsibility",
+    "word": "take responsibility",
+    "phonetic": "",
+    "meaning_en": "to accept duty for something",
+    "meaning_bn": "দায়িত্ব নেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "office",
+    "example": "Leaders must take responsibility for results.",
+    "example_bn": "ফলাফলের জন্য নেতাদের দায়িত্ব নিতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:take-advantage-of",
+    "word": "take advantage of",
+    "phonetic": "",
+    "meaning_en": "to use an opportunity",
+    "meaning_bn": "সুযোগ কাজে লাগানো",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "Students should take advantage of free libraries.",
+    "example_bn": "শিক্ষার্থীদের ফ্রি লাইব্রেরির সুযোগ কাজে লাগানো উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:have-difficulty",
+    "word": "have difficulty",
+    "phonetic": "",
+    "meaning_en": "to find something hard",
+    "meaning_bn": "অসুবিধা হওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Many learners have difficulty with articles.",
+    "example_bn": "অনেক শিক্ষার্থীর article-এ অসুবিধা হয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:have-access-to",
+    "word": "have access to",
+    "phonetic": "",
+    "meaning_en": "to be able to use something",
+    "meaning_bn": "ব্যবহারের সুযোগ থাকা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Not all villages have access to broadband.",
+    "example_bn": "সব গ্রামে ব্রডব্যান্ড ব্যবহারের সুযোগ নেই।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:give-priority-to",
+    "word": "give priority to",
+    "phonetic": "",
+    "meaning_en": "to treat as more important",
+    "meaning_bn": "অগ্রাধিকার দেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "office",
+    "example": "Governments should give priority to health.",
+    "example_bn": "সরকারের স্বাস্থ্যকে অগ্রাধিকার দেওয়া উচিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:put-pressure-on",
+    "word": "put pressure on",
+    "phonetic": "",
+    "meaning_en": "to try to force someone to act",
+    "meaning_bn": "চাপ দেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Parents may put pressure on children to score high.",
+    "example_bn": "উচ্চ স্কোরের জন্য অভিভাবকরা চাপ দিতে পারেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:come-to-an-agreement",
+    "word": "come to an agreement",
+    "phonetic": "",
+    "meaning_en": "to agree after discussion",
+    "meaning_bn": "একমত হওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "office",
+    "example": "The two sides came to an agreement.",
+    "example_bn": "দুই পক্ষ একমত হয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:keep-in-mind",
+    "word": "keep in mind",
+    "phonetic": "",
+    "meaning_en": "to remember while deciding",
+    "meaning_bn": "মনে রাখা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "Keep in mind the word limit.",
+    "example_bn": "শব্দসীমা মনে রাখুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:lead-to",
+    "word": "lead to",
+    "phonetic": "",
+    "meaning_en": "to cause a result",
+    "meaning_bn": "ফলাফল হিসেবে ঘটানো",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Poor diet can lead to health problems.",
+    "example_bn": "খারাপ খাবার স্বাস্থ্যসমস্যা ঘটাতে পারে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:result-in",
+    "word": "result in",
+    "phonetic": "",
+    "meaning_en": "to cause something to happen",
+    "meaning_bn": "পরিণতিতে ঘটা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "Heavy rain resulted in floods.",
+    "example_bn": "ভারী বৃষ্টির পরিণতিতে বন্যা হয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:depend-on",
+    "word": "depend on",
+    "phonetic": "",
+    "meaning_en": "to be affected by",
+    "meaning_bn": "নির্ভর করা",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "Success depends on consistent practice.",
+    "example_bn": "সাফল্য নিয়মিত অনুশীলনের ওপর নির্ভর করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:focus-on",
+    "word": "focus on",
+    "phonetic": "",
+    "meaning_en": "to give attention to",
+    "meaning_bn": "মনোযোগ দেওয়া",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "education",
+    "example": "Focus on Task 2 first.",
+    "example_bn": "আগে Task 2-এ মনোযোগ দিন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:based-on",
+    "word": "based on",
+    "phonetic": "",
+    "meaning_en": "using something as the foundation",
+    "meaning_bn": "ভিত্তি করে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "The essay is based on recent research.",
+    "example_bn": "রচনাটি সাম্প্রতিক গবেষণার ভিত্তিতে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:in-favour-of",
+    "word": "in favour of",
+    "phonetic": "",
+    "meaning_en": "supporting something (UK)",
+    "meaning_bn": "পক্ষে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "Many voters are in favour of reform.",
+    "example_bn": "অনেক ভোটার সংস্কারের পক্ষে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:in-favor-of",
+    "word": "in favor of",
+    "phonetic": "",
+    "meaning_en": "supporting something (US)",
+    "meaning_bn": "পক্ষে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "The committee voted in favor of the plan.",
+    "example_bn": "কমিটি পরিকল্পনার পক্ষে ভোট দিয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "collocation"
+    ]
+  },
+  {
+    "id": "vocab:on-average",
+    "word": "on average",
+    "phonetic": "",
+    "meaning_en": "as a typical amount",
+    "meaning_bn": "গড়ে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "On average, students study two hours a day.",
+    "example_bn": "গড়ে শিক্ষার্থীরা দিনে দুই ঘণ্টা পড়ে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "collocation",
+      "task1"
+    ]
+  },
+  {
+    "id": "vocab:hometown",
+    "word": "hometown",
+    "phonetic": "",
+    "meaning_en": "the town where you grew up",
+    "meaning_bn": "নিজ শহর / জন্মস্থান",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "My hometown is quiet but friendly.",
+    "example_bn": "আমার নিজ শহর শান্ত কিন্তু বন্ধুসুলভ।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:commute",
+    "word": "commute",
+    "phonetic": "",
+    "meaning_en": "regular travel to work or study",
+    "meaning_bn": "নিয়মিত যাতায়াত",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "B1",
+    "category": "travel",
+    "example": "I commute by bus every morning.",
+    "example_bn": "আমি প্রতি সকালে বাসে যাতায়াত করি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking",
+      "toefl"
+    ]
+  },
+  {
+    "id": "vocab:pastime",
+    "word": "pastime",
+    "phonetic": "",
+    "meaning_en": "something you do for enjoyment",
+    "meaning_bn": "অবসরের কাজ",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "Gardening is a popular pastime.",
+    "example_bn": "বাগান করা জনপ্রিয় অবসরের কাজ।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:leisure",
+    "word": "leisure",
+    "phonetic": "",
+    "meaning_en": "free time",
+    "meaning_bn": "অবসর সময়",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "I spend my leisure time with family.",
+    "example_bn": "অবসর সময় পরিবারের সঙ্গে কাটাই।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:outdoors",
+    "word": "outdoors",
+    "phonetic": "",
+    "meaning_en": "outside in the open air",
+    "meaning_bn": "বাইরে খোলা জায়গায়",
+    "part_of_speech": "adverb",
+    "cefr_level": "A2",
+    "category": "outdoor",
+    "example": "I prefer spending weekends outdoors.",
+    "example_bn": "উইকএন্ড বাইরে কাটাতে পছন্দ করি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:cuisine",
+    "word": "cuisine",
+    "phonetic": "",
+    "meaning_en": "a style of cooking",
+    "meaning_bn": "রান্নার ধরন / খাবারের সংস্কৃতি",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "food",
+    "example": "Bengali cuisine uses lots of fish.",
+    "example_bn": "বাঙালি খাবারে মাছ বেশি ব্যবহৃত হয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:shift",
+    "word": "shift",
+    "phonetic": "",
+    "meaning_en": "a period of work time",
+    "meaning_bn": "শিফট / কাজের পালা",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "office",
+    "example": "She works the night shift at the hospital.",
+    "example_bn": "সে হাসপাতালে নাইট শিফটে কাজ করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:major",
+    "word": "major",
+    "phonetic": "",
+    "meaning_en": "main subject at university (US)",
+    "meaning_bn": "মেজর / মূল বিষয়",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "My major is computer science.",
+    "example_bn": "আমার মেজর কম্পিউটার সায়েন্স।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:semester",
+    "word": "semester",
+    "phonetic": "",
+    "meaning_en": "half of an academic year",
+    "meaning_bn": "সেমিস্টার",
+    "part_of_speech": "noun",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Exams are at the end of the semester.",
+    "example_bn": "সেমিস্টার শেষে পরীক্ষা হয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:routine",
+    "word": "routine",
+    "phonetic": "",
+    "meaning_en": "a regular way of doing things",
+    "meaning_bn": "রুটিন / নিয়মিত অভ্যাস",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "My morning routine starts at 6 a.m.",
+    "example_bn": "আমার সকালের রুটিন সকাল ৬টায় শুরু।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:rarely",
+    "word": "rarely",
+    "phonetic": "",
+    "meaning_en": "not often",
+    "meaning_bn": "কদাচিৎ",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "I rarely watch TV on weekdays.",
+    "example_bn": "কর্মদিবসে কদাচিৎ টিভি দেখি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:occasionally",
+    "word": "occasionally",
+    "phonetic": "",
+    "meaning_en": "sometimes but not often",
+    "meaning_bn": "মাঝে মাঝে",
+    "part_of_speech": "adverb",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "I occasionally cook for friends.",
+    "example_bn": "মাঝে মাঝে বন্ধুদের জন্য রান্না করি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:crowded",
+    "word": "crowded",
+    "phonetic": "",
+    "meaning_en": "full of people",
+    "meaning_bn": "ভিড়পূর্ণ",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "category": "travel",
+    "example": "The bus is crowded in the morning.",
+    "example_bn": "সকালে বাস ভিড়পূর্ণ থাকে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:polluted",
+    "word": "polluted",
+    "phonetic": "",
+    "meaning_en": "dirty because of chemicals/waste",
+    "meaning_bn": "দূষিত",
+    "part_of_speech": "adjective",
+    "cefr_level": "B1",
+    "category": "nature",
+    "example": "Some rivers are heavily polluted.",
+    "example_bn": "কিছু নদী মারাত্মকভাবে দূষিত।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:look-forward-to",
+    "word": "look forward to",
+    "phonetic": "",
+    "meaning_en": "to feel happy about a future event",
+    "meaning_bn": "অপেক্ষায় থাকা / আগ্রহে থাকা",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "I look forward to the weekend.",
+    "example_bn": "উইকএন্ডের অপেক্ষায় থাকি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:in-my-free-time",
+    "word": "in my free time",
+    "phonetic": "",
+    "meaning_en": "when I am not working/studying",
+    "meaning_bn": "অবসর সময়ে",
+    "part_of_speech": "phrase",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "In my free time I listen to podcasts.",
+    "example_bn": "অবসর সময়ে পডকাস্ট শুনি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:on-a-daily-basis",
+    "word": "on a daily basis",
+    "phonetic": "",
+    "meaning_en": "every day",
+    "meaning_bn": "প্রতিদিন ভিত্তিতে",
+    "part_of_speech": "phrase",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "I practise English on a daily basis.",
+    "example_bn": "প্রতিদিন ভিত্তিতে ইংরেজি অনুশীলন করি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:analyze",
+    "word": "analyze",
+    "phonetic": "",
+    "meaning_en": "to examine carefully (US)",
+    "meaning_bn": "বিশ্লেষণ করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Students analyze the author's argument.",
+    "example_bn": "শিক্ষার্থীরা লেখকের যুক্তি বিশ্লেষণ করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:imply",
+    "word": "imply",
+    "phonetic": "",
+    "meaning_en": "to suggest without saying directly",
+    "meaning_bn": "ইঙ্গিত করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "The results imply a need for reform.",
+    "example_bn": "ফলাফল সংস্কারের প্রয়োজন ইঙ্গিত করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:infer",
+    "word": "infer",
+    "phonetic": "",
+    "meaning_en": "to conclude from evidence",
+    "meaning_bn": "অনুমান করে সিদ্ধান্ত নেওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Readers can infer the author's attitude.",
+    "example_bn": "পাঠক লেখকের মনোভাব অনুমান করতে পারেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "ielts",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:cite",
+    "word": "cite",
+    "phonetic": "",
+    "meaning_en": "to mention as evidence",
+    "meaning_bn": "উদ্ধৃত করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Always cite reliable sources.",
+    "example_bn": "সবসময় নির্ভরযোগ্য সূত্র উদ্ধৃত করুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "pte",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:refute",
+    "word": "refute",
+    "phonetic": "",
+    "meaning_en": "to prove a statement is wrong",
+    "meaning_bn": "খণ্ডন করা",
+    "part_of_speech": "verb",
+    "cefr_level": "C1",
+    "category": "education",
+    "example": "The study refutes the old theory.",
+    "example_bn": "গবেষণাটি পুরনো তত্ত্ব খণ্ডন করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "ielts",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:assert",
+    "word": "assert",
+    "phonetic": "",
+    "meaning_en": "to state firmly",
+    "meaning_bn": "জোর দিয়ে বলা",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "The author asserts that climate policy is urgent.",
+    "example_bn": "লেখক জোর দিয়ে বলেন জলবায়ু নীতি জরুরি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:evaluate",
+    "word": "evaluate",
+    "phonetic": "",
+    "meaning_en": "to judge the value or quality",
+    "meaning_bn": "মূল্যায়ন করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Teachers evaluate student essays carefully.",
+    "example_bn": "শিক্ষকরা শিক্ষার্থীর রচনা সাবধানে মূল্যায়ন করেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "pte",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:summarise",
+    "word": "summarise",
+    "phonetic": "",
+    "meaning_en": "to give the main points briefly (UK)",
+    "meaning_bn": "সংক্ষেপ করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Summarise the paragraph in one sentence.",
+    "example_bn": "অনুচ্ছেদটি এক বাক্যে সংক্ষেপ করুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "pte",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:summarize",
+    "word": "summarize",
+    "phonetic": "",
+    "meaning_en": "to give the main points briefly (US)",
+    "meaning_bn": "সংক্ষেপ করা",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Summarize the lecture in your notes.",
+    "example_bn": "লেকচার নোটের মধ্যে সংক্ষেপ করুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:highlight",
+    "word": "highlight",
+    "phonetic": "",
+    "meaning_en": "to emphasise an important point",
+    "meaning_bn": "গুরুত্ব দিয়ে তুলে ধরা",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "The report highlights funding gaps.",
+    "example_bn": "রিপোর্ট অর্থায়নের ঘাটতি তুলে ধরে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:demonstrate",
+    "word": "demonstrate",
+    "phonetic": "",
+    "meaning_en": "to show clearly",
+    "meaning_bn": "প্রদর্শন করা / দেখানো",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "The graph demonstrates a clear rise.",
+    "example_bn": "গ্রাফ স্পষ্ট বৃদ্ধি দেখায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "pte",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:illustrate",
+    "word": "illustrate",
+    "phonetic": "",
+    "meaning_en": "to explain with an example",
+    "meaning_bn": "উদাহরণ দিয়ে বোঝানো",
+    "part_of_speech": "verb",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "This case illustrates the problem.",
+    "example_bn": "এই কেস সমস্যাটি উদাহরণ দিয়ে বোঝায়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:indicate",
+    "word": "indicate",
+    "phonetic": "",
+    "meaning_en": "to show or point to",
+    "meaning_bn": "নির্দেশ করা / ইঙ্গিত দেওয়া",
+    "part_of_speech": "verb",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "The data indicate higher demand.",
+    "example_bn": "তথ্য উচ্চ চাহিদা নির্দেশ করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:claim",
+    "word": "claim",
+    "phonetic": "",
+    "meaning_en": "to say something is true",
+    "meaning_bn": "দাবি করা",
+    "part_of_speech": "verb/noun",
+    "cefr_level": "B1",
+    "category": "ielts",
+    "example": "The article claims that pollution fell.",
+    "example_bn": "নিবন্ধটি দাবি করে দূষণ কমেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:hypothesis",
+    "word": "hypothesis",
+    "phonetic": "",
+    "meaning_en": "an idea to be tested",
+    "meaning_bn": "হাইপোথিসিস / অনুমান",
+    "part_of_speech": "noun",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "The hypothesis was later confirmed.",
+    "example_bn": "হাইপোথিসিসটি পরে নিশ্চিত হয়েছিল।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "pte",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:methodology",
+    "word": "methodology",
+    "phonetic": "",
+    "meaning_en": "a system of methods used in study",
+    "meaning_bn": "পদ্ধতিবিজ্ঞান / মেথডলজি",
+    "part_of_speech": "noun",
+    "cefr_level": "C1",
+    "category": "education",
+    "example": "The methodology section explains the sample.",
+    "example_bn": "মেথডলজি অংশে নমুনা ব্যাখ্যা করা হয়েছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "pte",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:perspective",
+    "word": "perspective",
+    "phonetic": "",
+    "meaning_en": "a way of thinking about something",
+    "meaning_bn": "দৃষ্টিভঙ্গি",
+    "part_of_speech": "noun",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "The passage presents a historical perspective.",
+    "example_bn": "প্যাসেজটি ঐতিহাসিক দৃষ্টিভঙ্গি উপস্থাপন করে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:assumption",
+    "word": "assumption",
+    "phonetic": "",
+    "meaning_en": "something accepted as true without proof",
+    "meaning_bn": "অনুমান / ধরে নেওয়া বিষয়",
+    "part_of_speech": "noun",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "The argument rests on a weak assumption.",
+    "example_bn": "যুক্তিটি দুর্বল অনুমানের ওপর দাঁড়িয়ে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "ielts",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:valid",
+    "word": "valid",
+    "phonetic": "",
+    "meaning_en": "logically acceptable",
+    "meaning_bn": "যৌক্তিকভাবে গ্রহণযোগ্য",
+    "part_of_speech": "adjective",
+    "cefr_level": "B2",
+    "category": "education",
+    "example": "Is this a valid conclusion?",
+    "example_bn": "এটি কি যৌক্তিক সিদ্ধান্ত?",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "ielts",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:relevant",
+    "word": "relevant",
+    "phonetic": "",
+    "meaning_en": "connected to the topic",
+    "meaning_bn": "প্রাসঙ্গিক",
+    "part_of_speech": "adjective",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Include only relevant examples.",
+    "example_bn": "শুধু প্রাসঙ্গিক উদাহরণ রাখুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "toefl",
+      "pte",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:controversial",
+    "word": "controversial",
+    "phonetic": "",
+    "meaning_en": "causing public disagreement",
+    "meaning_bn": "বিতর্কিত",
+    "part_of_speech": "adjective",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "It remains a controversial issue.",
+    "example_bn": "এটি এখনও বিতর্কিত বিষয়।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "writing",
+      "academic"
+    ]
+  },
+  {
+    "id": "vocab:forty",
+    "word": "forty",
+    "phonetic": "",
+    "meaning_en": "the number 40",
+    "meaning_bn": "চল্লিশ",
+    "part_of_speech": "number",
+    "cefr_level": "A1",
+    "category": "daily",
+    "example": "The meeting starts at forty minutes past nine.",
+    "example_bn": "মিটিং সাড়ে নয়টায় শুরু (৯:৪০)।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
+    ]
+  },
+  {
+    "id": "vocab:twelfth",
+    "word": "twelfth",
+    "phonetic": "",
+    "meaning_en": "12th in order",
+    "meaning_bn": "দ্বাদশ",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "Her birthday is on the twelfth of May.",
+    "example_bn": "তার জন্মদিন ১২ মে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
+    ]
+  },
+  {
+    "id": "vocab:eighth",
+    "word": "eighth",
+    "phonetic": "",
+    "meaning_en": "8th in order",
+    "meaning_bn": "অষ্টম",
+    "part_of_speech": "adjective",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "Take the eighth turning on the left.",
+    "example_bn": "বাঁ দিকে অষ্টম মোড় নিন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
+    ]
+  },
+  {
+    "id": "vocab:pharmacy",
+    "word": "pharmacy",
+    "phonetic": "",
+    "meaning_en": "a shop that sells medicines",
+    "meaning_bn": "ফার্মেসি / ওষুধের দোকান",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "health",
+    "example": "There is a pharmacy opposite the station.",
+    "example_bn": "স্টেশনের উল্টোদিকে একটি ফার্মেসি আছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
+    ]
+  },
+  {
+    "id": "vocab:postcode",
+    "word": "postcode",
+    "phonetic": "",
+    "meaning_en": "letters/numbers for a postal area (UK)",
+    "meaning_bn": "পোস্টকোড",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "travel",
+    "example": "What is your postcode?",
+    "example_bn": "আপনার পোস্টকোড কী?",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
+    ]
+  },
+  {
+    "id": "vocab:queue",
+    "word": "queue",
+    "phonetic": "",
+    "meaning_en": "a line of people waiting (UK)",
+    "meaning_bn": "লাইন / কিউ",
+    "part_of_speech": "noun",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "Please join the queue at desk B.",
+    "example_bn": "B ডেস্কে লাইনে দাঁড়ান।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "listening",
+      "spelling"
+    ]
+  },
+  {
+    "id": "vocab:bring-about",
+    "word": "bring about",
+    "phonetic": "",
+    "meaning_en": "to cause something to happen",
+    "meaning_bn": "ঘটানো / সৃষ্টি করা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B2",
+    "category": "ielts",
+    "example": "The reform brought about major changes.",
+    "example_bn": "সংস্কার বড় পরিবর্তন এনেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "writing"
+    ]
+  },
+  {
+    "id": "vocab:carry-out",
+    "word": "carry out",
+    "phonetic": "",
+    "meaning_en": "to do or complete a task",
+    "meaning_bn": "সম্পাদন করা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "office",
+    "example": "Scientists carried out an experiment.",
+    "example_bn": "বিজ্ঞানীরা একটি পরীক্ষা সম্পাদন করেছেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "toefl"
+    ]
+  },
+  {
+    "id": "vocab:look-into",
+    "word": "look into",
+    "phonetic": "",
+    "meaning_en": "to investigate",
+    "meaning_bn": "তদন্ত করা / খতিয়ে দেখা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "office",
+    "example": "The team will look into the complaint.",
+    "example_bn": "টিম অভিযোগ খতিয়ে দেখবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal"
+    ]
+  },
+  {
+    "id": "vocab:point-out",
+    "word": "point out",
+    "phonetic": "",
+    "meaning_en": "to draw attention to",
+    "meaning_bn": "ইঙ্গিত করে বলা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "The tutor pointed out three errors.",
+    "example_bn": "টিউটর তিনটি ভুল দেখিয়ে দিয়েছেন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "toefl"
+    ]
+  },
+  {
+    "id": "vocab:set-up",
+    "word": "set up",
+    "phonetic": "",
+    "meaning_en": "to establish or arrange",
+    "meaning_bn": "প্রতিষ্ঠা / সাজানো",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "office",
+    "example": "They set up a community clinic.",
+    "example_bn": "তারা একটি কমিউনিটি ক্লিনিক প্রতিষ্ঠা করেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal"
+    ]
+  },
+  {
+    "id": "vocab:cut-down-on",
+    "word": "cut down on",
+    "phonetic": "",
+    "meaning_en": "to reduce",
+    "meaning_bn": "কমিয়ে আনা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "health",
+    "example": "Cut down on sugar for better health.",
+    "example_bn": "স্বাস্থ্যের জন্য চিনি কমিয়ে আনুন।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:work-out",
+    "word": "work out",
+    "phonetic": "",
+    "meaning_en": "to find a solution; to exercise",
+    "meaning_bn": "সমাধান বের করা / ব্যায়াম করা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "We need to work out a timetable.",
+    "example_bn": "আমাদের একটি সময়সূচি বের করতে হবে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:run-out-of",
+    "word": "run out of",
+    "phonetic": "",
+    "meaning_en": "to have no more of something",
+    "meaning_bn": "ফুরিয়ে যাওয়া",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "A2",
+    "category": "daily",
+    "example": "The printer ran out of ink.",
+    "example_bn": "প্রিন্টারের কালি ফুরিয়ে গেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:put-off",
+    "word": "put off",
+    "phonetic": "",
+    "meaning_en": "to delay",
+    "meaning_bn": "পিছিয়ে দেওয়া",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "Don't put off studying until midnight.",
+    "example_bn": "পড়াশোনা মধ্যরাত পর্যন্ত পিছিয়ে দেবেন না।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:figure-out",
+    "word": "figure out",
+    "phonetic": "",
+    "meaning_en": "to understand after thinking",
+    "meaning_bn": "বুঝে ওঠা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "I finally figured out the question type.",
+    "example_bn": "অবশেষে প্রশ্নের ধরন বুঝে উঠেছি।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "toefl",
+      "phrasal",
+      "speaking"
+    ]
+  },
+  {
+    "id": "vocab:come-up-with",
+    "word": "come up with",
+    "phonetic": "",
+    "meaning_en": "to think of an idea",
+    "meaning_bn": "আইডিয়া বের করা",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "education",
+    "example": "Students came up with creative solutions.",
+    "example_bn": "শিক্ষার্থীরা সৃজনশীল সমাধান বের করেছে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "toefl"
+    ]
+  },
+  {
+    "id": "vocab:end-up",
+    "word": "end up",
+    "phonetic": "",
+    "meaning_en": "to finally be in a situation",
+    "meaning_bn": "শেষ পর্যন্ত হয়ে যাওয়া",
+    "part_of_speech": "phrasal verb",
+    "cefr_level": "B1",
+    "category": "daily",
+    "example": "Without a plan, you may end up wasting time.",
+    "example_bn": "পরিকল্পনা ছাড়া শেষ পর্যন্ত সময় নষ্ট হতে পারে।",
+    "synonyms": [],
+    "antonyms": [],
+    "word_family": [],
+    "tags": [
+      "ielts",
+      "phrasal",
+      "speaking"
     ]
   }
 ]
