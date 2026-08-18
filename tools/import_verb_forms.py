@@ -15,9 +15,13 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import keep_word  # noqa: E402
+
 VOCAB = ROOT / "data" / "vocabulary.json"
 VLISTS = ROOT / "data" / "vocabulary-lists.json"
 VERB_DATA = ROOT / "data" / "verb-forms.json"
@@ -977,14 +981,14 @@ def save_verb_data() -> None:
 def upsert_vocab_list() -> None:
     vmeta = json.loads(VLISTS.read_text(encoding="utf-8"))
     lists = vmeta.get("lists") or []
-    ids = [v["id"] for v in VERBS]
+    ids = [v["id"] for v in VERBS if keep_word(v)]
     entry = {
         "id": "verb-forms-master",
         "title": "Verb Forms Master List",
         "title_bn": "ক্রিয়া রূপ মাস্টার লিস্ট",
-        "description": "V1–V5 verb forms with gerund and participle usage for IELTS/TOEFL/PTE.",
-        "description_bn": "V1–V5 সব রূপ + gerund ও participle ব্যবহার সহ।",
-        "cefr": "A1–B2",
+        "description": "B1+ verb forms with gerund and participle usage for IELTS/TOEFL/PTE.",
+        "description_bn": "B1+ verb-এর V1–V5 + gerund ও participle ব্যবহার সহ।",
+        "cefr": "B1–C1",
         "word_ids": ids,
     }
     for i, L in enumerate(lists):

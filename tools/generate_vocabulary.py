@@ -1,8 +1,13 @@
 # Generate enriched vocabulary.json + vocabulary-lists.json
+# Do not run against the live bank — it can overwrite data.
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import keep_word  # noqa: E402
+
 DATA = ROOT / "data"
 
 # Accurate A1–B1 bank for Bengali learners
@@ -144,20 +149,12 @@ CATEGORIES = [
 ]
 
 def by_cat(*cats):
-  return [w["id"] for w in WORDS if w["category"] in cats]
+  return [w["id"] for w in WORDS if w["category"] in cats and keep_word(w)]
 
 def by_ids(*ids):
   return list(ids)
 
 LISTS = [
-  {
-    "id": "target-a1-core",
-    "title": "A1 Core Target",
-    "title_bn": "A1 মূল টার্গেট লিস্ট",
-    "description": "Survival words every beginner should know first.",
-    "description_bn": "শুরুতেই জানা দরকার এমন প্রয়োজনীয় শব্দ।",
-    "word_ids": [w["id"] for w in WORDS if w["cefr_level"] == "A1"][:40],
-  },
   {
     "id": "import-verbs",
     "title": "Important Verbs",
@@ -212,7 +209,7 @@ LISTS = [
     "title_bn": "বিপরীত শব্দ প্যাক",
     "description": "Words that come with useful antonyms.",
     "description_bn": "যেসব শব্দের সাথে antonym শেখা সহজ।",
-    "word_ids": [w["id"] for w in WORDS if w.get("antonyms")],
+    "word_ids": [w["id"] for w in WORDS if w.get("antonyms") and keep_word(w)],
   },
 ]
 

@@ -10,9 +10,13 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import is_beginner_cefr, list_cefr_label  # noqa: E402
+
 VOCAB = ROOT / "data" / "vocabulary.json"
 VLISTS = ROOT / "data" / "vocabulary-lists.json"
 SLISTS = ROOT / "data" / "spelling-lists.json"
@@ -488,7 +492,7 @@ def upsert_vocab_list(list_id: str, meta: dict, word_ids: list[str]) -> None:
             "IELTS রাইটিং টাস্ক ১ · গ্রাফ",
             "Trend and comparison language for charts (unofficial).",
             "চার্টের ট্রেন্ড ও তুলনার ভাষা (অনঅফিসিয়াল)।",
-            "A2–B2",
+            "B1–B2",
         ),
         "exam-collocations-core": (
             "Exam Collocations Core",
@@ -516,7 +520,7 @@ def upsert_vocab_list(list_id: str, meta: dict, word_ids: list[str]) -> None:
         "title_bn": title_bn,
         "description": desc,
         "description_bn": desc_bn,
-        "cefr": cefr,
+        "cefr": list_cefr_label(cefr),
         "word_ids": existing,
     }
     replaced = False
@@ -592,6 +596,8 @@ def main() -> None:
         out = []
         seen = set()
         for e in entries:
+            if is_beginner_cefr(e.get("cefr_level")):
+                continue
             wid = by_word.get(e["word"].lower(), e["id"])
             if wid not in seen:
                 seen.add(wid)

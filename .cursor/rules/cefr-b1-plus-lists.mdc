@@ -1,0 +1,23 @@
+---
+description: Study lists are B1+ only — never collect A1/A2
+alwaysApply: true
+---
+
+# CEFR lists: B1+ only
+
+Site visitors are **intermediate to advanced**. A1/A2 on vocabulary or verb lists is a waste of time.
+
+## Do
+
+- Put only **B1, B2, C1, C2** (or untagged) ids on `word_ids` in `data/vocabulary-lists.json`
+- Use `tools/cefr_policy.py` (`keep_word`, `is_beginner_cefr`, `filter_list_ids`)
+- After building/importing lists, run `python tools/filter_lists_cefr_b1.py`
+- Label list `cefr` as `B1–C1` (or a B1+ range), never `A1` / `A2`
+
+## Do not
+
+- Collect A1 or A2 onto any vocab list or verb-forms list
+- Recreate packs like `target-a1-core`, `target-a2-bridge`, `path-week-1-survival`
+- Wipe the whole lists file when adding a new pack — merge by list `id`
+
+The **word bank** (`vocabulary.json`, `verb-forms.json`) may still store A1/A2. That is fine. Study lists must not include them.

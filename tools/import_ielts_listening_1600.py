@@ -8,6 +8,9 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import keep_word  # noqa: E402
+
 SRC = ROOT / "various words lists" / "ielts-listening-1600-words.json"
 VOCAB = ROOT / "data" / "vocabulary.json"
 VLISTS = ROOT / "data" / "vocabulary-lists.json"
@@ -149,7 +152,7 @@ def upsert_vocab_list(word_ids: list[str]) -> None:
         "title_bn": "IELTS লিসেনিং · ১৬০০ শব্দ",
         "description": "High-frequency IELTS Listening spellings/vocabulary (unofficial practice).",
         "description_bn": "IELTS Listening-এ বহুল ব্যবহৃত শব্দ ও বানান (অনঅফিসিয়াল প্র্যাকটিস)।",
-        "cefr": "A1–B2",
+        "cefr": "B1–B2",
         "word_ids": word_ids,
     }
     replaced = False
@@ -213,10 +216,12 @@ def main() -> None:
     words = []
     # map ids back to display words from final bank
     bank = json.loads(VOCAB.read_text(encoding="utf-8"))
-    by_id = {w["id"]: w["word"] for w in bank}
+    by_id = {w["id"]: w for w in bank}
+    word_ids = [wid for wid in word_ids if keep_word(by_id.get(wid))]
     for wid in word_ids:
-        if wid in by_id:
-            words.append(by_id[wid])
+        w = by_id.get(wid)
+        if w and w.get("word"):
+            words.append(w["word"])
 
     upsert_vocab_list(word_ids)
     upsert_spelling_list(words)

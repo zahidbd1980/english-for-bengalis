@@ -1,10 +1,18 @@
 # -*- coding: utf-8 -*-
-"""Audit + rebuild effective vocabulary target lists from bank."""
+"""Audit + rebuild effective vocabulary target lists from bank.
+
+Audience is B1+. Never put A1/A2 words on study lists.
+Does not wipe exam/verb lists that were added by other importers.
+"""
 import json
-from collections import Counter, defaultdict
+import sys
+from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import BEGINNER_ONLY_LIST_IDS, keep_word, list_cefr_label  # noqa: E402
+
 VP = ROOT / "data" / "vocabulary.json"
 LP = ROOT / "data" / "vocabulary-lists.json"
 
@@ -56,7 +64,7 @@ def pick(by_id, words):
 
 
 def by_category(vocab, cat, limit=None, cefr=None):
-    rows = [w for w in vocab if w.get("category") == cat]
+    rows = [w for w in vocab if w.get("category") == cat and keep_word(w)]
     if cefr:
         rows = [w for w in rows if w.get("cefr_level") in cefr]
     rows = sorted(rows, key=lambda x: (x.get("cefr_level") or "", x.get("word") or ""))
@@ -66,20 +74,20 @@ def by_category(vocab, cat, limit=None, cefr=None):
 
 def by_cefr(vocab, levels, limit=None, exclude=None):
     exclude = set(exclude or [])
-    rows = [w for w in vocab if w.get("cefr_level") in levels and w["id"] not in exclude]
+    rows = [w for w in vocab if w.get("cefr_level") in levels and keep_word(w) and w["id"] not in exclude]
     rows = sorted(rows, key=lambda x: (x.get("category") or "", x.get("word") or ""))
     ids = [w["id"] for w in rows]
     return ids[:limit] if limit else ids
 
 
 def with_antonyms(vocab, limit=40):
-    rows = [w for w in vocab if w.get("antonyms")]
+    rows = [w for w in vocab if w.get("antonyms") and keep_word(w)]
     rows = sorted(rows, key=lambda x: (-len(x.get("antonyms") or []), x.get("word") or ""))
     return [w["id"] for w in rows[:limit]]
 
 
 def with_family(vocab, limit=40):
-    rows = [w for w in vocab if w.get("word_family")]
+    rows = [w for w in vocab if w.get("word_family") and keep_word(w)]
     rows = sorted(rows, key=lambda x: (-len(x.get("word_family") or []), x.get("word") or ""))
     return [w["id"] for w in rows[:limit]]
 
@@ -92,34 +100,11 @@ def rebuild_lists(vocab):
         out = []
         for n in names:
             wid = words.get(n.lower())
-            if wid and wid not in out:
+            if wid and wid not in out and keep_word(by_id.get(wid)):
                 out.append(wid)
         return out
 
-    # Curated high-value spoken/daily cores (only if in bank)
-    a1_core = ids_from_words(
-        [
-            "family", "yesterday", "tomorrow", "hungry", "thirsty", "station", "ticket",
-            "busy", "early", "late", "forget", "remember", "leave", "arrive", "kitchen",
-            "bedroom", "clean", "dirty", "neighbour", "email", "park", "river", "mountain",
-            "weather", "rain", "sunny", "breakfast", "lunch", "dinner", "vegetable",
-            "airport", "doctor", "hospital", "healthy", "student", "teacher", "homework",
-            "begin", "finish", "choose", "practice", "problem", "price", "cost", "useful",
-            "different", "possible", "necessary", "polite", "patient", "local", "public",
-        ]
-    )
-    a2_bridge = ids_from_words(
-        [
-            "agree", "decide", "prefer", "suggest", "explain", "describe", "discuss",
-            "mention", "promise", "allow", "improve", "increase", "include", "expect",
-            "appear", "continue", "complete", "prepare", "create", "protect", "cause",
-            "result", "purpose", "goal", "opportunity", "challenge", "situation", "amount",
-            "salary", "available", "appointment", "deadline", "colleague", "meeting",
-            "schedule", "journey", "passport", "luggage", "direction", "discount",
-            "customer", "delicious", "exercise", "fever", "medicine", "confident",
-            "nervous", "honest", "careful", "popular", "modern", "foreign", "similar",
-        ]
-    )
+    # Curated high-value spoken/daily cores (B1+ only if in bank)
     b1_power = ids_from_words(
         [
             "achieve", "develop", "require", "consider", "realize", "recognize", "reduce",
@@ -135,33 +120,6 @@ def rebuild_lists(vocab):
 
     lists = [
         {
-            "id": "path-week-1-survival",
-            "title": "Week 1 · Survival English",
-            "title_bn": "সপ্তাহ ১ · বেঁচে থাকার ইংরেজি",
-            "description": "First 7-day pack: food, time, travel basics, politeness.",
-            "description_bn": "প্রথম ৭ দিন: খাবার, সময়, যাতায়াত, ভদ্রতা।",
-            "cefr": "A1",
-            "word_ids": a1_core[:35],
-        },
-        {
-            "id": "target-a1-core",
-            "title": "A1 Core Target",
-            "title_bn": "A1 মূল টার্গেট",
-            "description": "Must-know beginner words for daily life in Bangladesh/abroad.",
-            "description_bn": "দৈনন্দিন জীবনের আবশ্যক বিগিনার শব্দ।",
-            "cefr": "A1",
-            "word_ids": a1_core,
-        },
-        {
-            "id": "target-a2-bridge",
-            "title": "A2 Bridge Pack",
-            "title_bn": "A2 ব্রিজ প্যাক",
-            "description": "Move from survival to real conversations: opinions, plans, work.",
-            "description_bn": "বেঁচে থাকা থেকে আসল কথোপকথনে উঠুন।",
-            "cefr": "A2",
-            "word_ids": a2_bridge,
-        },
-        {
             "id": "target-b1-power",
             "title": "B1 Power Words",
             "title_bn": "B1 পাওয়ার ওয়ার্ডস",
@@ -176,11 +134,11 @@ def rebuild_lists(vocab):
             "title_bn": "গুরুত্বপূর্ণ ক্রিয়া",
             "description": "High-frequency action verbs for speaking and writing.",
             "description_bn": "কথা ও লেখার জরুরি action verbs।",
-            "cefr": "A1–B1",
+            "cefr": "B1",
             "word_ids": [
                 w["id"]
                 for w in vocab
-                if "verb" in str(w.get("part_of_speech") or "").lower()
+                if "verb" in str(w.get("part_of_speech") or "").lower() and keep_word(w)
             ][:45],
         },
         {
@@ -189,7 +147,7 @@ def rebuild_lists(vocab):
             "title_bn": "সফট স্কিল · বিশেষণ",
             "description": "Describe people and feelings: polite, confident, careful…",
             "description_bn": "মানুষ ও অনুভূতি বর্ণনা: ভদ্র, আত্মবিশ্বাসী, সাবধান…",
-            "cefr": "A2–B1",
+            "cefr": "B1",
             "word_ids": ids_from_words(
                 [
                     "polite", "rude", "confident", "nervous", "honest", "brave", "clever",
@@ -206,7 +164,7 @@ def rebuild_lists(vocab):
             "title_bn": "অফিস ও কাজ",
             "description": "Meetings, email, deadlines, salary, tasks.",
             "description_bn": "মিটিং, ইমেইল, ডেডলাইন, বেতন, কাজ।",
-            "cefr": "A2–B1",
+            "cefr": "B1",
             "word_ids": sorted(
                 set(by_category(vocab, "office") + ids_from_words(
                     ["salary", "income", "budget", "expense", "profit", "loss", "goal", "task", "report", "manager"]
@@ -219,7 +177,7 @@ def rebuild_lists(vocab):
             "title_bn": "বাড়ি ও পরিবার",
             "description": "Rooms, cleaning, neighbours, family life.",
             "description_bn": "ঘর, পরিষ্কার, প্রতিবেশী, পারিবারিক জীবন।",
-            "cefr": "A1–A2",
+            "cefr": "B1–C1",
             "word_ids": by_category(vocab, "home"),
         },
         {
@@ -228,7 +186,7 @@ def rebuild_lists(vocab):
             "title_bn": "বাইরে ও প্রকৃতি",
             "description": "Park, weather, river, pollution, environment.",
             "description_bn": "পার্ক, আবহাওয়া, নদী, দূষণ, পরিবেশ।",
-            "cefr": "A1–B1",
+            "cefr": "B1–C1",
             "word_ids": sorted(set(by_category(vocab, "outdoor") + by_category(vocab, "nature") + ids_from_words(["pollution", "environment", "weather", "traffic"]))),
         },
         {
@@ -237,7 +195,7 @@ def rebuild_lists(vocab):
             "title_bn": "খাবার ও স্বাস্থ্য",
             "description": "Meals, taste, doctor, exercise, recovery.",
             "description_bn": "খাবার, স্বাদ, ডাক্তার, ব্যায়াম, সুস্থতা।",
-            "cefr": "A1–B1",
+            "cefr": "B1–C1",
             "word_ids": sorted(set(by_category(vocab, "food") + by_category(vocab, "health"))),
         },
         {
@@ -246,7 +204,7 @@ def rebuild_lists(vocab):
             "title_bn": "ভ্রমণ ও কেনাকাটা",
             "description": "Tickets, airport, price, discount, customers.",
             "description_bn": "টিকিট, এয়ারপোর্ট, দাম, ছাড়।",
-            "cefr": "A1–A2",
+            "cefr": "B1–C1",
             "word_ids": sorted(set(by_category(vocab, "travel") + by_category(vocab, "shopping"))),
         },
         {
@@ -255,7 +213,7 @@ def rebuild_lists(vocab):
             "title_bn": "শিক্ষা ও পড়াশোনা",
             "description": "School, skills, homework, improve, succeed.",
             "description_bn": "স্কুল, দক্ষতা, হোমওয়ার্ক, উন্নতি, সফলতা।",
-            "cefr": "A1–B1",
+            "cefr": "B1–C1",
             "word_ids": by_category(vocab, "education"),
         },
         {
@@ -264,7 +222,7 @@ def rebuild_lists(vocab):
             "title_bn": "প্রযুক্তি ও ডিজিটাল",
             "description": "Email, download, digital tools, access.",
             "description_bn": "ইমেইল, ডাউনলোড, ডিজিটাল টুল।",
-            "cefr": "A2–B1",
+            "cefr": "B1",
             "word_ids": by_category(vocab, "technology"),
         },
         {
@@ -273,8 +231,8 @@ def rebuild_lists(vocab):
             "title_bn": "দৈনন্দিন কথোপকথন",
             "description": "Everyday words you need in shops, home, and chat.",
             "description_bn": "দোকান, বাড়ি ও চ্যাটে দরকারি শব্দ।",
-            "cefr": "A1–A2",
-            "word_ids": by_cefr([w for w in vocab if w.get("category") == "daily"], ["A1", "A2"], limit=60),
+            "cefr": "B1–C1",
+            "word_ids": by_cefr([w for w in vocab if w.get("category") == "daily"], ["B1", "B2", "C1", "C2"], limit=80),
         },
         {
             "id": "opposites-pack",
@@ -282,7 +240,7 @@ def rebuild_lists(vocab):
             "title_bn": "বিপরীত শব্দ প্যাক",
             "description": "Learn faster with antonym pairs (cheap/expensive, early/late).",
             "description_bn": "antonym জোড়ায় শিখুন — দ্রুত মনে থাকে।",
-            "cefr": "A1–B1",
+            "cefr": "B1–C1",
             "word_ids": with_antonyms(vocab, 50),
         },
         {
@@ -291,7 +249,7 @@ def rebuild_lists(vocab):
             "title_bn": "শব্দ পরিবার প্যাক",
             "description": "Root + related forms (improve → improvement, decide → decision).",
             "description_bn": "মূল শব্দ + পরিবার — IELTS/লেখার জন্য জরুরি।",
-            "cefr": "A2–B1",
+            "cefr": "B1",
             "word_ids": with_family(vocab, 45),
         },
         {
@@ -348,7 +306,7 @@ def rebuild_lists(vocab):
             "title_bn": "IELTS শিক্ষা ও প্রযুক্তি",
             "description": "Study and tech vocabulary for essays and speaking.",
             "description_bn": "পড়াশোনা ও প্রযুক্তি বিষয়ক শব্দ।",
-            "cefr": "A2–B1",
+            "cefr": "B1",
             "word_ids": sorted(
                 set(by_category(vocab, "education") + by_category(vocab, "technology") + ids_from_words(
                     ["skill", "career", "innovation", "digital", "access", "efficient", "essential", "opportunity", "improve", "research", "academic"]
@@ -361,7 +319,7 @@ def rebuild_lists(vocab):
             "title_bn": "IELTS স্পিকিং টপিক",
             "description": "Useful words for Part 1–2: hobby, neighbourhood, prefer, describe…",
             "description_bn": "Part 1–2 এর জন্য দরকারি শব্দ।",
-            "cefr": "A2–B1",
+            "cefr": "B1",
             "word_ids": ids_from_words(
                 [
                     "hobby", "neighbourhood", "celebrate", "prefer", "describe", "opinion",
@@ -377,7 +335,7 @@ def rebuild_lists(vocab):
             "title_bn": "বাংলাভাষীদের সাবধান শব্দ",
             "description": "Words often mixed up: borrow/lend, affect/effect, accept/except patterns.",
             "description_bn": "যেসব শব্দে বাংলাভাষীরা প্রায়ই গুলিয়ে ফেলেন।",
-            "cefr": "A2–B1",
+            "cefr": "B1",
             "word_ids": ids_from_words(
                 [
                     "borrow", "lend", "affect", "effect", "accept", "except", "advise", "advice",
@@ -391,7 +349,7 @@ def rebuild_lists(vocab):
     # Drop empty / validate
     clean = []
     for L in lists:
-        ids = [i for i in L["word_ids"] if i in by_id]
+        ids = [i for i in L["word_ids"] if i in by_id and keep_word(by_id[i])]
         # unique preserve order
         seen = set()
         uniq = []
@@ -400,15 +358,35 @@ def rebuild_lists(vocab):
                 seen.add(i)
                 uniq.append(i)
         L["word_ids"] = uniq
+        L["cefr"] = list_cefr_label(L.get("cefr"))
         if len(uniq) >= 6:
             clean.append(L)
     return clean
 
 
+def merge_lists(existing: list, rebuilt: list) -> list:
+    by_rebuilt = {L["id"]: L for L in rebuilt}
+    merged = []
+    seen = set()
+    for L in existing or []:
+        lid = L.get("id")
+        if not lid or lid in BEGINNER_ONLY_LIST_IDS:
+            continue
+        if lid in by_rebuilt:
+            merged.append(by_rebuilt[lid])
+        else:
+            merged.append(L)
+        seen.add(lid)
+    for L in rebuilt:
+        if L["id"] not in seen:
+            merged.append(L)
+    return merged
+
+
 def main():
     vocab, meta = load()
     changed = normalize_bank(vocab)
-    lists = rebuild_lists(vocab)
+    lists = merge_lists(meta.get("lists") or [], rebuild_lists(vocab))
 
     # Keep categories UI list, ensure needed cats exist
     cats = meta.get("categories") or []

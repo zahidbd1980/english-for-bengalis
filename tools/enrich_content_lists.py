@@ -5,8 +5,11 @@ from __future__ import annotations
 import json
 import re
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import keep_word, list_cefr_label  # noqa: E402
 VOCAB = ROOT / "data" / "vocabulary.json"
 VLISTS = ROOT / "data" / "vocabulary-lists.json"
 SLISTS = ROOT / "data" / "spelling-lists.json"
@@ -80,7 +83,7 @@ NEW_LISTS = [
         "title_bn": "TOEFL ক্যাম্পাস লাইফ",
         "description": "Dorm, library, registration, campus services vocabulary (unofficial).",
         "description_bn": "ডরম, লাইব্রেরি, রেজিস্ট্রেশন, ক্যাম্পাস সার্ভিস শব্দ (অনঅফিসিয়াল)।",
-        "cefr": "A2–B2",
+        "cefr": "B1–B2",
         "categories": ["education", "daily", "home", "food"],
         "tag_any": ["study", "daily"],
         "max": 250,
@@ -150,6 +153,8 @@ def ordered_unique_ids(words: list, max_n: int | None = None) -> list[str]:
     seen = set()
     out = []
     for w in words:
+        if not keep_word(w):
+            continue
         wid = w.get("id")
         if not wid or wid in seen:
             continue
@@ -160,7 +165,7 @@ def ordered_unique_ids(words: list, max_n: int | None = None) -> list[str]:
     return out
 
 
-def fill_thematic(lists: list, by_cat: dict) -> dict:
+def fill_thematic(lists: list, by_cat: dict, by_id: dict) -> dict:
     report = {}
     for L in lists:
         lid = L.get("id")
@@ -170,10 +175,11 @@ def fill_thematic(lists: list, by_cat: dict) -> dict:
         pool = []
         for c in cats:
             pool.extend(by_cat.get(c, []))
-        # keep existing ids first, then add from pool
-        existing = list(L.get("word_ids") or [])
+        existing = [wid for wid in (L.get("word_ids") or []) if keep_word(by_id.get(wid))]
         seen = set(existing)
         for w in pool:
+            if not keep_word(w):
+                continue
             wid = w.get("id")
             if wid and wid not in seen:
                 existing.append(wid)
@@ -257,7 +263,7 @@ def fill_writing_linkers(lists: list, bank: list) -> tuple[int, int]:
         before = len(existing)
         for lemma in sorted(LINKER_WORDS):
             w = by_word.get(lemma.lower())
-            if not w:
+            if not w or not keep_word(w):
                 continue
             wid = w.get("id")
             if wid and wid not in seen:
@@ -376,10 +382,12 @@ def main() -> None:
     vmeta = json.loads(VLISTS.read_text(encoding="utf-8"))
     lists = vmeta.get("lists") or []
 
-    thematic = fill_thematic(lists, by_cat)
+    thematic = fill_thematic(lists, by_cat, by_id)
     linkers = fill_writing_linkers(lists, bank)
     new_counts = build_new_lists(lists, bank, by_cat)
     ensure_exam_categories(vmeta)
+    for L in lists:
+        L["cefr"] = list_cefr_label(L.get("cefr"))
     vmeta["lists"] = lists
     VLISTS.write_text(json.dumps(vmeta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 

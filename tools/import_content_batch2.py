@@ -4,9 +4,13 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import is_beginner_cefr, list_cefr_label  # noqa: E402
+
 VOCAB = ROOT / "data" / "vocabulary.json"
 VLISTS = ROOT / "data" / "vocabulary-lists.json"
 SLISTS = ROOT / "data" / "spelling-lists.json"
@@ -538,6 +542,8 @@ def resolve_ids(entries: list[dict]) -> list[str]:
     by_word = {w["word"].lower(): w["id"] for w in bank}
     out, seen = [], set()
     for e in entries:
+        if is_beginner_cefr(e.get("cefr_level")):
+            continue
         wid = by_word.get(e["word"].lower(), e["id"])
         if wid not in seen:
             seen.add(wid)
@@ -563,7 +569,7 @@ def upsert_list(meta: dict, list_id: str, title: str, title_bn: str, desc: str, 
         "title_bn": title_bn,
         "description": desc,
         "description_bn": desc_bn,
-        "cefr": cefr,
+        "cefr": list_cefr_label(cefr),
         "word_ids": existing,
     }
     for i, L in enumerate(lists):

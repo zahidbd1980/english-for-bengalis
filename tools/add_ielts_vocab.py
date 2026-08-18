@@ -1,8 +1,12 @@
 # Append IELTS vocabulary + target lists (does not wipe existing bank)
 import json
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "tools"))
+from cefr_policy import keep_word  # noqa: E402
+
 DATA = ROOT / "data"
 
 IELTS_WORDS = [
@@ -112,13 +116,13 @@ meta["categories"] = cats
 def ids(*words_or_ids):
     out = []
     for item in words_or_ids:
-        if item.startswith("vocab:"):
-            if any(w["id"] == item for w in words):
-                out.append(item)
-        else:
-            fid = find_id(item)
-            if fid:
-                out.append(fid)
+        fid = item if item.startswith("vocab:") else find_id(item)
+        if not fid:
+            continue
+        entry = next((w for w in words if w.get("id") == fid), None)
+        if not keep_word(entry):
+            continue
+        out.append(fid)
     # unique preserve order
     seen = set()
     uniq = []

@@ -71,3 +71,4 @@ Unofficial practice ideas for English for Bengalis. Prefer bank-backed lists + S
 - Do not invent Bangla glosses at scale without review
 - Mark all packs “unofficial practice”
 - Prefer GitHub Pages `data/*.json` as source of truth; Blogger posts for SEO + explanation
+- **Never collect A1/A2 on vocabulary or verb study lists.** Visitors are intermediate–advanced. Lists are B1+ only (`tools/cefr_policy.py`). The word bank may still store A1/A2; do not put those ids on `word_ids`.
