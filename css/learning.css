@@ -1085,11 +1085,6 @@ summary:focus-visible {
   background: #fff;
 }
 
-.flash-card .front-word {
-  font-family: var(--font-display);
-  font-size: 2rem;
-}
-
 .flash-card .back-mean {
   font-size: 1.25rem;
 }
@@ -1119,11 +1114,15 @@ summary:focus-visible {
 }
 
 .mistake-pair .bad {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
   color: var(--color-danger);
   font-weight: 700;
 }
 
 .mistake-pair .good {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
   color: var(--color-success);
   font-weight: 700;
 }
@@ -1415,7 +1414,7 @@ input.field-input {
 }
 .vocab-card-focus .vocab-word {
   font-size: clamp(1.85rem, 8vw, 2.4rem);
-  line-height: 1.1;
+  line-height: 1.12;
 }
 .vocab-meaning { font-size: 1.05rem; margin: 0.35rem 0; }
 .vocab-meaning-bn { margin: 0 0 0.5rem; }
@@ -1547,9 +1546,27 @@ a.chip-btn {
   gap: 0.75rem;
   grid-template-columns: 1fr;
 }
-.vocab-card .vocab-word {
+.vocab-card .vocab-word,
+.vocab-word,
+.verb-word,
+.study-word,
+.flash-card .front-word {
   font-family: var(--font-display);
-  font-size: 1.45rem;
+  font-weight: 700;
+  font-size: clamp(1.85rem, 8vw, 2.4rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  overflow-wrap: anywhere;
+}
+.study-word-list {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 4vw, 1.55rem);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin: 0;
 }
 .vocab-actions { margin: 0.35rem 0 0.65rem; }
 .vocab-relations { margin-top: 0.65rem; display: grid; gap: 0.35rem; }

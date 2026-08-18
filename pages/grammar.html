@@ -28,7 +28,7 @@
       list.innerHTML = items.map((g) => {
         const quizHref = "quizzes.html?skill=grammar&item_id=" + encodeURIComponent(g.id);
         return `<article class="panel" id="${g.id}" data-item-id="${g.id}">
-          <div class="quiz-meta"><h2 style="margin:0;font-size:1.25rem">${g.topic}</h2><span class="chip">${g.cefr}</span></div>
+          <div class="quiz-meta"><h2 class="study-word-list">${g.topic}</h2><span class="chip">${g.cefr}</span></div>
           <p>${g.explanation}</p>
           <p class="bn"><strong>বাংলা:</strong> ${g.bangla_explanation}</p>
           <h3>Examples</h3>

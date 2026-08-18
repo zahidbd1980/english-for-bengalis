@@ -33,7 +33,7 @@
         const level = d.level || d.cefr || "";
         const title = d.title_bn ? `${d.title} · ${d.title_bn}` : d.title;
         return `<article class="panel" data-item-id="${d.id}">
-          <div class="quiz-meta"><h2 style="margin:0;font-size:1.2rem">${title}</h2><span class="chip">${level}</span></div>
+          <div class="quiz-meta"><h2 class="study-word-list">${title}</h2><span class="chip">${level}</span></div>
           ${(d.lines || []).map((l) => `<div class="example"><strong>${l.speaker ? l.speaker + ": " : ""}${l.en}</strong><br><span class="bn muted">${l.bn || ""}</span></div>`).join("")}
           <div class="stack-actions" style="margin-top:0.75rem">
             <a class="btn btn-primary" href="spoken-drill.html?id=${encodeURIComponent(d.id)}">এই ডায়লগ Drill</a>
