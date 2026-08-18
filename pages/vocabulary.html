@@ -129,8 +129,17 @@
         showResumeHint = false;
       }
 
+      function vocabStudyLists() {
+        return (listsMeta.lists || []).filter((L) => {
+          const ids = L.word_ids || [];
+          const lid = String(L.id || "");
+          if (lid.startsWith("vf-") || lid === "verb-forms-master") return false;
+          return !ids.some((id) => String(id).startsWith("verb:"));
+        });
+      }
+
       function pickRandomList() {
-        const lists = listsMeta.lists || [];
+        const lists = vocabStudyLists();
         if (!lists.length) {
           alert("এখনো কোনো target list নেই।");
           return;
@@ -282,7 +291,7 @@
           })
           .join("");
 
-        const listCards = (listsMeta.lists || [])
+        const listCards = vocabStudyLists()
           .map((L) => {
             const on = activeListId === L.id && !activeSavedId;
             return `<label class="vocab-list-card ${on ? "is-active" : ""}">
