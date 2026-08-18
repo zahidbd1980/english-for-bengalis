@@ -9,47 +9,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/learning.css" />
   <style>
-    /* ── Verb page styles ── */
-    .vf-hero{background:linear-gradient(135deg,#1e2b26 0%,#217a66 100%);color:#fff;padding:2rem 1.25rem 1.5rem;border-radius:16px;margin-bottom:1.5rem}
-    .vf-hero h1{font-size:clamp(1.35rem,4vw,2rem);margin:0 0 .35rem}
-    .vf-hero p{margin:0;opacity:.9;font-size:.97rem}
-    .vf-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
-    .vf-btn{padding:.4rem .9rem;border:2px solid #217a66;border-radius:20px;background:#fff;color:#217a66;font-weight:600;cursor:pointer;font-size:.9rem;transition:all .15s}
-    .vf-btn.active,.vf-btn:hover{background:#217a66;color:#fff}
-    .vf-search{padding:.5rem .9rem;border:2px solid #ccc;border-radius:24px;font-size:.95rem;width:100%;max-width:320px;outline:none}
-    .vf-search:focus{border-color:#217a66}
-    .vf-grid{display:grid;gap:1.1rem}
-    .verb-card{background:#fff;border:1px solid #d6e8e2;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px #0001}
-    .verb-card-head{background:linear-gradient(135deg,#dceee6,#f0faf6);padding:1rem 1.1rem .75rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:flex-start;justify-content:space-between}
-    .verb-word{font-size:1.45rem;font-weight:700;color:#1e2b26;font-family:'Fraunces',serif}
-    .verb-phonetic{font-size:.9rem;color:#555;font-style:italic;margin-top:.1rem}
-    .verb-meaning-en{font-size:.93rem;color:#444;margin-top:.2rem}
-    .verb-meaning-bn{font-size:1rem;color:#217a66;font-weight:600}
-    .verb-tag{font-size:.78rem;padding:.2rem .6rem;border-radius:12px;background:#217a66;color:#fff;align-self:flex-start}
+    .vf-hero{background:linear-gradient(135deg,#1e2b26 0%,#217a66 100%);color:#fff;padding:1.25rem 1rem 1rem;border-radius:14px;margin-bottom:1rem}
+    .vf-hero h1{font-size:clamp(1.2rem,4vw,1.7rem);margin:0 0 .2rem}
+    .vf-hero p{margin:0;opacity:.92;font-size:.9rem}
+    .vf-study-shell{padding:.68rem}
+    .vf-study-meta{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.45rem}
+    .vf-count{font-size:.82rem;color:#52756c}
+    .vf-actions{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin:.5rem 0}
+    .vf-actions .btn{padding:.52rem .7rem;font-size:.92rem}
+    .vf-secondary-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.4rem}
+    .vf-secondary-actions .btn{padding:.44rem .6rem;font-size:.85rem}
+    .vf-card-wrap{margin-top:.5rem}
+    .verb-card{background:#fff;border:1px solid #d6e8e2;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px #0001}
+    .verb-card-head{background:linear-gradient(135deg,#dceee6,#f0faf6);padding:.82rem .9rem .62rem;display:flex;flex-wrap:nowrap;gap:.55rem;align-items:flex-start;justify-content:space-between}
+    .verb-head-left{min-width:0}
+    .verb-head-right{display:flex;flex-direction:column;align-items:flex-end;gap:.3rem}
+    .verb-word{font-size:1.25rem;font-weight:700;color:#1e2b26;font-family:'Fraunces',serif;line-height:1.1}
+    .verb-phonetic{font-size:.84rem;color:#555;font-style:italic;margin-top:.08rem}
+    .verb-meaning-en{font-size:.84rem;color:#444;margin-top:.14rem}
+    .verb-meaning-bn{font-size:.92rem;color:#217a66;font-weight:600}
+    .verb-tag{font-size:.74rem;padding:.18rem .52rem;border-radius:11px;background:#217a66;color:#fff;align-self:flex-start}
     .verb-tag.regular{background:#2b6cb0}
-    .verb-forms-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem;padding:.9rem 1.1rem;border-bottom:1px solid #eee}
-    .verb-form-cell{background:#f7fbf9;border-radius:8px;padding:.55rem .75rem;text-align:center}
-    .verb-form-label{font-size:.72rem;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem}
-    .verb-form-val{font-weight:700;color:#1e2b26;font-size:.97rem}
-    .verb-examples{padding:.9rem 1.1rem}
-    .verb-ex-grid{display:grid;gap:.6rem}
-    .verb-ex-row{display:grid;grid-template-columns:100px 1fr;gap:.5rem;align-items:start;font-size:.9rem}
-    .verb-ex-label{font-size:.75rem;font-weight:700;color:#217a66;padding:.2rem .5rem;background:#e8f5f0;border-radius:6px;text-align:center;line-height:1.3}
-    .verb-ex-text em{color:#666;display:block;font-style:normal;font-size:.85rem}
-    .verb-usage{padding:.8rem 1.1rem 1rem;border-top:1px solid #eee;display:grid;gap:.7rem}
-    .verb-usage-block{background:#f2faf6;border-left:3px solid #217a66;border-radius:0 8px 8px 0;padding:.6rem .85rem}
-    .verb-usage-title{font-size:.78rem;font-weight:700;color:#217a66;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.3rem}
-    .verb-usage-rule{font-size:.9rem;color:#333;margin-bottom:.25rem}
-    .verb-usage-ex{font-size:.9rem;font-weight:600;color:#1e2b26;margin-bottom:.15rem}
-    .verb-usage-exbn{font-size:.85rem;color:#555;font-style:italic}
-    #vf-count{color:#888;font-size:.9rem;margin-bottom:.75rem}
-    .vf-empty{text-align:center;padding:2rem;color:#aaa;font-size:1rem}
+    .verb-forms-wrap{padding:.5rem .55rem .62rem;border-bottom:1px solid #eee}
+    .verb-forms-table{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:6px;margin:0;display:table !important}
+    .verb-forms-table th,.verb-forms-table td{display:table-cell !important;width:20%;text-align:center;vertical-align:middle}
+    .verb-forms-table th{padding:.1rem 0 .28rem;font-size:.68rem;font-weight:700;color:#3d5851;background:transparent;border:0;line-height:1.2}
+    .verb-forms-table th small{display:inline;font-weight:600;color:#6b7f79;font-size:.62rem}
+    .verb-forms-table td{padding:0;border:0;background:transparent}
+    .verb-form-btn{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:1/1;border:1.5px solid #c5ddd6;background:#fff;border-radius:8px;padding:.28rem .18rem;cursor:pointer;box-sizing:border-box}
+    .verb-form-btn:hover,.verb-form-btn:focus{background:#f2faf6;border-color:#217a66;outline:none}
+    .verb-form-val{display:block;font-weight:700;color:#1e2b26;font-size:.86rem;line-height:1.15;word-break:break-word}
+    .verb-examples{padding:.56rem .78rem}
+    .verb-examples summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:.5rem;font-weight:700;color:#1e2b26;font-size:.88rem;padding:.2rem 0}
+    .verb-examples summary::-webkit-details-marker{display:none}
+    .verb-examples .vf-summary-left{display:flex;align-items:center;gap:.45rem}
+    .verb-examples .vf-summary-icon{width:1.15rem;height:1.15rem;display:grid;place-items:center;background:#e8f5f0;color:#217a66;border-radius:999px;font-size:.7rem}
+    .verb-examples .vf-summary-caret{font-size:.9rem;color:#52756c;transition:transform .15s ease}
+    .verb-examples[open] .vf-summary-caret{transform:rotate(180deg)}
+    .verb-ex-content{padding-top:.45rem}
+    .verb-ex-grid{display:grid;gap:.46rem}
+    .verb-ex-row{display:grid;grid-template-columns:88px 1fr;gap:.45rem;align-items:start;font-size:.85rem}
+    .verb-ex-label{font-size:.68rem;font-weight:700;color:#217a66;padding:.2rem .35rem;background:#e8f5f0;border-radius:6px;text-align:center;line-height:1.2}
+    .verb-ex-text em{color:#666;display:block;font-style:normal;font-size:.8rem;margin-top:.1rem}
+    .verb-usage{padding:.56rem .78rem .66rem;border-top:1px solid #eee;display:grid;gap:.55rem}
+    .verb-usage-block{background:#f2faf6;border-left:3px solid #217a66;border-radius:0 7px 7px 0;padding:.5rem .62rem}
+    .verb-usage-title{font-size:.7rem;font-weight:700;color:#217a66;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem}
+    .verb-usage-rule{font-size:.83rem;color:#333;margin-bottom:.2rem}
+    .verb-usage-ex{font-size:.83rem;font-weight:600;color:#1e2b26;margin-bottom:.1rem}
+    .verb-usage-exbn{font-size:.78rem;color:#555;font-style:italic}
+    .vf-empty{text-align:center;padding:1.3rem;color:#aaa;font-size:.95rem}
+    .vf-paused{margin:.45rem 0;padding:.48rem .6rem;border-radius:9px;background:#fff4d6;color:#6b4e00;font-size:.84rem}
+    .verb-speak-btn{display:inline-flex;align-items:center;gap:.3rem;border:1px solid #b7d8cf;background:#fff;color:#1f5f51;border-radius:999px;padding:.24rem .58rem;font-size:.74rem;font-weight:700;cursor:pointer}
+    .verb-speak-btn:hover{background:#eff8f5}
+    .focus-mode .verb-meaning-en,.focus-mode .verb-usage,.focus-mode .verb-examples{display:none}
+    .focus-mode .verb-forms-wrap{border-bottom:0}
+    .vf-study-shell .bar{margin-top:.45rem}
+    .vf-subhint{font-size:.78rem;color:#6b7f79}
+    @media (max-width: 768px){
+      .vf-study-shell{padding:.62rem}
+      .vf-actions{position:sticky;bottom:8px;z-index:4;background:#f7fbf9d9;backdrop-filter:blur(6px);padding:.45rem;border:1px solid #d6e8e2;border-radius:12px}
+      .vf-secondary-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .verb-card-head{flex-wrap:wrap}
+      .verb-head-right{width:100%;flex-direction:row;justify-content:space-between;align-items:center}
+      .verb-ex-row{grid-template-columns:76px 1fr}
+      .verb-forms-table th{font-size:.6rem}
+      .verb-forms-table th small{font-size:.55rem}
+      .verb-form-val{font-size:.74rem}
+      .verb-form-btn{padding:.18rem .1rem;border-radius:7px}
+    }
   </style>
 </head>
 <body data-root="..">
   <header class="site-header" id="site-header"></header>
   <div class="nav-drawer" id="nav-drawer"></div>
-  <main class="wrap">
+  <main class="wrap wrap-app">
     <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>Verb Forms</span></nav>
 
     <div class="vf-hero">
@@ -59,24 +92,15 @@
 
     <div class="disclaimer">Verb forms are for practice and learning only. IELTS® / TOEFL® / PTE® are not affiliated.</div>
 
-    <!-- search + filters -->
-    <div style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-bottom:.75rem">
-      <input class="vf-search" id="vf-search" type="search" placeholder="Verb খুঁজুন… (e.g. go, run)" aria-label="Search verbs" />
-    </div>
-    <div class="vf-filters" id="vf-filters" role="group" aria-label="Filter by type">
-      <button class="vf-btn active" data-filter="all">সব (All)</button>
-      <button class="vf-btn" data-filter="irregular">Irregular</button>
-      <button class="vf-btn" data-filter="regular">Regular</button>
-      <button class="vf-btn" data-filter="daily">Daily</button>
-      <button class="vf-btn" data-filter="education">Education</button>
-      <button class="vf-btn" data-filter="office">Office/Work</button>
-    </div>
-    <p id="vf-count"></p>
+    <div id="app"></div>
 
-    <div class="vf-grid" id="vf-grid" aria-live="polite"></div>
-
-    <div class="panel" style="margin-top:2rem">
-      <h2 class="section-title">Gerund vs Participle — মনে রাখুন</h2>
+    <details class="panel" style="margin-top:1.2rem">
+      <summary class="vocab-setup-summary">
+        <span>Gerund vs Participle — quick rules</span>
+        <span class="muted">tap to expand</span>
+      </summary>
+      <div class="vocab-setup-body">
+      <h2 class="section-title" style="margin-top:0">Gerund vs Participle — মনে রাখুন</h2>
       <div class="grid grid-2">
         <div>
           <strong>Gerund (-ing → noun হিসেবে)</strong>
@@ -97,7 +121,8 @@
           </ul>
         </div>
       </div>
-    </div>
+      </div>
+    </details>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
 
@@ -105,136 +130,390 @@
   <script src="../js/progress.js"></script>
   <script src="../js/app.js"></script>
   <script>
-  (function () {
-    let allVerbs = [];
-    let activeFilter = "all";
-    let searchTerm = "";
+    (function () {
+      const root = document.getElementById("app");
+      let allVerbs = [];
+      let listMeta = [];
+      let activeListId = "vf-daily-conversation";
+      let activeFilter = "all";
+      let searchTerm = "";
+      let pageIndex = 0;
+      let setupOpen = false;
+      let filterKey = "";
+      let paused = false;
+      let focusMode = false;
 
-    const TENSE_LABELS = {
-      present:    { label: "Simple Present",    color: "#2b6cb0" },
-      past:       { label: "Simple Past",       color: "#c05621" },
-      perfect:    { label: "Present Perfect",   color: "#6b46c1" },
-      continuous: { label: "Present Continuous",color: "#217a66" },
-    };
+      const TENSE_LABELS = {
+        present: { label: "Simple Present", color: "#2b6cb0" },
+        past: { label: "Simple Past", color: "#c05621" },
+        perfect: { label: "Present Perfect", color: "#6b46c1" },
+        continuous: { label: "Present Continuous", color: "#217a66" },
+      };
 
-    function renderCard(v) {
-      // forms row
-      const forms = [
-        { label: "V1 (Base)",            val: v.v1 },
-        { label: "V2 (Past)",            val: v.v2 },
-        { label: "V3 (Past Participle)", val: v.v3 },
-        { label: "V4 (-ing / Gerund)",   val: v.v4 },
-        { label: "V5 (3rd Singular)",    val: v.v5 },
-      ];
-      const formsHTML = forms.map(f => `
-        <div class="verb-form-cell">
-          <div class="verb-form-label">${f.label}</div>
-          <div class="verb-form-val">${f.val}</div>
-        </div>`).join("");
+      function esc(s) {
+        return String(s || "").replace(/[&<>"]/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+        });
+      }
 
-      // example rows
-      const exHTML = Object.entries(v.examples || {}).filter(([k]) => !k.endsWith("_bn")).map(([k, en]) => {
-        const bn = v.examples[k + "_bn"] || "";
-        const info = TENSE_LABELS[k] || { label: k, color: "#555" };
-        return `<div class="verb-ex-row">
-          <div class="verb-ex-label" style="color:${info.color};background:${info.color}1a">${info.label}</div>
-          <div class="verb-ex-text">${en}<em>${bn}</em></div>
-        </div>`;
-      }).join("");
+      function activeLabel() {
+        const L = listMeta.find(function (x) { return x.id === activeListId; });
+        return (L && L.title) || "Verb Forms";
+      }
 
-      // gerund + participle usage
-      const usageHTML = [
-        v.gerund_use && `
-          <div class="verb-usage-block">
-            <div class="verb-usage-title">Gerund (-ing as noun)</div>
-            <div class="verb-usage-rule">${v.gerund_use}</div>
-            ${v.gerund_example ? `<div class="verb-usage-ex">${v.gerund_example}</div>
-            <div class="verb-usage-exbn">${v.gerund_example_bn}</div>` : ""}
-          </div>`,
-        v.participle_use && `
-          <div class="verb-usage-block" style="border-color:#2b6cb0">
-            <div class="verb-usage-title" style="color:#2b6cb0">Participle usage</div>
-            <div class="verb-usage-rule">${v.participle_use}</div>
-            ${v.participle_example ? `<div class="verb-usage-ex">${v.participle_example}</div>
-            <div class="verb-usage-exbn">${v.participle_example_bn}</div>` : ""}
-          </div>`,
-      ].filter(Boolean).join("");
+      function resumeKey() {
+        return "verbs:" + [activeListId || "", activeFilter, searchTerm.toLowerCase()].join("|");
+      }
 
-      const typeTag = v.irregular
-        ? `<span class="verb-tag">Irregular</span>`
-        : `<span class="verb-tag regular">Regular</span>`;
+      function slotForKey(key) {
+        if (!window.EFBProgress) return null;
+        const r = EFBProgress.getResume("verbforms");
+        if (!r) return null;
+        if (r.by_key && r.by_key[key]) return r.by_key[key];
+        if (r.last_key === key) return r;
+        return null;
+      }
 
-      return `
-      <article class="verb-card" data-irregular="${v.irregular}" data-category="${v.category || 'daily'}" data-v1="${v.v1.toLowerCase()}">
-        <div class="verb-card-head">
-          <div>
-            <div class="verb-word">${v.v1}</div>
-            <div class="verb-phonetic">${v.phonetic}</div>
-            <div class="verb-meaning-en">${v.meaning_en}</div>
-            <div class="verb-meaning-bn">${v.meaning_bn}</div>
-          </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
-            ${typeTag}
-            <span class="chip" style="font-size:.75rem">${v.cefr}</span>
-          </div>
-        </div>
-        <div class="verb-forms-row">${formsHTML}</div>
-        ${exHTML ? `<div class="verb-examples"><div class="verb-ex-grid">${exHTML}</div></div>` : ""}
-        ${usageHTML ? `<div class="verb-usage">${usageHTML}</div>` : ""}
-      </article>`;
-    }
+      function saveResume(words) {
+        if (!window.EFBProgress || !words.length) return;
+        const curr = words[pageIndex];
+        EFBProgress.saveResume("verbforms", {
+          key: resumeKey(),
+          page_index: pageIndex,
+          word_id: curr ? curr.id : null,
+          label: activeLabel(),
+          total: words.length,
+          active_list_id: activeListId,
+          filter: activeFilter,
+          q: searchTerm,
+          paused: paused,
+          focus_mode: focusMode,
+          lesson_id: activeListId ? "verbs:" + activeListId : "verbforms",
+        });
+      }
 
-    function applyFilters() {
-      const grid = document.getElementById("vf-grid");
-      const countEl = document.getElementById("vf-count");
-      let verbs = allVerbs;
-
-      if (searchTerm) {
+      function filteredWords() {
+        let verbs = allVerbs.slice();
+        if (activeListId) {
+          const L = listMeta.find(function (x) { return x.id === activeListId; });
+          if (L && Array.isArray(L.word_ids) && L.word_ids.length) {
+            const ids = new Set(L.word_ids);
+            verbs = verbs.filter(function (v) { return ids.has(v.id); });
+          }
+        }
         const q = searchTerm.toLowerCase();
-        verbs = verbs.filter(v =>
-          v.v1.startsWith(q) || v.v2.toLowerCase().includes(q) || v.meaning_bn.includes(q)
-        );
+        if (q) {
+          verbs = verbs.filter(function (v) {
+            return (
+              String(v.v1 || "").toLowerCase().includes(q) ||
+              String(v.v2 || "").toLowerCase().includes(q) ||
+              String(v.v3 || "").toLowerCase().includes(q) ||
+              String(v.meaning_bn || "").includes(q) ||
+              String(v.meaning_en || "").toLowerCase().includes(q)
+            );
+          });
+        }
+        if (activeFilter === "irregular") verbs = verbs.filter(function (v) { return !!v.irregular; });
+        else if (activeFilter === "regular") verbs = verbs.filter(function (v) { return !v.irregular; });
+        else if (activeFilter !== "all") {
+          verbs = verbs.filter(function (v) { return (v.category || "daily") === activeFilter; });
+        }
+        return verbs;
       }
-      if (activeFilter === "irregular") verbs = verbs.filter(v => v.irregular);
-      else if (activeFilter === "regular") verbs = verbs.filter(v => !v.irregular);
-      else if (activeFilter !== "all") verbs = verbs.filter(v => (v.category || "daily") === activeFilter);
 
-      if (verbs.length === 0) {
-        grid.innerHTML = `<div class="vf-empty">কোনো verb পাওয়া যায়নি।</div>`;
-        countEl.textContent = "";
-        return;
+      function syncPage(words) {
+        const key = [activeListId || "", activeFilter, searchTerm].join("|");
+        if (key !== filterKey) {
+          filterKey = key;
+          const slot = slotForKey(resumeKey());
+          if (slot && words.length) {
+            if (slot.word_id) {
+              const idx = words.findIndex(function (w) { return w.id === slot.word_id; });
+              pageIndex = idx >= 0 ? idx : Math.max(0, Math.min(words.length - 1, Number(slot.page_index) || 0));
+            } else {
+              pageIndex = Math.max(0, Math.min(words.length - 1, Number(slot.page_index) || 0));
+            }
+            paused = !!slot.paused;
+          } else {
+            pageIndex = 0;
+            paused = false;
+          }
+        }
+        if (!words.length) pageIndex = 0;
+        else if (pageIndex >= words.length) pageIndex = words.length - 1;
       }
-      countEl.textContent = `${verbs.length}টি verb দেখানো হচ্ছে`;
-      grid.innerHTML = verbs.map(renderCard).join("");
-    }
 
-    async function init() {
-      try {
-        allVerbs = await EFBApp.loadJSON("verb-forms.json");
-      } catch (e) {
-        document.getElementById("vf-grid").innerHTML =
-          '<div class="vf-empty">Verb data লোড হয়নি। আবার চেষ্টা করুন।</div>';
-        return;
+      function renderCard(v) {
+        const forms = [
+          { code: "V1", hint: "Base", val: v.v1 },
+          { code: "V2", hint: "Past", val: v.v2 },
+          { code: "V3", hint: "PP", val: v.v3 },
+          { code: "V4", hint: "-ing", val: v.v4 },
+          { code: "V5", hint: "3rd", val: v.v5 },
+        ];
+        const formsHead = forms.map(function (f) {
+          return "<th>" + esc(f.hint) + "<small>(" + esc(f.code) + ")</small></th>";
+        }).join("");
+        const formsBody = forms.map(function (f) {
+          return "<td><button type=\"button\" class=\"verb-form-btn\" data-speak=\"" + esc(f.val) + "\" aria-label=\"Pronounce " + esc(f.hint + " " + f.val) + "\"><span class=\"verb-form-val\">" + esc(f.val) + "</span></button></td>";
+        }).join("");
+        const formsHTML = "<div class=\"verb-forms-wrap\"><table class=\"verb-forms-table\"><thead><tr>" + formsHead + "</tr></thead><tbody><tr>" + formsBody + "</tr></table></div>";
+        const exRows = Object.entries(v.examples || {}).filter(function (pair) {
+          return !pair[0].endsWith("_bn");
+        }).map(function (pair) {
+          const k = pair[0];
+          const en = pair[1];
+          const bn = v.examples[k + "_bn"] || "";
+          const info = TENSE_LABELS[k] || { label: k, color: "#555" };
+          return '<div class="verb-ex-row"><div class="verb-ex-label" style="color:' + info.color + ";background:" + info.color + '1a">' + esc(info.label) + '</div><div class="verb-ex-text">' + esc(en) + "<em>" + esc(bn) + "</em></div></div>";
+        }).join("");
+        const typeTag = v.irregular ? '<span class="verb-tag">Irregular</span>' : '<span class="verb-tag regular">Regular</span>';
+        const gerund = v.gerund_use
+          ? '<div class="verb-usage-block"><div class="verb-usage-title">Gerund usage</div><div class="verb-usage-rule">' + esc(v.gerund_use) + "</div>" + (v.gerund_example ? '<div class="verb-usage-ex">' + esc(v.gerund_example) + '</div><div class="verb-usage-exbn">' + esc(v.gerund_example_bn) + "</div>" : "") + "</div>"
+          : "";
+        const part = v.participle_use
+          ? '<div class="verb-usage-block" style="border-color:#2b6cb0"><div class="verb-usage-title" style="color:#2b6cb0">Participle usage</div><div class="verb-usage-rule">' + esc(v.participle_use) + "</div>" + (v.participle_example ? '<div class="verb-usage-ex">' + esc(v.participle_example) + '</div><div class="verb-usage-exbn">' + esc(v.participle_example_bn) + "</div>" : "") + "</div>"
+          : "";
+        const exHTML = exRows
+          ? '<details class="verb-examples"><summary><span class="vf-summary-left"><span class="vf-summary-icon">Ex</span><span>Examples</span></span><span class="vf-summary-caret">⌄</span></summary><div class="verb-ex-content"><div class="verb-ex-grid">' + exRows + "</div></div></details>"
+          : "";
+        const speakBtn = '<button type="button" class="verb-speak-btn" data-speak="' + esc(v.v1) + '" aria-label="Pronounce ' + esc(v.v1) + '">🔊 Pronounce</button>';
+        return '<article class="verb-card"><div class="verb-card-head"><div class="verb-head-left"><div class="verb-word">' + esc(v.v1) + '</div><div class="verb-phonetic">' + esc(v.phonetic) + '</div><div class="verb-meaning-en">' + esc(v.meaning_en) + '</div><div class="verb-meaning-bn">' + esc(v.meaning_bn) + '</div></div><div class="verb-head-right">' + speakBtn + '<div style="display:flex;align-items:center;gap:.3rem">' + typeTag + '<span class="chip" style="font-size:.75rem">' + esc(v.cefr) + '</span></div></div></div>' + formsHTML + exHTML + ((gerund || part) ? '<div class="verb-usage">' + gerund + part + "</div>" : "") + "</article>";
       }
-      applyFilters();
 
-      document.getElementById("vf-search").addEventListener("input", e => {
-        searchTerm = e.target.value.trim();
-        applyFilters();
+      function speakText(text) {
+        if (!window.speechSynthesis || !text) return;
+        try {
+          window.speechSynthesis.cancel();
+          const utt = new SpeechSynthesisUtterance(String(text));
+          utt.lang = "en-GB";
+          utt.rate = 0.95;
+          window.speechSynthesis.speak(utt);
+        } catch (e) {}
+      }
+
+      function render() {
+        const words = filteredWords();
+        syncPage(words);
+        const curr = words[pageIndex] || null;
+        if (curr && window.EFBProgress) EFBProgress.markSeen(curr.id);
+        if (window.EFBProgress) EFBProgress.setLastLesson("verbforms", activeListId || "verb-forms-master");
+
+        const listCards = listMeta.map(function (L) {
+          const on = L.id === activeListId;
+          return '<label class="vocab-list-card ' + (on ? "is-active" : "") + '"><input type="radio" name="vf-list" value="' + esc(L.id) + '"' + (on ? " checked" : "") + " /><strong>" + esc(L.title) + '</strong><span class="bn muted">' + esc(L.title_bn || "") + '</span><span class="muted">' + ((L.word_ids || []).length) + " verbs</span></label>";
+        }).join("");
+        const pct = words.length ? Math.round(((pageIndex + 1) / words.length) * 100) : 0;
+        const pausedBanner = paused ? '<div class="vf-paused bn">Session paused. Resume চাপলে আবার এখান থেকে চালু হবে।</div>' : "";
+        const cardHTML = curr ? renderCard(curr) : '<div class="vf-empty">কোনো verb পাওয়া যায়নি।</div>';
+
+        root.innerHTML = `
+          <section class="vocab-study panel highlight vf-study-shell ${focusMode ? "focus-mode" : ""}">
+            <div class="vf-study-meta">
+              <span class="chip">${esc(activeLabel())}</span>
+              <span class="vf-count">${words.length ? (pageIndex + 1) : 0} / ${words.length} · ${pct}%</span>
+            </div>
+            <div class="vf-subhint bn">একবারে ১টা verb focus করুন</div>
+            <div class="bar" data-pct="${pct}" aria-hidden="true"><i style="width:${pct}%"></i></div>
+            <div class="vf-actions">
+              <button type="button" class="btn btn-secondary" id="btn-vf-prev" ${paused || pageIndex <= 0 ? "disabled" : ""}>‹ Prev</button>
+              <button type="button" class="btn btn-primary" id="btn-vf-next" ${paused || !words.length || pageIndex >= words.length - 1 ? "disabled" : ""}>Next ›</button>
+            </div>
+            <div class="vf-secondary-actions">
+              <button type="button" class="btn btn-ghost" id="btn-vf-pause">${paused ? "Resume" : "Pause"}</button>
+              <button type="button" class="btn btn-secondary" id="btn-vf-focus">${focusMode ? "Full" : "Focus"}</button>
+              <button type="button" class="btn btn-secondary" id="btn-vf-restart">Restart</button>
+              <button type="button" class="btn btn-secondary" id="btn-vf-open-setup">Lists</button>
+            </div>
+            ${pausedBanner}
+            <div id="vf-card-stage" class="vf-card-wrap">${cardHTML}</div>
+            <p class="muted bn vocab-pager-hint">← → key দিয়ে চলবে · progress auto save</p>
+          </section>
+
+          <details class="panel vocab-setup" id="vf-setup" ${setupOpen ? "open" : ""}>
+            <summary class="vocab-setup-summary">
+              <span>সেটআপ · List / Filter / Search</span>
+              <span class="muted">tap to open</span>
+            </summary>
+            <div class="vocab-setup-body">
+              <h2 class="section-title">Target Lists</h2>
+              <div class="vocab-list-grid">${listCards}</div>
+              <h2 class="section-title">Filters</h2>
+              <div class="chip-row" id="vf-filters">
+                <button type="button" class="chip-btn ${activeFilter === "all" ? "is-active" : ""}" data-filter="all">সব</button>
+                <button type="button" class="chip-btn ${activeFilter === "irregular" ? "is-active" : ""}" data-filter="irregular">Irregular</button>
+                <button type="button" class="chip-btn ${activeFilter === "regular" ? "is-active" : ""}" data-filter="regular">Regular</button>
+                <button type="button" class="chip-btn ${activeFilter === "daily" ? "is-active" : ""}" data-filter="daily">Daily</button>
+                <button type="button" class="chip-btn ${activeFilter === "education" ? "is-active" : ""}" data-filter="education">Education</button>
+                <button type="button" class="chip-btn ${activeFilter === "office" ? "is-active" : ""}" data-filter="office">Office</button>
+              </div>
+              <label class="field bn" style="margin-top:.8rem">
+                খুঁজুন
+                <input id="vf-search" class="field-input" type="search" placeholder="go / ran / অর্থ" value="${esc(searchTerm)}" />
+              </label>
+            </div>
+          </details>
+        `;
+
+        EFBApp.animateBars();
+        saveResume(words);
+        bind(words);
+      }
+
+      function go(delta, words) {
+        if (paused) return;
+        if (!words.length) return;
+        pageIndex = Math.max(0, Math.min(words.length - 1, pageIndex + delta));
+        render();
+      }
+
+      function bind(words) {
+        const setup = root.querySelector("#vf-setup");
+        if (setup) {
+          setup.addEventListener("toggle", function () {
+            setupOpen = setup.open;
+          });
+        }
+        const prev = root.querySelector("#btn-vf-prev");
+        const next = root.querySelector("#btn-vf-next");
+        const pauseBtn = root.querySelector("#btn-vf-pause");
+        const focusBtn = root.querySelector("#btn-vf-focus");
+        const restart = root.querySelector("#btn-vf-restart");
+        const openSetup = root.querySelector("#btn-vf-open-setup");
+        if (prev) prev.addEventListener("click", function () { go(-1, words); });
+        if (next) next.addEventListener("click", function () { go(1, words); });
+        if (pauseBtn) pauseBtn.addEventListener("click", function () {
+          paused = !paused;
+          render();
+        });
+        if (focusBtn) {
+          focusBtn.addEventListener("click", function () {
+            focusMode = !focusMode;
+            render();
+          });
+        }
+        if (restart) restart.addEventListener("click", function () {
+          if (window.EFBProgress) EFBProgress.clearResume("verbforms", resumeKey());
+          pageIndex = 0;
+          paused = false;
+          filterKey = "";
+          render();
+        });
+        if (openSetup) {
+          openSetup.addEventListener("click", function () {
+            const box = root.querySelector("#vf-setup");
+            if (!box) return;
+            box.open = true;
+            setupOpen = true;
+            box.scrollIntoView({ behavior: "smooth", block: "start" });
+          });
+        }
+        root.querySelectorAll("[data-speak]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            speakText(btn.getAttribute("data-speak"));
+          });
+        });
+
+        root.querySelectorAll('input[name="vf-list"]').forEach(function (el) {
+          el.addEventListener("change", function () {
+            activeListId = el.value || "verb-forms-master";
+            filterKey = "";
+            pageIndex = 0;
+            paused = false;
+            setupOpen = false;
+            render();
+          });
+        });
+
+        const f = root.querySelector("#vf-filters");
+        if (f) {
+          f.addEventListener("click", function (e) {
+            const btn = e.target.closest("[data-filter]");
+            if (!btn) return;
+            activeFilter = btn.getAttribute("data-filter");
+            filterKey = "";
+            pageIndex = 0;
+            paused = false;
+            render();
+          });
+        }
+
+        const s = root.querySelector("#vf-search");
+        if (s) {
+          let timer = null;
+          s.addEventListener("input", function (e) {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+              searchTerm = e.target.value.trim();
+              setupOpen = true;
+              filterKey = "";
+              pageIndex = 0;
+              paused = false;
+              render();
+            }, 200);
+          });
+        }
+      }
+
+      function applySavedSession() {
+        if (!window.EFBProgress) return;
+        const params = new URLSearchParams(location.search || "");
+        if (params.get("restart") === "1") {
+          EFBProgress.clearResume("verbforms");
+          return;
+        }
+        const r = EFBProgress.getResume("verbforms");
+        if (!r) return;
+        activeListId = r.active_list_id || activeListId;
+        activeFilter = r.filter || "all";
+        searchTerm = r.q || "";
+        paused = !!r.paused;
+        focusMode = !!r.focus_mode;
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+        const words = filteredWords();
+        if (e.key === "ArrowRight") {
+          e.preventDefault();
+          go(1, words);
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          go(-1, words);
+        }
       });
 
-      document.getElementById("vf-filters").addEventListener("click", e => {
-        const btn = e.target.closest("[data-filter]");
-        if (!btn) return;
-        document.querySelectorAll(".vf-btn").forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        activeFilter = btn.dataset.filter;
-        applyFilters();
-      });
-    }
-
-    document.addEventListener("DOMContentLoaded", init);
-  })();
+      Promise.all([EFBApp.loadJSON("verb-forms.json"), EFBApp.loadJSON("vocabulary-lists.json")])
+        .then(function (arr) {
+          allVerbs = Array.isArray(arr[0]) ? arr[0] : [];
+          const meta = arr[1] || {};
+          const order = [
+            "vf-daily-conversation",
+            "vf-regular-starter",
+            "vf-irregular-core",
+            "vf-ielts-speaking",
+            "vf-ielts-writing",
+            "vf-ielts-reading",
+            "verb-forms-master",
+          ];
+          listMeta = (meta.lists || []).filter(function (L) {
+            return Array.isArray(L.word_ids) && L.word_ids.some(function (id) { return String(id).indexOf("verb:") === 0; });
+          });
+          listMeta.sort(function (a, b) {
+            const ia = order.indexOf(a.id);
+            const ib = order.indexOf(b.id);
+            return (ia === -1 ? 99 : ia) - (ib === -1 ? 99 : ib);
+          });
+          if (!listMeta.some(function (L) { return L.id === activeListId; })) {
+            activeListId = listMeta.length ? listMeta[0].id : null;
+          }
+          applySavedSession();
+          render();
+        })
+        .catch(function (e) {
+          root.innerHTML = '<div class="vf-empty">Verb data load হয়নি: ' + esc(e.message) + "</div>";
+        });
+    })();
   </script>
 </body>
 </html>
