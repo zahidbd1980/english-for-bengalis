@@ -188,13 +188,13 @@
           const ok = normalize(got) === normalize(item.answer);
           if (ok) {
             fb.className = "sb-feedback ok bn";
-            fb.textContent = "সঠিক! " + item.answer;
+            EFBApp.setText(fb, "সঠিক! " + item.answer);
             EFBProgress.markSeen(item.id);
             EFBProgress.recordResult(item.id, true, "type");
             setTimeout(next, 700);
           } else {
             fb.className = "sb-feedback bad bn";
-            fb.textContent = "আবার চেষ্টা করুন। উত্তর: " + item.answer;
+            EFBApp.setText(fb, "আবার চেষ্টা করুন। উত্তর: " + item.answer);
             EFBProgress.recordResult(item.id, false, "type");
           }
         }

@@ -447,6 +447,25 @@
     }
   });
 
+  function decodeHtml(s) {
+    s = String(s == null ? "" : s);
+    if (s.indexOf("&") === -1) return s;
+    const t = document.createElement("textarea");
+    t.innerHTML = s;
+    return t.value;
+  }
+
+  function escHtml(s) {
+    return decodeHtml(s).replace(/[&<>"]/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+    });
+  }
+
+  function setText(el, s) {
+    if (typeof el === "string") el = document.getElementById(el);
+    if (el) el.textContent = decodeHtml(s);
+  }
+
   window.EFBApp = {
     rootPrefix,
     asset,
@@ -458,6 +477,9 @@
     nextRoundActions,
     skillHref,
     bindSpeakHotkey,
+    decodeHtml,
+    escHtml,
+    setText,
     SKILL_PAGE,
   };
 })();

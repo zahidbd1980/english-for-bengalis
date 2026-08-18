@@ -213,7 +213,8 @@
         if (userAnswer == null || String(userAnswer).trim() === "") {
           const fb = root.querySelector("#feedback");
           fb.className = "feedback show bad bn";
-          fb.textContent = "আগে উত্তর দিন।";
+          if (window.EFBApp && EFBApp.setText) EFBApp.setText(fb, "আগে উত্তর দিন।");
+          else fb.textContent = "আগে উত্তর দিন।";
           return;
         }
 
@@ -323,6 +324,7 @@
   }
 
   function escapeHtml(str) {
+    if (global.EFBApp && EFBApp.escHtml) return EFBApp.escHtml(str);
     return String(str || "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")

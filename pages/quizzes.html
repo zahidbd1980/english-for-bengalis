@@ -65,9 +65,7 @@
       let pvById = {};
 
       function esc(s) {
-        return String(s || "").replace(/[&<>"]/g, function (c) {
-          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
-        });
+        return EFBApp.escHtml(s);
       }
 
       function vocabStudyLists() {
@@ -154,7 +152,7 @@
 
         if (itemId) {
           questions = allQ.filter(function (q) { return q.item_id === itemId; });
-          document.getElementById("page-title").textContent = "Topic Quiz · টপিক কুইজ";
+          EFBApp.setText("page-title", "Topic Quiz · টপিক কুইজ");
           if (!questions.length) {
             document.getElementById("quiz-root").innerHTML =
               '<div class="empty-state bn">এই টপিকের নিবেদিত কুইজ এখনো নেই।<div class="stack-actions" style="margin-top:1rem;justify-content:center"><a class="btn btn-primary" href="quizzes.html?skill=grammar">Grammar Quizzes</a></div></div>';
@@ -164,12 +162,12 @@
           questions = EFBReview.questionsFromItems(listItems, banks(), allQ, quizLimit);
           const L = listsForSkill().find(function (x) { return x.id === listId; });
           label = "Quiz · " + ((L && L.title) || listId);
-          document.getElementById("page-title").textContent = label;
-          document.getElementById("page-intro").textContent = "এই লিস্ট থেকে " + questions.length + "টা প্রশ্ন। ভুল হলে Mistake Bank-এ যাবে।";
+          EFBApp.setText("page-title", label);
+          EFBApp.setText("page-intro", "এই লিস্ট থেকে " + questions.length + "টা প্রশ্ন। ভুল হলে Mistake Bank-এ যাবে।");
         } else {
           questions = skill === "all" ? allQ.slice() : allQ.filter(function (q) { return q.skill === skill; });
-          document.getElementById("page-title").textContent = "Quizzes · কুইজ";
-          document.getElementById("page-intro").textContent = "মিক্সড ব্যাংক — লিস্ট চাইলে নিচে সেটআপ খুলুন। Enter = check/next · 1–4 = অপশন।";
+          EFBApp.setText("page-title", "Quizzes · কুইজ");
+          EFBApp.setText("page-intro", "মিক্সড ব্যাংক — লিস্ট চাইলে নিচে সেটআপ খুলুন। Enter = check/next · 1–4 = অপশন।");
         }
 
         if (!questions.length) {
@@ -203,13 +201,15 @@
           banks: banks(),
           limit: 10,
         });
-        document.getElementById("page-title").textContent = session.title + " · " + session.title_bn;
-        document.getElementById("page-intro").textContent =
+        EFBApp.setText("page-title", session.title + " · " + session.title_bn);
+        EFBApp.setText(
+          "page-intro",
           mode === "mistakes"
             ? "আগের ভুল আইটেমগুলো আবার অনুশীলন করুন।"
             : mode === "weak"
               ? "যে আইটেমগুলোতে বেশি ভুল — এক ট্যাপে অনুশীলন।"
-              : "আজকের due রিভিউ আইটেম।";
+              : "আজকের due রিভিউ আইটেম।"
+        );
         document.getElementById("filters").innerHTML =
           '<a class="chip-btn" href="my-progress.html">← Progress</a>' +
           '<a class="chip-btn" href="quizzes.html">সব কুইজ</a>' +
@@ -249,7 +249,7 @@
       function renderChrome() {
         document.getElementById("filters").innerHTML =
           SKILLS.map(function (s) {
-            return '<button type="button" class="chip-btn ' + (s.id === skill ? "is-active" : "") + '" data-s="' + s.id + '">' + s.label + "</button>";
+            return '<button type="button" class="chip-btn ' + (s.id === skill ? "is-active" : "") + '" data-s="' + s.id + '">' + esc(s.label) + "</button>";
           }).join("") +
           '<a class="chip-btn" href="quizzes.html?mode=review">Review due</a>' +
           '<a class="chip-btn" href="quizzes.html?mode=weak">Weak areas</a>' +

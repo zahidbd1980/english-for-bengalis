@@ -364,6 +364,7 @@
     }
 
     function escape(s) {
+      if (window.EFBApp && EFBApp.escHtml) return EFBApp.escHtml(s);
       return String(s || "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")

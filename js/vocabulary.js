@@ -26,7 +26,7 @@
   }
 
   function esc(s) {
-    return String(s || "")
+    return global.EFBApp && EFBApp.escHtml ? EFBApp.escHtml(s) : String(s || "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")

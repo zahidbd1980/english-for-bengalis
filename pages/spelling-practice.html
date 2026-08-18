@@ -64,11 +64,7 @@
       }
 
       function esc(s) {
-        return String(s || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;");
+        return EFBApp.escHtml(s);
       }
 
       function buildWordPool() {
@@ -440,7 +436,7 @@
         if (!String(val).trim()) {
           const fb = document.getElementById("feedback");
           fb.className = "feedback show bad bn";
-          fb.textContent = "আগে বানান লিখুন।";
+          EFBApp.setText(fb, "আগে বানান লিখুন।");
           return;
         }
         const result = EFBSpelling.check(session, val);

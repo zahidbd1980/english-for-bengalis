@@ -40,11 +40,7 @@
       let awaitingNext = false;
 
       function esc(s) {
-        return String(s || "")
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;");
+        return EFBApp.escHtml(s);
       }
 
       function activeDialogue() {
@@ -207,7 +203,7 @@
         if (!String(val).trim()) {
           const fb = document.getElementById("feedback");
           fb.className = "feedback show bad bn";
-          fb.textContent = "আগে ইংরেজি লাইন লিখুন — বা Enter দিয়ে শুনুন।";
+          EFBApp.setText(fb, "আগে ইংরেজি লাইন লিখুন — বা Enter দিয়ে শুনুন।");
           return;
         }
         const ok = EFBSpokenDrill.lineOk(val, line.en);

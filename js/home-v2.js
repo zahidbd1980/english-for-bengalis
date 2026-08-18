@@ -80,7 +80,7 @@
   ];
 
   function esc(s) {
-    return String(s || "")
+    return (window.EFBApp && EFBApp.escHtml) ? EFBApp.escHtml(s) : String(s || "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
