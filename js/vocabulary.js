@@ -185,7 +185,7 @@
           <span class="chip chip-accent">${esc(w.category)}</span>
         </div>
         <div class="stack-actions vocab-actions">
-          <button type="button" class="btn btn-secondary btn-speak" data-speak="${esc(w.word)}" aria-label="Pronounce ${esc(w.word)}">🔊 উচ্চারণ</button>
+          <button type="button" class="btn btn-secondary btn-speak" data-speak="${esc(w.word)}" aria-label="Pronounce ${esc(w.word)}">🔊 উচ্চারণ · P</button>
           <button type="button" class="btn btn-ghost btn-speak-slow" data-speak="${esc(w.word)}" data-slow="1">ধীরে</button>
         </div>
         <p class="vocab-meaning"><strong>${esc(w.meaning_en)}</strong></p>

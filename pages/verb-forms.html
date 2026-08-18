@@ -285,7 +285,7 @@
         const exHTML = exRows
           ? '<details class="verb-examples"><summary><span class="vf-summary-left"><span class="vf-summary-icon">Ex</span><span>Examples</span></span><span class="vf-summary-caret">⌄</span></summary><div class="verb-ex-content"><div class="verb-ex-grid">' + exRows + "</div></div></details>"
           : "";
-        const speakBtn = '<button type="button" class="verb-speak-btn" data-speak="' + esc(v.v1) + '" aria-label="Pronounce ' + esc(v.v1) + '">🔊 Pronounce</button>';
+        const speakBtn = '<button type="button" class="verb-speak-btn" data-speak="' + esc(v.v1) + '" aria-label="Pronounce ' + esc(v.v1) + '">🔊 Pronounce · P</button>';
         return '<article class="verb-card"><div class="verb-card-head"><div class="verb-head-left"><strong class="verb-word">' + esc(v.v1) + '</strong><div class="verb-phonetic">' + esc(v.phonetic) + '</div><div class="verb-meaning-en">' + esc(v.meaning_en) + '</div><div class="verb-meaning-bn">' + esc(v.meaning_bn) + '</div></div><div class="verb-head-right">' + speakBtn + '<div style="display:flex;align-items:center;gap:.3rem">' + typeTag + '<span class="chip" style="font-size:.75rem">' + esc(v.cefr) + '</span></div></div></div>' + formsHTML + exHTML + ((gerund || part) ? '<div class="verb-usage">' + gerund + part + "</div>" : "") + "</article>";
       }
 
@@ -335,7 +335,7 @@
             </div>
             ${pausedBanner}
             <div id="vf-card-stage" class="vf-card-wrap">${cardHTML}</div>
-            <p class="muted bn vocab-pager-hint">← → key দিয়ে চলবে · progress auto save</p>
+            <p class="muted bn vocab-pager-hint">← → key দিয়ে চলবে · <kbd>P</kbd> pronounce · Space-ও চলে · progress auto save</p>
           </section>
 
           <details class="panel vocab-setup" id="vf-setup" ${setupOpen ? "open" : ""}>
@@ -488,6 +488,12 @@
         } else if (e.key === "ArrowLeft") {
           e.preventDefault();
           go(-1, words);
+        } else if (e.key === " ") {
+          const btn = root.querySelector(".verb-speak-btn");
+          if (btn) {
+            e.preventDefault();
+            btn.click();
+          }
         }
       });
 
@@ -515,7 +521,15 @@
           if (!listMeta.some(function (L) { return L.id === activeListId; })) {
             activeListId = listMeta.length ? listMeta[0].id : null;
           }
-          applySavedSession();
+          const listParam = new URLSearchParams(location.search || "").get("list");
+          if (listParam && listMeta.some(function (L) { return L.id === listParam; })) {
+            activeListId = listParam;
+          } else {
+            applySavedSession();
+            if (!listMeta.some(function (L) { return L.id === activeListId; })) {
+              activeListId = listMeta.length ? listMeta[0].id : null;
+            }
+          }
           render();
         })
         .catch(function (e) {

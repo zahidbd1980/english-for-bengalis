@@ -232,7 +232,7 @@
         <div class="panel flash-shell">
           <div class="quiz-meta">
             <span class="chip">${i + 1}/${deck.length}</span>
-            <span class="muted bn">ট্যাপ / Space দিয়ে উল্টান</span>
+            <button type="button" class="verb-speak-btn" data-speak="${escape(c.front)}" id="btn-flash-speak" aria-label="Pronounce">🔊 Pronounce · P</button>
           </div>
           ${resumeBanner}
           <div class="flash-card" id="card" role="button" tabindex="0" aria-label="Flip card">
@@ -256,7 +256,7 @@
               <button type="button" class="btn btn-ghost" id="btn-flash-shuffle">Shuffle</button>
             </div>
           </div>
-          <p class="session-kbd-hint bn"><kbd>Space</kbd>/<kbd>Enter</kbd> flip · <kbd>←</kbd><kbd>→</kbd> · <kbd>K</kbd> know · <kbd>H</kbd> hard</p>
+          <p class="session-kbd-hint bn"><kbd>Space</kbd>/<kbd>Enter</kbd> flip · <kbd>P</kbd> pronounce · <kbd>←</kbd><kbd>→</kbd> · <kbd>K</kbd> know · <kbd>H</kbd> hard</p>
         </div>
       `;
 
@@ -314,6 +314,21 @@
       root.querySelector("#next").addEventListener("click", goNext);
       root.querySelector("#know").addEventListener("click", markKnow);
       root.querySelector("#hard").addEventListener("click", markHard);
+      const speakBtn = root.querySelector("#btn-flash-speak");
+      if (speakBtn) {
+        speakBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const text = speakBtn.getAttribute("data-speak");
+          if (!window.speechSynthesis || !text) return;
+          try {
+            window.speechSynthesis.cancel();
+            const u = new SpeechSynthesisUtterance(text);
+            u.lang = "en-GB";
+            u.rate = 0.95;
+            window.speechSynthesis.speak(u);
+          } catch (err) {}
+        });
+      }
 
       if (root._efbFlashKey) document.removeEventListener("keydown", root._efbFlashKey);
       root._efbFlashKey = function (e) {

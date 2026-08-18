@@ -241,7 +241,7 @@
         const particle = v.particle
           ? '<div class="pv-particle">particle: <strong>' + esc(v.particle) + "</strong></div>"
           : "";
-        const speakBtn = '<button type="button" class="verb-speak-btn" data-speak="' + esc(v.phrase) + '" aria-label="Pronounce ' + esc(v.phrase) + '">🔊 Pronounce</button>';
+        const speakBtn = '<button type="button" class="verb-speak-btn" data-speak="' + esc(v.phrase) + '" aria-label="Pronounce ' + esc(v.phrase) + '">🔊 Pronounce · P</button>';
         const pattern = v.pattern
           ? '<div class="verb-usage-block"><div class="verb-usage-title">Pattern</div><div class="verb-usage-rule">' + esc(v.pattern) + "</div></div>"
           : "";
@@ -304,7 +304,7 @@
             </div>
             ${pausedBanner}
             <div id="pv-card-stage" class="vf-card-wrap">${cardHTML}</div>
-            <p class="muted bn vocab-pager-hint">← → key দিয়ে চলবে · progress auto save</p>
+            <p class="muted bn vocab-pager-hint">← → key দিয়ে চলবে · <kbd>P</kbd> pronounce · Space-ও চলে · progress auto save</p>
           </section>
 
           <details class="panel vocab-setup" id="pv-setup" ${setupOpen ? "open" : ""}>
@@ -458,6 +458,12 @@
         } else if (e.key === "ArrowLeft") {
           e.preventDefault();
           go(-1, words);
+        } else if (e.key === " ") {
+          const btn = root.querySelector(".verb-speak-btn");
+          if (btn) {
+            e.preventDefault();
+            btn.click();
+          }
         }
       });
 
@@ -486,7 +492,15 @@
           if (!listMeta.some(function (L) { return L.id === activeListId; })) {
             activeListId = listMeta.length ? listMeta[0].id : null;
           }
-          applySavedSession();
+          const listParam = new URLSearchParams(location.search || "").get("list");
+          if (listParam && listMeta.some(function (L) { return L.id === listParam; })) {
+            activeListId = listParam;
+          } else {
+            applySavedSession();
+            if (!listMeta.some(function (L) { return L.id === activeListId; })) {
+              activeListId = listMeta.length ? listMeta[0].id : null;
+            }
+          }
           render();
         })
         .catch(function (e) {

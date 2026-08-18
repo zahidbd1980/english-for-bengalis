@@ -533,6 +533,12 @@
         .then((data) => {
           listsData = data.lists || [];
           const params = new URLSearchParams(location.search || "");
+          const listParam = params.get("list");
+          if (listParam && listsData.some((l) => l.id === listParam) && params.get("resume") !== "1") {
+            selectedPresetIds = new Set([listParam]);
+            renderSetup();
+            return;
+          }
           if (params.get("resume") === "1" && tryRestoreSession()) return;
           const paused = window.EFBProgress && EFBProgress.getResume("spelling");
           if (paused && EFBProgress.isResumeActive(paused) && params.get("resume") !== "0") {

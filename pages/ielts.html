@@ -4,88 +4,176 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#217a66" />
-  <title>IELTS Hub — English for Bengalis</title>
+  <title>IELTS Guide — চার স্কিল গাইডলাইন · English for Bengalis</title>
+  <meta name="description" content="Unofficial IELTS guideline for Bengali learners: Listening, Reading, Writing, Speaking, band habits, and direct practice lists on this site." />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/learning.css" />
 </head>
-<body data-root="..">
+<body data-root=".." class="app-body">
+  <a class="skip-link" href="#main">Skip</a>
   <header class="site-header" id="site-header"></header>
   <div class="nav-drawer" id="nav-drawer"></div>
-  <main class="wrap">
-    <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>IELTS</span></nav>
-    <h1 class="page-title">IELTS-style Practice Hub</h1>
-    <div class="disclaimer"><strong>Disclaimer:</strong> Unofficial preparation materials only. Not affiliated with British Council, IDP, or Cambridge Assessment. No band-score guarantee.</div>
-    <p class="page-intro bn">প্রথমে পরীক্ষার চার স্কিল ও লেখার কাঠামো বুঝুন, তারপর সাইটের foundation practice দিয়ে accuracy বাড়ান।</p>
+  <main id="main" class="wrap wrap-app">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <span>IELTS</span></nav>
+    <h1 class="page-title">IELTS Guide · সম্পূর্ণ গাইডলাইন</h1>
+    <p class="page-intro bn">এই পেজটা পরীক্ষার ম্যাপ: কী আসে, কীভাবে পড়বেন, আর এই সাইটে কোন লিস্ট/পেজে অনুশীলন করবেন। সময় ও নিয়ম বদলাতে পারে — বুকিংয়ের আগে অফিসিয়াল সাইট দেখুন।</p>
+    <div class="disclaimer"><strong>Disclaimer:</strong> Unofficial preparation only. Not affiliated with IELTS, British Council, IDP, or Cambridge. No band-score guarantee. IELTS® is a trademark of its owners.</div>
 
-    <section class="panel" style="margin-bottom:1.25rem">
-      <h2 class="section-title">Four skills · চার স্কিল</h2>
+    <nav class="ielts-toc" aria-label="Guide sections">
+      <a class="chip-btn" href="#format">Format</a>
+      <a class="chip-btn" href="#bands">Bands</a>
+      <a class="chip-btn" href="#listening">Listening</a>
+      <a class="chip-btn" href="#reading">Reading</a>
+      <a class="chip-btn" href="#writing">Writing</a>
+      <a class="chip-btn" href="#speaking">Speaking</a>
+      <a class="chip-btn" href="#plan">Study plan</a>
+      <a class="chip-btn" href="#practice">Practice map</a>
+    </nav>
+
+    <section class="panel" id="format" style="margin-bottom:1.25rem">
+      <h2 class="section-title">পরীক্ষা কী · Academic vs General Training</h2>
+      <p>IELTS দুই মডিউল: <strong>Academic</strong> (university / professional) এবং <strong>General Training</strong> (migration / work). Listening ও Speaking একই ধরনের; Reading ও Writing আলাদা।</p>
       <ul class="lesson-list">
-        <li><strong>Listening (~30 min + transfer):</strong> conversations, monologues, form/note completion — spelling must be exact.</li>
-        <li><strong>Reading (60 min):</strong> Academic = 3 long passages; General Training = mixed texts. Skim, scan, then detail.</li>
-        <li><strong>Writing (60 min):</strong> Task 1 (describe visual / letter) + Task 2 (essay). Task 2 carries more weight.</li>
-        <li><strong>Speaking (~11–14 min):</strong> Part 1 short answers → Part 2 long turn → Part 3 discussion.</li>
+        <li><strong>Listening (~30 min + transfer):</strong> ৪টা অংশ, কথোপকথন থেকে লেকচার। উত্তর বানান ঠিক না হলে মার্ক কাটে।</li>
+        <li><strong>Reading (60 min):</strong> Academic = ৩টা লম্বা প্যাসেজ। GT = নোটিশ, গাইড, তারপর একটা লম্বা টেক্সট।</li>
+        <li><strong>Writing (60 min):</strong> Task 1 (~20 min) + Task 2 (~40 min). Task 2-এর ওজন বেশি।</li>
+        <li><strong>Speaking (~11–14 min):</strong> Part 1 সংক্ষিপ্ত → Part 2 ২ মিনিট টক → Part 3 আলোচনা।</li>
       </ul>
-      <p class="bn muted">সময় ও ফরম্যাট পরিবর্তন হতে পারে — সর্বদা অফিসিয়াল সাইট চেক করুন।</p>
+      <p class="bn muted">Computer-delivered ও paper দুটোই হয়। Computer-এ Listening-এ আলাদা transfer time কম থাকে — নিজের টেস্ট টাইপ চেক করুন।</p>
     </section>
 
-    <section class="panel" style="margin-bottom:1.25rem">
-      <h2 class="section-title">Writing Task 2 skeleton</h2>
-      <ol class="lesson-list">
-        <li><strong>Introduction:</strong> paraphrase the question + clear position.</li>
-        <li><strong>Body 1:</strong> one main idea + example.</li>
-        <li><strong>Body 2:</strong> second idea or opposite view + example.</li>
-        <li><strong>Conclusion:</strong> summarise your position (no new ideas).</li>
-      </ol>
-      <p class="bn">Aim: clear paragraphs, topic sentences, and linking words (however, therefore, for example).</p>
+    <section class="panel" id="bands" style="margin-bottom:1.25rem">
+      <h2 class="section-title">Band কীভাবে পড়া যায় (unofficial)</h2>
+      <p>স্কোর ০–৯, অর্ধেক ব্যান্ডসহ (যেমন 6.5)। Overall সাধারণত চার স্কিলের গড়। ইউনিভার্সিটি প্রায়ই <strong>6.0–7.0</strong> চায়; visA/জব আলাদা হতে পারে।</p>
+      <ul class="lesson-list">
+        <li><strong>~5.0–5.5 (B1):</strong> বেসিক যোগাযোগ আছে, কিন্তু গ্রামার/বানান ঘন ঘন ভাঙে।</li>
+        <li><strong>~6.0–6.5 (B2):</strong> পরিষ্কার উত্তর দিতে পারেন; detail, paraphrase, linking দুর্বল থাকতে পারে।</li>
+        <li><strong>~7.0–7.5 (C1):</strong> নমনীয় ভাষা, কম ভুল, আইডিয়া ডেভেলপ করা।</li>
+        <li><strong>8.0+ :</strong> প্রায় নেটিভ-লেভেল নিয়ন্ত্রণ; বিরল ভুল।</li>
+      </ul>
+      <p class="bn">বাংলাদেশি শিক্ষার্থীদের সাধারণ ফাঁদ: Listening বানান, TFNG overthink, Task 2-এ memorised essay, Speaking-এ মুখস্থ উত্তর। নিচের লিস্টগুলো সেগুলোতেই টার্গেট।</p>
     </section>
 
-    <section class="panel" style="margin-bottom:1.25rem">
-      <h2 class="section-title">High-value academic words (starter)</h2>
-      <div class="grid grid-2">
-        <p><strong>analysis</strong> — বিশ্লেষণ<br><span class="muted">The analysis shows a clear trend.</span></p>
-        <p><strong>significant</strong> — উল্লেখযোগ্য<br><span class="muted">There was a significant increase.</span></p>
-        <p><strong>evidence</strong> — প্রমাণ<br><span class="muted">We need evidence to support the claim.</span></p>
-        <p><strong>approach</strong> — পদ্ধতি / দৃষ্টিভঙ্গি<br><span class="muted">A new approach may help students.</span></p>
-        <p><strong>benefit</strong> — উপকার<br><span class="muted">Online study has several benefits.</span></p>
-        <p><strong>environment</strong> — পরিবেশ<br><span class="muted">Protecting the environment is important.</span></p>
+    <section class="panel" id="listening" style="margin-bottom:1.25rem">
+      <h2 class="section-title">Listening · শুনে লিখুন</h2>
+      <p><strong>কী আসে:</strong> form / note / table / map / MCQ। Section 1–2 দৈনন্দিন; 3–4 স্টাডি/একাডেমিক। একবারই অডিও চলে (অফিসিয়াল টেস্টে)।</p>
+      <ul class="lesson-list">
+        <li>প্রশ্ন আগে পড়ুন — কোন word-class আসবে (name, number, noun) বুঝে রাখুন।</li>
+        <li>বানান = মার্ক। <em>accommodation, government, forty, necessary</em> আলাদা করে অনুশীলন।</li>
+        <li>Plural / hyphen / capital letter নিয়ম অফিসিয়াল booklet অনুসরণ করুন।</li>
+        <li>উত্তর শুনে গেলে পরের প্রশ্নে যান — একটা মিস করে পুরো সেকশন হারাবেন না।</li>
+      </ul>
+      <div class="guide-practice">
+        <a class="btn btn-primary" href="vocabulary.html?list=ielts-listening-1600">Vocab · Listening 1600</a>
+        <a class="btn btn-secondary" href="vocabulary.html?list=ielts-listening-spelling-traps">Spelling traps list</a>
+        <a class="btn btn-secondary" href="spelling-practice.html?list=ielts-listening-1600">শুনে লেখো · 1600</a>
+        <a class="btn btn-secondary" href="spelling-practice.html?list=ielts-listening-form-traps">Form traps</a>
+        <a class="btn btn-ghost" href="spelling.html">Spelling tips</a>
       </div>
     </section>
 
-    <section class="panel" style="margin-bottom:1.25rem">
-      <h2 class="section-title">Listening spelling tip</h2>
-      <p>In Listening form-completion, answers are marked wrong for spelling. Practise British/exam-style spellings carefully.</p>
-      <p class="bn">উদাহরণ: necessary, environment, accommodation, government, forty (not fourty).</p>
-    </section>
-
-    <section class="panel" style="margin-bottom:1.25rem">
-      <h2 class="section-title">Content packs · কনটেন্ট প্যাক</h2>
-      <p class="bn muted" style="margin-top:0">Vocabulary পেজে list বেছে অনুশীলন করুন (unofficial)।</p>
+    <section class="panel" id="reading" style="margin-bottom:1.25rem">
+      <h2 class="section-title">Reading · স্কিম, স্ক্যান, তারপর ডিটেইল</h2>
+      <p><strong>কী আসে:</strong> matching headings, True/False/Not Given, Yes/No/Not Given, summary completion, matching features। Academic প্যাসেজ জার্নাল-স্টাইল; সময় ৬০ মিনিটে ~৪০ প্রশ্ন।</p>
       <ul class="lesson-list">
-        <li><strong>IELTS Listening · 1600</strong> — বড় listening/spelling bank</li>
-        <li><strong>Academic Word List · Starter</strong> + <strong>Paraphrase Synonyms</strong></li>
-        <li><strong>Reading Theme Pack</strong> — climate / cities / health / migration</li>
-        <li><strong>False Friends (BN)</strong> — ভুল অর্থ এড়ানো</li>
-        <li><strong>Writing Linkers</strong> + <strong>Task 1 · Graphs</strong> — essay ও chart language</li>
-        <li><strong>Speaking Part 1</strong> — hometown / hobby / study-work</li>
-        <li><strong>Exam Collocations Core</strong> + <strong>Academic Reading Verbs</strong></li>
-        <li><strong>Listening Spelling Traps</strong> — form-filling বানান ফাঁদ</li>
-        <li><strong>TOEFL / PTE</strong> academic packs — overlap practice</li>
+        <li>আগে প্রশ্ন টাইপ দেখুন, তারপর প্যাসেজ স্কিম (title, first lines)।</li>
+        <li><strong>TFNG:</strong> True = লেখা আছে; False = উল্টো কথা আছে; NG = পাওয়া যায় না। নিজের জ্ঞান দিয়ে ভরবেন না।</li>
+        <li>Not Given ≠ False। প্যাসেজে না থাকলে NG।</li>
+        <li>Keywords paraphrase হয়ে আসে — synonym pack অনুশীলন করুন।</li>
       </ul>
-      <p>
-        <a class="btn btn-secondary" href="vocabulary.html">Vocabulary lists →</a>
-        <a class="btn btn-secondary" href="spelling-practice.html">Spelling practice →</a>
-      </p>
+      <div class="guide-practice">
+        <a class="btn btn-primary" href="vocabulary.html?list=ielts-reading-academic">Academic reading vocab</a>
+        <a class="btn btn-secondary" href="vocabulary.html?list=paraphrase-synonyms">Paraphrase synonyms</a>
+        <a class="btn btn-secondary" href="vocabulary.html?list=academic-reading-verbs">Reading verbs</a>
+        <a class="btn btn-secondary" href="vocabulary.html?list=reading-theme-pack">Theme pack</a>
+        <a class="btn btn-ghost" href="verb-forms.html?list=vf-ielts-reading">Verb forms · Reading</a>
+      </div>
     </section>
 
-    <h2 class="section-title">Build foundations on this site</h2>
-    <div class="grid grid-2">
-      <a class="skill-link" href="vocabulary.html"><strong>Core Vocabulary</strong><span>Exam lists + daily packs with Bangla meaning</span></a>
-      <a class="skill-link" href="grammar.html"><strong>Grammar foundations</strong><span>Accuracy for writing/speaking</span></a>
-      <a class="skill-link" href="spelling-practice.html"><strong>Spelling Practice</strong><span>Form traps + IELTS-style lists</span></a>
-      <a class="skill-link" href="spoken-english.html"><strong>Speaking starters</strong><span>Interview-style dialogues</span></a>
-      <a class="skill-link" href="common-mistakes.html"><strong>Common Mistakes</strong><span class="bn">বাংলা ট্রান্সফার ভুল কমান</span></a>
-      <a class="skill-link" href="quizzes.html"><strong>Quizzes</strong><span>Check accuracy before exam drills</span></a>
-    </div>
+    <section class="panel" id="writing" style="margin-bottom:1.25rem">
+      <h2 class="section-title">Writing · Task 1 + Task 2</h2>
+      <p>Examiner দেখে: Task Response / Achievement, Coherence, Lexical Resource, Grammar. মুখস্থ টেমপ্লেট নয় — পরিষ্কার পজিশন + উদাহরণ।</p>
+      <h3 style="margin:0.85rem 0 0.4rem">Task 1 (Academic = graph / GT = letter)</h3>
+      <ul class="lesson-list">
+        <li>Overview আগে: মূল ট্রেন্ড ২টা। প্রতিটা সংখ্যা কপি করবেন না।</li>
+        <li>Compare: <em>whereas, compared with, the largest share</em>।</li>
+        <li>GT letter: purpose + tone (formal/semi/informal) মিলিয়ে লিখুন।</li>
+      </ul>
+      <h3 style="margin:0.85rem 0 0.4rem">Task 2 skeleton (essay)</h3>
+      <ol class="lesson-list">
+        <li><strong>Introduction:</strong> প্রশ্ন paraphrase + নিজের অবস্থান।</li>
+        <li><strong>Body 1:</strong> এক মেইন আইডিয়া + কারণ + উদাহরণ।</li>
+        <li><strong>Body 2:</strong> দ্বিতীয় আইডিয়া, বা বিপরীত মত + নিজের জবাব।</li>
+        <li><strong>Conclusion:</strong> পজিশন সংক্ষেপ — নতুন আইডিয়া নয়।</li>
+      </ol>
+      <p class="bn">লিংকার: however, therefore, for example, as a result — বেশি হলে রোবট লাগে, জায়গামতো ব্যবহার করুন।</p>
+      <div class="guide-practice">
+        <a class="btn btn-primary" href="vocabulary.html?list=ielts-writing-task2">Task 2 vocab</a>
+        <a class="btn btn-secondary" href="vocabulary.html?list=ielts-writing-linkers">Linkers</a>
+        <a class="btn btn-secondary" href="vocabulary.html?list=ielts-task1-graphs">Task 1 graphs</a>
+        <a class="btn btn-secondary" href="phrasal-verbs.html?list=pv-ielts-writing">Phrasals · Writing</a>
+        <a class="btn btn-secondary" href="verb-forms.html?list=vf-ielts-writing">Verb forms · Writing</a>
+        <a class="btn btn-ghost" href="spelling-practice.html?list=ielts-writing-spellings">Writing spellings</a>
+        <a class="btn btn-ghost" href="grammar.html">Grammar</a>
+        <a class="btn btn-ghost" href="common-mistakes.html">Common mistakes</a>
+      </div>
+    </section>
+
+    <section class="panel" id="speaking" style="margin-bottom:1.25rem">
+      <h2 class="section-title">Speaking · কথা বলুন, মুখস্থ নয়</h2>
+      <ul class="lesson-list">
+        <li><strong>Part 1:</strong> hometown, work/study, hobbies — ছোট উত্তর + এক লাইন কারণ।</li>
+        <li><strong>Part 2:</strong> ১ মিনিট নোট, ২ মিনিট কথা। Cue card-এর প্রতিটা bullet ছুঁয়ে যান।</li>
+        <li><strong>Part 3:</strong> মতামত + উদাহরণ + contrast। “I think… because… For example…”</li>
+        <li>Fluency &gt; fancy words। থেমে গেলে paraphrase করে এগোবেন।</li>
+        <li>উচ্চারণ: প্রতিদিন ১০টা শব্দ জোরে বলুন — এই সাইটে <kbd>P</kbd> চাপলে শুনতে পাবেন।</li>
+      </ul>
+      <div class="guide-practice">
+        <a class="btn btn-primary" href="vocabulary.html?list=ielts-speaking-part1">Speaking Part 1 vocab</a>
+        <a class="btn btn-secondary" href="vocabulary.html?list=ielts-speaking-topics">Speaking topics</a>
+        <a class="btn btn-secondary" href="phrasal-verbs.html?list=pv-ielts-speaking">Phrasals · Speaking</a>
+        <a class="btn btn-secondary" href="verb-forms.html?list=vf-ielts-speaking">Verb forms · Speaking</a>
+        <a class="btn btn-secondary" href="spoken-english.html">Spoken dialogues</a>
+        <a class="btn btn-ghost" href="spoken-drill.html">Spoken Drill</a>
+      </div>
+    </section>
+
+    <section class="panel" id="plan" style="margin-bottom:1.25rem">
+      <h2 class="section-title">১৪ দিনের ম্যাপ · কী করবেন</h2>
+      <p class="bn">নতুন হলে আগে সাইটের Learning Path। IELTS টার্গেট থাকলে নিচের রুটিন মিক্স করুন (দিনে ~৪৫–৭০ মিনিট)।</p>
+      <ol class="lesson-list">
+        <li><strong>দিন ১–৩:</strong> Level Test + Grammar ভুল + Common Mistakes। Listening spelling traps।</li>
+        <li><strong>দিন ৪–৬:</strong> Listening 1600 vocab + শুনে লেখো। Verb forms (speaking list)।</li>
+        <li><strong>দিন ৭–৯:</strong> Reading academic vocab + paraphrase. TFNG নিয়ম পড়ে ১টা প্যাসেজ (অফিসিয়াল স্যাম্পল)।</li>
+        <li><strong>দিন ১০–১২:</strong> Task 2 vocab + linkers + একটা essay skeleton। Task 1 graph language।</li>
+        <li><strong>দিন ১৩–১৪:</strong> Speaking Part 1 + phrasals + Spoken Drill। Quizzes / Daily Challenge দিয়ে গ্যাপ দেখুন।</li>
+      </ol>
+      <div class="guide-practice">
+        <a class="btn btn-primary" href="learning-path.html">Learning Path · ১৪ দিন</a>
+        <a class="btn btn-secondary" href="level-test.html">Level Test</a>
+        <a class="btn btn-secondary" href="daily-challenge.html">Daily Challenge</a>
+        <a class="btn btn-ghost" href="my-progress.html">My Progress</a>
+      </div>
+    </section>
+
+    <section class="panel" id="practice" style="margin-bottom:1.25rem">
+      <h2 class="section-title">Practice map · এখান থেকে শুরু</h2>
+      <p class="bn muted" style="margin-top:0">প্রতিটা বাটন সরাসরি সেই লিস্ট/পেজ খুলবে।</p>
+      <div class="grid grid-2">
+        <a class="skill-link" href="vocabulary.html?list=ielts-academic-core"><strong>Academic core vocab</strong><span>B1+ exam words with Bangla</span></a>
+        <a class="skill-link" href="vocabulary.html?list=awl-starter"><strong>AWL starter</strong><span>Academic Word List · শুরু</span></a>
+        <a class="skill-link" href="vocabulary.html?list=exam-collocations-core"><strong>Exam collocations</strong><span>শব্দ জোড়া যেগুলো essay-এ লাগে</span></a>
+        <a class="skill-link" href="vocabulary.html?list=false-friends-bn"><strong>False friends</strong><span>বাংলা অর্থ ভুল এড়ানো</span></a>
+        <a class="skill-link" href="vocabulary.html?list=ielts-environment-society"><strong>Environment &amp; society</strong><span>Task 2 / Part 3 থিম</span></a>
+        <a class="skill-link" href="vocabulary.html?list=ielts-education-tech"><strong>Education &amp; tech</strong><span>ক্লাসিক IELTS টপিক</span></a>
+        <a class="skill-link" href="flashcards.html?skill=vocabulary"><strong>Flashcards</strong><span>Vocab কার্ড · Space দিয়ে উল্টান</span></a>
+        <a class="skill-link" href="quizzes.html"><strong>Quizzes</strong><span>Accuracy চেক করুন</span></a>
+        <a class="skill-link" href="spelling-practice.html?list=ielts-style"><strong>IELTS-style spelling</strong><span>শুনে লেখো · exam spellings</span></a>
+        <a class="skill-link" href="phrasal-verbs.html?list=pv-ielts-speaking"><strong>Phrasal Verbs hub</strong><span>Speaking ও writing আলাদা লিস্ট</span></a>
+      </div>
+    </section>
+
+    <p class="muted bn">অফিসিয়াল তথ্য: British Council, IDP এবং IELTS.org — তারিখ, ফি, ও কম্পিউটার/পেপার নিয়ম সেখানেই চূড়ান্ত। এই সাইট শুধু ভাষা প্র্যাকটিস।</p>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
   <script src="../js/storage.js"></script>

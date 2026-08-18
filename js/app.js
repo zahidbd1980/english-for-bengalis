@@ -193,6 +193,43 @@
         if (!d.contains(e.target)) d.removeAttribute("open");
       });
     });
+    bindSpeakHotkey();
+  }
+
+  function isTypingTarget(el) {
+    if (!el) return false;
+    const tag = (el.tagName || "").toUpperCase();
+    if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  function clickSpeakControl(slow) {
+    const scope =
+      document.getElementById("app") ||
+      document.getElementById("root") ||
+      document.getElementById("main") ||
+      document.body;
+    const slowBtn = scope.querySelector(".btn-speak-slow, [data-speak][data-slow='1'], #btn-slow");
+    const normalBtn = scope.querySelector(
+      ".btn-speak:not(.btn-speak-slow), .verb-speak-btn, #btn-listen, [data-speak]:not([data-slow])"
+    );
+    const btn = slow && slowBtn ? slowBtn : normalBtn;
+    if (!btn) return false;
+    btn.click();
+    return true;
+  }
+
+  function bindSpeakHotkey() {
+    if (window._efbSpeakHotkeyBound) return;
+    window._efbSpeakHotkeyBound = true;
+    document.addEventListener("keydown", (e) => {
+      if (e.defaultPrevented) return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+      if (isTypingTarget(e.target)) return;
+      if (e.key !== "p" && e.key !== "P") return;
+      if (clickSpeakControl(!!e.shiftKey)) e.preventDefault();
+    });
   }
 
   function clamp(n, a, b) {
@@ -420,6 +457,7 @@
     resolveContinue,
     nextRoundActions,
     skillHref,
+    bindSpeakHotkey,
     SKILL_PAGE,
   };
 })();
