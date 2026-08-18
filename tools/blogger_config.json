@@ -74,6 +74,11 @@
       "kind": "page"
     },
     {
+      "title": "Verb Forms",
+      "file": "pages/verb-forms.html",
+      "kind": "page"
+    },
+    {
       "title": "Phrasal Verbs",
       "file": "pages/phrasal-verbs.html",
       "kind": "page"
