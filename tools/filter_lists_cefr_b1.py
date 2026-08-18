@@ -18,6 +18,8 @@ from cefr_policy import (  # noqa: E402
 VOCAB = ROOT / "data" / "vocabulary.json"
 VERBS = ROOT / "data" / "verb-forms.json"
 VLISTS = ROOT / "data" / "vocabulary-lists.json"
+PV = ROOT / "data" / "phrasal-verbs.json"
+PLISTS = ROOT / "data" / "phrasal-lists.json"
 
 
 def load(path: Path):
@@ -101,6 +103,28 @@ def main() -> None:
         lid, b, a, note = row
         flag = " !" if a < 10 else ""
         print(f"{lid}\t{b}\t{a}{flag}\t{note}")
+
+    if PV.exists() and PLISTS.exists():
+        pv_bank = load(PV)
+        pv_lookup = index_entries(pv_bank)
+        pv_meta = load(PLISTS)
+        pv_reports = []
+        pv_kept = []
+        for L in pv_meta.get("lists") or []:
+            lid = str(L.get("id") or "")
+            before = list(L.get("word_ids") or [])
+            kept = filter_ids(before, pv_lookup)
+            L["word_ids"] = kept
+            L["cefr"] = list_cefr_label(L.get("cefr"))
+            if kept:
+                pv_kept.append(L)
+            pv_reports.append((lid, len(before), len(kept), "ok" if kept else "empty"))
+        pv_meta["lists"] = pv_kept
+        save(PLISTS, pv_meta)
+        print("\nphrasal lists")
+        for lid, b, a, note in pv_reports:
+            flag = " !" if a < 10 else ""
+            print(f"{lid}\t{b}\t{a}{flag}\t{note}")
 
 
 if __name__ == "__main__":

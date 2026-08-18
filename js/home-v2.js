@@ -391,7 +391,7 @@
         vocabulary: "vocabulary.html",
         grammar: "grammar.html",
         spelling: "spelling-practice.html",
-        phrasal: "phrasal-verbs.html",
+        phrasal: "phrasal-verbs.html?resume=1",
         mistakes: "common-mistakes.html",
         sentence: "sentence-builder.html",
         translate: "translation-lab.html",

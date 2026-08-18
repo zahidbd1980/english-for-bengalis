@@ -303,6 +303,7 @@
     const key = r.resume_skill;
     const map = {
       vocabulary: "vocabulary.html",
+      verbforms: "verb-forms.html?resume=1",
       flashcards:
         "flashcards.html?resume=1" + (r.skill ? "&skill=" + encodeURIComponent(r.skill) : ""),
       spelling: "spelling-practice.html?resume=1",
@@ -312,6 +313,7 @@
       quiz: quizResumeHref(r),
       review: "quizzes.html?mode=review&resume=1",
       mistakes: "quizzes.html?mode=mistakes&resume=1",
+      phrasal: "phrasal-verbs.html?resume=1",
     };
     return { href: p + (map[key] || "my-progress.html"), label: label };
   }

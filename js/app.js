@@ -97,6 +97,7 @@
       <a class="sub" href="${p}learning-path.html">Learning Path</a>
       <a class="sub" href="${p}vocabulary.html">Vocabulary</a>
       <a class="sub" href="${p}grammar.html">Grammar</a>
+      <a class="sub" href="${p}verb-forms.html">Verb Forms</a>
       <a class="sub" href="${p}phrasal-verbs.html">Phrasal Verbs</a>
       <a class="sub" href="${p}spelling.html">Spelling</a>
       <a class="sub" href="${p}spoken-english.html">Spoken</a>
@@ -201,8 +202,9 @@
   const SKILL_PAGE = {
     vocabulary: "vocabulary.html",
     grammar: "grammar.html",
+    verbforms: "verb-forms.html",
     spelling: "spelling-practice.html",
-    phrasal: "phrasal-verbs.html",
+    phrasal: "phrasal-verbs.html?resume=1",
     mistakes: "common-mistakes.html",
     sentence: "sentence-builder.html",
     translate: "translation-lab.html",
