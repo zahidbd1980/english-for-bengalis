@@ -88,8 +88,11 @@ def get_credentials():
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
-            creds.refresh(Request())
-        else:
+            try:
+                creds.refresh(Request())
+            except Exception:
+                creds = None
+        if not creds or not creds.valid:
             if not SECRET_PATH.exists():
                 die(
                     f"Missing {SECRET_PATH.name}\n"
@@ -138,7 +141,7 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
 
     if base:
         # CSS / JS / data from pages/*
-        out = out.replace("../css/learning.css", f"{base}/css/learning.css?v=20260818b")
+        out = out.replace("../css/learning.css", f"{base}/css/learning.css?v=20260818c")
         out = out.replace('href="../css/', f'href="{base}/css/')
         out = out.replace("href='../css/", f"href='{base}/css/")
         out = out.replace('src="../js/', f'src="{base}/js/')
@@ -150,17 +153,17 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
             f'<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700'
             f'&family=Hind+Siliguri:wght@400;600;700&family=Noto+Sans+Bengali:wght@400;600;700'
             f'&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet"/>'
-            f'<link rel="stylesheet" href="{base}/css/learning.css?v=20260818b"/>'
+            f'<link rel="stylesheet" href="{base}/css/learning.css?v=20260818c"/>'
         )
         scripts = (
             f'<script src="{base}/js/storage.js"></script>'
-            f'<script src="{base}/js/progress.js"></script>'
+            f'<script src="{base}/js/progress.js?v=20260818c"></script>'
             f'<script src="{base}/js/learning-path.js"></script>'
             f'<script src="{base}/js/quiz-engine.js"></script>'
-            f'<script src="{base}/js/daily-challenge.js?v=20260818b"></script>'
+            f'<script src="{base}/js/daily-challenge.js?v=20260818c"></script>'
             f'<script src="{base}/js/spelling-practice.js"></script>'
             f'<script src="{base}/js/vocabulary.js?v=20260818b"></script>'
-            f'<script src="{base}/js/review-session.js"></script>'
+            f'<script src="{base}/js/review-session.js?v=20260818c"></script>'
             f'<script src="{base}/js/app.js?v=20260818b"></script>'
             f'<script src="{base}/js/home-v2.js"></script>'
         )

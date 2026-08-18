@@ -118,7 +118,30 @@
   }
 
   function fromGrammar(item) {
-    const tip = (item.common_errors && item.common_errors[0]) || item.topic;
+    const errs = item.common_errors || [];
+    const raw = String(errs[0] || "");
+    const pair = raw.split(/\s*→\s*/);
+    if (pair.length >= 2) {
+      const wrong = pair[0].replace(/^.*?:\s*/, "").trim();
+      const right = pair[1].trim();
+      const opts = [];
+      [right, wrong, "Both are fine.", "I am not sure."].forEach(function (o) {
+        if (o && opts.indexOf(o) === -1) opts.push(o);
+      });
+      while (opts.length < 4) opts.push("—");
+      return {
+        id: "gen:" + item.id,
+        type: "mcq",
+        skill: "grammar",
+        item_id: item.id,
+        question: "Choose the correct sentence (" + (item.topic || "grammar") + "):",
+        question_bn: "সঠিক বাক্য বেছে নিন",
+        options: shuffle(opts).slice(0, 4),
+        answer: right,
+        explanation: item.explanation || item.bangla_explanation || raw,
+      };
+    }
+    const tip = errs[0] || item.topic;
     return {
       id: "gen:" + item.id,
       type: "type",
@@ -246,5 +269,26 @@
     buildSession: buildSession,
     weakAreas: weakAreas,
     generateFromItem: generateFromItem,
+    questionsFromItems: questionsFromItems,
+    asList: asList,
   };
+
+  function questionsFromItems(items, banks, quizzes, limit) {
+    const quizMap = quizByItemId(quizzes || []);
+    const pack = {
+      byId: (banks && banks.byId) || {},
+      vocab: asList(banks && banks.vocab),
+      phrasal: asList(banks && banks.phrasal),
+    };
+    const out = [];
+    const cap = limit || 10;
+    shuffle(items || []).forEach((item) => {
+      if (out.length >= cap) return;
+      if (!item) return;
+      const id = item.id;
+      let q = id && quizMap[id] ? Object.assign({}, quizMap[id]) : generateFromItem(item, pack);
+      if (q) out.push(q);
+    });
+    return out;
+  }
 })(window);

@@ -305,7 +305,9 @@
       vocabulary: "vocabulary.html",
       verbforms: "verb-forms.html?resume=1",
       flashcards:
-        "flashcards.html?resume=1" + (r.skill ? "&skill=" + encodeURIComponent(r.skill) : ""),
+        "flashcards.html?resume=1" +
+        (r.skill ? "&skill=" + encodeURIComponent(r.skill) : "") +
+        (r.list_id ? "&list=" + encodeURIComponent(r.list_id) : ""),
       spelling: "spelling-practice.html?resume=1",
       sentence: "sentence-builder.html?resume=1",
       daily: "daily-challenge.html?resume=1",
@@ -313,6 +315,7 @@
       quiz: quizResumeHref(r),
       review: "quizzes.html?mode=review&resume=1",
       mistakes: "quizzes.html?mode=mistakes&resume=1",
+      "mistakes-study": "common-mistakes.html",
       phrasal: "phrasal-verbs.html?resume=1",
     };
     return { href: p + (map[key] || "my-progress.html"), label: label };

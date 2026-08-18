@@ -5,17 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#217a66" />
   <title>Quizzes — English for Bengalis</title>
+  <meta name="description" content="Topic quizzes from vocabulary, grammar, phrasal verbs, spelling, and common mistakes lists." />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/learning.css" />
 </head>
-<body data-root="..">
+<body data-root=".." class="app-body">
+  <a class="skip-link" href="#main">Skip</a>
   <header class="site-header" id="site-header"></header>
   <div class="nav-drawer" id="nav-drawer"></div>
-  <main class="wrap">
-    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Quizzes</span></nav>
+  <main id="main" class="wrap wrap-app">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Quizzes</span></nav>
     <h1 class="page-title" id="page-title">Quizzes · কুইজ</h1>
-    <p class="page-intro bn" id="page-intro">উত্তর দিয়ে mastery বাড়ান। Enter = check/next · 1–4 = অপশন। ভুল হলে Mistake Bank-এ জমা হবে।</p>
-    <div class="chip-row stack-actions-scroll" style="margin-bottom:1rem" id="filters"></div>
+    <p class="page-intro bn" id="page-intro">লিস্ট বেছে কুইজ দিন। Enter = check/next · 1–4 = অপশন। ভুল হলে Mistake Bank-এ জমা হবে।</p>
+    <div id="filters" class="chip-row stack-actions-scroll" style="margin-bottom:0.75rem"></div>
+    <div id="setup-host"></div>
     <div id="quiz-root"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -25,142 +28,316 @@
   <script src="../js/review-session.js"></script>
   <script src="../js/app.js"></script>
   <script>
-    const params = new URLSearchParams(location.search);
-    let skill = params.get("skill") || "all";
-    const itemId = params.get("item_id");
-    const mode = params.get("mode"); // review | mistakes | weak
+    (function () {
+      const params = new URLSearchParams(location.search);
+      let skill = params.get("skill") || "all";
+      let listId = params.get("list") || "";
+      const itemId = params.get("item_id");
+      const mode = params.get("mode");
+      let quizLimit = Number(params.get("n")) || 10;
+      let setupOpen = !listId && !itemId && !mode;
 
-    function startSkill(all, fresh) {
-      let filtered = skill === "all" ? all : all.filter((q) => q.skill === skill);
-      if (itemId) {
-        filtered = filtered.filter((q) => q.item_id === itemId);
-        document.getElementById("page-title").textContent = "Topic Quiz · টপিক কুইজ";
-        document.getElementById("page-intro").textContent =
-          filtered.length
-            ? "এই টপিকের প্রশ্ন — ভুল হলে Mistake Bank-এ জমা হবে।"
-            : "এই টপিকের জন্য এখনো আলাদা প্রশ্ন নেই — সব Grammar Quiz দিয়ে শুরু করুন।";
-      }
-      if (itemId && !filtered.length) {
-        document.getElementById("quiz-root").innerHTML = `
-          <div class="empty-state bn">
-            এই টপিকের নিবেদিত কুইজ এখনো নেই।
-            <div class="stack-actions" style="margin-top:1rem;justify-content:center">
-              <a class="btn btn-primary" href="quizzes.html?skill=grammar">Grammar Quizzes</a>
-              <a class="btn btn-secondary" href="grammar.html">← Grammar</a>
-            </div>
-          </div>`;
-        return;
-      }
-      const skillKey = skill === "all" ? "quizzes" : skill;
-      EFBQuiz.mount(document.getElementById("quiz-root"), {
-        questions: filtered,
-        skill: skillKey,
-        itemId: itemId || null,
-        mode: null,
-        resumeSkill: "quiz",
-        sessionTag: ["skill", skillKey, itemId || ""].join("|"),
-        label: itemId ? "Topic quiz" : "Quiz · " + skillKey,
-        resumeHref:
-          "quizzes.html?resume=1" +
-          (skill === "all" ? "" : "&skill=" + encodeURIComponent(skill)) +
-          (itemId ? "&item_id=" + encodeURIComponent(itemId) : ""),
-        profileSkill: skillKey,
-        limit: itemId ? Math.min(10, Math.max(filtered.length, 1)) : 10,
-        fresh: !!fresh,
-      });
-    }
+      const SKILLS = [
+        { id: "all", label: "সব" },
+        { id: "vocabulary", label: "Vocabulary" },
+        { id: "grammar", label: "Grammar" },
+        { id: "phrasal", label: "Phrasal" },
+        { id: "spelling", label: "Spelling" },
+        { id: "mistakes", label: "Mistakes" },
+      ];
+      const CAT_LABEL = {
+        grammar: "Grammar",
+        prepositions: "Prepositions",
+        "word-choice": "Word choice",
+        "direct-translation": "Bangla transfer",
+      };
 
-    function startMode(all, banks) {
-      const session = EFBReview.buildSession({
-        mode: mode,
-        quizzes: all,
-        banks: banks,
-        limit: 10,
-      });
-      document.getElementById("page-title").textContent = session.title + " · " + session.title_bn;
-      document.getElementById("page-intro").textContent =
-        mode === "mistakes"
-          ? "আগের ভুল আইটেমগুলো আবার অনুশীলন করুন। সঠিক উত্তর দিলে Mistake Bank থেকে সরে যাবে।"
-          : mode === "weak"
-            ? "যে আইটেমগুলোতে বেশি ভুল বা কম mastery — এক ট্যাপে অনুশীলন।"
-            : "আজকের due রিভিউ আইটেম। SRS অনুযায়ী আজ পুনরাবৃত্তি দরকার।";
-      document.getElementById("filters").innerHTML = `
-        <a class="chip-btn" href="my-progress.html">← Progress</a>
-        <a class="chip-btn" href="quizzes.html">সব কুইজ</a>
-        <span class="chip">${session.questions.length} items</span>
-      `;
-      if (!session.questions.length) {
-        document.getElementById("quiz-root").innerHTML = `
-          <div class="empty-state bn">
-            ${
-              mode === "mistakes"
-                ? "Mistake Bank খালি — আগে কুইজ দিয়ে ভুল জমান।"
-                : mode === "weak"
-                  ? "এখনো যথেষ্ট weak-area ডেটা নেই — কয়েকটা কুইজ দিন।"
-                  : "আজ রিভিউ নেই। নতুন অনুশীলন করুন।"
-            }
-            <div class="stack-actions" style="margin-top:1rem;justify-content:center">
-              <a class="btn btn-primary" href="quizzes.html">Quizzes</a>
-              <a class="btn btn-secondary" href="daily-challenge.html">Daily Challenge</a>
-            </div>
-          </div>`;
-        return;
-      }
-      const resumeSkill = mode === "mistakes" ? "mistakes" : mode === "weak" ? "weak" : "review";
-      EFBQuiz.mount(document.getElementById("quiz-root"), {
-        questions: session.questions,
-        skill: resumeSkill,
-        mode: mode,
-        resumeSkill: resumeSkill,
-        sessionTag: ["mode", mode].join("|"),
-        label: session.title,
-        resumeHref: "quizzes.html?mode=" + mode + "&resume=1",
-        profileSkill: resumeSkill,
-        limit: 10,
-        onComplete: function () {},
-      });
-    }
+      let allQ = [];
+      let vocab = [];
+      let phrasal = [];
+      let spelling = [];
+      let grammar = [];
+      let mistakes = [];
+      let vocabLists = [];
+      let phrasalLists = [];
+      let spellingLists = [];
+      let vocabById = {};
+      let pvById = {};
 
-    Promise.all([
-      EFBApp.loadJSON("quizzes.json"),
-      EFBApp.loadJSON("vocabulary.json"),
-      EFBApp.loadJSON("phrasal-verbs.json"),
-      EFBApp.loadJSON("spelling.json"),
-      EFBApp.loadJSON("grammar.json"),
-      EFBApp.loadJSON("common-mistakes.json"),
-    ]).then(([all, vocab, phrasal, spelling, grammar, mistakes]) => {
-      if (mode === "review" || mode === "mistakes" || mode === "weak") {
-        startMode(all, { vocab: vocab, phrasal: phrasal, spelling: spelling, grammar: grammar, mistakes: mistakes });
-        return;
-      }
-
-      const skills = ["all", "vocabulary", "grammar", "phrasal", "spelling", "mistakes", "translate"];
-      document.getElementById("filters").innerHTML =
-        skills
-          .map(
-            (s) =>
-              `<button type="button" class="chip-btn ${s === skill ? "is-active" : ""}" data-s="${s}">${s}</button>`
-          )
-          .join("") +
-        (itemId
-          ? `<a class="chip-btn" href="grammar.html#${encodeURIComponent(itemId)}">← Grammar</a>`
-          : "") +
-        `<a class="chip-btn" href="quizzes.html?mode=review">Review due</a>` +
-        `<a class="chip-btn" href="quizzes.html?mode=weak">Weak areas</a>` +
-        `<a class="chip-btn" href="quizzes.html?mode=mistakes">Mistake Bank</a>`;
-      document.getElementById("filters").addEventListener("click", (e) => {
-        const btn = e.target.closest("button[data-s]");
-        if (!btn) return;
-        skill = btn.getAttribute("data-s");
-        history.replaceState(null, "", skill === "all" ? "quizzes.html" : "quizzes.html?skill=" + skill);
-        if (window.EFBProgress) EFBProgress.clearResume("quiz");
-        startSkill(all, true);
-        [...document.querySelectorAll("#filters button[data-s]")].forEach((b) => {
-          b.className = "chip-btn" + (b.getAttribute("data-s") === skill ? " is-active" : "");
+      function esc(s) {
+        return String(s || "").replace(/[&<>"]/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
         });
+      }
+
+      function vocabStudyLists() {
+        return vocabLists.filter(function (L) {
+          const ids = L.word_ids || [];
+          const lid = String(L.id || "");
+          if (lid.indexOf("vf-") === 0 || lid === "verb-forms-master") return false;
+          return !ids.some(function (id) { return String(id).indexOf("verb:") === 0; });
+        });
+      }
+
+      function listsForSkill() {
+        const mixed = { id: "", title: "Mixed bank quiz", title_bn: "মিক্সড ব্যাংক", count: -1 };
+        if (skill === "phrasal") return [mixed].concat(phrasalLists.map(function (L) {
+          return { id: L.id, title: L.title, title_bn: L.title_bn, count: (L.word_ids || []).length, word_ids: L.word_ids };
+        }));
+        if (skill === "spelling") return [mixed].concat(spellingLists.map(function (L) {
+          return { id: L.id, title: L.title, title_bn: L.title_bn || "", count: (L.words || []).length, words: L.words };
+        }));
+        if (skill === "mistakes") {
+          const cats = {};
+          mistakes.forEach(function (m) {
+            const c = m.category || "other";
+            cats[c] = cats[c] || [];
+            cats[c].push(m);
+          });
+          return [mixed, { id: "all", title: "All mistakes", title_bn: "সব ভুল", count: mistakes.length, items: mistakes }].concat(
+            Object.keys(cats).sort().map(function (c) {
+              return { id: c, title: CAT_LABEL[c] || c, title_bn: "", count: cats[c].length, items: cats[c] };
+            })
+          );
+        }
+        if (skill === "grammar") {
+          return [mixed].concat(grammar.map(function (g) {
+            return { id: g.id, title: g.topic, title_bn: "", count: 1, grammar: g };
+          }));
+        }
+        if (skill === "vocabulary" || skill === "all") {
+          return [mixed].concat(vocabStudyLists().map(function (L) {
+            return { id: L.id, title: L.title, title_bn: L.title_bn, count: (L.word_ids || []).length, word_ids: L.word_ids };
+          }));
+        }
+        return [mixed];
+      }
+
+      function banks() {
+        return { vocab: vocab, phrasal: phrasal, spelling: spelling, grammar: grammar, mistakes: mistakes };
+      }
+
+      function itemsForList() {
+        const lists = listsForSkill();
+        const L = lists.find(function (x) { return x.id === listId; });
+        if (!L || !listId) return null;
+        if (L.items) return L.items;
+        if (L.grammar) {
+          const g = L.grammar;
+          const errs = g.common_errors || [];
+          if (errs.length > 1) {
+            return errs.map(function (err, i) {
+              return Object.assign({}, g, { id: g.id + ":" + i, common_errors: [err] });
+            });
+          }
+          return [g];
+        }
+        if (L.words) {
+          return L.words.map(function (w) {
+            const word = typeof w === "string" ? w : w.word || w.correct_word;
+            return { id: "spell:" + String(word).toLowerCase(), correct_word: word };
+          });
+        }
+        if (L.word_ids) {
+          return L.word_ids.map(function (id) {
+            return vocabById[id] || pvById[id] || null;
+          }).filter(Boolean);
+        }
+        return null;
+      }
+
+      function startSkill(fresh) {
+        const skillKey = skill === "all" ? "quizzes" : skill;
+        let questions = [];
+        let label = "Quiz · " + skillKey;
+        const listItems = itemsForList();
+
+        if (itemId) {
+          questions = allQ.filter(function (q) { return q.item_id === itemId; });
+          document.getElementById("page-title").textContent = "Topic Quiz · টপিক কুইজ";
+          if (!questions.length) {
+            document.getElementById("quiz-root").innerHTML =
+              '<div class="empty-state bn">এই টপিকের নিবেদিত কুইজ এখনো নেই।<div class="stack-actions" style="margin-top:1rem;justify-content:center"><a class="btn btn-primary" href="quizzes.html?skill=grammar">Grammar Quizzes</a></div></div>';
+            return;
+          }
+        } else if (listItems && listItems.length) {
+          questions = EFBReview.questionsFromItems(listItems, banks(), allQ, quizLimit);
+          const L = listsForSkill().find(function (x) { return x.id === listId; });
+          label = "Quiz · " + ((L && L.title) || listId);
+          document.getElementById("page-title").textContent = label;
+          document.getElementById("page-intro").textContent = "এই লিস্ট থেকে " + questions.length + "টা প্রশ্ন। ভুল হলে Mistake Bank-এ যাবে।";
+        } else {
+          questions = skill === "all" ? allQ.slice() : allQ.filter(function (q) { return q.skill === skill; });
+          document.getElementById("page-title").textContent = "Quizzes · কুইজ";
+          document.getElementById("page-intro").textContent = "মিক্সড ব্যাংক — লিস্ট চাইলে নিচে সেটআপ খুলুন। Enter = check/next · 1–4 = অপশন।";
+        }
+
+        if (!questions.length) {
+          document.getElementById("quiz-root").innerHTML = '<div class="empty-state bn">এই টপিকে প্রশ্ন তৈরি হয়নি। অন্য লিস্ট বেছে নিন।</div>';
+          return;
+        }
+
+        EFBQuiz.mount(document.getElementById("quiz-root"), {
+          questions: questions,
+          skill: skillKey,
+          itemId: itemId || listId || null,
+          mode: null,
+          resumeSkill: "quiz",
+          sessionTag: ["skill", skillKey, itemId || listId || "", String(quizLimit)].join("|"),
+          label: label,
+          resumeHref:
+            "quizzes.html?resume=1" +
+            (skill === "all" ? "" : "&skill=" + encodeURIComponent(skill)) +
+            (listId ? "&list=" + encodeURIComponent(listId) : "") +
+            (itemId ? "&item_id=" + encodeURIComponent(itemId) : ""),
+          profileSkill: skillKey,
+          limit: itemId ? Math.min(quizLimit, questions.length) : quizLimit,
+          fresh: !!fresh,
+        });
+      }
+
+      function startMode() {
+        const session = EFBReview.buildSession({
+          mode: mode,
+          quizzes: allQ,
+          banks: banks(),
+          limit: 10,
+        });
+        document.getElementById("page-title").textContent = session.title + " · " + session.title_bn;
+        document.getElementById("page-intro").textContent =
+          mode === "mistakes"
+            ? "আগের ভুল আইটেমগুলো আবার অনুশীলন করুন।"
+            : mode === "weak"
+              ? "যে আইটেমগুলোতে বেশি ভুল — এক ট্যাপে অনুশীলন।"
+              : "আজকের due রিভিউ আইটেম।";
+        document.getElementById("filters").innerHTML =
+          '<a class="chip-btn" href="my-progress.html">← Progress</a>' +
+          '<a class="chip-btn" href="quizzes.html">সব কুইজ</a>' +
+          '<span class="chip">' + session.questions.length + " items</span>";
+        document.getElementById("setup-host").innerHTML = "";
+        if (!session.questions.length) {
+          document.getElementById("quiz-root").innerHTML =
+            '<div class="empty-state bn">এখন সেশন খালি। <div class="stack-actions" style="margin-top:1rem;justify-content:center"><a class="btn btn-primary" href="quizzes.html">Quizzes</a></div></div>';
+          return;
+        }
+        const resumeSkill = mode === "mistakes" ? "mistakes" : mode === "weak" ? "weak" : "review";
+        EFBQuiz.mount(document.getElementById("quiz-root"), {
+          questions: session.questions,
+          skill: resumeSkill,
+          mode: mode,
+          resumeSkill: resumeSkill,
+          sessionTag: ["mode", mode].join("|"),
+          label: session.title,
+          resumeHref: "quizzes.html?mode=" + mode + "&resume=1",
+          profileSkill: resumeSkill,
+          limit: 10,
+        });
+      }
+
+      function syncUrl() {
+        const u = new URL(location.href);
+        ["mode", "item_id", "resume"].forEach(function (k) { u.searchParams.delete(k); });
+        if (skill && skill !== "all") u.searchParams.set("skill", skill);
+        else u.searchParams.delete("skill");
+        if (listId) u.searchParams.set("list", listId);
+        else u.searchParams.delete("list");
+        if (quizLimit && quizLimit !== 10) u.searchParams.set("n", String(quizLimit));
+        else u.searchParams.delete("n");
+        history.replaceState(null, "", u.pathname + u.search);
+      }
+
+      function renderChrome() {
+        document.getElementById("filters").innerHTML =
+          SKILLS.map(function (s) {
+            return '<button type="button" class="chip-btn ' + (s.id === skill ? "is-active" : "") + '" data-s="' + s.id + '">' + s.label + "</button>";
+          }).join("") +
+          '<a class="chip-btn" href="quizzes.html?mode=review">Review due</a>' +
+          '<a class="chip-btn" href="quizzes.html?mode=weak">Weak areas</a>' +
+          '<a class="chip-btn" href="quizzes.html?mode=mistakes">Mistake Bank</a>';
+
+        const lists = listsForSkill();
+        const listCards = lists.map(function (L) {
+          const on = (L.id || "") === (listId || "");
+          const n = L.count < 0 ? "" : (L.count + " items");
+          return '<label class="vocab-list-card ' + (on ? "is-active" : "") + '"><input type="radio" name="qz-list" value="' + esc(L.id) + '"' + (on ? " checked" : "") + " /><strong>" + esc(L.title) + '</strong><span class="bn muted">' + esc(L.title_bn || "") + '</span><span class="muted">' + esc(n) + "</span></label>";
+        }).join("");
+        const sizes = [10, 20].map(function (n) {
+          return '<button type="button" class="chip-btn ' + (n === quizLimit ? "is-active" : "") + '" data-n="' + n + '">' + n + " Q</button>";
+        }).join("");
+        document.getElementById("setup-host").innerHTML =
+          '<details class="panel vocab-setup" id="qz-setup" ' + (setupOpen ? "open" : "") + ">" +
+          '<summary class="vocab-setup-summary"><span>সেটআপ · List / প্রশ্নের সংখ্যা</span><span class="muted">tap to open</span></summary>' +
+          '<div class="vocab-setup-body"><h2 class="section-title">Target list</h2><div class="vocab-list-grid">' + listCards + "</div>" +
+          '<h2 class="section-title">Questions</h2><div class="chip-row" id="qz-size">' + sizes + "</div></div></details>";
+
+        document.getElementById("filters").onclick = function (e) {
+          const btn = e.target.closest("button[data-s]");
+          if (!btn) return;
+          skill = btn.getAttribute("data-s");
+          listId = "";
+          setupOpen = true;
+          syncUrl();
+          if (window.EFBProgress) EFBProgress.clearResume("quiz");
+          renderChrome();
+          startSkill(true);
+        };
+        const box = document.getElementById("qz-setup");
+        if (box) box.addEventListener("toggle", function () { setupOpen = box.open; });
+        document.querySelectorAll('input[name="qz-list"]').forEach(function (el) {
+          el.addEventListener("change", function () {
+            listId = el.value || "";
+            setupOpen = false;
+            syncUrl();
+            if (window.EFBProgress) EFBProgress.clearResume("quiz");
+            renderChrome();
+            startSkill(true);
+          });
+        });
+        const sizeRow = document.getElementById("qz-size");
+        if (sizeRow) {
+          sizeRow.addEventListener("click", function (e) {
+            const btn = e.target.closest("[data-n]");
+            if (!btn) return;
+            quizLimit = Number(btn.getAttribute("data-n")) || 10;
+            syncUrl();
+            if (window.EFBProgress) EFBProgress.clearResume("quiz");
+            renderChrome();
+            startSkill(true);
+          });
+        }
+      }
+
+      Promise.all([
+        EFBApp.loadJSON("quizzes.json"),
+        EFBApp.loadJSON("vocabulary.json"),
+        EFBApp.loadJSON("phrasal-verbs.json"),
+        EFBApp.loadJSON("spelling.json"),
+        EFBApp.loadJSON("grammar.json"),
+        EFBApp.loadJSON("common-mistakes.json"),
+        EFBApp.loadJSON("vocabulary-lists.json"),
+        EFBApp.loadJSON("phrasal-lists.json"),
+        EFBApp.loadJSON("spelling-lists.json"),
+      ]).then(function (arr) {
+        allQ = arr[0] || [];
+        vocab = Array.isArray(arr[1]) ? arr[1] : arr[1].words || [];
+        phrasal = arr[2] || [];
+        spelling = arr[3] || [];
+        grammar = arr[4] || [];
+        mistakes = arr[5] || [];
+        vocabLists = (arr[6] && arr[6].lists) || [];
+        phrasalLists = (arr[7] && arr[7].lists) || [];
+        spellingLists = (arr[8] && arr[8].lists) || [];
+        vocab.forEach(function (w) { if (w.id) vocabById[w.id] = w; });
+        phrasal.forEach(function (p) { if (p.id) pvById[p.id] = p; });
+        if (mode === "review" || mode === "mistakes" || mode === "weak") {
+          startMode();
+          return;
+        }
+        if (itemId && !listId) skill = skill === "all" ? "grammar" : skill;
+        renderChrome();
+        startSkill(false);
       });
-      startSkill(all, false);
-    });
+    })();
   </script>
 </body>
 </html>

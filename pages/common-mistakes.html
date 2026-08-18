@@ -5,41 +5,244 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#217a66" />
   <title>Common Mistakes — English for Bengalis</title>
+  <meta name="description" content="Bengali-speaker common mistakes: study one error at a time by topic, then quiz or flashcards." />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/learning.css" />
+  <style>
+    .vf-study-shell{padding:.68rem}
+    .vf-study-meta{display:flex;align-items:center;justify-content:space-between;gap:.5rem;margin-bottom:.45rem}
+    .vf-count{font-size:.82rem;color:#52756c}
+    .vf-actions{display:grid;grid-template-columns:1fr 1fr;gap:.45rem;margin:.5rem 0}
+    .vf-secondary-actions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.4rem}
+    .vf-secondary-actions .btn{padding:.44rem .6rem;font-size:.85rem}
+    .mistake-card{background:#fff;border:1px solid #d6e8e2;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px #0001}
+    .mistake-card .mistake-pair{margin:1rem 1rem .35rem}
+    .mistake-tip{padding:.2rem 1rem .9rem}
+    .vf-paused{margin:.45rem 0;padding:.48rem .6rem;border-radius:9px;background:#fff4d6;color:#6b4e00;font-size:.84rem}
+    @media (max-width:768px){
+      .vf-actions{position:sticky;bottom:8px;z-index:4;background:#f7fbf9d9;backdrop-filter:blur(6px);padding:.45rem;border:1px solid #d6e8e2;border-radius:12px}
+      .vf-secondary-actions{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+  </style>
 </head>
-<body data-root="..">
+<body data-root=".." class="app-body">
+  <a class="skip-link" href="#main">Skip</a>
   <header class="site-header" id="site-header"></header>
   <div class="nav-drawer" id="nav-drawer"></div>
-  <main class="wrap">
-    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Common Mistakes</span></nav>
+  <main id="main" class="wrap wrap-app">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> › <a href="learn.html">Learn</a> › <span>Common Mistakes</span>
+    </nav>
     <h1 class="page-title">Common Mistakes · সাধারণ ভুল</h1>
-    <p class="page-intro bn">বাংলাভাষীদের ঘন ঘন ভুল — পড়ে Quiz / Translation Lab করুন।</p>
-    <div class="stack-actions" style="margin-bottom:1rem">
-      <a class="btn btn-primary" href="quizzes.html?skill=mistakes">Mistakes Quiz</a>
-      <a class="btn btn-secondary" href="translation-lab.html">Translation Lab</a>
+    <p class="page-intro bn">একটা ভুল করে শিখুন। টপিক বেছে Quiz বা Flashcards-এ অনুশীলন করুন।</p>
+    <div class="stack-actions stack-actions-scroll" style="margin-bottom:0.85rem">
+      <a class="btn btn-primary" id="btn-quiz" href="quizzes.html?skill=mistakes">Mistakes Quiz</a>
+      <a class="btn btn-secondary" id="btn-flash" href="flashcards.html?skill=mistakes">Flashcards</a>
+      <a class="btn btn-ghost" href="translation-lab.html">Translation Lab</a>
     </div>
-    <div id="list" class="lesson-block"></div>
+    <div id="app" class="vocab-shell"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
   <script src="../js/storage.js"></script>
   <script src="../js/progress.js"></script>
   <script src="../js/app.js"></script>
   <script>
-    EFBApp.loadJSON("common-mistakes.json").then((items) => {
-      const list = document.getElementById("list");
-      list.innerHTML = items.map((m) => `<article class="panel" data-item-id="${m.id}">
-          <span class="chip">${m.category}</span>
-          <div class="mistake-pair">
-            <div class="bad">✗ ${m.incorrect}</div>
-            <div class="good">✓ ${m.correct}</div>
-          </div>
-          <p class="bn"><strong>টিপ:</strong> ${m.bangla_tip}</p>
-          <p class="muted">${m.explanation}</p>
-        </article>`).join("");
-      EFBApp.watchLessonSeen(list);
-      EFBProgress.setLastLesson("mistakes", "mistakes-list");
-    });
+    (function () {
+      const root = document.getElementById("app");
+      const CAT_LABEL = {
+        all: "সব",
+        grammar: "Grammar",
+        prepositions: "Prepositions",
+        "word-choice": "Word choice",
+        "direct-translation": "Bangla transfer",
+      };
+      let items = [];
+      let activeCat = new URLSearchParams(location.search).get("list") || "all";
+      let searchTerm = "";
+      let pageIndex = 0;
+      let setupOpen = false;
+      let filterKey = "";
+      let paused = false;
+
+      function esc(s) {
+        return String(s || "").replace(/[&<>"]/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+        });
+      }
+
+      function cats() {
+        const set = {};
+        items.forEach(function (m) { set[m.category || "other"] = true; });
+        return ["all"].concat(Object.keys(set).sort());
+      }
+
+      function filtered() {
+        return items.filter(function (m) {
+          if (activeCat !== "all" && (m.category || "other") !== activeCat) return false;
+          const q = searchTerm.toLowerCase();
+          if (!q) return true;
+          return (
+            String(m.incorrect || "").toLowerCase().indexOf(q) >= 0 ||
+            String(m.correct || "").toLowerCase().indexOf(q) >= 0 ||
+            String(m.bangla_tip || "").indexOf(q) >= 0
+          );
+        });
+      }
+
+      function resumeKey() {
+        return "mistakes:" + [activeCat, searchTerm.toLowerCase()].join("|");
+      }
+
+      function saveResume(rows) {
+        if (!window.EFBProgress || !rows.length) return;
+        const curr = rows[pageIndex];
+        EFBProgress.saveResume("mistakes-study", {
+          key: resumeKey(),
+          page_index: pageIndex,
+          word_id: curr ? curr.id : null,
+          label: CAT_LABEL[activeCat] || activeCat,
+          total: rows.length,
+          filter: activeCat,
+          q: searchTerm,
+          paused: paused,
+          lesson_id: "mistakes:" + activeCat,
+        });
+      }
+
+      function syncPage(rows) {
+        const key = [activeCat, searchTerm].join("|");
+        if (key !== filterKey) {
+          filterKey = key;
+          pageIndex = 0;
+          paused = false;
+          if (window.EFBProgress) {
+            const r = EFBProgress.getResume("mistakes-study");
+            const slot = r && r.by_key && r.by_key[resumeKey()];
+            if (slot && slot.word_id) {
+              const idx = rows.findIndex(function (w) { return w.id === slot.word_id; });
+              if (idx >= 0) pageIndex = idx;
+            }
+          }
+        }
+        if (pageIndex >= rows.length) pageIndex = Math.max(0, rows.length - 1);
+      }
+
+      function speakText(text) {
+        if (!window.speechSynthesis || !text) return;
+        try {
+          window.speechSynthesis.cancel();
+          const u = new SpeechSynthesisUtterance(String(text));
+          u.lang = "en-GB";
+          u.rate = 0.95;
+          window.speechSynthesis.speak(u);
+        } catch (e) {}
+      }
+
+      function render() {
+        const rows = filtered();
+        syncPage(rows);
+        const curr = rows[pageIndex] || null;
+        if (curr && window.EFBProgress) {
+          EFBProgress.markSeen(curr.id);
+          EFBProgress.setLastLesson("mistakes", activeCat);
+        }
+        const quizHref = "quizzes.html?skill=mistakes" + (activeCat !== "all" ? "&list=" + encodeURIComponent(activeCat) : "&list=all");
+        const flashHref = "flashcards.html?skill=mistakes&list=" + encodeURIComponent(activeCat === "all" ? "all" : activeCat);
+        document.getElementById("btn-quiz").setAttribute("href", quizHref);
+        document.getElementById("btn-flash").setAttribute("href", flashHref);
+
+        const catBtns = cats().map(function (c) {
+          return '<button type="button" class="chip-btn ' + (c === activeCat ? "is-active" : "") + '" data-cat="' + esc(c) + '">' + esc(CAT_LABEL[c] || c) + "</button>";
+        }).join("");
+        const pct = rows.length ? Math.round(((pageIndex + 1) / rows.length) * 100) : 0;
+        const card = curr
+          ? '<article class="mistake-card" data-item-id="' + esc(curr.id) + '"><div class="mistake-pair"><div class="bad">✗ ' + esc(curr.incorrect) + '</div><div class="good">✓ ' + esc(curr.correct) + '</div></div><div class="mistake-tip"><p class="bn"><strong>টিপ:</strong> ' + esc(curr.bangla_tip) + '</p><p class="muted">' + esc(curr.explanation) + '</p><button type="button" class="verb-speak-btn" data-speak="' + esc(curr.correct) + '">🔊 Pronounce · P</button></div></article>'
+          : '<div class="empty-state bn">কোনো আইটেম নেই।</div>';
+
+        root.innerHTML =
+          '<section class="vocab-study panel highlight vf-study-shell">' +
+          '<div class="vf-study-meta"><span class="chip">' + esc(CAT_LABEL[activeCat] || activeCat) + '</span><span class="vf-count">' + (rows.length ? pageIndex + 1 : 0) + " / " + rows.length + " · " + pct + "%</span></div>" +
+          '<div class="bar" data-pct="' + pct + '"><i style="width:' + pct + '%"></i></div>' +
+          '<div class="vf-actions"><button type="button" class="btn btn-secondary" id="btn-prev"' + (paused || pageIndex <= 0 ? " disabled" : "") + ">‹ Prev</button>" +
+          '<button type="button" class="btn btn-primary" id="btn-next"' + (paused || !rows.length || pageIndex >= rows.length - 1 ? " disabled" : "") + ">Next ›</button></div>" +
+          '<div class="vf-secondary-actions"><button type="button" class="btn btn-ghost" id="btn-pause">' + (paused ? "Resume" : "Pause") + '</button><button type="button" class="btn btn-secondary" id="btn-restart">Restart</button><button type="button" class="btn btn-secondary" id="btn-lists">Topics</button><span></span></div>' +
+          (paused ? '<div class="vf-paused bn">Paused — Resume চাপলে এখান থেকে চলবে।</div>' : "") +
+          '<div class="vf-card-wrap">' + card + "</div>" +
+          '<p class="muted bn vocab-pager-hint">← → · <kbd>P</kbd> pronounce · progress auto save</p></section>' +
+          '<details class="panel vocab-setup" id="ms-setup" ' + (setupOpen ? "open" : "") + ">" +
+          '<summary class="vocab-setup-summary"><span>সেটআপ · Topic / Search</span><span class="muted">tap to open</span></summary>' +
+          '<div class="vocab-setup-body"><h2 class="section-title">Topics</h2><div class="chip-row" id="ms-cats">' + catBtns + "</div>" +
+          '<label class="field bn">খুঁজুন<input id="ms-search" class="field-input" type="search" placeholder="agree / about / অর্থ" value="' + esc(searchTerm) + '" /></label></div></details>';
+
+        if (window.EFBApp) EFBApp.animateBars();
+        saveResume(rows);
+        const prev = root.querySelector("#btn-prev");
+        const next = root.querySelector("#btn-next");
+        if (prev) prev.onclick = function () { if (!paused) { pageIndex = Math.max(0, pageIndex - 1); render(); } };
+        if (next) next.onclick = function () { if (!paused) { pageIndex = Math.min(rows.length - 1, pageIndex + 1); render(); } };
+        root.querySelector("#btn-pause").onclick = function () { paused = !paused; render(); };
+        root.querySelector("#btn-restart").onclick = function () {
+          if (window.EFBProgress) EFBProgress.clearResume("mistakes-study", resumeKey());
+          pageIndex = 0;
+          paused = false;
+          filterKey = "";
+          render();
+        };
+        root.querySelector("#btn-lists").onclick = function () {
+          const box = root.querySelector("#ms-setup");
+          if (box) { box.open = true; setupOpen = true; box.scrollIntoView({ behavior: "smooth" }); }
+        };
+        const setup = root.querySelector("#ms-setup");
+        if (setup) setup.addEventListener("toggle", function () { setupOpen = setup.open; });
+        root.querySelector("#ms-cats").addEventListener("click", function (e) {
+          const btn = e.target.closest("[data-cat]");
+          if (!btn) return;
+          activeCat = btn.getAttribute("data-cat");
+          filterKey = "";
+          pageIndex = 0;
+          setupOpen = false;
+          const u = new URL(location.href);
+          if (activeCat === "all") u.searchParams.delete("list");
+          else u.searchParams.set("list", activeCat);
+          history.replaceState(null, "", u.pathname + u.search);
+          render();
+        });
+        const s = root.querySelector("#ms-search");
+        if (s) {
+          let t = null;
+          s.addEventListener("input", function (e) {
+            clearTimeout(t);
+            t = setTimeout(function () {
+              searchTerm = e.target.value.trim();
+              filterKey = "";
+              pageIndex = 0;
+              setupOpen = true;
+              render();
+            }, 200);
+          });
+        }
+        root.querySelectorAll("[data-speak]").forEach(function (btn) {
+          btn.addEventListener("click", function () { speakText(btn.getAttribute("data-speak")); });
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+        const rows = filtered();
+        if (e.key === "ArrowRight") { e.preventDefault(); if (!paused) { pageIndex = Math.min(rows.length - 1, pageIndex + 1); render(); } }
+        else if (e.key === "ArrowLeft") { e.preventDefault(); if (!paused) { pageIndex = Math.max(0, pageIndex - 1); render(); } }
+        else if (e.key === " ") {
+          const btn = root.querySelector("[data-speak]");
+          if (btn) { e.preventDefault(); btn.click(); }
+        }
+      });
+
+      EFBApp.loadJSON("common-mistakes.json").then(function (data) {
+        items = data || [];
+        if (!CAT_LABEL[activeCat] && activeCat !== "all") activeCat = "all";
+        render();
+      });
+    })();
   </script>
 </body>
 </html>

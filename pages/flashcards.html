@@ -5,16 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#217a66" />
   <title>Flashcards — English for Bengalis</title>
+  <meta name="description" content="Flashcards by study list: vocabulary, phrasal verbs, and common mistakes. Tap to flip, P to pronounce." />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/learning.css" />
 </head>
-<body data-root="..">
+<body data-root=".." class="app-body">
+  <a class="skip-link" href="#main">Skip</a>
   <header class="site-header" id="site-header"></header>
   <div class="nav-drawer" id="nav-drawer"></div>
-  <main class="wrap">
-    <nav class="breadcrumb"><a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Flashcards</span></nav>
-    <h1 class="page-title">Flashcards</h1>
-    <p class="page-intro bn">কার্ড ট্যাপ / Space দিয়ে উল্টান। K = জানি, H = কঠিন। ব্রাউজার বন্ধ করলেও একই কার্ড থেকে চলবে।</p>
+  <main id="main" class="wrap wrap-app">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> › <a href="practice.html">Practice</a> › <span>Flashcards</span>
+    </nav>
+    <h1 class="page-title">Flashcards · ফ্ল্যাশকার্ড</h1>
+    <p class="page-intro bn">লিস্ট বেছে কার্ড উল্টান। Space = উল্টান · P = উচ্চারণ · K = জানি · H = কঠিন।</p>
+    <div id="setup-host"></div>
     <div id="root"></div>
   </main>
   <footer class="site-footer" id="site-footer"></footer>
@@ -24,52 +29,228 @@
   <script src="../js/daily-challenge.js"></script>
   <script src="../js/app.js"></script>
   <script>
-    const params = new URLSearchParams(location.search);
-    const skill = params.get("skill") || "vocabulary";
-    const fromFilter = params.get("from") === "filter";
-    const fresh = params.get("restart") === "1";
-    Promise.all([
-      EFBApp.loadJSON("vocabulary.json"),
-      EFBApp.loadJSON("phrasal-verbs.json"),
-    ]).then(([vocabRaw, pv]) => {
-      const vocab = Array.isArray(vocabRaw) ? vocabRaw : vocabRaw.words || [];
-      let cards = [];
-      if (fromFilter && skill === "vocabulary") {
-        try {
-          const raw =
-            sessionStorage.getItem("efb_vocab_study_set") ||
-            localStorage.getItem("efb_vocab_study_set_v1");
-          if (raw) cards = JSON.parse(raw) || [];
-        } catch (e) {}
-        if (!cards.length) {
-          const r = EFBProgress.getResume("flashcards");
-          if (r && r.cards_lite && r.cards_lite.length) cards = r.cards_lite;
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const fromFilter = params.get("from") === "filter";
+      const fresh = params.get("restart") === "1";
+      let skill = params.get("skill") || "vocabulary";
+      let listId = params.get("list") || "";
+      let sessionSize = Number(params.get("n")) || 20;
+      let setupOpen = !listId && !fromFilter;
+      let vocab = [];
+      let phrasal = [];
+      let mistakes = [];
+      let vocabLists = [];
+      let phrasalLists = [];
+      let vocabById = {};
+      let pvById = {};
+
+      const SKILLS = [
+        { id: "vocabulary", label: "Vocabulary" },
+        { id: "phrasal", label: "Phrasal Verbs" },
+        { id: "mistakes", label: "Common Mistakes" },
+      ];
+      const CAT_LABEL = {
+        grammar: "Grammar",
+        prepositions: "Prepositions",
+        "word-choice": "Word choice",
+        "direct-translation": "Bangla transfer",
+      };
+
+      function esc(s) {
+        return String(s || "").replace(/[&<>"]/g, function (c) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+        });
+      }
+
+      function vocabStudyLists() {
+        return vocabLists.filter(function (L) {
+          const ids = L.word_ids || [];
+          const lid = String(L.id || "");
+          if (lid.indexOf("vf-") === 0 || lid === "verb-forms-master") return false;
+          return !ids.some(function (id) { return String(id).indexOf("verb:") === 0; });
+        });
+      }
+
+      function mistakeCats() {
+        const map = {};
+        mistakes.forEach(function (m) {
+          const c = m.category || "other";
+          map[c] = (map[c] || 0) + 1;
+        });
+        return Object.keys(map).sort().map(function (id) {
+          return { id: id, title: CAT_LABEL[id] || id, count: map[id] };
+        });
+      }
+
+      function listsForSkill() {
+        if (skill === "phrasal") return phrasalLists;
+        if (skill === "mistakes") {
+          return [{ id: "all", title: "All mistakes", title_bn: "সব ভুল", word_ids: mistakes.map(function (m) { return m.id; }) }].concat(
+            mistakeCats().map(function (c) {
+              return {
+                id: c.id,
+                title: c.title,
+                title_bn: "",
+                word_ids: mistakes.filter(function (m) { return (m.category || "other") === c.id; }).map(function (m) { return m.id; }),
+              };
+            })
+          );
         }
+        return vocabStudyLists();
       }
-      if (!cards.length && skill === "phrasal") {
-        cards = pv.map((p) => ({
-          item_id: p.id,
-          front: p.phrase,
-          back: p.meaning_en,
-          back_bn: p.meaning_bn,
-          example: p.example,
-        }));
-      } else if (!cards.length) {
-        cards = vocab.map((w) => ({
-          item_id: w.id,
-          front: w.word,
-          back: w.meaning_en,
-          back_bn: w.meaning_bn,
-          example: w.example,
-        }));
+
+      function defaultListId() {
+        if (skill === "phrasal") return "pv-daily";
+        if (skill === "mistakes") return "all";
+        return "daily-conversation";
       }
-      EFBFlashcards.mount(document.getElementById("root"), cards, {
-        skill: skill,
-        fromFilter: fromFilter,
-        fresh: fresh,
-        label: fromFilter ? "Flashcards · filtered" : "Flashcards · " + skill,
+
+      function cardsFromList() {
+        if (fromFilter && skill === "vocabulary") {
+          try {
+            const raw = sessionStorage.getItem("efb_vocab_study_set") || localStorage.getItem("efb_vocab_study_set_v1");
+            if (raw) return JSON.parse(raw) || [];
+          } catch (e) {}
+        }
+        const lists = listsForSkill();
+        if (!listId || !lists.some(function (L) { return L.id === listId; })) listId = defaultListId();
+        const L = lists.find(function (x) { return x.id === listId; });
+        const ids = (L && L.word_ids) || [];
+        if (skill === "phrasal") {
+          return ids.map(function (id) { return pvById[id]; }).filter(Boolean).map(function (p) {
+            return { item_id: p.id, front: p.phrase, back: p.meaning_en, back_bn: p.meaning_bn, example: p.example };
+          });
+        }
+        if (skill === "mistakes") {
+          const set = new Set(ids);
+          return mistakes.filter(function (m) { return !ids.length || set.has(m.id); }).map(function (m) {
+            return { item_id: m.id, front: m.incorrect, back: m.correct, back_bn: m.bangla_tip, example: m.explanation };
+          });
+        }
+        return ids.map(function (id) { return vocabById[id]; }).filter(Boolean).map(function (w) {
+          return { item_id: w.id, front: w.word, back: w.meaning_en, back_bn: w.meaning_bn, example: w.example };
+        });
+      }
+
+      function takeSession(cards) {
+        const a = cards.slice();
+        if (!sessionSize || sessionSize >= a.length) return a;
+        for (let i = a.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const t = a[i];
+          a[i] = a[j];
+          a[j] = t;
+        }
+        return a.slice(0, sessionSize);
+      }
+
+      function activeTitle() {
+        const L = listsForSkill().find(function (x) { return x.id === listId; });
+        return (L && L.title) || skill;
+      }
+
+      function syncUrl() {
+        const u = new URL(location.href);
+        u.searchParams.set("skill", skill);
+        if (listId) u.searchParams.set("list", listId);
+        else u.searchParams.delete("list");
+        if (sessionSize && sessionSize !== 20) u.searchParams.set("n", String(sessionSize));
+        else u.searchParams.delete("n");
+        u.searchParams.delete("from");
+        history.replaceState(null, "", u.pathname + u.search);
+      }
+
+      function renderSetup() {
+        const lists = listsForSkill();
+        const skillChips = SKILLS.map(function (s) {
+          return '<button type="button" class="chip-btn ' + (s.id === skill ? "is-active" : "") + '" data-skill="' + esc(s.id) + '">' + esc(s.label) + "</button>";
+        }).join("");
+        const listCards = lists.map(function (L) {
+          const on = L.id === listId;
+          const n = (L.word_ids || []).length;
+          return '<label class="vocab-list-card ' + (on ? "is-active" : "") + '"><input type="radio" name="fc-list" value="' + esc(L.id) + '"' + (on ? " checked" : "") + " /><strong>" + esc(L.title) + '</strong><span class="bn muted">' + esc(L.title_bn || "") + '</span><span class="muted">' + n + " cards</span></label>";
+        }).join("");
+        const sizes = [20, 40, 0].map(function (n) {
+          const label = n ? n + " cards" : "All";
+          const on = (n || 0) === (sessionSize || 0);
+          return '<button type="button" class="chip-btn ' + (on ? "is-active" : "") + '" data-n="' + n + '">' + label + "</button>";
+        }).join("");
+        document.getElementById("setup-host").innerHTML =
+          '<details class="panel vocab-setup" id="fc-setup" ' + (setupOpen ? "open" : "") + ">" +
+          '<summary class="vocab-setup-summary"><span>সেটআপ · Skill / List / Session</span><span class="muted">tap to open</span></summary>' +
+          '<div class="vocab-setup-body">' +
+          '<h2 class="section-title">Skill</h2><div class="chip-row" id="fc-skills">' + skillChips + "</div>" +
+          '<h2 class="section-title">Target list</h2><div class="vocab-list-grid">' + listCards + "</div>" +
+          '<h2 class="section-title">Session size</h2><div class="chip-row" id="fc-size">' + sizes + "</div>" +
+          "</div></details>";
+        const box = document.getElementById("fc-setup");
+        if (box) box.addEventListener("toggle", function () { setupOpen = box.open; });
+        document.getElementById("fc-skills").addEventListener("click", function (e) {
+          const btn = e.target.closest("[data-skill]");
+          if (!btn) return;
+          skill = btn.getAttribute("data-skill");
+          listId = defaultListId();
+          setupOpen = true;
+          syncUrl();
+          start(true);
+        });
+        document.querySelectorAll('input[name="fc-list"]').forEach(function (el) {
+          el.addEventListener("change", function () {
+            listId = el.value;
+            setupOpen = false;
+            syncUrl();
+            start(true);
+          });
+        });
+        document.getElementById("fc-size").addEventListener("click", function (e) {
+          const btn = e.target.closest("[data-n]");
+          if (!btn) return;
+          sessionSize = Number(btn.getAttribute("data-n")) || 0;
+          syncUrl();
+          start(true);
+        });
+      }
+
+      function start(isFresh) {
+        renderSetup();
+        const cards = takeSession(cardsFromList());
+        EFBFlashcards.mount(document.getElementById("root"), cards, {
+          skill: skill,
+          listId: listId,
+          fromFilter: fromFilter,
+          fresh: !!isFresh,
+          label: "Flashcards · " + activeTitle(),
+        });
+      }
+
+      Promise.all([
+        EFBApp.loadJSON("vocabulary.json"),
+        EFBApp.loadJSON("phrasal-verbs.json"),
+        EFBApp.loadJSON("common-mistakes.json"),
+        EFBApp.loadJSON("vocabulary-lists.json"),
+        EFBApp.loadJSON("phrasal-lists.json"),
+      ]).then(function (arr) {
+        vocab = Array.isArray(arr[0]) ? arr[0] : arr[0].words || [];
+        phrasal = arr[1] || [];
+        mistakes = arr[2] || [];
+        vocabLists = (arr[3] && arr[3].lists) || [];
+        phrasalLists = (arr[4] && arr[4].lists) || [];
+        vocab.forEach(function (w) { if (w.id) vocabById[w.id] = w; });
+        phrasal.forEach(function (p) { if (p.id) pvById[p.id] = p; });
+        if (fromFilter) {
+          start(fresh);
+          return;
+        }
+        if (params.get("resume") === "1" && window.EFBProgress) {
+          const r = EFBProgress.getResume("flashcards");
+          if (r && r.skill) skill = r.skill;
+          if (r && r.list_id) listId = r.list_id;
+        }
+        if (!listId) listId = defaultListId();
+        start(fresh);
       });
-    });
+    })();
   </script>
 </body>
 </html>

@@ -120,6 +120,7 @@
     if (
       saved &&
       saved.skill === skill &&
+      (!opts.listId || saved.list_id === opts.listId || !saved.list_id) &&
       Array.isArray(saved.item_ids) &&
       saved.item_ids.length &&
       EFBProgress.isResumeActive(saved)
@@ -169,9 +170,12 @@
         hards: hards,
         total: deck.length,
         label: opts.label || "Flashcards · " + skill,
-        href: "flashcards.html?resume=1&skill=" + encodeURIComponent(skill) + (opts.fromFilter ? "&from=filter" : ""),
+        href: "flashcards.html?resume=1&skill=" + encodeURIComponent(skill)
+          + (opts.listId ? "&list=" + encodeURIComponent(opts.listId) : "")
+          + (opts.fromFilter ? "&from=filter" : ""),
         profile_skill: "flashcards",
-        lesson_id: "flash-session",
+        lesson_id: opts.listId ? "flash:" + opts.listId : "flash-session",
+        list_id: opts.listId || null,
         active: true,
       };
       if (opts.fromFilter) {
