@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#217a66" />
+  <title>Verb Forms — V1 V2 V3 V4 V5 · English for Bengalis</title>
+  <meta name="description" content="Verb-এর সব রূপ: V1 V2 V3 V4 V5, উচ্চারণ, বাংলা অর্থ, tense উদাহরণ, gerund ও participle ব্যবহার।" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Noto+Sans+Bengali:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/learning.css" />
+  <style>
+    /* ── Verb page styles ── */
+    .vf-hero{background:linear-gradient(135deg,#1e2b26 0%,#217a66 100%);color:#fff;padding:2rem 1.25rem 1.5rem;border-radius:16px;margin-bottom:1.5rem}
+    .vf-hero h1{font-size:clamp(1.35rem,4vw,2rem);margin:0 0 .35rem}
+    .vf-hero p{margin:0;opacity:.9;font-size:.97rem}
+    .vf-filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem}
+    .vf-btn{padding:.4rem .9rem;border:2px solid #217a66;border-radius:20px;background:#fff;color:#217a66;font-weight:600;cursor:pointer;font-size:.9rem;transition:all .15s}
+    .vf-btn.active,.vf-btn:hover{background:#217a66;color:#fff}
+    .vf-search{padding:.5rem .9rem;border:2px solid #ccc;border-radius:24px;font-size:.95rem;width:100%;max-width:320px;outline:none}
+    .vf-search:focus{border-color:#217a66}
+    .vf-grid{display:grid;gap:1.1rem}
+    .verb-card{background:#fff;border:1px solid #d6e8e2;border-radius:14px;overflow:hidden;box-shadow:0 2px 8px #0001}
+    .verb-card-head{background:linear-gradient(135deg,#dceee6,#f0faf6);padding:1rem 1.1rem .75rem;display:flex;flex-wrap:wrap;gap:.5rem;align-items:flex-start;justify-content:space-between}
+    .verb-word{font-size:1.45rem;font-weight:700;color:#1e2b26;font-family:'Fraunces',serif}
+    .verb-phonetic{font-size:.9rem;color:#555;font-style:italic;margin-top:.1rem}
+    .verb-meaning-en{font-size:.93rem;color:#444;margin-top:.2rem}
+    .verb-meaning-bn{font-size:1rem;color:#217a66;font-weight:600}
+    .verb-tag{font-size:.78rem;padding:.2rem .6rem;border-radius:12px;background:#217a66;color:#fff;align-self:flex-start}
+    .verb-tag.regular{background:#2b6cb0}
+    .verb-forms-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem;padding:.9rem 1.1rem;border-bottom:1px solid #eee}
+    .verb-form-cell{background:#f7fbf9;border-radius:8px;padding:.55rem .75rem;text-align:center}
+    .verb-form-label{font-size:.72rem;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.2rem}
+    .verb-form-val{font-weight:700;color:#1e2b26;font-size:.97rem}
+    .verb-examples{padding:.9rem 1.1rem}
+    .verb-ex-grid{display:grid;gap:.6rem}
+    .verb-ex-row{display:grid;grid-template-columns:100px 1fr;gap:.5rem;align-items:start;font-size:.9rem}
+    .verb-ex-label{font-size:.75rem;font-weight:700;color:#217a66;padding:.2rem .5rem;background:#e8f5f0;border-radius:6px;text-align:center;line-height:1.3}
+    .verb-ex-text em{color:#666;display:block;font-style:normal;font-size:.85rem}
+    .verb-usage{padding:.8rem 1.1rem 1rem;border-top:1px solid #eee;display:grid;gap:.7rem}
+    .verb-usage-block{background:#f2faf6;border-left:3px solid #217a66;border-radius:0 8px 8px 0;padding:.6rem .85rem}
+    .verb-usage-title{font-size:.78rem;font-weight:700;color:#217a66;text-transform:uppercase;letter-spacing:.04em;margin-bottom:.3rem}
+    .verb-usage-rule{font-size:.9rem;color:#333;margin-bottom:.25rem}
+    .verb-usage-ex{font-size:.9rem;font-weight:600;color:#1e2b26;margin-bottom:.15rem}
+    .verb-usage-exbn{font-size:.85rem;color:#555;font-style:italic}
+    #vf-count{color:#888;font-size:.9rem;margin-bottom:.75rem}
+    .vf-empty{text-align:center;padding:2rem;color:#aaa;font-size:1rem}
+  </style>
+</head>
+<body data-root="..">
+  <header class="site-header" id="site-header"></header>
+  <div class="nav-drawer" id="nav-drawer"></div>
+  <main class="wrap">
+    <nav class="breadcrumb"><a href="../index.html">Home</a> › <span>Verb Forms</span></nav>
+
+    <div class="vf-hero">
+      <h1>Verb Forms · ক্রিয়া রূপ</h1>
+      <p class="bn">V1 V2 V3 V4 V5 · উচ্চারণ · বাংলা অর্থ · tense উদাহরণ · gerund ও participle ব্যবহার</p>
+    </div>
+
+    <div class="disclaimer">Verb forms are for practice and learning only. IELTS® / TOEFL® / PTE® are not affiliated.</div>
+
+    <!-- search + filters -->
+    <div style="display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-bottom:.75rem">
+      <input class="vf-search" id="vf-search" type="search" placeholder="Verb খুঁজুন… (e.g. go, run)" aria-label="Search verbs" />
+    </div>
+    <div class="vf-filters" id="vf-filters" role="group" aria-label="Filter by type">
+      <button class="vf-btn active" data-filter="all">সব (All)</button>
+      <button class="vf-btn" data-filter="irregular">Irregular</button>
+      <button class="vf-btn" data-filter="regular">Regular</button>
+      <button class="vf-btn" data-filter="daily">Daily</button>
+      <button class="vf-btn" data-filter="education">Education</button>
+      <button class="vf-btn" data-filter="office">Office/Work</button>
+    </div>
+    <p id="vf-count"></p>
+
+    <div class="vf-grid" id="vf-grid" aria-live="polite"></div>
+
+    <div class="panel" style="margin-top:2rem">
+      <h2 class="section-title">Gerund vs Participle — মনে রাখুন</h2>
+      <div class="grid grid-2">
+        <div>
+          <strong>Gerund (-ing → noun হিসেবে)</strong>
+          <ul class="lesson-list" style="margin-top:.5rem">
+            <li>Subject হিসেবে: <em>Reading is fun.</em></li>
+            <li>Object হিসেবে: <em>I enjoy reading.</em></li>
+            <li>Preposition-এর পরে: <em>good at writing</em></li>
+            <li>Verbs: enjoy / avoid / keep / finish / mind + gerund</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Participle (-ing / -ed → adjective / clause)</strong>
+          <ul class="lesson-list" style="margin-top:.5rem">
+            <li>Present participle: <em>the running water</em></li>
+            <li>Past participle: <em>a broken window</em></li>
+            <li>Participial clause: <em>Feeling tired, she sat down.</em></li>
+            <li>Passive: <em>It was written by her.</em></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="site-footer" id="site-footer"></footer>
+
+  <script src="../js/storage.js"></script>
+  <script src="../js/progress.js"></script>
+  <script src="../js/app.js"></script>
+  <script>
+  (function () {
+    let allVerbs = [];
+    let activeFilter = "all";
+    let searchTerm = "";
+
+    const TENSE_LABELS = {
+      present:    { label: "Simple Present",    color: "#2b6cb0" },
+      past:       { label: "Simple Past",       color: "#c05621" },
+      perfect:    { label: "Present Perfect",   color: "#6b46c1" },
+      continuous: { label: "Present Continuous",color: "#217a66" },
+    };
+
+    function renderCard(v) {
+      // forms row
+      const forms = [
+        { label: "V1 (Base)",            val: v.v1 },
+        { label: "V2 (Past)",            val: v.v2 },
+        { label: "V3 (Past Participle)", val: v.v3 },
+        { label: "V4 (-ing / Gerund)",   val: v.v4 },
+        { label: "V5 (3rd Singular)",    val: v.v5 },
+      ];
+      const formsHTML = forms.map(f => `
+        <div class="verb-form-cell">
+          <div class="verb-form-label">${f.label}</div>
+          <div class="verb-form-val">${f.val}</div>
+        </div>`).join("");
+
+      // example rows
+      const exHTML = Object.entries(v.examples || {}).filter(([k]) => !k.endsWith("_bn")).map(([k, en]) => {
+        const bn = v.examples[k + "_bn"] || "";
+        const info = TENSE_LABELS[k] || { label: k, color: "#555" };
+        return `<div class="verb-ex-row">
+          <div class="verb-ex-label" style="color:${info.color};background:${info.color}1a">${info.label}</div>
+          <div class="verb-ex-text">${en}<em>${bn}</em></div>
+        </div>`;
+      }).join("");
+
+      // gerund + participle usage
+      const usageHTML = [
+        v.gerund_use && `
+          <div class="verb-usage-block">
+            <div class="verb-usage-title">Gerund (-ing as noun)</div>
+            <div class="verb-usage-rule">${v.gerund_use}</div>
+            ${v.gerund_example ? `<div class="verb-usage-ex">${v.gerund_example}</div>
+            <div class="verb-usage-exbn">${v.gerund_example_bn}</div>` : ""}
+          </div>`,
+        v.participle_use && `
+          <div class="verb-usage-block" style="border-color:#2b6cb0">
+            <div class="verb-usage-title" style="color:#2b6cb0">Participle usage</div>
+            <div class="verb-usage-rule">${v.participle_use}</div>
+            ${v.participle_example ? `<div class="verb-usage-ex">${v.participle_example}</div>
+            <div class="verb-usage-exbn">${v.participle_example_bn}</div>` : ""}
+          </div>`,
+      ].filter(Boolean).join("");
+
+      const typeTag = v.irregular
+        ? `<span class="verb-tag">Irregular</span>`
+        : `<span class="verb-tag regular">Regular</span>`;
+
+      return `
+      <article class="verb-card" data-irregular="${v.irregular}" data-category="${v.category || 'daily'}" data-v1="${v.v1.toLowerCase()}">
+        <div class="verb-card-head">
+          <div>
+            <div class="verb-word">${v.v1}</div>
+            <div class="verb-phonetic">${v.phonetic}</div>
+            <div class="verb-meaning-en">${v.meaning_en}</div>
+            <div class="verb-meaning-bn">${v.meaning_bn}</div>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem">
+            ${typeTag}
+            <span class="chip" style="font-size:.75rem">${v.cefr}</span>
+          </div>
+        </div>
+        <div class="verb-forms-row">${formsHTML}</div>
+        ${exHTML ? `<div class="verb-examples"><div class="verb-ex-grid">${exHTML}</div></div>` : ""}
+        ${usageHTML ? `<div class="verb-usage">${usageHTML}</div>` : ""}
+      </article>`;
+    }
+
+    function applyFilters() {
+      const grid = document.getElementById("vf-grid");
+      const countEl = document.getElementById("vf-count");
+      let verbs = allVerbs;
+
+      if (searchTerm) {
+        const q = searchTerm.toLowerCase();
+        verbs = verbs.filter(v =>
+          v.v1.startsWith(q) || v.v2.toLowerCase().includes(q) || v.meaning_bn.includes(q)
+        );
+      }
+      if (activeFilter === "irregular") verbs = verbs.filter(v => v.irregular);
+      else if (activeFilter === "regular") verbs = verbs.filter(v => !v.irregular);
+      else if (activeFilter !== "all") verbs = verbs.filter(v => (v.category || "daily") === activeFilter);
+
+      if (verbs.length === 0) {
+        grid.innerHTML = `<div class="vf-empty">কোনো verb পাওয়া যায়নি।</div>`;
+        countEl.textContent = "";
+        return;
+      }
+      countEl.textContent = `${verbs.length}টি verb দেখানো হচ্ছে`;
+      grid.innerHTML = verbs.map(renderCard).join("");
+    }
+
+    async function init() {
+      try {
+        allVerbs = await EFBApp.loadJSON("verb-forms.json");
+      } catch (e) {
+        document.getElementById("vf-grid").innerHTML =
+          '<div class="vf-empty">Verb data লোড হয়নি। আবার চেষ্টা করুন।</div>';
+        return;
+      }
+      applyFilters();
+
+      document.getElementById("vf-search").addEventListener("input", e => {
+        searchTerm = e.target.value.trim();
+        applyFilters();
+      });
+
+      document.getElementById("vf-filters").addEventListener("click", e => {
+        const btn = e.target.closest("[data-filter]");
+        if (!btn) return;
+        document.querySelectorAll(".vf-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        activeFilter = btn.dataset.filter;
+        applyFilters();
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", init);
+  })();
+  </script>
+</body>
+</html>
