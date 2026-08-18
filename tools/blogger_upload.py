@@ -167,6 +167,34 @@ def rewrite_for_blogger(html: str, asset_base: str, page_file: str) -> str:
             f'<script src="{base}/js/app.js?v=20260818d"></script>'
             f'<script src="{base}/js/home-v2.js?v=20260818d"></script>'
         )
+        # Blogger turns Bangla inside inline <script> into &#NNNN; codes. Decode before
+        # textContent / HTML-escape. Works even if GitHub Pages is still on old app.js.
+        entity_polyfill = """
+<script>
+(function(){
+  function decodeHtml(s) {
+    s = String(s == null ? "" : s);
+    if (s.indexOf("&") === -1) return s;
+    var t = document.createElement("textarea");
+    t.innerHTML = s;
+    return t.value;
+  }
+  function escHtml(s) {
+    return decodeHtml(s).replace(/[&<>"]/g, function (c) {
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];
+    });
+  }
+  function setText(el, s) {
+    if (typeof el === "string") el = document.getElementById(el);
+    if (el) el.textContent = decodeHtml(s);
+  }
+  window.EFBApp = window.EFBApp || {};
+  if (!EFBApp.decodeHtml) EFBApp.decodeHtml = decodeHtml;
+  if (!EFBApp.escHtml) EFBApp.escHtml = escHtml;
+  if (!EFBApp.setText) EFBApp.setText = setText;
+})();
+</script>
+"""
         # Fix fetch root: MUST run before page scripts that call loadJSON
         wrapper_open = f'<div class="efb-blogger" data-efb-asset="{base}">'
         bootstrap = f"""
@@ -204,6 +232,7 @@ window.EFB_ASSET_BASE = "{base}";
             + wrapper_open
             + out_no_inline
             + scripts
+            + entity_polyfill
             + inline_joined
             + "</div>"
         )
